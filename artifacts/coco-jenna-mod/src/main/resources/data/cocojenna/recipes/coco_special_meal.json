@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "FGF",
+    "GBG",
+    "FGF"
+  ],
+  "key": {
+    "F": { "item": "cocojenna:premium_fish_can" },
+    "G": { "item": "cocojenna:glow_fish_soup" },
+    "B": { "item": "cocojenna:coco_fur" }
+  },
+  "result": { "item": "cocojenna:coco_special_meal", "count": 1 }
+}

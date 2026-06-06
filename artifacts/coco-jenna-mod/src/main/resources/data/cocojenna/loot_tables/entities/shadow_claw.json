@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:entity",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        { "type": "minecraft:item", "name": "cocojenna:chaos_crystal", "count": 5, "weight": 100 }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        { "type": "minecraft:item", "name": "cocojenna:jenna_memory_shard", "weight": 100 }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        { "type": "minecraft:item", "name": "cocojenna:schrodingers_box", "weight": 40 },
+        { "type": "minecraft:item", "name": "cocojenna:nine_lives_catnip", "weight": 10 },
+        { "type": "minecraft:empty", "weight": 50 }
+      ]
+    }
+  ]
+}

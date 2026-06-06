@@ -1,0 +1,4 @@
+{
+  "parent": "item/handheld",
+  "textures": { "layer0": "cocojenna:item/daikatana_white_glove_contract" }
+}

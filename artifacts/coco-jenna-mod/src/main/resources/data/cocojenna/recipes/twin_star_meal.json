@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "CSJ",
+    "FGF",
+    "SCS"
+  ],
+  "key": {
+    "C": { "item": "cocojenna:coco_fur" },
+    "J": { "item": "cocojenna:jenna_fur" },
+    "F": { "item": "cocojenna:glow_fish" },
+    "G": { "item": "cocojenna:purr_crystal" },
+    "S": { "item": "cocojenna:silvervine" }
+  },
+  "result": { "item": "cocojenna:twin_star_meal", "count": 1 }
+}

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "VVV",
+    "V V",
+    "V V"
+  ],
+  "key": {
+    "V": { "item": "cocojenna:velvet_fur" }
+  },
+  "result": { "item": "cocojenna:velvet_tail_cape", "count": 1 }
+}

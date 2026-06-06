@@ -1,0 +1,4 @@
+{
+  "parent": "block/cross",
+  "textures": { "cross": "cocojenna:block/velvet_grass" }
+}

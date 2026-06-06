@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    { "item": "minecraft:bell" },
+    { "item": "cocojenna:copper_wire" }
+  ],
+  "result": { "item": "cocojenna:cat_bell_throw", "count": 4 }
+}

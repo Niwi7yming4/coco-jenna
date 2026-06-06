@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    { "item": "minecraft:glass_bottle" },
+    { "item": "cocojenna:pure_tear" },
+    { "item": "cocojenna:salt" }
+  ],
+  "result": { "item": "cocojenna:holy_water", "count": 1 }
+}

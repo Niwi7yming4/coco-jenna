@@ -1,0 +1,11 @@
+{
+  "type": "cocojenna:cat_kingdom",
+  "generator": {
+    "type": "minecraft:noise",
+    "settings": "minecraft:overworld",
+    "biome_source": {
+      "type": "minecraft:fixed",
+      "biome": "cocojenna:velvet_forest"
+    }
+  }
+}

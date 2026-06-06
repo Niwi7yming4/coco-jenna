@@ -1,0 +1,17 @@
+{
+  "entity.coco.meow_short":    { "sounds": ["cocojenna:entity/coco/meow_short"]    },
+  "entity.coco.meow_concern":  { "sounds": ["cocojenna:entity/coco/meow_concern"]  },
+  "entity.coco.purr_deep":     { "sounds": ["cocojenna:entity/coco/purr_deep"]     },
+  "entity.coco.hiss":          { "sounds": ["cocojenna:entity/coco/hiss"]          },
+  "entity.jenna.meow_question": { "sounds": ["cocojenna:entity/jenna/meow_question"] },
+  "entity.jenna.meow_excited": { "sounds": ["cocojenna:entity/jenna/meow_excited"] },
+  "entity.jenna.meow_complaint": { "sounds": ["cocojenna:entity/jenna/meow_complaint"] },
+  "entity.jenna.purr_light":   { "sounds": ["cocojenna:entity/jenna/purr_light"]   },
+  "world.first_dawn":          { "sounds": ["cocojenna:world/first_dawn"],          "stream": true },
+  "world.cat_kingdom_ambient": { "sounds": ["cocojenna:world/cat_kingdom_ambient"], "stream": true },
+  "world.full_moon_festival":  { "sounds": ["cocojenna:world/full_moon_festival"],  "stream": true },
+  "item.memory_shard.pickup":  { "sounds": ["cocojenna:item/memory_shard_pickup"]  },
+  "block.distiller.work":      { "sounds": ["cocojenna:block/distiller_work"]      },
+  "entity.seal.form":          { "sounds": ["cocojenna:entity/seal_form"]          },
+  "world.black_mud_spread":    { "sounds": ["cocojenna:world/black_mud_spread"]    }
+}

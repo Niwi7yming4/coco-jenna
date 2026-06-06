@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "MMM",
+    "M M",
+    "   "
+  ],
+  "key": {
+    "M": { "item": "cocojenna:moonstone" }
+  },
+  "result": { "item": "cocojenna:moonlight_collar", "count": 1 }
+}

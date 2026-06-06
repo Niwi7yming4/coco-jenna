@@ -1,0 +1,4 @@
+{
+  "parent": "block/cross",
+  "textures": { "cross": "cocojenna:block/neon_mushroom" }
+}

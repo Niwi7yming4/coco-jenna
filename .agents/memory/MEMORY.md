@@ -1,0 +1,2 @@
+- [Forge 1.20.1 Capability Registration](forge-capability-registration.md) — Forge 47.x requires RegisterCapabilitiesEvent on mod bus; @CapabilityInject alone is insufficient.
+- [Coco & Jenna Mod Architecture](cocojenna-mod-arch.md) — BondData.java is source-of-truth for all growth data; dimension via data pack only.

@@ -1,0 +1,4 @@
+{
+  "parent": "block/cross",
+  "textures": { "cross": "cocojenna:block/hibiscus_flower" }
+}

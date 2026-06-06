@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    { "item": "minecraft:salmon" },
+    { "item": "cocojenna:salt" }
+  ],
+  "result": { "item": "cocojenna:basic_fish_puree", "count": 2 }
+}

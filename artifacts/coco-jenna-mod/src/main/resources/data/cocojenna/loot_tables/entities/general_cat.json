@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:entity",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "cocojenna:general_seal",
+          "weight": 100
+        }
+      ],
+      "conditions": [
+        { "condition": "minecraft:killed_by_player" }
+      ]
+    },
+    {
+      "rolls": { "min": 1, "max": 3 },
+      "entries": [
+        { "type": "minecraft:item", "name": "cocojenna:shadow_crystal", "weight": 50 },
+        { "type": "minecraft:item", "name": "cocojenna:coco_memory_shard", "weight": 30 },
+        { "type": "minecraft:item", "name": "cocojenna:full_moon_spectrum", "weight": 20 }
+      ]
+    }
+  ]
+}

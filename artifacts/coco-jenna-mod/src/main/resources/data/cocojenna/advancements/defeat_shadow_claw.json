@@ -1,0 +1,20 @@
+{
+  "display": {
+    "icon": { "item": "cocojenna:chaos_crystal" },
+    "title": { "translate": "advancements.cocojenna.defeat_shadow_claw.title" },
+    "description": { "translate": "advancements.cocojenna.defeat_shadow_claw.description" },
+    "show_toast": true,
+    "announce_to_chat": true,
+    "frame": "challenge",
+    "hidden": false
+  },
+  "parent": "cocojenna:enter_cat_kingdom",
+  "criteria": {
+    "kill_shadow_claw": {
+      "trigger": "minecraft:entity_killed_player",
+      "conditions": {
+        "entity": { "type": "cocojenna:shadow_claw" }
+      }
+    }
+  }
+}

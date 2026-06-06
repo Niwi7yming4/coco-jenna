@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "MSM",
+    "S S",
+    "MSM"
+  ],
+  "key": {
+    "M": { "item": "cocojenna:moonstone" },
+    "S": { "item": "cocojenna:full_moon_spectrum" }
+  },
+  "result": { "item": "cocojenna:cat_kingdom_portal_frame", "count": 4 }
+}

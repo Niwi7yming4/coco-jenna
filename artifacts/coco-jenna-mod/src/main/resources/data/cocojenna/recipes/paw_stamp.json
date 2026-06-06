@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    { "item": "cocojenna:coco_fur" },
+    { "item": "cocojenna:jenna_fur" },
+    { "item": "minecraft:dye" }
+  ],
+  "result": { "item": "cocojenna:paw_stamp", "count": 4 }
+}

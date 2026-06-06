@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " S ",
+    " W ",
+    " W "
+  ],
+  "key": {
+    "S": { "item": "cocojenna:silvervine" },
+    "W": { "item": "minecraft:oak_log" }
+  },
+  "result": { "item": "cocojenna:scratching_post", "count": 1 }
+}

@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "DM ",
+    "DS ",
+    " S "
+  ],
+  "key": {
+    "D": { "item": "minecraft:diamond" },
+    "M": { "item": "cocojenna:moonstone" },
+    "S": { "item": "minecraft:stick" }
+  },
+  "result": { "item": "cocojenna:ryokatana_dawn_hope", "count": 1 }
+}

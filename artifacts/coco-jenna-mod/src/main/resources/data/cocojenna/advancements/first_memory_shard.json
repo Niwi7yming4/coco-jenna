@@ -1,0 +1,19 @@
+{
+  "display": {
+    "icon": { "item": "cocojenna:memory_shard" },
+    "title": { "translate": "advancements.cocojenna.first_memory_shard.title" },
+    "description": { "translate": "advancements.cocojenna.first_memory_shard.description" },
+    "show_toast": true,
+    "announce_to_chat": true,
+    "frame": "goal"
+  },
+  "parent": "cocojenna:meet_coco",
+  "criteria": {
+    "get_shard": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [{ "items": ["cocojenna:memory_shard"] }]
+      }
+    }
+  }
+}

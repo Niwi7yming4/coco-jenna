@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "NCM",
+    "NRS",
+    " SS"
+  ],
+  "key": {
+    "N": { "item": "minecraft:netherite_ingot" },
+    "C": { "item": "cocojenna:chaos_crystal" },
+    "M": { "item": "cocojenna:moonstone" },
+    "R": { "item": "cocojenna:ryokatana_dawn_hope" },
+    "S": { "item": "minecraft:stick" }
+  },
+  "result": { "item": "cocojenna:daikatana_first_dawn", "count": 1 }
+}

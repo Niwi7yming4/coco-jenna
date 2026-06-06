@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:entity",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "cocojenna:seal_orb",
+          "weight": 100
+        }
+      ],
+      "conditions": [
+        { "condition": "minecraft:killed_by_player" }
+      ]
+    },
+    {
+      "rolls": { "min": 0, "max": 2 },
+      "entries": [
+        { "type": "minecraft:item", "name": "cocojenna:moonstone", "weight": 70 },
+        { "type": "minecraft:item", "name": "cocojenna:purr_coin",  "weight": 30 }
+      ]
+    }
+  ]
+}

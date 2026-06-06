@@ -1,0 +1,19 @@
+{
+  "display": {
+    "icon": { "item": "cocojenna:daikatana_first_dawn" },
+    "title": { "translate": "advancements.cocojenna.obtain_daikatana.title" },
+    "description": { "translate": "advancements.cocojenna.obtain_daikatana.description" },
+    "show_toast": true,
+    "announce_to_chat": true,
+    "frame": "challenge"
+  },
+  "parent": "cocojenna:first_memory_shard",
+  "criteria": {
+    "get_daikatana": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [{ "tag": "cocojenna:daikatana" }]
+      }
+    }
+  }
+}
