@@ -1,0 +1,12 @@
+{
+  "name": "序列2·墮落絨尾",
+  "icon": "cocojenna:fallen_velvet_spawn_egg",
+  "category": "cocojenna:abyss_vol2",
+  "sortnum": 8,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "完整自我意識，但被黑泥囚禁。保留生前外貌，清醒地看著身體被操控。遺忘高塔首領。雨後可用朱槿花之淚與純淨之淚救贖。"
+    }
+  ]
+}

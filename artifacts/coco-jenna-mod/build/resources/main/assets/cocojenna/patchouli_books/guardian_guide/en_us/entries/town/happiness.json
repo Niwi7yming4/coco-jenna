@@ -1,0 +1,16 @@
+{
+  "name": "patchouli.cocojenna.entry.happiness",
+  "icon": "cocojenna:velvet_beginner_chestplate",
+  "category": "cocojenna:town",
+  "sortnum": 2,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.entry.happiness.p1"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.entry.happiness.p2"
+    }
+  ]
+}

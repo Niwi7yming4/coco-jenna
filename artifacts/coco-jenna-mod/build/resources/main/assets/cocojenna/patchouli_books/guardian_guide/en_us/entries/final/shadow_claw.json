@@ -1,0 +1,16 @@
+{
+  "name": "patchouli.cocojenna.entry.shadow_claw",
+  "icon": "cocojenna:black_mud_sample",
+  "category": "cocojenna:final",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.entry.shadow_claw.p1"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.entry.shadow_claw.p2"
+    }
+  ]
+}

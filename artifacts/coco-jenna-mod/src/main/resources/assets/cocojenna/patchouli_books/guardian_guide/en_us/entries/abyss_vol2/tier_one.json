@@ -1,0 +1,12 @@
+{
+  "name": "序列1·原始混沌",
+  "icon": "cocojenna:primal_chaos_spawn_egg",
+  "category": "cocojenna:abyss_vol2",
+  "sortnum": 9,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "全黑泥的集體潛意識。巨型活體心臟，所有黑泥的「母親」。黎明高地終局首領。蒸餾擊殺可獲 **純淨之核**。"
+    }
+  ]
+}

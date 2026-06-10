@@ -1,0 +1,13 @@
+{
+  "name": "黑泥守衛與祭司",
+  "icon": "cocojenna:mud_guard_spawn_egg",
+  "category": "cocojenna:overworld_vol1",
+  "advancement": "cocojenna:guide/mud_guard",
+  "sortnum": 5,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "遺忘荒原的黑泥進階形態。分別掉落「青銅守衛」與「墮絨之爪」。"
+    }
+  ]
+}

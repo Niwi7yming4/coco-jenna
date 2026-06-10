@@ -25,6 +25,9 @@ public class PurifyItem extends Item {
             player.removeEffect(ModEffects.BLACK_MUD_STAGE1.get());
             player.removeEffect(ModEffects.BLACK_MUD_STAGE2.get());
             player.removeEffect(ModEffects.BLACK_MUD_STAGE3.get());
+            player.removeEffect(ModEffects.BLACK_MUD_STAGE4.get());
+            player.removeEffect(ModEffects.CORROSION_MARK.get());
+            player.getPersistentData().putInt("cocojenna_blackmud_stage", 0);
             player.heal(healAmount * 2.0f);
         }
         stack.shrink(1);

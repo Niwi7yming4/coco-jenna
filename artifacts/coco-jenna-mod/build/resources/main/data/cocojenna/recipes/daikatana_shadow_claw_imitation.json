@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:iron_ingot"
+    },
+    {
+      "item": "minecraft:feather"
+    },
+    {
+      "item": "cocojenna:coco_fur"
+    }
+  ],
+  "result": {
+    "item": "cocojenna:daikatana_shadow_claw_imitation",
+    "count": 1
+  }
+}

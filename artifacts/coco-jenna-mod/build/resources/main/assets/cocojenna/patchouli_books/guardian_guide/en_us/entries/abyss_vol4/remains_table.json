@@ -1,0 +1,16 @@
+{
+  "name": "殘骸一覽",
+  "icon": "cocojenna:primal_chaos_shard",
+  "category": "cocojenna:abyss_vol4",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "基礎殘骸｜序列7+ 記憶微粒｜序列5+ 暗影結晶｜序列4 悲嘆凝膠｜序列3 混沌結晶、盲水凝膠｜序列2 墮落核心｜序列1 原始混沌碎片。"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "100 個記憶微粒可右鍵合成隨機記憶碎片。黑泥殘骸+星塵土壤可製 **記憶陶土**（雨後建造記憶劇場）。"
+    }
+  ]
+}

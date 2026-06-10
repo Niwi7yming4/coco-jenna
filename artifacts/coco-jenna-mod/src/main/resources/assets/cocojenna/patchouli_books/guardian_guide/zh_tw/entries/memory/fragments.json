@@ -1,0 +1,16 @@
+{
+  "name": "patchouli.cocojenna.entry.fragments",
+  "icon": "cocojenna:memory_fragment",
+  "category": "cocojenna:memory",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.entry.fragments.p1"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.entry.fragments.p2"
+    }
+  ]
+}

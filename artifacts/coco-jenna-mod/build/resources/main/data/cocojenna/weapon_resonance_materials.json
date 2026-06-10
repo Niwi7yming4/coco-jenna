@@ -1,0 +1,10 @@
+{
+  "fish_bone_tide": { "item": "cocojenna:deep_sea_pearl", "count": 1 },
+  "iron_rust_armor_break": { "item": "cocojenna:rusty_iron", "count": 3 },
+  "hibiscus_blood": { "item": "cocojenna:hibiscus_tear", "count": 2 },
+  "moonlight_ripple": { "item": "cocojenna:full_moon_spectrum", "count": 1 },
+  "paper_crow_ink": { "item": "cocojenna:red_paper", "count": 5 },
+  "first_cry_beginner": { "item": "cocojenna:first_cry_whisker", "count": 1 },
+  "blind_water_core": { "item": "cocojenna:black_pearl", "count": 1 },
+  "royal_glory": { "item": "cocojenna:tiger_seal", "count": 1 }
+}

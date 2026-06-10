@@ -1,0 +1,16 @@
+{
+  "name": "patchouli.cocojenna.entry.enhance",
+  "icon": "cocojenna:ryokatana_coco_guardian",
+  "category": "cocojenna:forge",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.entry.enhance.p1"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.entry.enhance.p2"
+    }
+  ]
+}

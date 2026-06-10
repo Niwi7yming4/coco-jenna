@@ -1,0 +1,13 @@
+{
+  "name": "盲水領主",
+  "icon": "cocojenna:blind_water_lord_spawn_egg",
+  "category": "cocojenna:overworld_vol1",
+  "advancement": "cocojenna:guide/blind_water_lord",
+  "sortnum": 3,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "盲水河區域頭目。掉落「盲水深淵」與深海素材。"
+    }
+  ]
+}

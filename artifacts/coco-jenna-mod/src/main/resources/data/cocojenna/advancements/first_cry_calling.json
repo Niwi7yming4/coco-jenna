@@ -1,0 +1,17 @@
+{
+  "parent": "cocojenna:arrive_first_cry",
+  "display": {
+    "icon": { "item": "cocojenna:first_cry_whisker" },
+    "title": { "translate": "advancements.cocojenna.first_cry_calling.title" },
+    "description": { "translate": "advancements.cocojenna.first_cry_calling.description" },
+    "frame": "goal"
+  },
+  "criteria": {
+    "whisker": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [{ "items": ["cocojenna:first_cry_whisker"] }]
+      }
+    }
+  }
+}

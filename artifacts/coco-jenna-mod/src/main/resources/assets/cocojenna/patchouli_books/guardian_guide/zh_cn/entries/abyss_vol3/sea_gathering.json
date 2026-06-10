@@ -1,0 +1,16 @@
+{
+  "name": "悲傷之海",
+  "icon": "cocojenna:black_mud",
+  "category": "cocojenna:abyss_vol3",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "大量黑泥聚集形成悲傷之海——被黑泥完全覆蓋的區域，內部有獨特生態。進入時會提示：空氣黏稠得像眼淚。雨後源頭切斷，悲傷之海不再擴張。"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "邊緣偶爾閃爍金色記憶微粒——那是尚未被完全吞噬的溫暖。"
+    }
+  ]
+}

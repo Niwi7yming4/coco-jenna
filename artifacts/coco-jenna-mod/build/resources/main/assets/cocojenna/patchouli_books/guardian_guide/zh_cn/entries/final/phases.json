@@ -1,0 +1,16 @@
+{
+  "name": "patchouli.cocojenna.entry.final_phases",
+  "icon": "cocojenna:sealed_relic",
+  "category": "cocojenna:final",
+  "sortnum": 2,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.entry.final_phases.p1"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.entry.final_phases.p2"
+    }
+  ]
+}

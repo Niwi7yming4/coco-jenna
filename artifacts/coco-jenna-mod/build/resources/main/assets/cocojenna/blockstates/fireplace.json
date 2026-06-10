@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "": {
+      "model": "cocojenna:block/fireplace",
+      "render_type": "cutout"
+    }
+  }
+}

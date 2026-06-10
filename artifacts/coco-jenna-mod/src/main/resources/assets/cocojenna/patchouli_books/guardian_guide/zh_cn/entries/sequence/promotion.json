@@ -1,0 +1,16 @@
+{
+  "name": "patchouli.cocojenna.entry.promotion",
+  "icon": "cocojenna:memory_essence",
+  "category": "cocojenna:sequence",
+  "sortnum": 3,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.entry.promotion.p1"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.entry.promotion.p2"
+    }
+  ]
+}

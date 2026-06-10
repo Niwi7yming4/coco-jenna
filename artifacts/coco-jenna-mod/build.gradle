@@ -6,7 +6,7 @@ plugins {
     id 'org.spongepowered.mixin' version '0.7.+'
 }
 
-version = '1.0.0'
+version = mod_version
 group = 'com.cocojenna'
 
 base {
@@ -14,6 +14,10 @@ base {
 }
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
 
 println "Java: ${System.getProperty 'java.version'}, JVM: ${System.getProperty 'java.vm.version'} (${System.getProperty 'java.vendor'}), Arch: ${System.getProperty 'os.arch'}"
 
@@ -53,10 +57,15 @@ minecraft {
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 repositories {
+    maven {
+        name = 'GeckoLib'
+        url = 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/'
+    }
 }
 
 dependencies {
     minecraft 'net.minecraftforge:forge:1.20.1-47.2.0'
+    implementation fg.deobf('software.bernie.geckolib:geckolib-forge-1.20.1:4.4.4')
 }
 
 tasks.named('processResources', ProcessResources).configure {
@@ -86,6 +95,38 @@ tasks.named('jar', Jar).configure {
         ])
     }
 }
+
+tasks.register('validateRuinNbt') {
+    doLast {
+        def ruinsDir = file('src/main/resources/data/cocojenna/structures/ruins')
+        def priorityIds = [
+            'outpost', 'war_ruins', 'velvet_tower', 'fallen_heroes_monument', 'forgotten_altar',
+            'stray_cat_canteen', 'abandoned_toy_vault', 'moon_sealed_dungeon', 'black_mud_contaminated_temple'
+        ]
+        priorityIds.each { id ->
+            def f = new File(ruinsDir, "${id}.nbt")
+            if (!f.exists() || f.length() == 0) {
+                throw new GradleException("Missing or empty ruin NBT: ${f}")
+            }
+        }
+        def mausoleumDir = file('src/main/resources/data/cocojenna/structures/mausoleum')
+        def mausoleumNbt = mausoleumDir.exists() ? mausoleumDir.listFiles({ d, n -> n.endsWith('.nbt') } as FilenameFilter) : null
+        if (mausoleumNbt == null || mausoleumNbt.length == 0) {
+            throw new GradleException("Missing mausoleum NBT files in ${mausoleumDir}")
+        }
+        def firstCryDir = file('src/main/resources/data/cocojenna/structures/first_cry_village')
+        def firstCryNbt = firstCryDir.exists() ? firstCryDir.listFiles({ d, n -> n.endsWith('.nbt') } as FilenameFilter) : null
+        if (firstCryNbt == null || firstCryNbt.length == 0) {
+            throw new GradleException("Missing first_cry_village NBT files in ${firstCryDir}")
+        }
+        def allRuins = ruinsDir.exists() ? ruinsDir.listFiles({ d, n -> n.endsWith('.nbt') } as FilenameFilter) : null
+        if (allRuins == null || allRuins.length < 30) {
+            throw new GradleException("Expected at least 30 ruin NBT files, found ${allRuins?.length ?: 0}")
+        }
+    }
+}
+
+tasks.named('build').configure { dependsOn 'validateRuinNbt' }
 
 publishing {
     publications {

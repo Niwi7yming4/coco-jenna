@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "cocojenna:item/fallen_velvet_spawn_egg"
+  }
+}

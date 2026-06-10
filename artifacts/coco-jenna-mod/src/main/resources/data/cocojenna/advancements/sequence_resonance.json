@@ -1,0 +1,16 @@
+{
+  "parent": "cocojenna:fragmented_first_meet",
+  "display": {
+    "icon": { "item": "cocojenna:moonstone" },
+    "title": { "translate": "advancement.cocojenna.sequence_resonance.title" },
+    "description": { "translate": "advancement.cocojenna.sequence_resonance.description" },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "bond": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

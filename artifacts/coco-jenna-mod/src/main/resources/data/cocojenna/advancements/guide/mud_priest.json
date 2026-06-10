@@ -1,0 +1,15 @@
+{
+  "display": {
+    "icon": { "item": "minecraft:candle" },
+    "title": { "translate": "advancements.cocojenna.guide.mud_priest.title" },
+    "description": { "translate": "advancements.cocojenna.guide.mud_priest.description" },
+    "show_toast": false,
+    "announce_to_chat": false,
+    "frame": "task",
+    "hidden": true
+  },
+  "parent": "cocojenna:guide/mud_guard",
+  "criteria": {
+    "discovered": { "trigger": "minecraft:impossible" }
+  }
+}

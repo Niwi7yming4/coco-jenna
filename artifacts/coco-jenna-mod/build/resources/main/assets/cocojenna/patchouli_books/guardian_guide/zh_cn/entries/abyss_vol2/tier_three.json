@@ -1,0 +1,12 @@
+{
+  "name": "序列3·盲水領主",
+  "icon": "cocojenna:blind_water_lord_spawn_egg",
+  "category": "cocojenna:abyss_vol2",
+  "sortnum": 7,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "區域性集體意識。半人形半液態，成為一片區域的黑泥節點。無明港首領。掉落 **盲水凝膠** 與 **混沌結晶**。"
+    }
+  ]
+}

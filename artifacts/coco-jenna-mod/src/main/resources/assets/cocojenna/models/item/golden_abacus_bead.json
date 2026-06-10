@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "cocojenna:item/golden_abacus_bead"
+  }
+}

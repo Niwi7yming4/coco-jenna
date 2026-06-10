@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "MI ",
+    "IS ",
+    " S "
+  ],
+  "key": {
+    "M": { "item": "cocojenna:moonstone" },
+    "I": { "item": "minecraft:iron_ingot" },
+    "S": { "item": "minecraft:stick" }
+  },
+  "result": { "item": "cocojenna:ryokatana_moon_shadow", "count": 1 }
+}

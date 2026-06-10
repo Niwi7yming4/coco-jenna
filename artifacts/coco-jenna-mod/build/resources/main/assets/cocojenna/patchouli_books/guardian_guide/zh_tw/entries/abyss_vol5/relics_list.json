@@ -1,0 +1,16 @@
+{
+  "name": "遺物一覽",
+  "icon": "cocojenna:pure_drop",
+  "category": "cocojenna:abyss_vol5",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "未寄出的信（序列7）｜生鏽的鈴鐺（6）｜半條圍巾（4）｜褪色的項圈（2）｜一滴純淨的水（1）。右鍵使用以釋放封存的記憶與加成。"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "「一滴純淨的水」據阿爾法推測，是「第一滴眼淚」被淨化後的形態。"
+    }
+  ]
+}

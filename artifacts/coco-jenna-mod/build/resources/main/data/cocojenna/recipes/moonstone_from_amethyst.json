@@ -1,0 +1,7 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": { "item": "minecraft:amethyst_shard" },
+  "result": "cocojenna:moonstone",
+  "experience": 0.5,
+  "cookingtime": 160
+}

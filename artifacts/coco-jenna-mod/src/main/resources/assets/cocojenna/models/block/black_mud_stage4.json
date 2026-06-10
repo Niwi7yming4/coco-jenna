@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "top": "cocojenna:block/black_mud_stage4",
+    "side": "cocojenna:block/black_mud_stage4_side",
+    "bottom": "cocojenna:block/black_mud_stage4_bottom"
+  }
+}

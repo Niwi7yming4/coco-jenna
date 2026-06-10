@@ -1,0 +1,12 @@
+{
+  "name": "序列4·悲嘆聚合體",
+  "icon": "cocojenna:grief_amalgam_spawn_egg",
+  "category": "cocojenna:abyss_vol2",
+  "sortnum": 6,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "多意識混亂融合。巨型融合體，多靈魂悲傷共鳴。絨毛森林首領。掉落 **悲嘆凝膠**，可能留下 **半條圍巾**。"
+    }
+  ]
+}

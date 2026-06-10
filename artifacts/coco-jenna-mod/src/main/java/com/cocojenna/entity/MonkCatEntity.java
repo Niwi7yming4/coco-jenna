@@ -1,5 +1,7 @@
 package com.cocojenna.entity;
 
+import com.cocojenna.endgame.schedule.AfterRainNpcRole;
+import com.cocojenna.entity.goal.PeacefulNpcScheduleGoal;
 import com.cocojenna.init.ModEffects;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -8,6 +10,8 @@ import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
+import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
+import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 
@@ -40,9 +44,10 @@ public class MonkCatEntity extends PathfinderMob {
     protected void registerGoals() {
         goalSelector.addGoal(0, new FloatGoal(this));
         goalSelector.addGoal(1, new MonkMeditateGoal(this));
-        goalSelector.addGoal(2, new MeleeAttackGoal(this, 0.9, true));
-        goalSelector.addGoal(3, new WaterAvoidingRandomStrollGoal(this, 0.5));
-        goalSelector.addGoal(4, new LookAtPlayerGoal(this, Player.class, 8.0f));
+        goalSelector.addGoal(2, new PeacefulNpcScheduleGoal(this, AfterRainNpcRole.MONK));
+        goalSelector.addGoal(4, new MeleeAttackGoal(this, 0.9, true));
+        goalSelector.addGoal(5, new WaterAvoidingRandomStrollGoal(this, 0.5));
+        goalSelector.addGoal(6, new LookAtPlayerGoal(this, Player.class, 8.0f));
         targetSelector.addGoal(1, new HurtByTargetGoal(this));
         targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
     }

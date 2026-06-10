@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "cocojenna:spore_fruit"
+    },
+    {
+      "item": "minecraft:leather"
+    },
+    {
+      "item": "cocojenna:moonstone"
+    },
+    {
+      "item": "minecraft:gold_ingot"
+    }
+  ],
+  "result": {
+    "item": "cocojenna:primal_chaos_spawn_egg",
+    "count": 1
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": "cocojenna:velvet_forest",
+  "spawners": [
+    {
+      "type": "cocojenna:sumo_cat",
+      "weight": 4,
+      "minCount": 1,
+      "maxCount": 1
+    }
+  ]
+}

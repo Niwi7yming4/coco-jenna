@@ -1,0 +1,16 @@
+{
+  "name": "patchouli.cocojenna.entry.what_sequence",
+  "icon": "cocojenna:meme_badge",
+  "category": "cocojenna:sequence",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.entry.what_sequence.p1"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.entry.what_sequence.p2"
+    }
+  ]
+}

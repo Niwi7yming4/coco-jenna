@@ -1,0 +1,12 @@
+{
+  "name": "序列7·低語泥偶",
+  "icon": "cocojenna:whispering_doll_spawn_egg",
+  "category": "cocojenna:abyss_vol2",
+  "sortnum": 3,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "破碎語言意識，能說零碎詞語。扭曲人偶形，模仿生前最熟悉的聲音。淨化時可能留下 **未寄出的信**。"
+    }
+  ]
+}

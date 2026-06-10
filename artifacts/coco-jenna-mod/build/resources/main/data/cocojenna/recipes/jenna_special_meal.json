@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "FGF",
+    "GBG",
+    "FGF"
+  ],
+  "key": {
+    "F": { "item": "cocojenna:crab_deluxe" },
+    "G": { "item": "cocojenna:hibiscus_sashimi" },
+    "B": { "item": "cocojenna:jenna_fur" }
+  },
+  "result": { "item": "cocojenna:jenna_special_meal", "count": 1 }
+}

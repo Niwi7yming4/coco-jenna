@@ -1,0 +1,16 @@
+{
+  "name": "patchouli.cocojenna.entry.build",
+  "icon": "cocojenna:purification_tower",
+  "category": "cocojenna:town",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.entry.build.p1"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.entry.build.p2"
+    }
+  ]
+}

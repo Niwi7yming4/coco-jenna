@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        { "type": "minecraft:item", "name": "cocojenna:salt", "weight": 70 },
+        { "type": "minecraft:item", "name": "cocojenna:coarse_salt", "weight": 30 }
+      ]
+    }
+  ]
+}

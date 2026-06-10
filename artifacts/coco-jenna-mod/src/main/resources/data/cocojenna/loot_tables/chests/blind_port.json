@@ -1,0 +1,57 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "rolls": {
+        "min": 2,
+        "max": 4
+      },
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "cocojenna:ryokatana_blind_water_stealth",
+          "weight": 8
+        },
+        {
+          "type": "minecraft:item",
+          "name": "cocojenna:ryokatana_blind_water_abyss",
+          "weight": 6
+        },
+        {
+          "type": "minecraft:item",
+          "name": "cocojenna:ryokatana_whisper_mud",
+          "weight": 10
+        },
+        {
+          "type": "minecraft:item",
+          "name": "cocojenna:black_mud_remnant",
+          "weight": 20,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 2,
+                "max": 6
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "cocojenna:memory_shard",
+          "weight": 12
+        },
+        {
+          "type": "minecraft:item",
+          "name": "cocojenna:ryokatana_blind_water_core",
+          "weight": 8
+        },
+        {
+          "type": "minecraft:item",
+          "name": "cocojenna:ryokatana_deep_sea_current",
+          "weight": 4
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "rolls": { "min": 2, "max": 4 },
+      "entries": [
+        { "type": "minecraft:item", "name": "cocojenna:moonstone", "weight": 12, "functions": [{ "function": "minecraft:set_count", "count": { "min": 2, "max": 6 } }] },
+        { "type": "minecraft:item", "name": "cocojenna:ryokatana_moonlight_glimmer", "weight": 7 },
+        { "type": "minecraft:item", "name": "cocojenna:ryokatana_moon_shadow", "weight": 6 },
+        { "type": "minecraft:item", "name": "cocojenna:ryokatana_neon_flash", "weight": 4 }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "B",
+    "B",
+    "S"
+  ],
+  "key": {
+    "B": { "item": "minecraft:bone" },
+    "S": { "item": "minecraft:stick" }
+  },
+  "result": { "item": "cocojenna:fish_bone_blade", "count": 1 }
+}

@@ -5,6 +5,7 @@ import com.cocojenna.capability.ModCapabilities;
 import com.cocojenna.entity.goal.*;
 import com.cocojenna.init.ModEffects;
 import com.cocojenna.init.ModEntities;
+import com.cocojenna.init.ModItems;
 import com.cocojenna.init.ModSounds;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -84,6 +85,7 @@ public class JennaEntity extends AbstractCatEntity {
     private int giftDeliveryCooldown = 0;
     private int invitePlayCooldown = 0;
     private int sunbathBellyCooldown = 0;
+    private int specialAnimResetTicks = 0;
     private int dailyLickCount = 0;
 
     // 玩家靜止計時器
@@ -121,6 +123,9 @@ public class JennaEntity extends AbstractCatEntity {
         goalSelector.addGoal(2, new JennaTailAmbushGoal(this));
         goalSelector.addGoal(3, new JennaFishSummonGoal(this));
         goalSelector.addGoal(4, new JennaButterflyChaseGoal(this));
+        goalSelector.addGoal(5, new JennaDailyScheduleGoal(this));
+        goalSelector.addGoal(6, new JennaCuriosityGoal(this));
+        goalSelector.addGoal(7, new com.cocojenna.entity.goal.JennaPuzzleHintGoal(this));
     }
 
     // ── Tick 行為系統 ────────────────────────────────────────────────────
@@ -142,6 +147,9 @@ public class JennaEntity extends AbstractCatEntity {
         if (giftDeliveryCooldown > 0) giftDeliveryCooldown--;
         if (invitePlayCooldown > 0) invitePlayCooldown--;
         if (sunbathBellyCooldown > 0) sunbathBellyCooldown--;
+        if (specialAnimResetTicks > 0 && --specialAnimResetTicks == 0) {
+            entityData.set(DATA_SPECIAL_ANIMATION, ANIM_NONE);
+        }
 
         // 每日重置
         long day = level().getGameTime() / 24000;
@@ -213,6 +221,7 @@ public class JennaEntity extends AbstractCatEntity {
         bond.modifyJennaEmotion(0.5f);
         dailyLickCount++;
         lickAnkleCooldown = 1200;
+        specialAnimResetTicks = 60;
     }
 
     public void performBellyPillow(Player owner) {
@@ -303,4 +312,8 @@ public class JennaEntity extends AbstractCatEntity {
     public float getCuriosity()    { return entityData.get(DATA_CURIOSITY); }
     public float getContentment()  { return entityData.get(DATA_CONTENTMENT); }
     public int   getSpecialAnim()  { return entityData.get(DATA_SPECIAL_ANIMATION); }
+
+    public void setSpecialAnimation(int anim) {
+        entityData.set(DATA_SPECIAL_ANIMATION, anim);
+    }
 }

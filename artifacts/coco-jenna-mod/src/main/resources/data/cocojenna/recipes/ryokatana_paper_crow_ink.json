@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "FPF",
+    " B ",
+    " S "
+  ],
+  "key": {
+    "F": {
+      "item": "cocojenna:feather_wand"
+    },
+    "P": {
+      "item": "minecraft:paper"
+    },
+    "B": {
+      "item": "cocojenna:black_mud_remnant"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "cocojenna:ryokatana_paper_crow_ink",
+    "count": 1
+  }
+}

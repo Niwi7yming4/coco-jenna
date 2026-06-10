@@ -1,0 +1,12 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": "cocojenna:catnip_highlands",
+  "spawners": [
+    {
+      "type": "cocojenna:velvet_moth",
+      "weight": 10,
+      "minCount": 1,
+      "maxCount": 3
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "parent": "cocojenna:enter_cat_kingdom",
+  "display": {
+    "icon": { "item": "cocojenna:memory_shard" },
+    "title": { "translate": "advancements.cocojenna.arrive_first_cry.title" },
+    "description": { "translate": "advancements.cocojenna.arrive_first_cry.description" },
+    "frame": "goal"
+  },
+  "criteria": {
+    "shard": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [{ "items": ["cocojenna:memory_shard"] }]
+      }
+    }
+  }
+}

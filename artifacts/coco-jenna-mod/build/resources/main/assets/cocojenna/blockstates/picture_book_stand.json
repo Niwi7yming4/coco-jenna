@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "": {
+      "model": "cocojenna:block/picture_book_stand",
+      "render_type": "cutout"
+    }
+  }
+}

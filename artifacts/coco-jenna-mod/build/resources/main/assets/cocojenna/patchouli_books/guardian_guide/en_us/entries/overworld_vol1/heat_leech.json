@@ -1,0 +1,13 @@
+{
+  "name": "熱血水蛭",
+  "icon": "cocojenna:heat_leech_spawn_egg",
+  "category": "cocojenna:overworld_vol1",
+  "advancement": "cocojenna:guide/heat_leech",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "初啼村周邊的寄生黑泥。擊敗後有機會掉落「魚骨潮汐」良快刀。"
+    }
+  ]
+}

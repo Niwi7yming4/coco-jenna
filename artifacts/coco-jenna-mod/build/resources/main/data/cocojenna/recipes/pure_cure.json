@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    { "item": "cocojenna:hibiscus_flower_item" },
+    { "item": "cocojenna:pure_tear" },
+    { "item": "minecraft:glass_bottle" }
+  ],
+  "result": { "item": "cocojenna:pure_cure", "count": 1 }
+}

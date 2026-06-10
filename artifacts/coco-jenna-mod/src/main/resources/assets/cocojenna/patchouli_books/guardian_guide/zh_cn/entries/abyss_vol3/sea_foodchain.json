@@ -1,0 +1,16 @@
+{
+  "name": "悲傷之海的生態",
+  "icon": "cocojenna:grief_gel",
+  "category": "cocojenna:abyss_vol3",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "• **底層** 序列9 失溫者大量分裂融合$(br)• **中層** 序列8-6 以底層為食進化$(br)• **上層** 序列5-3 掠食者與區域節點$(br)• **頂層** 序列2 墮落絨尾為「國王」$(br)• **最深處** 序列1 原始混沌為「心臟」"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "遺忘荒原（forgotten_wastes）自然生成中序列黑泥；侵蝕系統在玩家附近按區塊階段補充失溫者。"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "name": "patchouli.cocojenna.entry.four_mad_legend",
+  "icon": "cocojenna:sealed_relic",
+  "category": "cocojenna:four_mad",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.entry.four_mad_legend.p1"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.entry.four_mad_legend.p2"
+    }
+  ]
+}

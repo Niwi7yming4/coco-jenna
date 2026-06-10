@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "CJB",
+    "BCJ",
+    "CBC"
+  ],
+  "key": {
+    "C": { "item": "cocojenna:coco_fur" },
+    "J": { "item": "cocojenna:jenna_fur" },
+    "B": { "item": "minecraft:book" }
+  },
+  "result": { "item": "cocojenna:memory_book", "count": 1 }
+}

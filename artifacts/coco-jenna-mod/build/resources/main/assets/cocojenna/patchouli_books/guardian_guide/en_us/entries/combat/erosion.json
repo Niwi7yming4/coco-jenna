@@ -1,0 +1,16 @@
+{
+  "name": "patchouli.cocojenna.entry.erosion",
+  "icon": "cocojenna:abyss_black_mud",
+  "category": "cocojenna:combat",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.entry.erosion.p1"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.entry.erosion.p2"
+    }
+  ]
+}

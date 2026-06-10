@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "cocojenna:item/daikatana_storm_umbrella"
+  }
+}

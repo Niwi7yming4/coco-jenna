@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " C ",
+    "CSC",
+    " I "
+  ],
+  "key": {
+    "C": { "item": "cocojenna:memory_clay" },
+    "S": { "item": "cocojenna:moonstone" },
+    "I": { "item": "minecraft:iron_ingot" }
+  },
+  "result": { "item": "cocojenna:unsheath_stone", "count": 1 }
+}

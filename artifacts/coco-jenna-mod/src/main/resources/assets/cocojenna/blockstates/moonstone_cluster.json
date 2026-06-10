@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "": {
+      "model": "cocojenna:block/moonstone_cluster",
+      "render_type": "cutout"
+    }
+  }
+}

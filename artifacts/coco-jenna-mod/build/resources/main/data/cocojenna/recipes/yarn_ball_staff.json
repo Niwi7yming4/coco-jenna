@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "  W",
+    " S ",
+    "S  "
+  ],
+  "key": {
+    "W": { "item": "cocojenna:rainbow_yarn_ball" },
+    "S": { "item": "minecraft:stick" }
+  },
+  "result": { "item": "cocojenna:yarn_ball_staff", "count": 1 }
+}

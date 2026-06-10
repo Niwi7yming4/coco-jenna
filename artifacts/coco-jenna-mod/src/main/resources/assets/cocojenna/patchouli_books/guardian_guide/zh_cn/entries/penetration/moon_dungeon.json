@@ -1,0 +1,16 @@
+{
+  "name": "patchouli.cocojenna.entry.penetration_moon_dungeon",
+  "icon": "cocojenna:sealed_relic",
+  "category": "cocojenna:penetration",
+  "sortnum": 2,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.entry.penetration_moon_dungeon.p1"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.entry.penetration_moon_dungeon.p2"
+    }
+  ]
+}

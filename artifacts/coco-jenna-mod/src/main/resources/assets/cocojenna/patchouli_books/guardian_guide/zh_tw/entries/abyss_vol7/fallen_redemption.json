@@ -1,0 +1,16 @@
+{
+  "name": "墮落絨尾的救贖",
+  "icon": "cocojenna:hibiscus_tear",
+  "category": "cocojenna:abyss_vol7",
+  "sortnum": 2,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "雨後，攜帶 **朱槿花之淚** 與 **純淨之淚**，前往 **遺忘高塔** 深處。成功救贖的墮落絨尾恢復記憶，前往黎明高地加入王城舊部。"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "牠們會記得你——記得你是那個在黑暗中拉牠們一把的人。"
+    }
+  ]
+}

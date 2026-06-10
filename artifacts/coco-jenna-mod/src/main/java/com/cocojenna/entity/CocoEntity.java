@@ -76,6 +76,7 @@ public class CocoEntity extends AbstractCatEntity {
     private int highGazeCooldown = 0;     // 每晚一次
     private int stillGuardTimer = 0;      // 守護持續時間
     private int spatialPullCooldown = 0;  // 每遊戲日 1 次
+    private int specialAnimResetTicks = 0;
 
     // 終局行為計時器
     private int sunbathCooldown = 0;
@@ -118,6 +119,9 @@ public class CocoEntity extends AbstractCatEntity {
         goalSelector.addGoal(1, new CocoStillGuardGoal(this));
         goalSelector.addGoal(2, new CocoHighGazeGoal(this));
         goalSelector.addGoal(3, new CocoBiteTrustGoal(this));
+        goalSelector.addGoal(4, new CocoDailyScheduleGoal(this));
+        goalSelector.addGoal(5, new CocoDangerSenseGoal(this));
+        goalSelector.addGoal(6, new com.cocojenna.entity.goal.CocoPuzzleHintGoal(this));
     }
 
     // ── Tick 行為系統 ────────────────────────────────────────────────────
@@ -136,6 +140,10 @@ public class CocoEntity extends AbstractCatEntity {
         if (sunbathCooldown > 0)    sunbathCooldown--;
         if (foreheadCooldown > 0)   foreheadCooldown--;
         if (tailWrapCooldown > 0)   tailWrapCooldown--;
+        if (specialAnimResetTicks > 0 && --specialAnimResetTicks == 0
+                && entityData.get(DATA_SPECIAL_ANIMATION) != ANIM_STILL_GUARD) {
+            entityData.set(DATA_SPECIAL_ANIMATION, ANIM_NONE);
+        }
 
         // ── 月亮親和增長 ─────────────────────────────────────────────────
         if (level().isNight() && isInMoonlight()) {
@@ -278,8 +286,7 @@ public class CocoEntity extends AbstractCatEntity {
     }
 
     private void scheduleAnimReset(int ticks) {
-        // 簡化：直接在下一次 tick 重置（完整實作應用 ScheduledExecutorService 或 ServerLevel 的 tick 排程）
-        biteTrustCooldown = Math.max(biteTrustCooldown, ticks);
+        specialAnimResetTicks = ticks;
     }
 
     // ── 封印物生成 ────────────────────────────────────────────────────────
@@ -339,5 +346,9 @@ public class CocoEntity extends AbstractCatEntity {
     public float getProtectiveness() { return entityData.get(DATA_PROTECTIVENESS); }
     public float getMoonAffinity()   { return entityData.get(DATA_MOON_AFFINITY); }
     public int   getSpecialAnim()    { return entityData.get(DATA_SPECIAL_ANIMATION); }
+
+    public void setSpecialAnimation(int anim) {
+        entityData.set(DATA_SPECIAL_ANIMATION, anim);
+    }
     public boolean isPerformingSpecial() { return entityData.get(DATA_PERFORMING_SPECIAL); }
 }

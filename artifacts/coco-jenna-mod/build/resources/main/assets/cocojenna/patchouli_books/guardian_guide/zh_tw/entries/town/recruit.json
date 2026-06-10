@@ -1,0 +1,16 @@
+{
+  "name": "patchouli.cocojenna.entry.recruit",
+  "icon": "cocojenna:catnip",
+  "category": "cocojenna:town",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.entry.recruit.p1"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.entry.recruit.p2"
+    }
+  ]
+}

@@ -3,7 +3,11 @@ package com.cocojenna.entity;
 import com.cocojenna.capability.BondData;
 import com.cocojenna.capability.ModCapabilities;
 import com.cocojenna.init.ModSounds;
+import com.cocojenna.item.GroomingBrushItem;
 import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
@@ -15,10 +19,12 @@ import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.*;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 
 import javax.annotation.Nullable;
+import java.util.EnumSet;
 import java.util.UUID;
 
 /**
@@ -50,6 +56,7 @@ public abstract class AbstractCatEntity extends PathfinderMob {
 
     /** 最後一次互動的遊戲刻 */
     protected long lastPetTick = 0L;
+    protected long lastGroomTick = 0L;
     /** 當日梳毛次數 */
     protected int dailyGroomCount = 0;
     /** 當日撫摸次數（可可上限 3 次，珍奶 5 次） */
@@ -91,8 +98,47 @@ public abstract class AbstractCatEntity extends PathfinderMob {
     @Override
     protected void registerGoals() {
         goalSelector.addGoal(0, new FloatGoal(this));
-        goalSelector.addGoal(1, new SitWhenOrderedToGoal(this));
-        goalSelector.addGoal(2, new FollowOwnerGoal(this, 1.1, 5.0, 2.0, false));
+        goalSelector.addGoal(1, new Goal() {
+            {
+                setFlags(EnumSet.of(Flag.JUMP, Flag.MOVE));
+            }
+
+            @Override
+            public boolean canUse() {
+                return entityData.get(DATA_SITTING);
+            }
+
+            @Override
+            public void start() {
+                getNavigation().stop();
+            }
+
+            @Override
+            public boolean canContinueToUse() {
+                return canUse();
+            }
+        });
+        goalSelector.addGoal(2, new Goal() {
+            @Override
+            public boolean canUse() {
+                Player owner = findOwner();
+                if (owner == null || entityData.get(DATA_SITTING)) return false;
+                BondData bond = ModCapabilities.getOrDefault(owner);
+                if (!bond.isAllowExplore()) return false;
+                boolean coco = AbstractCatEntity.this instanceof CocoEntity;
+                double followDist = com.cocojenna.growth.ThreeTrackGrowthManager
+                        .followDistanceSq(bond, coco, bond.getFollowDistance());
+                return distanceToSqr(owner) > followDist;
+            }
+
+            @Override
+            public void tick() {
+                Player owner = findOwner();
+                if (owner != null) {
+                    getNavigation().moveTo(owner, 1.1);
+                }
+            }
+        });
         goalSelector.addGoal(3, new LookAtPlayerGoal(this, Player.class, 8.0f));
         goalSelector.addGoal(4, new RandomLookAroundGoal(this));
         goalSelector.addGoal(5, new WaterAvoidingRandomStrollGoal(this, 0.8));
@@ -113,7 +159,56 @@ public abstract class AbstractCatEntity extends PathfinderMob {
 
     protected abstract void spawnSealOrb();
 
-    // ── 互動：撫摸 ───────────────────────────────────────────────────────
+    // ── 互動 ─────────────────────────────────────────────────────────────
+
+    @Override
+    public InteractionResult mobInteract(Player player, InteractionHand hand) {
+        ItemStack stack = player.getItemInHand(hand);
+        if (stack.getItem() instanceof GroomingBrushItem brush) {
+            if (!level().isClientSide) {
+                BondData bond = ModCapabilities.getOrDefault(player);
+                BondData.EmotionLevel emotion = this instanceof CocoEntity
+                        ? bond.getCocoEmotionLevel()
+                        : bond.getJennaEmotionLevel();
+                if (emotion.ordinal() < BondData.EmotionLevel.BONDED.ordinal()) {
+                    player.displayClientMessage(
+                            Component.translatable("message.cocojenna.groom_emotion_too_low"), true);
+                    return InteractionResult.FAIL;
+                }
+                if (!canGroomToday()) {
+                    player.displayClientMessage(
+                            Component.translatable("message.cocojenna.groom_daily_limit"), true);
+                    return InteractionResult.FAIL;
+                }
+                brush.groom(this, player, stack);
+            }
+            return InteractionResult.sidedSuccess(level().isClientSide);
+        }
+        if (stack.isEmpty() && hand == InteractionHand.MAIN_HAND && onPet(player)) {
+            return InteractionResult.sidedSuccess(level().isClientSide);
+        }
+        return super.mobInteract(player, hand);
+    }
+
+    /** 每日梳毛上限 3 次（設計書） */
+    public boolean canGroomToday() {
+        refreshDailyGroomCount();
+        return dailyGroomCount < 3;
+    }
+
+    public void recordGroom() {
+        refreshDailyGroomCount();
+        dailyGroomCount++;
+        lastGroomTick = level().getGameTime();
+    }
+
+    private void refreshDailyGroomCount() {
+        long currentTick = level().getGameTime();
+        long daysPassed = (currentTick / 24000) - (lastGroomTick / 24000);
+        if (daysPassed >= 1 || lastGroomTick == 0) {
+            dailyGroomCount = 0;
+        }
+    }
 
     /**
      * 玩家右鍵撫摸。
@@ -186,7 +281,11 @@ public abstract class AbstractCatEntity extends PathfinderMob {
 
     /** 尋找最近的玩家（作為主人） */
     @Nullable
-    protected Player findOwner() {
+    public Player getOwner() {
+        return findOwner();
+    }
+
+    public Player findOwner() {
         if (ownerUUID == null) return null;
         return level().getPlayerByUUID(ownerUUID);
     }
@@ -194,7 +293,7 @@ public abstract class AbstractCatEntity extends PathfinderMob {
     // ── 視覺工具 ─────────────────────────────────────────────────────────
 
     /** 檢查是否在陽光下（用於終局行為） */
-    protected boolean isInSunlight() {
+    public boolean isInSunlight() {
         if (level().isNight()) return false;
         BlockPos pos = blockPosition();
         return level().canSeeSky(pos) && level().getBrightness(net.minecraft.world.level.LightLayer.SKY, pos) >= 13;
@@ -218,6 +317,7 @@ public abstract class AbstractCatEntity extends PathfinderMob {
         super.addAdditionalSaveData(tag);
         if (ownerUUID != null) tag.putUUID("OwnerUUID", ownerUUID);
         tag.putLong("LastPetTick", lastPetTick);
+        tag.putLong("LastGroomTick", lastGroomTick);
         tag.putInt("DailyBiteCount", dailyBiteCount);
         tag.putInt("DailyGroomCount", dailyGroomCount);
     }
@@ -227,6 +327,7 @@ public abstract class AbstractCatEntity extends PathfinderMob {
         super.readAdditionalSaveData(tag);
         if (tag.hasUUID("OwnerUUID")) ownerUUID = tag.getUUID("OwnerUUID");
         lastPetTick = tag.getLong("LastPetTick");
+        lastGroomTick = tag.getLong("LastGroomTick");
         dailyBiteCount = tag.getInt("DailyBiteCount");
         dailyGroomCount = tag.getInt("DailyGroomCount");
     }

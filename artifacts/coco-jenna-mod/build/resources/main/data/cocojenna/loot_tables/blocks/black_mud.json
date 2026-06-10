@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        { "type": "minecraft:item", "name": "cocojenna:black_mud_remnant", "weight": 80 },
+        { "type": "minecraft:empty", "weight": 20 }
+      ]
+    }
+  ]
+}

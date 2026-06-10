@@ -1,0 +1,15 @@
+{
+  "display": {
+    "icon": { "item": "minecraft:iron_sword" },
+    "title": { "translate": "advancements.cocojenna.guide.mud_guard.title" },
+    "description": { "translate": "advancements.cocojenna.guide.mud_guard.description" },
+    "show_toast": false,
+    "announce_to_chat": false,
+    "frame": "task",
+    "hidden": true
+  },
+  "parent": "cocojenna:guide/mud_farmer",
+  "criteria": {
+    "discovered": { "trigger": "minecraft:impossible" }
+  }
+}

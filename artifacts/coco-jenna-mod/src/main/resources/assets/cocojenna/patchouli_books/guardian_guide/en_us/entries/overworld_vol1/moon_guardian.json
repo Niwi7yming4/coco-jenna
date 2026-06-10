@@ -1,0 +1,13 @@
+{
+  "name": "月光守護者",
+  "icon": "cocojenna:moon_guardian_spawn_egg",
+  "category": "cocojenna:overworld_vol1",
+  "advancement": "cocojenna:guide/moon_guardian",
+  "sortnum": 6,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "月巷與月光海灘的守護黑泥。高機率掉落「月光漣漪」。"
+    }
+  ]
+}

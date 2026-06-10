@@ -1,0 +1,16 @@
+{
+  "name": "悲傷的進化",
+  "icon": "cocojenna:shadow_crystal",
+  "category": "cocojenna:abyss_vol2",
+  "sortnum": 10,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "黑泥從序列9升級到1，靠的是吸收更多悲傷——任何帶情感的記憶都是養分，快樂尤其「美味」。失溫者→遺忘之影→低語泥偶→回憶蛀蟲，逐漸獲得形體與意義。"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "在遊戲中，高侵蝕區塊會孕育更高序列的威脅；**悲傷之海**（5×5 區塊內至少五處深淵化）會大幅提升黑泥生成。"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "BFS",
+    " I ",
+    " I "
+  ],
+  "key": {
+    "B": { "item": "cocojenna:squall_umbrella_bone" },
+    "F": { "item": "cocojenna:storm_cloud_fur" },
+    "S": { "item": "cocojenna:black_mud_remnant" },
+    "I": { "item": "minecraft:iron_ingot" }
+  },
+  "result": {
+    "item": "cocojenna:daikatana_storm_umbrella",
+    "count": 1
+  }
+}

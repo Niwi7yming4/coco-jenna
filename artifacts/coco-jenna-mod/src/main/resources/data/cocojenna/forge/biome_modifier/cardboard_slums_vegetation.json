@@ -1,0 +1,9 @@
+{
+  "type": "forge:add_features",
+  "biomes": "cocojenna:cardboard_slums",
+  "features": [
+    "cocojenna:neon_mushroom_patch",
+    "cocojenna:spore_fruit_patch"
+  ],
+  "step": "vegetal_decoration"
+}

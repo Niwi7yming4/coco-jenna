@@ -28,11 +28,10 @@ public class CatBellThrowItem extends Item {
             double tz = player.getZ() + look.z * 6;
 
             // 分散敵人注意力（讓他們轉向鈴鐺位置）
-            level.getEntitiesOfClass(LivingEntity.class,
+            level.getEntitiesOfClass(net.minecraft.world.entity.Mob.class,
                     new net.minecraft.world.phys.AABB(tx - 5, ty - 5, tz - 5, tx + 5, ty + 5, tz + 5),
-                    e -> !(e instanceof Player) && e.isAlive())
-            .forEach(e -> e.lookAt(net.minecraft.world.entity.EntityAnchorArgument.Anchor.EYES,
-                    new net.minecraft.world.phys.Vec3(tx, ty, tz)));
+                    net.minecraft.world.entity.Mob::isAlive)
+            .forEach(e -> e.getLookControl().setLookAt(tx, ty, tz));
 
             if (!player.isCreative()) player.getItemInHand(hand).shrink(1);
         }

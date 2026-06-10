@@ -1,0 +1,16 @@
+{
+  "name": "patchouli.cocojenna.entry.parasite",
+  "icon": "cocojenna:hibiscus_tear",
+  "category": "cocojenna:combat",
+  "sortnum": 2,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.entry.parasite.p1"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.entry.parasite.p2"
+    }
+  ]
+}

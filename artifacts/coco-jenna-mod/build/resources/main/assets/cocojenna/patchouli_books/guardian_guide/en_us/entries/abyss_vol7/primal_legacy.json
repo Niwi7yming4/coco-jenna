@@ -1,0 +1,16 @@
+{
+  "name": "純淨之核",
+  "icon": "cocojenna:primal_chaos_core",
+  "category": "cocojenna:abyss_vol7",
+  "sortnum": 3,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "原始混沌被蒸餾淨化後可能留下 **純淨之核**——黑泥曾存在於宇宙的最終證明，一塊墓碑，刻著所有被記住與被遺忘的名字。"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "將純淨之核鑲嵌於 **記憶紀念碑頂層**。之後紀念碑周圍會飄落金色粒子——黑泥的靈魂終於獲得安寧。"
+    }
+  ]
+}

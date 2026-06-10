@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "": {
+      "model": "cocojenna:block/salt_crystal",
+      "render_type": "cutout"
+    }
+  }
+}

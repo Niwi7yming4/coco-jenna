@@ -1,0 +1,12 @@
+{
+  "name": "序列8·遺忘之影",
+  "icon": "cocojenna:forgotten_wisp_spawn_egg",
+  "category": "cocojenna:abyss_vol2",
+  "sortnum": 2,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "模糊片段意識，重複生前最後動作。飄浮煙霧，遊蕩在記憶被遺忘的地點。實體：**遺忘幽靈**（forgotten_wisp）。"
+    }
+  ]
+}

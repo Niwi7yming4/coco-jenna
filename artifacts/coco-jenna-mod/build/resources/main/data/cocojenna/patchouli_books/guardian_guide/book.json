@@ -1,0 +1,9 @@
+{
+  "name": "item.cocojenna.guardian_guide",
+  "landing_text": "patchouli.cocojenna.guardian_guide.landing",
+  "version": 1,
+  "show_progress": true,
+  "use_resource_pack": true,
+  "creative_tab": "cocojenna:essentials",
+  "model": "cocojenna:item/guardian_guide"
+}

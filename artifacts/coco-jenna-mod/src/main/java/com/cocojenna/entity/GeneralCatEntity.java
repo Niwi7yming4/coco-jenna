@@ -10,6 +10,7 @@ import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
+import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 
@@ -89,19 +90,19 @@ public class GeneralCatEntity extends PathfinderMob {
         }
     }
 
-    /** HP = 0 → 觸發初晴事件 */
+    /** 僅影爪（最終 Boss）擊敗時觸發初晴；其他繼承類走正常死亡流程。 */
+    protected boolean triggersFirstDawnOnDeath() {
+        return this instanceof ShadowClawEntity;
+    }
+
     @Override
     protected void actuallyHurt(DamageSource source, float amount) {
-        if (getHealth() - amount <= 0) {
-            // 觸發終局
+        if (getHealth() - amount <= 0 && triggersFirstDawnOnDeath()) {
             if (source.getEntity() instanceof ServerPlayer player) {
                 ModEventHandler.triggerFirstDawn(player);
             }
-
-            // 發光爆炸粒子
             level().playSound(null, blockPosition(),
                     ModSounds.WORLD_FIRST_DAWN.get(), SoundSource.MASTER, 3.0f, 1.0f);
-
             discard();
             return;
         }

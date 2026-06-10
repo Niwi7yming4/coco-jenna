@@ -1,0 +1,7 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": { "item": "cocojenna:stardust_soil_item" },
+  "result": "cocojenna:moonstone",
+  "experience": 0.7,
+  "cookingtime": 200
+}

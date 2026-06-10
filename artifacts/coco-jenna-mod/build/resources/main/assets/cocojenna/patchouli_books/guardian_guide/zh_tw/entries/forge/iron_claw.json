@@ -1,0 +1,16 @@
+{
+  "name": "patchouli.cocojenna.entry.iron_claw",
+  "icon": "cocojenna:iron_claw_hammer",
+  "category": "cocojenna:forge",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.entry.iron_claw.p1"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.entry.iron_claw.p2"
+    }
+  ]
+}

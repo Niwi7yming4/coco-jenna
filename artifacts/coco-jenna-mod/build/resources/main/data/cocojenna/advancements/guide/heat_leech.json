@@ -1,0 +1,15 @@
+{
+  "display": {
+    "icon": { "item": "cocojenna:heat_leech_spawn_egg" },
+    "title": { "translate": "advancements.cocojenna.guide.heat_leech.title" },
+    "description": { "translate": "advancements.cocojenna.guide.heat_leech.description" },
+    "show_toast": false,
+    "announce_to_chat": false,
+    "frame": "task",
+    "hidden": true
+  },
+  "parent": "cocojenna:guide/first_boss",
+  "criteria": {
+    "discovered": { "trigger": "minecraft:impossible" }
+  }
+}

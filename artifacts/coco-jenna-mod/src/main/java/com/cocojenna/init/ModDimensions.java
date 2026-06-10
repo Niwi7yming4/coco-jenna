@@ -32,6 +32,11 @@ public class ModDimensions {
             Registries.DIMENSION,
             new ResourceLocation(CocoJennaMod.MOD_ID, "cat_kingdom"));
 
+    /** 地下貓域 — DLC「深淵與星光」 */
+    public static final ResourceKey<Level> UNDERCAT_DOMAIN = ResourceKey.create(
+            Registries.DIMENSION,
+            new ResourceLocation(CocoJennaMod.MOD_ID, "undercat_domain"));
+
     public static void register(IEventBus bus) {
         // 維度透過 data pack 定義（dimension/, dimension_type/, worldgen/）
         // 此處僅保存 ResourceKey 以供其他系統引用

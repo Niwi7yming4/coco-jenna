@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    { "item": "cocojenna:silvervine" },
+    { "item": "cocojenna:silvervine" },
+    { "item": "minecraft:gunpowder" }
+  ],
+  "result": { "item": "cocojenna:silvervine_bomb", "count": 3 }
+}

@@ -1,0 +1,42 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "rolls": {
+        "min": 2,
+        "max": 4
+      },
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "cocojenna:salt",
+          "weight": 10,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 2,
+                "max": 5
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "cocojenna:ryokatana_blind_water_stealth",
+          "weight": 6
+        },
+        {
+          "type": "minecraft:item",
+          "name": "cocojenna:ryokatana_blind_water_abyss",
+          "weight": 5
+        },
+        {
+          "type": "minecraft:item",
+          "name": "cocojenna:map_fragment",
+          "weight": 4
+        }
+      ]
+    }
+  ]
+}

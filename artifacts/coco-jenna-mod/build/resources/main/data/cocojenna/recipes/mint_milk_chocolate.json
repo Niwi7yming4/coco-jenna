@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    { "item": "minecraft:cocoa_beans" },
+    { "item": "minecraft:milk_bucket" },
+    { "item": "minecraft:sugar" },
+    { "item": "minecraft:blue_dye" }
+  ],
+  "result": {
+    "item": "cocojenna:mint_milk_chocolate",
+    "count": 3
+  }
+}

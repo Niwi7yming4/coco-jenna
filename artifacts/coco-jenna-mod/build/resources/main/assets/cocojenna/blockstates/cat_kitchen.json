@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "": {
+      "model": "cocojenna:block/cat_kitchen",
+      "render_type": "cutout"
+    }
+  }
+}

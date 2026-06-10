@@ -1,0 +1,12 @@
+{
+  "name": "序列5·模仿者",
+  "icon": "cocojenna:mimic_cat_spawn_egg",
+  "category": "cocojenna:abyss_vol2",
+  "sortnum": 5,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "足夠完整的自我意識來偽裝。擬態貓形，偽裝成活著時的模樣引誘生命。多數區域首領為此序列。"
+    }
+  ]
+}

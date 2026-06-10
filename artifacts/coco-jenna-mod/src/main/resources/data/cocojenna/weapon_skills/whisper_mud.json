@@ -1,0 +1,37 @@
+{
+  "variant_id": "whisper_mud",
+  "skill_id": "whisper_mud",
+  "archetype": "stealth",
+  "vfx_theme": "shadow",
+  "sound_key": "splash",
+  "charge_profile": "quick",
+  "min_charge_ticks": 12,
+  "cooldown_ticks": 60,
+  "mana_cost": 0,
+  "stage_effects": [
+    {
+      "stage": 0,
+      "damage_mult": 1.0,
+      "radius_mult": 1.0,
+      "particle_tier": 1
+    },
+    {
+      "stage": 1,
+      "damage_mult": 1.15,
+      "radius_mult": 1.1,
+      "particle_tier": 2
+    },
+    {
+      "stage": 2,
+      "damage_mult": 1.35,
+      "radius_mult": 1.2,
+      "particle_tier": 3
+    },
+    {
+      "stage": 3,
+      "damage_mult": 1.6,
+      "radius_mult": 1.35,
+      "particle_tier": 4
+    }
+  ]
+}

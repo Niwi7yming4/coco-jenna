@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "GPG",
+    "GDG",
+    "GGG"
+  ],
+  "key": {
+    "G": { "item": "minecraft:gold_ingot" },
+    "P": { "item": "minecraft:glass" },
+    "D": { "item": "cocojenna:distiller" }
+  },
+  "result": { "item": "cocojenna:aroma_distiller", "count": 1 }
+}

@@ -1,0 +1,18 @@
+{
+  "display": {
+    "icon": { "item": "cocojenna:jenna_fur" },
+    "title": { "translate": "advancements.cocojenna.meet_jenna.title" },
+    "description": { "translate": "advancements.cocojenna.meet_jenna.description" },
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "parent": "cocojenna:root",
+  "criteria": {
+    "interact_jenna": {
+      "trigger": "minecraft:player_interacted_with_entity",
+      "conditions": {
+        "entity": { "type": "cocojenna:jenna" }
+      }
+    }
+  }
+}

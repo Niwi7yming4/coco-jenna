@@ -1,0 +1,15 @@
+{
+  "display": {
+    "icon": { "item": "cocojenna:daikatana_first_dawn" },
+    "title": { "translate": "advancements.cocojenna.first_dawn.title" },
+    "description": { "translate": "advancements.cocojenna.first_dawn.description" },
+    "show_toast": true,
+    "announce_to_chat": true,
+    "frame": "challenge",
+    "hidden": true
+  },
+  "parent": "cocojenna:defeat_shadow_claw",
+  "criteria": {
+    "tick": { "trigger": "minecraft:impossible" }
+  }
+}

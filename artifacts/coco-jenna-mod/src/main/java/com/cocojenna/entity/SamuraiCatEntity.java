@@ -1,11 +1,21 @@
 package com.cocojenna.entity;
 
+import com.cocojenna.endgame.schedule.AfterRainNpcRole;
+import com.cocojenna.entity.goal.PeacefulNpcScheduleGoal;
+import com.cocojenna.init.ModItems;
 import com.cocojenna.init.ModSounds;
+import com.cocojenna.quest.FirstCryQuestManager;
+import com.cocojenna.util.MemoryShardUtil;
+import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
+import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 
@@ -46,18 +56,20 @@ public class SamuraiCatEntity extends PathfinderMob {
                 .add(Attributes.MOVEMENT_SPEED, 0.35)
                 .add(Attributes.ATTACK_DAMAGE, 8.0)
                 .add(Attributes.ARMOR, 4.0)
-                .add(Attributes.FOLLOW_RANGE, 20.0);
+                .add(Attributes.FOLLOW_RANGE, 12.0);
     }
 
     @Override
     protected void registerGoals() {
         goalSelector.addGoal(0, new FloatGoal(this));
-        goalSelector.addGoal(1, new SamuraiDuelGoal(this));
-        goalSelector.addGoal(3, new WaterAvoidingRandomStrollGoal(this, 0.6));
-        goalSelector.addGoal(4, new LookAtPlayerGoal(this, Player.class, 8.0f));
-        goalSelector.addGoal(5, new RandomLookAroundGoal(this));
+        goalSelector.addGoal(1, new MeleeAttackGoal(this, 1.15, true));
+        goalSelector.addGoal(2, new SamuraiDuelGoal(this));
+        goalSelector.addGoal(3, new PeacefulNpcScheduleGoal(this, AfterRainNpcRole.SAMURAI_GUARD));
+        goalSelector.addGoal(4, new WaterAvoidingRandomStrollGoal(this, 0.6));
+        goalSelector.addGoal(5, new LookAtPlayerGoal(this, Player.class, 8.0f));
+        goalSelector.addGoal(6, new RandomLookAroundGoal(this));
 
-        targetSelector.addGoal(1, new SamuraiDuelTargetGoal(this));
+        targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, true));
     }
 
     @Override
@@ -67,11 +79,17 @@ public class SamuraiCatEntity extends PathfinderMob {
         if (dashCooldown > 0) dashCooldown--;
         if (counterCooldown > 0) counterCooldown--;
 
+        LivingEntity target = getTarget();
+        if (target instanceof Player p && !inDuel) {
+            startDuel(p);
+        }
+
         // 玩家逃跑時停止追擊
         if (inDuel && duelTarget != null) {
             if (duelTarget.distanceTo(this) > 15.0) {
                 inDuel = false;
                 duelTarget = null;
+                setTarget(null);
                 getNavigation().moveTo(homePos.x, homePos.y, homePos.z, 0.8);
             }
         }
@@ -82,6 +100,10 @@ public class SamuraiCatEntity extends PathfinderMob {
         if (dashCooldown > 0) return;
         net.minecraft.world.phys.Vec3 dir = target.position().subtract(position()).normalize().scale(0.8);
         setDeltaMovement(dir.x, 0.2, dir.z);
+        if (distanceTo(target) < 3.0) {
+            target.hurt(damageSources().mobAttack(this),
+                    (float) getAttributeValue(Attributes.ATTACK_DAMAGE) * 1.35f);
+        }
         dashCooldown = 100;
     }
 
@@ -107,11 +129,43 @@ public class SamuraiCatEntity extends PathfinderMob {
     @Override
     protected void actuallyHurt(net.minecraft.world.damagesource.DamageSource source, float amount) {
         if (getHealth() - amount <= 0) {
+            if (source.getEntity() instanceof ServerPlayer player) {
+                awardDuelReward(player);
+            }
             spawnSealOrb();
             discard();
             return;
         }
         super.actuallyHurt(source, amount);
+    }
+
+    private void awardDuelReward(ServerPlayer player) {
+        FirstCryQuestManager.onSamuraiDefeated(player);
+        if (!player.addItem(MemoryShardUtil.create("samurai_duel"))) {
+            player.drop(MemoryShardUtil.create("samurai_duel"), false);
+        }
+        if (random.nextFloat() < 0.25f) {
+            var blade = new net.minecraft.world.item.ItemStack(ModItems.RYOKATANA_MOON_SHADOW.get());
+            if (!player.addItem(blade)) {
+                player.drop(blade, false);
+            }
+        }
+    }
+
+    @Override
+    public InteractionResult mobInteract(Player player, InteractionHand hand) {
+        if (player.isShiftKeyDown() && hand == InteractionHand.MAIN_HAND) {
+            if (player instanceof ServerPlayer sp) {
+                if (inDuel) {
+                    sp.displayClientMessage(
+                            Component.translatable("dialog.cocojenna.samurai.dueling"), false);
+                } else {
+                    FirstCryQuestManager.onSamuraiTalk(sp);
+                }
+            }
+            return InteractionResult.sidedSuccess(level().isClientSide);
+        }
+        return super.mobInteract(player, hand);
     }
 
     private void spawnSealOrb() {
@@ -145,31 +199,20 @@ public class SamuraiCatEntity extends PathfinderMob {
 
         @Override
         public boolean canUse() {
-            return samurai.isInDuel() && samurai.getDuelTarget() != null;
+            LivingEntity target = samurai.getTarget();
+            return target != null && samurai.isInDuel();
         }
 
         @Override
         public void tick() {
-            Player t = samurai.getDuelTarget();
+            LivingEntity t = samurai.getTarget();
             if (t == null) return;
-            samurai.getNavigation().moveTo(t, 1.2);
-            if (samurai.distanceTo(t) < 2.0 && samurai.dashCooldown <= 0) {
+            if (!samurai.isInDuel() && t instanceof Player p) {
+                samurai.startDuel(p);
+            }
+            if (samurai.dashCooldown <= 0 && samurai.distanceTo(t) < 3.5) {
                 samurai.performDashSlash(t);
             }
-        }
-    }
-
-    private static class SamuraiDuelTargetGoal extends Goal {
-        private final SamuraiCatEntity samurai;
-        SamuraiDuelTargetGoal(SamuraiCatEntity s) { this.samurai = s; }
-
-        @Override
-        public boolean canUse() {
-            Player p = samurai.level().getNearestPlayer(samurai, 10.0);
-            if (p == null) return false;
-            if (samurai.isInDuel()) return false;
-            samurai.startDuel(p);
-            return false;
         }
     }
 }

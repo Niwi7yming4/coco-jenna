@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "": {
+      "model": "cocojenna:block/rope_net",
+      "render_type": "cutout"
+    }
+  }
+}

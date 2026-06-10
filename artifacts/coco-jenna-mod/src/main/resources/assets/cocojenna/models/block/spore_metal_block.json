@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "top": "cocojenna:block/spore_metal_block",
+    "side": "cocojenna:block/spore_metal_block_side",
+    "bottom": "cocojenna:block/spore_metal_block_bottom"
+  }
+}

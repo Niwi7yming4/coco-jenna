@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    { "item": "cocojenna:moonstone" },
+    { "item": "cocojenna:purr_crystal" },
+    { "item": "minecraft:gold_ingot" }
+  ],
+  "result": { "item": "cocojenna:stardust_ring", "count": 1 }
+}

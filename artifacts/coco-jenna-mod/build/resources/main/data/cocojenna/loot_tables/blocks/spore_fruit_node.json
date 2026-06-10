@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": { "min": 1, "max": 3 },
+      "entries": [
+        { "type": "minecraft:item", "name": "cocojenna:spore_fruit" }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        { "type": "minecraft:item", "name": "cocojenna:spore_powder", "weight": 40 },
+        { "type": "minecraft:empty", "weight": 60 }
+      ]
+    }
+  ]
+}

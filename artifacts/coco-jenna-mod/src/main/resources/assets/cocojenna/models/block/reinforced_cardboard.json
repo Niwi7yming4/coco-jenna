@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "top": "cocojenna:block/reinforced_cardboard",
+    "side": "cocojenna:block/reinforced_cardboard_side",
+    "bottom": "cocojenna:block/reinforced_cardboard_bottom"
+  }
+}

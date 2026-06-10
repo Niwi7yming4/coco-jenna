@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    { "item": "cocojenna:black_mud_remnant" },
+    { "item": "cocojenna:black_mud_remnant" },
+    { "item": "cocojenna:stardust_soil_item" },
+    { "item": "cocojenna:memory_particle" }
+  ],
+  "result": { "item": "cocojenna:memory_clay", "count": 2 }
+}

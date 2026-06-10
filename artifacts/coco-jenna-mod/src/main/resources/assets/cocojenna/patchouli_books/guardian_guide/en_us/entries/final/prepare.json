@@ -1,0 +1,16 @@
+{
+  "name": "patchouli.cocojenna.entry.prepare_final",
+  "icon": "cocojenna:velvet_beginner_leggings",
+  "category": "cocojenna:final",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.entry.prepare_final.p1"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.entry.prepare_final.p2"
+    }
+  ]
+}

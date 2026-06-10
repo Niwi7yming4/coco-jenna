@@ -1,0 +1,12 @@
+{
+  "name": "飢餓的本能",
+  "icon": "cocojenna:black_mud_remnant",
+  "category": "cocojenna:abyss_vol1",
+  "sortnum": 4,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "黑泥沒有個體意識，但有統一的本能：**對「被記住」的飢餓**。它吞噬快樂的記憶不是出於惡意——快樂與悲傷一體兩面，快樂終將失去。被淨化時它不反抗，而是「鬆一口氣」——終於有人記起了它。"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "": {
+      "model": "cocojenna:block/undercat_waystone",
+      "render_type": "cutout"
+    }
+  }
+}

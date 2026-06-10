@@ -1,0 +1,12 @@
+{
+  "name": "記憶陶土與劇場",
+  "icon": "cocojenna:memory_clay",
+  "category": "cocojenna:abyss_vol7",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "雨後，黑泥殘骸與星塵土壤混合為記憶陶土。用於建造 **記憶劇場**（/build memory_theater），重播與雙子星的重要時刻。"
+    }
+  ]
+}

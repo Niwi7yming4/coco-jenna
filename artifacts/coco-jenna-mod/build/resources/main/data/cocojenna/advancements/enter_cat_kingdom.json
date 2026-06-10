@@ -1,0 +1,19 @@
+{
+  "display": {
+    "icon": { "item": "cocojenna:cat_kingdom_portal_frame" },
+    "title": { "translate": "advancements.cocojenna.enter_cat_kingdom.title" },
+    "description": { "translate": "advancements.cocojenna.enter_cat_kingdom.description" },
+    "show_toast": true,
+    "announce_to_chat": true,
+    "frame": "goal"
+  },
+  "parent": "cocojenna:first_memory_shard",
+  "criteria": {
+    "enter_dimension": {
+      "trigger": "minecraft:changed_dimension",
+      "conditions": {
+        "to": "cocojenna:cat_kingdom"
+      }
+    }
+  }
+}

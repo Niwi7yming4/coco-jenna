@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " M ",
+    "SIS",
+    "SSS"
+  ],
+  "key": {
+    "M": { "item": "cocojenna:moonstone" },
+    "S": { "item": "minecraft:stone" },
+    "I": { "item": "minecraft:iron_ingot" }
+  },
+  "result": { "item": "cocojenna:seal_pedestal", "count": 1 }
+}

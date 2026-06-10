@@ -1,0 +1,16 @@
+{
+  "name": "patchouli.cocojenna.entry.four_mad_orange",
+  "icon": "cocojenna:hibiscus_tear",
+  "category": "cocojenna:four_mad",
+  "sortnum": 4,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.entry.four_mad_orange.p1"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.entry.four_mad_orange.p2"
+    }
+  ]
+}

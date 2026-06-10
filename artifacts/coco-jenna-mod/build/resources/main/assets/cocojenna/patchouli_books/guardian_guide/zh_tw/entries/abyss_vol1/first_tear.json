@@ -1,0 +1,16 @@
+{
+  "name": "第一滴眼淚",
+  "icon": "cocojenna:hibiscus_tear",
+  "category": "cocojenna:abyss_vol1",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "《絨尾創世錄》記載：初代貓王絨尾失去伴侶月瞳的那一夜，祂安靜地坐在窗台上，看著滿月。一滴眼淚滑落王座前，三天後變成了第一滴黑泥。月瞳不是死於戰爭——當現實中最後記得她的人離世，她失去了錨點，化為月光回到維度本身。"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "這是貓之國第一場被記錄的「失去」，也是黑泥誕生的原點。珍奶塗鴉：一輪彎彎的月亮 🌙"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "name": "patchouli.cocojenna.entry.coco_diary",
+  "icon": "cocojenna:coco_fur",
+  "category": "cocojenna:appendix",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.entry.coco_diary.p1"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.entry.coco_diary.p2"
+    }
+  ]
+}

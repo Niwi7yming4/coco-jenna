@@ -4,6 +4,9 @@ import com.cocojenna.capability.BondData;
 import com.cocojenna.capability.ModCapabilities;
 import com.cocojenna.init.ModEffects;
 import com.cocojenna.init.ModSounds;
+import com.cocojenna.CocoJennaMod;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.player.Player;
@@ -106,8 +109,8 @@ public class SisterBondSystem {
 
         // 玩家在旁邊觀看 30 秒後解鎖成就
         double ownerDist = owner.distanceTo(coco);
-        if (ownerDist < 5.0) {
-            // TODO: 觸發成就「完美的對稱」
+        if (ownerDist < 5.0 && owner instanceof ServerPlayer sp) {
+            awardAdvancement(sp, "perfect_symmetry");
         }
     }
 
@@ -159,5 +162,15 @@ public class SisterBondSystem {
         if (bond >= 40) return "普通";
         if (bond >= 20) return "容忍";
         return "疏遠";
+    }
+
+    private static void awardAdvancement(ServerPlayer player, String id) {
+        var advancement = player.server.getAdvancements()
+                .getAdvancement(new ResourceLocation(CocoJennaMod.MOD_ID, id));
+        if (advancement == null) return;
+        var progress = player.getAdvancements().getOrStartProgress(advancement);
+        for (String criterion : progress.getRemainingCriteria()) {
+            player.getAdvancements().award(advancement, criterion);
+        }
     }
 }

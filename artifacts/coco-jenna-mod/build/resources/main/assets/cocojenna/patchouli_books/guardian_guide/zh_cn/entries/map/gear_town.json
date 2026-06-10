@@ -1,0 +1,16 @@
+{
+  "name": "patchouli.cocojenna.entry.gear_town",
+  "icon": "cocojenna:iron_claw_hammer",
+  "category": "cocojenna:map",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.entry.gear_town.p1"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.entry.gear_town.p2"
+    }
+  ]
+}

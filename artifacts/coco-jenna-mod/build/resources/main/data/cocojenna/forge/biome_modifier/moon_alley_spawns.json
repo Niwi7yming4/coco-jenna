@@ -1,0 +1,12 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": "cocojenna:moon_alley",
+  "spawners": [
+    {
+      "type": "cocojenna:court_lady_cat",
+      "weight": 5,
+      "minCount": 1,
+      "maxCount": 1
+    }
+  ]
+}

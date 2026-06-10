@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "MSM",
+    "SQS",
+    "MSM"
+  ],
+  "key": {
+    "M": { "item": "cocojenna:moonstone" },
+    "S": { "item": "cocojenna:full_moon_spectrum" },
+    "Q": { "item": "minecraft:quartz_block" }
+  },
+  "result": { "item": "cocojenna:full_moon_altar", "count": 1 }
+}

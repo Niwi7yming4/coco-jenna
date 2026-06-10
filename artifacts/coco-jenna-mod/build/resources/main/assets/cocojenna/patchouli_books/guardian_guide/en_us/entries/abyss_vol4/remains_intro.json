@@ -1,0 +1,12 @@
+{
+  "name": "黑泥殘骸",
+  "icon": "cocojenna:black_mud_remnant",
+  "category": "cocojenna:abyss_vol4",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "黑泥被蒸餾後物理形態崩解，殘餘物稱為「黑泥殘骸」——黑泥在物質世界留下的最後印記。序列越高，殘骸與副產物越珍貴。"
+    }
+  ]
+}

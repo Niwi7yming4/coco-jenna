@@ -2,6 +2,7 @@ package com.cocojenna.item;
 
 import com.cocojenna.capability.BondData;
 import com.cocojenna.capability.ModCapabilities;
+import com.cocojenna.dialogue.DialogueManager;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
@@ -54,22 +55,13 @@ public class MemoryShardItem extends Item {
                 stack.getOrCreateTag().putBoolean("Read", true);
             }
 
-            // 顯示記憶文本
             String dialogueKey = shardId.isEmpty()
                     ? "cocojenna.memory_shard.generic"
                     : "cocojenna.memory_shard." + shardId;
-            player.displayClientMessage(
-                    Component.translatable(dialogueKey).withStyle(ChatFormatting.ITALIC, ChatFormatting.AQUA),
-                    false);
 
-            // 顯示覺醒進度
-            player.displayClientMessage(
-                    Component.translatable("cocojenna.awakening.progress",
-                            bond.getCocoAwakening(), 50).withStyle(ChatFormatting.LIGHT_PURPLE),
-                    true);
-
-            // 同步到客戶端
             if (player instanceof ServerPlayer sp) {
+                if (firstRead) bond.notifyShardGrowth(sp);
+                DialogueManager.playMemoryShard(sp, dialogueKey);
                 com.cocojenna.network.ModNetwork.CHANNEL.send(
                         net.minecraftforge.network.PacketDistributor.PLAYER.with(() -> sp),
                         new com.cocojenna.network.SyncBondDataPacket(bond.serializeNBT()));

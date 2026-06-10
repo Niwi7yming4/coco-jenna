@@ -1,10 +1,14 @@
 package com.cocojenna.entity;
 
+import com.cocojenna.endgame.schedule.AfterRainNpcRole;
+import com.cocojenna.entity.goal.PeacefulNpcScheduleGoal;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
+import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
+import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 
@@ -35,9 +39,10 @@ public class CourtLadyCatEntity extends PathfinderMob {
     protected void registerGoals() {
         goalSelector.addGoal(0, new FloatGoal(this));
         goalSelector.addGoal(1, new AvoidEntityGoal<>(this, Player.class, 6.0f, 1.3, 1.5));
-        goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.2, true));
-        goalSelector.addGoal(3, new WaterAvoidingRandomStrollGoal(this, 0.7));
-        goalSelector.addGoal(4, new LookAtPlayerGoal(this, Player.class, 8.0f));
+        goalSelector.addGoal(2, new PeacefulNpcScheduleGoal(this, AfterRainNpcRole.COURT_LADY));
+        goalSelector.addGoal(4, new MeleeAttackGoal(this, 1.2, true));
+        goalSelector.addGoal(5, new WaterAvoidingRandomStrollGoal(this, 0.7));
+        goalSelector.addGoal(6, new LookAtPlayerGoal(this, Player.class, 8.0f));
         targetSelector.addGoal(1, new HurtByTargetGoal(this));
         targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, false));
     }

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "top": "cocojenna:block/velvet_vine",
+    "side": "cocojenna:block/velvet_vine_side",
+    "bottom": "cocojenna:block/velvet_vine_bottom"
+  }
+}

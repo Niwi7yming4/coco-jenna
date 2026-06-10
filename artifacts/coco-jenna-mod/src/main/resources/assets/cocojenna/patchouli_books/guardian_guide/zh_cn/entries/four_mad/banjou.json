@@ -1,0 +1,16 @@
+{
+  "name": "patchouli.cocojenna.entry.four_mad_banjou",
+  "icon": "cocojenna:moonlight_stone",
+  "category": "cocojenna:four_mad",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.entry.four_mad_banjou.p1"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.entry.four_mad_banjou.p2"
+    }
+  ]
+}

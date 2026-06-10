@@ -1,0 +1,16 @@
+{
+  "name": "patchouli.cocojenna.entry.skill_wheel",
+  "icon": "cocojenna:velvet_beginner_helmet",
+  "category": "cocojenna:sequence",
+  "sortnum": 2,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.entry.skill_wheel.p1"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.entry.skill_wheel.p2"
+    }
+  ]
+}

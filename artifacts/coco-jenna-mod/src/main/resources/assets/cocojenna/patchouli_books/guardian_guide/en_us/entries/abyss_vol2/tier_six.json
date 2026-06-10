@@ -1,0 +1,12 @@
+{
+  "name": "序列6·回憶蛀蟲",
+  "icon": "cocojenna:memory_moth_spawn_egg",
+  "category": "cocojenna:abyss_vol2",
+  "sortnum": 4,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "貪婪收集意識，主動尋找特定主題記憶。巨型飛蛾，是悲傷之海的清道夫。可能留下 **生鏽的鈴鐺**。"
+    }
+  ]
+}

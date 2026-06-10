@@ -1,0 +1,16 @@
+{
+  "name": "patchouli.cocojenna.entry.world_map",
+  "icon": "cocojenna:memory_lighthouse",
+  "category": "cocojenna:map",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.entry.world_map.p1"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.entry.world_map.p2"
+    }
+  ]
+}

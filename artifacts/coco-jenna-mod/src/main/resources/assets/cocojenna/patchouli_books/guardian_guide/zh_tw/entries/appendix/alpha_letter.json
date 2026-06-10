@@ -1,0 +1,16 @@
+{
+  "name": "patchouli.cocojenna.entry.alpha_letter",
+  "icon": "cocojenna:guardian_guide",
+  "category": "cocojenna:appendix",
+  "sortnum": 2,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.entry.alpha_letter.p1"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.entry.alpha_letter.p2"
+    }
+  ]
+}

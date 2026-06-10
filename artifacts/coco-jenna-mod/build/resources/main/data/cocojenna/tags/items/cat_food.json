@@ -1,0 +1,15 @@
+{
+  "replace": false,
+  "values": [
+    "cocojenna:basic_fish_puree",
+    "cocojenna:premium_fish_can",
+    "cocojenna:glow_fish_soup",
+    "cocojenna:crab_deluxe",
+    "cocojenna:hibiscus_sashimi",
+    "cocojenna:silvervine_biscuit",
+    "cocojenna:deep_sea_risotto",
+    "cocojenna:coco_special_meal",
+    "cocojenna:jenna_special_meal",
+    "cocojenna:twin_star_meal"
+  ]
+}

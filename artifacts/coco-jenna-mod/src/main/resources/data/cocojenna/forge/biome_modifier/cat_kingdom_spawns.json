@@ -1,0 +1,18 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": "#cocojenna:cat_kingdom",
+  "spawners": [
+    {
+      "type": "cocojenna:fur_ball_spirit",
+      "weight": 12,
+      "minCount": 1,
+      "maxCount": 3
+    },
+    {
+      "type": "cocojenna:velvet_moth",
+      "weight": 8,
+      "minCount": 1,
+      "maxCount": 2
+    }
+  ]
+}

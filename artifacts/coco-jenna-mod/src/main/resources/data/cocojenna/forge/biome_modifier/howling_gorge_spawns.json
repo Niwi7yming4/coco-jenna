@@ -1,0 +1,12 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": "cocojenna:howling_gorge",
+  "spawners": [
+    {
+      "type": "cocojenna:monk_cat",
+      "weight": 4,
+      "minCount": 1,
+      "maxCount": 1
+    }
+  ]
+}

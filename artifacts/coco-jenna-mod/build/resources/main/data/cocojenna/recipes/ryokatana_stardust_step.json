@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SPS",
+    "P P",
+    " B "
+  ],
+  "key": {
+    "S": {
+      "item": "cocojenna:stardust_soil_item"
+    },
+    "P": {
+      "item": "cocojenna:purr_crystal"
+    },
+    "B": {
+      "item": "cocojenna:moonstone"
+    }
+  },
+  "result": {
+    "item": "cocojenna:ryokatana_stardust_step",
+    "count": 1
+  }
+}

@@ -1,7 +1,9 @@
 package com.cocojenna;
 
 import com.cocojenna.capability.BondData;
+import com.cocojenna.capability.FragmentedSequenceData;
 import com.cocojenna.capability.ModCapabilities;
+import com.cocojenna.client.ModClientRenderLayers;
 import com.cocojenna.init.*;
 import com.cocojenna.network.ModNetwork;
 import com.mojang.logging.LogUtils;
@@ -18,17 +20,20 @@ import org.slf4j.Logger;
 public class CocoJennaMod {
 
     public static final String MOD_ID = "cocojenna";
-    private static final Logger LOGGER = LogUtils.getLogger();
+    public static final Logger LOGGER = LogUtils.getLogger();
 
     public CocoJennaMod() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         ModItems.ITEMS.register(modEventBus);
         ModBlocks.BLOCKS.register(modEventBus);
+        ModBlockEntities.BLOCK_ENTITIES.register(modEventBus);
+        ModMenuTypes.MENUS.register(modEventBus);
+        ModCreativeTabs.CREATIVE_TABS.register(modEventBus);
         ModEntities.ENTITY_TYPES.register(modEventBus);
         ModSounds.SOUNDS.register(modEventBus);
+        ModParticles.PARTICLE_TYPES.register(modEventBus);
         ModEffects.MOB_EFFECTS.register(modEventBus);
-        ModBiomes.BIOMES.register(modEventBus);
         ModDimensions.register(modEventBus);
 
         modEventBus.addListener(this::registerCapabilities);
@@ -41,6 +46,7 @@ public class CocoJennaMod {
 
     private void registerCapabilities(RegisterCapabilitiesEvent event) {
         event.register(BondData.class);
+        event.register(FragmentedSequenceData.class);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
@@ -51,6 +57,11 @@ public class CocoJennaMod {
     }
 
     private void clientSetup(final FMLClientSetupEvent event) {
+        event.enqueueWork(() -> {
+            ModClientRenderLayers.register();
+            com.cocojenna.client.renderer.SwordBoneRenderer.INSTANCE.toString();
+            com.cocojenna.client.gui.MemoryForgeHudOverlay.INSTANCE.toString();
+        });
         LOGGER.info("[CocoJenna] Client setup complete.");
     }
 }

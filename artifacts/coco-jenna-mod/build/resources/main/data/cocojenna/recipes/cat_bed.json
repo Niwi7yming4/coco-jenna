@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "VVV",
+    "WWW"
+  ],
+  "key": {
+    "V": { "item": "cocojenna:velvet_fur" },
+    "W": { "item": "minecraft:oak_planks" }
+  },
+  "result": { "item": "cocojenna:cat_bed", "count": 1 }
+}

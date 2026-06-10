@@ -1,0 +1,16 @@
+{
+  "name": "記憶與遺忘",
+  "icon": "cocojenna:memory_particle",
+  "category": "cocojenna:abyss_vol1",
+  "sortnum": 2,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "貓之國由「被記住的愛」構成。**被記住，就存在；被遺忘，就消散。**但遺忘是漸進的——溫暖的回憶→模糊的印象→隱約的疼痛→無名的悲傷。這些「正在被遺忘但尚未完全消散」的記憶，就是黑泥的原料。"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "可可註解：所以淨化不是消滅，是記起。"
+    }
+  ]
+}

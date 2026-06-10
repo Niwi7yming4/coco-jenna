@@ -1,0 +1,16 @@
+{
+  "name": "patchouli.cocojenna.entry.meet_jenna",
+  "icon": "cocojenna:jenna_fur",
+  "category": "cocojenna:welcome",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.entry.meet_jenna.p1"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.entry.meet_jenna.p2"
+    }
+  ]
+}

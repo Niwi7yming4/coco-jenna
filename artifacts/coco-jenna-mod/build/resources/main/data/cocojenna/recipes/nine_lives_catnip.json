@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "MMM",
+    "MCM",
+    "MMM"
+  ],
+  "key": {
+    "M": { "item": "cocojenna:moonstone" },
+    "C": { "item": "cocojenna:silvervine_biscuit" }
+  },
+  "result": { "item": "cocojenna:nine_lives_catnip", "count": 1 }
+}

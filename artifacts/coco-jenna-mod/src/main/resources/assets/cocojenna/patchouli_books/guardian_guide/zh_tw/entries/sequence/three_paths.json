@@ -1,0 +1,16 @@
+{
+  "name": "patchouli.cocojenna.entry.three_paths",
+  "icon": "cocojenna:ryokatana_velvet_whisper",
+  "category": "cocojenna:sequence",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.entry.three_paths.p1"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.entry.three_paths.p2"
+    }
+  ]
+}

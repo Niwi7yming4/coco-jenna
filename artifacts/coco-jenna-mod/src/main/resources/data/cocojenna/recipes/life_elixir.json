@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    { "item": "cocojenna:purr_crystal" },
+    { "item": "cocojenna:glass_vial" }
+  ],
+  "result": { "item": "cocojenna:life_elixir", "count": 1 }
+}

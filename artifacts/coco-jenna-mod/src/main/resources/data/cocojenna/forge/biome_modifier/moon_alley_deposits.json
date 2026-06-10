@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "cocojenna:moon_alley",
+  "features": "cocojenna:moonstone_cluster_patch",
+  "step": "underground_ores"
+}

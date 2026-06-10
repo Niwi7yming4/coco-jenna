@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "HFH",
+    "HIH",
+    " B "
+  ],
+  "key": {
+    "H": {
+      "item": "cocojenna:hibiscus_flower_item"
+    },
+    "F": {
+      "item": "cocojenna:black_mud_remnant"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "B": {
+      "item": "minecraft:iron_block"
+    }
+  },
+  "result": {
+    "item": "cocojenna:ryokatana_hibiscus_blood",
+    "count": 1
+  }
+}

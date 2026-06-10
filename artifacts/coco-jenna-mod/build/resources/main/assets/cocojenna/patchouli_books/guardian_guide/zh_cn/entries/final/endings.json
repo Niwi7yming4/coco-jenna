@@ -1,0 +1,16 @@
+{
+  "name": "patchouli.cocojenna.entry.endings",
+  "icon": "cocojenna:pure_purr_crystal",
+  "category": "cocojenna:final",
+  "sortnum": 3,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.entry.endings.p1"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.entry.endings.p2"
+    }
+  ]
+}

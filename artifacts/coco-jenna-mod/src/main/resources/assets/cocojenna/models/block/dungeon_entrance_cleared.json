@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "top": "cocojenna:block/purr_crystal_block",
+    "bottom": "cocojenna:block/moonstone_brick",
+    "side": "cocojenna:block/velvet_carpet"
+  }
+}

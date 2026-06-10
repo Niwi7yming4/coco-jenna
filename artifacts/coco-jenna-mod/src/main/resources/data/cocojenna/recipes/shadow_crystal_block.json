@@ -1,0 +1,6 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": ["SSS", "SSS", "SSS"],
+  "key": { "S": { "item": "cocojenna:shadow_crystal" } },
+  "result": { "item": "cocojenna:shadow_crystal_block", "count": 1 }
+}

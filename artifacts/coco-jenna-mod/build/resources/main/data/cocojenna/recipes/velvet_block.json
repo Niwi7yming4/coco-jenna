@@ -1,0 +1,6 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": ["VVV", "VVV", "VVV"],
+  "key": { "V": { "item": "cocojenna:velvet_fur" } },
+  "result": { "item": "cocojenna:velvet_block", "count": 1 }
+}

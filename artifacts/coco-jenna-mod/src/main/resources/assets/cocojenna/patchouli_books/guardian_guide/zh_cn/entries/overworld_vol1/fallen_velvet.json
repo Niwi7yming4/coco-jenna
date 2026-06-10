@@ -1,0 +1,13 @@
+{
+  "name": "墮落絨都",
+  "icon": "cocojenna:fallen_velvet_spawn_egg",
+  "category": "cocojenna:overworld_vol1",
+  "advancement": "cocojenna:guide/fallen_velvet",
+  "sortnum": 4,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "四狂之一。可選擇蒸餾或安撫路線，影響王國聲望。"
+    }
+  ]
+}

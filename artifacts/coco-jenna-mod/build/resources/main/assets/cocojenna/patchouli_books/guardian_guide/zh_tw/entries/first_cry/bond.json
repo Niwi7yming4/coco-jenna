@@ -1,0 +1,16 @@
+{
+  "name": "patchouli.cocojenna.entry.bond",
+  "icon": "cocojenna:pure_purr_crystal",
+  "category": "cocojenna:first_cry",
+  "sortnum": 2,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.entry.bond.p1"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.entry.bond.p2"
+    }
+  ]
+}

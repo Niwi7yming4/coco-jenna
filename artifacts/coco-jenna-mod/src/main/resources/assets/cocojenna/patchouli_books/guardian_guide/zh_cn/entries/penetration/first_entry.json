@@ -1,0 +1,16 @@
+{
+  "name": "patchouli.cocojenna.entry.penetration_first_entry",
+  "icon": "cocojenna:coco_fur",
+  "category": "cocojenna:penetration",
+  "sortnum": 4,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.entry.penetration_first_entry.p1"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.entry.penetration_first_entry.p2"
+    }
+  ]
+}

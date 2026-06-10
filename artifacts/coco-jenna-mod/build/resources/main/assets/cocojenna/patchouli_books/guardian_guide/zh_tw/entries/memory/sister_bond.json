@@ -1,0 +1,16 @@
+{
+  "name": "patchouli.cocojenna.entry.sister_bond",
+  "icon": "cocojenna:coco_fur",
+  "category": "cocojenna:memory",
+  "sortnum": 2,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.entry.sister_bond.p1"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.entry.sister_bond.p2"
+    }
+  ]
+}

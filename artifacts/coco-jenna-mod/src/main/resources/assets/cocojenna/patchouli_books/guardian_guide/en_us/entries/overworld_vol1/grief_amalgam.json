@@ -1,0 +1,13 @@
+{
+  "name": "悲傷聚合體",
+  "icon": "cocojenna:grief_amalgam_spawn_egg",
+  "category": "cocojenna:overworld_vol1",
+  "advancement": "cocojenna:guide/grief_amalgam",
+  "sortnum": 2,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "絨都森林深處的精英。核心暴露時使用蒸餾打擊可獲雙倍淨化獎勵。"
+    }
+  ]
+}

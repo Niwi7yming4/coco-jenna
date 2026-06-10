@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "": {
+      "model": "cocojenna:block/toy_box",
+      "render_type": "cutout"
+    }
+  }
+}

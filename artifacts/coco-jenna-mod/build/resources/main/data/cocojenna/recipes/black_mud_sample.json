@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    { "item": "cocojenna:black_mud_remnant" },
+    { "item": "cocojenna:glass_vial" }
+  ],
+  "result": { "item": "cocojenna:black_mud_sample", "count": 1 }
+}

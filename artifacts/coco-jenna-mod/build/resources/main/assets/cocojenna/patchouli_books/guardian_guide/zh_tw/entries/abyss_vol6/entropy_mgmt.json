@@ -1,0 +1,12 @@
+{
+  "name": "系統熵增派",
+  "icon": "cocojenna:precision_gear",
+  "category": "cocojenna:abyss_vol6",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "齒輪鎮工匠、鐵算盤三花子：黑泥是維度必然產物，應隔離、轉化、利用。齒輪鎮的「黑泥動力爐」將殘骸轉為能源——三花子的核心機密。"
+    }
+  ]
+}

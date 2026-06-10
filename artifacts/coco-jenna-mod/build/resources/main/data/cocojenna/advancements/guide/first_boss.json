@@ -1,0 +1,15 @@
+{
+  "display": {
+    "icon": { "item": "cocojenna:guardian_guide" },
+    "title": { "translate": "advancements.cocojenna.guide.first_boss.title" },
+    "description": { "translate": "advancements.cocojenna.guide.first_boss.description" },
+    "show_toast": true,
+    "announce_to_chat": false,
+    "frame": "task",
+    "hidden": true
+  },
+  "parent": "cocojenna:enter_cat_kingdom",
+  "criteria": {
+    "discovered": { "trigger": "minecraft:impossible" }
+  }
+}

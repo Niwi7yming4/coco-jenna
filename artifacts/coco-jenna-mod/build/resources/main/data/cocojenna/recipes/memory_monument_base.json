@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "QSQ",
+    "QMQ",
+    "QQQ"
+  ],
+  "key": {
+    "Q": { "item": "minecraft:quartz_block" },
+    "S": { "item": "cocojenna:memory_shard" },
+    "M": { "item": "cocojenna:moonstone" }
+  },
+  "result": { "item": "cocojenna:memory_monument_base", "count": 1 }
+}

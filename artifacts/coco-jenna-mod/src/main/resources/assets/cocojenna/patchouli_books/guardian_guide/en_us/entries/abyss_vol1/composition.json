@@ -1,0 +1,16 @@
+{
+  "name": "黑泥的構成",
+  "icon": "cocojenna:memory_particle",
+  "category": "cocojenna:abyss_vol1",
+  "sortnum": 3,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "• **記憶殘渣**（約70%）— 消退中的碎片，殘留模糊畫面與半句話。$(br)• **情感結晶**（約20%）— 未被承接的悲傷，決定怪物性格。$(br)• **虛無基質**（約10%）— 完全被遺忘留下的空洞，賦予流動與侵蝕性。"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "蒸餾打擊（R）可擊碎外殼暴露情感結晶，獲得雙倍殘骸與更高遺物機率。"
+    }
+  ]
+}

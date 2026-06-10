@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "cocojenna:item/whispering_doll_spawn_egg"
+  }
+}

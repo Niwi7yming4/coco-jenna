@@ -1,0 +1,12 @@
+{
+  "name": "盲水虛無主義",
+  "icon": "cocojenna:blind_water_gel",
+  "category": "cocojenna:abyss_vol6",
+  "sortnum": 2,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "淵泥共生者、流浪詩人貓：記憶是沈重負擔，沉入黑泥可達永恆寂靜。領袖「虛舟」自願成為墮落絨尾卻保留意識：「黑泥不是監獄。記憶才是。」"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": "cocojenna:stardust_desert",
+  "spawners": [
+    {
+      "type": "cocojenna:fur_ball_spirit",
+      "weight": 4,
+      "minCount": 1,
+      "maxCount": 1
+    }
+  ]
+}

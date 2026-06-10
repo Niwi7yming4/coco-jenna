@@ -1,0 +1,13 @@
+{
+  "display": {
+    "icon": { "item": "cocojenna:memory_book" },
+    "title": { "translate": "advancements.cocojenna.root.title" },
+    "description": { "translate": "advancements.cocojenna.root.description" },
+    "background": "minecraft:textures/gui/advancements/backgrounds/stone.png",
+    "show_toast": false,
+    "announce_to_chat": false
+  },
+  "criteria": {
+    "tick": { "trigger": "minecraft:tick" }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "cocojenna:rainbow_canyon",
+  "features": "cocojenna:hibiscus_patch",
+  "step": "vegetal_decoration"
+}

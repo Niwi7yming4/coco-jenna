@@ -1,0 +1,12 @@
+{
+  "name": "序列9·失溫者",
+  "icon": "cocojenna:heat_leech_spawn_egg",
+  "category": "cocojenna:abyss_vol2",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "完全無意識，僅本能反應。不定形液體，聚集在悲傷濃郁處被動吸收。實體：**熱吸血蟲**（heat_leech）。"
+    }
+  ]
+}

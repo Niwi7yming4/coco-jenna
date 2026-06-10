@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "": {
+      "model": "cocojenna:block/undercat_gear_shaft",
+      "render_type": "cutout"
+    }
+  }
+}

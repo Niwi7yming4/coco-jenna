@@ -1,0 +1,14 @@
+{
+  "parent": "cocojenna:meet_jenna",
+  "display": {
+    "title": { "translate": "advancements.cocojenna.perfect_symmetry.title" },
+    "description": { "translate": "advancements.cocojenna.perfect_symmetry.description" },
+    "icon": { "item": "cocojenna:memory_book" },
+    "frame": "goal"
+  },
+  "criteria": {
+    "sync_sunbath": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

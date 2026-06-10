@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "VVV",
+    " S ",
+    "VVV"
+  ],
+  "key": {
+    "V": { "item": "cocojenna:fiber_vine" },
+    "S": { "item": "minecraft:string" }
+  },
+  "result": { "item": "cocojenna:rope_net", "count": 4 }
+}

@@ -1,0 +1,15 @@
+{
+  "display": {
+    "icon": { "item": "cocojenna:black_mud" },
+    "title": { "translate": "advancements.cocojenna.guide.wandering_sludge.title" },
+    "description": { "translate": "advancements.cocojenna.guide.wandering_sludge.description" },
+    "show_toast": false,
+    "announce_to_chat": false,
+    "frame": "task",
+    "hidden": true
+  },
+  "parent": "cocojenna:guide/first_boss",
+  "criteria": {
+    "discovered": { "trigger": "minecraft:impossible" }
+  }
+}

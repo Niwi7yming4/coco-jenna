@@ -41,7 +41,7 @@ public class BlackMudBlock extends Block {
                     random.nextIntBetweenInclusive(-1, 1));
             BlockState neighborState = level.getBlockState(target);
             // 只侵蝕普通土地（不侵蝕石頭等）
-            if (neighborState.is(net.minecraft.tags.BlockTags.DIRT_LIKE)) {
+            if (neighborState.is(net.minecraft.tags.BlockTags.DIRT)) {
                 level.setBlock(target, defaultBlockState(), 3);
                 level.playSound(null, target, com.cocojenna.init.ModSounds.WORLD_BLACK_MUD_SPREAD.get(),
                         net.minecraft.sounds.SoundSource.BLOCKS, 0.3f, 0.8f);

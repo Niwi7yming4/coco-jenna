@@ -1,0 +1,6 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": ["MM", "MM"],
+  "key": { "M": { "item": "cocojenna:moonstone" } },
+  "result": { "item": "cocojenna:moonstone_brick", "count": 4 }
+}

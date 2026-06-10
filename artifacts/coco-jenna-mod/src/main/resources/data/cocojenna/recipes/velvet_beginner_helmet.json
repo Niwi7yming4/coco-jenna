@@ -1,0 +1,6 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": ["WWW", "W W"],
+  "key": { "W": { "item": "cocojenna:velvet_fur" } },
+  "result": { "item": "cocojenna:velvet_beginner_helmet", "count": 1 }
+}

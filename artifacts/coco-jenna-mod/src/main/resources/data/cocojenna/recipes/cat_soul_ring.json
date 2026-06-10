@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " M ",
+    "MEM",
+    " M "
+  ],
+  "key": {
+    "M": {
+      "item": "cocojenna:moonstone"
+    },
+    "E": {
+      "item": "minecraft:emerald"
+    }
+  },
+  "result": {
+    "item": "cocojenna:cat_soul_ring",
+    "count": 1
+  }
+}

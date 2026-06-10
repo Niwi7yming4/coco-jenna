@@ -1,0 +1,16 @@
+{
+  "name": "反向的成長",
+  "icon": "cocojenna:sequence_manual",
+  "category": "cocojenna:abyss_vol2",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "黑泥的序列與貓之國相反：序列9最接近純粹悲傷（未成形），序列1最接近被記住的存在（近乎生命）。這是悲傷逐漸獲得形體、名字，最終獲得「被記起」可能的過程。"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "諷刺的是：越接近序列1，就越接近淨化的可能。原始混沌被擊敗後，黑泥的源頭才會切斷。"
+    }
+  ]
+}

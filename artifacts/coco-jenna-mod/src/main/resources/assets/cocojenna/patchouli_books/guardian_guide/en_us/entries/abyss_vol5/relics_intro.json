@@ -1,0 +1,12 @@
+{
+  "name": "悲傷的遺物",
+  "icon": "cocojenna:unsent_letter",
+  "category": "cocojenna:abyss_vol5",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "序列3以上黑泥淨化時，極低機率留下「遺物」——不是材料，而是完整物品，是黑泥釋放出的最珍貴記憶。蒸餾擊殺可提升遺物機率。"
+    }
+  ]
+}

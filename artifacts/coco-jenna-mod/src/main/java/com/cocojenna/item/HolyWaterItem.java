@@ -21,6 +21,13 @@ public class HolyWaterItem extends Item {
             player.removeEffect(ModEffects.BLACK_MUD_STAGE1.get());
             player.removeEffect(ModEffects.BLACK_MUD_STAGE2.get());
             player.removeEffect(ModEffects.BLACK_MUD_STAGE3.get());
+            player.removeEffect(ModEffects.BLACK_MUD_STAGE4.get());
+            player.removeEffect(ModEffects.CORROSION_MARK.get());
+            player.getPersistentData().putInt("cocojenna_blackmud_stage", 0);
+            if (player instanceof net.minecraft.server.level.ServerPlayer sp) {
+                com.cocojenna.blackmud.BlackMudCorruptionManager.purifyRegion(
+                        sp.serverLevel(), player.blockPosition(), 8, sp);
+            }
         }
         stack.shrink(1);
         return stack.isEmpty() ? new ItemStack(Items.GLASS_BOTTLE) : stack;

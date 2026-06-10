@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "rolls": { "min": 2, "max": 5 },
+      "entries": [
+        { "type": "minecraft:item", "name": "cocojenna:spore_powder", "weight": 10, "functions": [{ "function": "minecraft:set_count", "count": { "min": 2, "max": 6 } }] },
+        { "type": "minecraft:item", "name": "cocojenna:ryokatana_gear_windup", "weight": 6 },
+        { "type": "minecraft:item", "name": "cocojenna:ryokatana_precision_gear", "weight": 5 },
+        { "type": "minecraft:item", "name": "cocojenna:purr_coin", "weight": 8, "functions": [{ "function": "minecraft:set_count", "count": { "min": 3, "max": 10 } }] }
+      ]
+    }
+  ]
+}

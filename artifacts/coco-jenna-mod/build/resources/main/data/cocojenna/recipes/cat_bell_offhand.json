@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "GGG",
+    "G G",
+    " G "
+  ],
+  "key": {
+    "G": { "item": "minecraft:gold_ingot" }
+  },
+  "result": { "item": "cocojenna:cat_bell_offhand", "count": 1 }
+}

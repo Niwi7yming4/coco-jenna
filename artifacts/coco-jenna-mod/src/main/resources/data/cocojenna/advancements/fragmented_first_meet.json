@@ -1,0 +1,16 @@
+{
+  "parent": "cocojenna:root",
+  "display": {
+    "icon": { "item": "cocojenna:memory_shard" },
+    "title": { "translate": "advancement.cocojenna.fragmented_first_meet.title" },
+    "description": { "translate": "advancement.cocojenna.fragmented_first_meet.description" },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "meet": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

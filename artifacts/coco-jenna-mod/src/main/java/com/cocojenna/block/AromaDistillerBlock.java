@@ -1,8 +1,26 @@
 package com.cocojenna.block;
 
-import net.minecraft.world.level.block.Block;
+import com.cocojenna.block.entity.AromaDistillerBlockEntity;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.state.BlockState;
 
-/** 香氛蒸餾台 — 製作各種香氛（可影響貓咪的心情和行為）。 */
-public class AromaDistillerBlock extends Block {
-    public AromaDistillerBlock(Properties props) { super(props); }
+import javax.annotation.Nullable;
+
+public class AromaDistillerBlock extends BaseMachineBlock<AromaDistillerBlockEntity> {
+
+    public AromaDistillerBlock(Properties props) {
+        super(props, (level, pos) -> {
+            var be = level.getBlockEntity(pos);
+            if (be instanceof AromaDistillerBlockEntity distiller) {
+                AromaDistillerBlockEntity.serverTick(level, pos, level.getBlockState(pos), distiller);
+            }
+        });
+    }
+
+    @Nullable
+    @Override
+    public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
+        return new AromaDistillerBlockEntity(pos, state);
+    }
 }

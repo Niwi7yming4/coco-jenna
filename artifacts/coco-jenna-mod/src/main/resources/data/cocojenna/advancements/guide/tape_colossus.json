@@ -1,0 +1,15 @@
+{
+  "display": {
+    "icon": { "item": "cocojenna:tape_colossus_spawn_egg" },
+    "title": { "translate": "advancements.cocojenna.guide.tape_colossus.title" },
+    "description": { "translate": "advancements.cocojenna.guide.tape_colossus.description" },
+    "show_toast": false,
+    "announce_to_chat": false,
+    "frame": "task",
+    "hidden": true
+  },
+  "parent": "cocojenna:guide/first_boss",
+  "criteria": {
+    "discovered": { "trigger": "minecraft:impossible" }
+  }
+}

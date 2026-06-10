@@ -1,0 +1,16 @@
+{
+  "name": "patchouli.cocojenna.entry.monument",
+  "icon": "cocojenna:memory_lighthouse",
+  "category": "cocojenna:memory",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.entry.monument.p1"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.entry.monument.p2"
+    }
+  ]
+}

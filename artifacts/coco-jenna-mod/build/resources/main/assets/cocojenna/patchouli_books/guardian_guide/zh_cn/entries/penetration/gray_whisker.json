@@ -1,0 +1,16 @@
+{
+  "name": "patchouli.cocojenna.entry.penetration_gray_whisker",
+  "icon": "cocojenna:guardian_guide",
+  "category": "cocojenna:penetration",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.entry.penetration_gray_whisker.p1"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.entry.penetration_gray_whisker.p2"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " C ",
+    " S ",
+    " S "
+  ],
+  "key": {
+    "C": { "item": "cocojenna:coco_fur" },
+    "S": { "item": "minecraft:iron_ingot" }
+  },
+  "result": { "item": "cocojenna:pawprint_dagger", "count": 1 }
+}

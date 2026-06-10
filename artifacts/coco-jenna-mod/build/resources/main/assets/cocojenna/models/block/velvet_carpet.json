@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/carpet",
+  "textures": {
+    "wool": "cocojenna:block/velvet_carpet"
+  }
+}

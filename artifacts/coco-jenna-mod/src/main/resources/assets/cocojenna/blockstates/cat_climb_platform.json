@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "": {
+      "model": "cocojenna:block/cat_climb_platform",
+      "render_type": "cutout"
+    }
+  }
+}

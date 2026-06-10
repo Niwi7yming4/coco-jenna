@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "cocojenna:block/dungeon_puzzle_hint"
+    }
+  }
+}

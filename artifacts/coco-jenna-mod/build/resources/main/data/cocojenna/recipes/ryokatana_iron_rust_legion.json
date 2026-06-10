@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "RIR",
+    "IRI",
+    " S "
+  ],
+  "key": {
+    "R": {
+      "item": "cocojenna:rusty_iron"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "cocojenna:ryokatana_iron_rust_legion",
+    "count": 1
+  }
+}

@@ -11,6 +11,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 
+import javax.annotation.Nullable;
 import java.util.List;
 
 /**
@@ -55,11 +56,10 @@ public class CatFoodItem extends Item {
             // 消耗物品
             if (!player.isCreative()) stack.shrink(1);
 
-            // 同步到客戶端
             if (player instanceof ServerPlayer sp) {
-                com.cocojenna.network.ModNetwork.CHANNEL.send(
-                        net.minecraftforge.network.PacketDistributor.PLAYER.with(() -> sp),
-                        new com.cocojenna.network.SyncBondDataPacket(bond.serializeNBT()));
+                com.cocojenna.quest.OnboardingQuestManager.onFeed(sp);
+                com.cocojenna.quest.KingdomTutorialManager.onFeedOrPet(sp);
+                com.cocojenna.network.BondSyncCoordinator.onHighFrequencyChange(sp);
             }
         }
         return true;
@@ -84,9 +84,9 @@ public class CatFoodItem extends Item {
             if (!player.isCreative()) stack.shrink(1);
 
             if (player instanceof ServerPlayer sp) {
-                com.cocojenna.network.ModNetwork.CHANNEL.send(
-                        net.minecraftforge.network.PacketDistributor.PLAYER.with(() -> sp),
-                        new com.cocojenna.network.SyncBondDataPacket(bond.serializeNBT()));
+                com.cocojenna.quest.OnboardingQuestManager.onFeed(sp);
+                com.cocojenna.quest.KingdomTutorialManager.onFeedOrPet(sp);
+                com.cocojenna.network.BondSyncCoordinator.onHighFrequencyChange(sp);
             }
         }
         return true;

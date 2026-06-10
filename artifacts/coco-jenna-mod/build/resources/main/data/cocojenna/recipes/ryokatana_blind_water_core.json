@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "GBG",
+    "BPB",
+    " M "
+  ],
+  "key": {
+    "G": {
+      "item": "cocojenna:blind_water_gel"
+    },
+    "B": {
+      "item": "cocojenna:blind_water_sample"
+    },
+    "P": {
+      "item": "cocojenna:deep_sea_pearl"
+    },
+    "M": {
+      "item": "cocojenna:moonstone"
+    }
+  },
+  "result": {
+    "item": "cocojenna:ryokatana_blind_water_core",
+    "count": 1
+  }
+}

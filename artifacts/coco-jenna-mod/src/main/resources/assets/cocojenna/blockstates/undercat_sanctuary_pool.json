@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "": {
+      "model": "cocojenna:block/undercat_sanctuary_pool",
+      "render_type": "cutout"
+    }
+  }
+}

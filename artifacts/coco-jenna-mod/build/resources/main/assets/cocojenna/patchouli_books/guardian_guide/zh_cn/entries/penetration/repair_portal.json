@@ -1,0 +1,16 @@
+{
+  "name": "patchouli.cocojenna.entry.penetration_repair_portal",
+  "icon": "cocojenna:memory_lighthouse",
+  "category": "cocojenna:penetration",
+  "sortnum": 3,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.entry.penetration_repair_portal.p1"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.entry.penetration_repair_portal.p2"
+    }
+  ]
+}

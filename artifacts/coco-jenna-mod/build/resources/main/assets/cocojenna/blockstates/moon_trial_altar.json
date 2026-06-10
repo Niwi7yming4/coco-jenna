@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "force=resonance": { "model": "cocojenna:block/moon_trial_altar_resonance" },
+    "force=shadow": { "model": "cocojenna:block/moon_trial_altar_shadow" },
+    "force=chaos": { "model": "cocojenna:block/moon_trial_altar_chaos" }
+  }
+}

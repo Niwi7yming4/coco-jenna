@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " I ",
+    " S ",
+    " M "
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    },
+    "M": {
+      "item": "cocojenna:black_mud_remnant"
+    }
+  },
+  "result": {
+    "item": "cocojenna:ryokatana_mimic_disguise",
+    "count": 1
+  }
+}

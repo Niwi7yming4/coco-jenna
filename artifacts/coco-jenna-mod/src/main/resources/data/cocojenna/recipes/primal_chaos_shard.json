@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "cocojenna:jenna_fur"
+    },
+    {
+      "item": "minecraft:glass"
+    },
+    {
+      "item": "cocojenna:velvet_fur"
+    }
+  ],
+  "result": {
+    "item": "cocojenna:primal_chaos_shard",
+    "count": 1
+  }
+}

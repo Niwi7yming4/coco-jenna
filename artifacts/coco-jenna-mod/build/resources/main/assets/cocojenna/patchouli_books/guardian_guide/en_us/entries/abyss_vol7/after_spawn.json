@@ -1,0 +1,12 @@
+{
+  "name": "雨後：黑泥不再增殖",
+  "icon": "cocojenna:stardust_soil_item",
+  "category": "cocojenna:abyss_vol7",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "擊敗影爪並淨化原始混沌後，黑泥源頭切斷。已存在的黑泥不會立刻消失——沉睡的悲傷需被一一記起。侵蝕蔓延停止，悲傷之海不再擴張，毛球精靈取代野外黑泥。"
+    }
+  ]
+}

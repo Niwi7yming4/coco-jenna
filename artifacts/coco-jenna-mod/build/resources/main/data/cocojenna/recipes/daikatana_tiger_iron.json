@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "NPN",
+    "NSS",
+    " SS"
+  ],
+  "key": {
+    "N": { "item": "minecraft:netherite_ingot" },
+    "P": { "item": "cocojenna:purr_crystal" },
+    "S": { "item": "minecraft:stick" }
+  },
+  "result": { "item": "cocojenna:daikatana_tiger_iron", "count": 1 }
+}

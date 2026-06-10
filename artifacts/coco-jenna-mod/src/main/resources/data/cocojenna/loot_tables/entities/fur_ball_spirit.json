@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:entity",
+  "pools": [
+    {
+      "rolls": { "min": 1, "max": 2 },
+      "entries": [
+        { "type": "minecraft:item", "name": "cocojenna:velvet_fur", "weight": 70 },
+        { "type": "minecraft:item", "name": "cocojenna:memory_particle", "weight": 30 },
+        { "type": "minecraft:item", "name": "cocojenna:ryokatana_fish_bone_tide", "weight": 3 }
+      ],
+      "conditions": [{ "condition": "minecraft:killed_by_player" }]
+    }
+  ]
+}

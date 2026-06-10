@@ -1,0 +1,47 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "rolls": {
+        "min": 2,
+        "max": 4
+      },
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "cocojenna:velvet_fur",
+          "weight": 10,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 2,
+                "max": 5
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "cocojenna:memory_shard",
+          "weight": 8
+        },
+        {
+          "type": "minecraft:item",
+          "name": "cocojenna:ryokatana_first_cry_beginner",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "name": "cocojenna:archaeology_brush",
+          "weight": 3
+        },
+        {
+          "type": "minecraft:item",
+          "name": "cocojenna:ryokatana_copper_bell_soul",
+          "weight": 4
+        }
+      ]
+    }
+  ]
+}

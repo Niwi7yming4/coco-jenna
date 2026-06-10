@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "top": "cocojenna:block/blind_water",
+    "side": "cocojenna:block/blind_water_side",
+    "bottom": "cocojenna:block/blind_water_bottom"
+  }
+}

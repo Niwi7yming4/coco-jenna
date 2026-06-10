@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "": {
+      "model": "cocojenna:block/undercat_tree_hole",
+      "render_type": "cutout"
+    }
+  }
+}

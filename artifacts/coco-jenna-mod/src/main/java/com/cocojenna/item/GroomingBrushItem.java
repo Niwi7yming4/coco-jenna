@@ -32,6 +32,15 @@ public class GroomingBrushItem extends Item {
         if (player.level().isClientSide) return false;
 
         BondData bond = ModCapabilities.getOrDefault(player);
+        BondData.EmotionLevel level = cat instanceof com.cocojenna.entity.CocoEntity
+                ? bond.getCocoEmotionLevel()
+                : bond.getJennaEmotionLevel();
+        if (level.ordinal() < BondData.EmotionLevel.BONDED.ordinal()) {
+            return false;
+        }
+        if (!cat.canGroomToday()) {
+            return false;
+        }
 
         // 播放音效
         player.level().playSound(null, cat.blockPosition(),
@@ -59,6 +68,7 @@ public class GroomingBrushItem extends Item {
             brush.hurtAndBreak(1, player, p -> p.broadcastBreakEvent(p.getUsedItemHand()));
         }
 
+        cat.recordGroom();
         return true;
     }
 }

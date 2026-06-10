@@ -1,0 +1,16 @@
+{
+  "name": "patchouli.cocojenna.entry.gathering",
+  "icon": "cocojenna:catnip",
+  "category": "cocojenna:first_cry",
+  "sortnum": 3,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.entry.gathering.p1"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.entry.gathering.p2"
+    }
+  ]
+}

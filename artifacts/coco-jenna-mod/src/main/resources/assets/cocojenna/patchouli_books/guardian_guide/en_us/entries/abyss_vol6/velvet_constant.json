@@ -1,0 +1,12 @@
+{
+  "name": "絨毛恆定論",
+  "icon": "cocojenna:velvet_beginner_chestplate",
+  "category": "cocojenna:abyss_vol6",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "王城舊部、初啼村長老：黑泥是絕對邪惡，必須根除。對黑泥的同情是對犧牲者的背叛。影爪政變後的「全面淨化行動」失敗，使他們更加保守。"
+    }
+  ]
+}

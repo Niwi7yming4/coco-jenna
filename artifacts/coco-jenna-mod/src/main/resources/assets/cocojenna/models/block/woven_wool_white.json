@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "top": "cocojenna:block/woven_wool_white",
+    "side": "cocojenna:block/woven_wool_white_side",
+    "bottom": "cocojenna:block/woven_wool_white_bottom"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "共鳴、犧牲與哀悼",
+  "icon": "cocojenna:pure_purr_crystal",
+  "category": "cocojenna:abyss_vol3",
+  "sortnum": 2,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "**共鳴**：區域黑泥共享感知，發現溫暖記憶時全區知曉。$(br)**犧牲**：受擊時低序列擋在高序列前方。$(br)**哀悼**：高序列被淨化時，周圍黑泥停滯約5秒——「黑泥的眼淚」。"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "當可可與珍奶情感值高時進入悲傷之海，共鳴會更強烈——黑泥會被你的溫暖吸引。"
+    }
+  ]
+}

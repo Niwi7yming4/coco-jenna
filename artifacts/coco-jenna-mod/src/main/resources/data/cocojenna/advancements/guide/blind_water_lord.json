@@ -1,0 +1,15 @@
+{
+  "display": {
+    "icon": { "item": "cocojenna:blind_water_lord_spawn_egg" },
+    "title": { "translate": "advancements.cocojenna.guide.blind_water_lord.title" },
+    "description": { "translate": "advancements.cocojenna.guide.blind_water_lord.description" },
+    "show_toast": false,
+    "announce_to_chat": false,
+    "frame": "task",
+    "hidden": true
+  },
+  "parent": "cocojenna:guide/first_boss",
+  "criteria": {
+    "discovered": { "trigger": "minecraft:impossible" }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": ["PPP", "PPP", "PPP"],
+  "key": { "P": { "item": "cocojenna:purr_crystal" } },
+  "result": { "item": "cocojenna:purr_crystal_block", "count": 1 }
+}

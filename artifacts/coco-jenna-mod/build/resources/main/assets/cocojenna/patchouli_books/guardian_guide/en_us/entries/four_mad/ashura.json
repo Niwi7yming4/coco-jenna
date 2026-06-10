@@ -1,0 +1,16 @@
+{
+  "name": "patchouli.cocojenna.entry.four_mad_ashura",
+  "icon": "cocojenna:ryokatana_velvet_whisper",
+  "category": "cocojenna:four_mad",
+  "sortnum": 3,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.entry.four_mad_ashura.p1"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.entry.four_mad_ashura.p2"
+    }
+  ]
+}

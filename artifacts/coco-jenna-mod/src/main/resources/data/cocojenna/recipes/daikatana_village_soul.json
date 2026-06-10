@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "cocojenna:salt"
+    },
+    {
+      "item": "minecraft:diamond"
+    },
+    {
+      "item": "minecraft:flint"
+    },
+    {
+      "item": "cocojenna:spore_fruit"
+    }
+  ],
+  "result": {
+    "item": "cocojenna:daikatana_village_soul",
+    "count": 1
+  }
+}

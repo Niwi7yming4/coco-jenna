@@ -1,0 +1,15 @@
+{
+  "display": {
+    "icon": { "item": "cocojenna:moon_core" },
+    "title": { "translate": "advancements.cocojenna.guide.moon_guardian.title" },
+    "description": { "translate": "advancements.cocojenna.guide.moon_guardian.description" },
+    "show_toast": false,
+    "announce_to_chat": false,
+    "frame": "task",
+    "hidden": true
+  },
+  "parent": "cocojenna:guide/first_boss",
+  "criteria": {
+    "discovered": { "trigger": "minecraft:impossible" }
+  }
+}

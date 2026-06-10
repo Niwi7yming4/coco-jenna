@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "cocojenna:blind_water_river",
+  "features": "cocojenna:hibiscus_patch",
+  "step": "vegetal_decoration"
+}

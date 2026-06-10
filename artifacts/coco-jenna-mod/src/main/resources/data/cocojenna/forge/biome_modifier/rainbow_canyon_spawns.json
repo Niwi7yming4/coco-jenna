@@ -1,0 +1,12 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": "cocojenna:rainbow_canyon",
+  "spawners": [
+    {
+      "type": "cocojenna:fur_ball_spirit",
+      "weight": 6,
+      "minCount": 1,
+      "maxCount": 2
+    }
+  ]
+}
