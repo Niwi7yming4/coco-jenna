@@ -1,0 +1,15 @@
+{
+  "display": {
+    "icon": { "item": "cocojenna:sealed_relic" },
+    "title": { "translate": "patchouli.cocojenna.entry.penetration_moon_dungeon" },
+    "description": { "translate": "patchouli.cocojenna.entry.penetration_moon_dungeon.p1" },
+    "show_toast": true,
+    "announce_to_chat": false,
+    "frame": "task",
+    "hidden": true
+  },
+  "parent": "cocojenna:guide/penetration_gray_whisker",
+  "criteria": {
+    "discovered": { "trigger": "minecraft:impossible" }
+  }
+}

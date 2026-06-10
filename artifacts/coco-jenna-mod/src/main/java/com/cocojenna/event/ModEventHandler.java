@@ -238,6 +238,7 @@ public class ModEventHandler {
             com.cocojenna.network.MultiplayerBondSyncHelper.onPlayerLogin(sp);
             com.cocojenna.quest.OnboardingQuestManager.tickHints(sp);
             com.cocojenna.overworld.OverworldPenetrationManager.onPlayerLogin(sp);
+            com.cocojenna.guide.PenetrationGuideHelper.syncForStage(sp, bond.getPenetrationQuestStage());
         }
     }
 
@@ -1066,6 +1067,7 @@ public class ModEventHandler {
             com.cocojenna.village.VillageFestivalManager.tickDaily(sp);
             com.cocojenna.kingdom.EcologyDeepeningManager.tickPlayer(sp);
             com.cocojenna.kingdom.TownNpcWorldManager.tickPlayer(sp);
+            com.cocojenna.kingdom.TownNpcScheduleManager.tickPlayer(sp);
             com.cocojenna.society.CatMarriageManager.tickDaily(sp);
             com.cocojenna.sequence.MoonCrossroadsManager.tickPlayer(sp);
             com.cocojenna.sequence.MoonCrossroadsManager.tickNovicePassives(sp);
@@ -1078,6 +1080,11 @@ public class ModEventHandler {
             com.cocojenna.world.firstcry.FirstCryBlackMudEventManager.tick(sp.serverLevel());
             com.cocojenna.world.firstcry.FirstCryHiddenInteractionHandler.trySneakPassage(sp);
             com.cocojenna.quest.FirstCryQuestHud.tick(sp);
+            var bond = com.cocojenna.capability.ModCapabilities.getOrDefault(sp);
+            if (bond.getCeremonyStage() > 0) {
+                com.cocojenna.sequence.PromotionCeremonyHandler.checkTimeout(
+                        bond, sp.serverLevel().getGameTime());
+            }
         }
     }
 

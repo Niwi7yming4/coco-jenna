@@ -29,6 +29,7 @@ public final class ExplorationMarkers {
     public static void placeVelvetForest(ServerLevel level, BlockPos center) {
         setTablet(level, center.getX() - 10, center.getY(), center.getZ() + 4, 0);
         setTablet(level, center.getX() + 8, center.getY() + 1, center.getZ() - 6, 11);
+        setDungeon(level, center.getX() - 8, center.getY(), center.getZ() - 10, 1);
         setHidden(level, center.getX() + 5, center.getY() + 1, center.getZ() + 8);
         spawnWild(level, WildCatType.MOTH_CAT.id(), center.getX() - 4, center.getY() + 1, center.getZ() - 3);
         spawnWild(level, WildCatType.STING_TAIL.id(), center.getX() + 6, center.getY() + 1, center.getZ() + 2);
@@ -36,6 +37,7 @@ public final class ExplorationMarkers {
 
     public static void placeMoonAlley(ServerLevel level, BlockPos center) {
         setMural(level, center.getX() + 3, center.getY() + 1, center.getZ() - 4, 1, true);
+        setDungeon(level, center.getX() + 10, center.getY(), center.getZ() + 6, 2);
         setHidden(level, center.getX() - 2, center.getY() + 1, center.getZ() + 5);
         spawnWild(level, WildCatType.MOON_TABBY.id(), center.getX() + 1, center.getY() + 1, center.getZ() + 1);
     }

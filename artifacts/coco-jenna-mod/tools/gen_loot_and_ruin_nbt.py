@@ -235,6 +235,7 @@ def tier1_war_ruins() -> list[tuple[tuple[int, int, int], str]]:
     blocks.append(((0, 1, 0), "minecraft:cracked_stone_bricks"))
     blocks.extend(_chest_at(0, 0, 2))
     blocks.append(((3, 2, 0), "minecraft:black_banner"))
+    blocks.append(((-1, 1, 1), "minecraft:lectern"))
     return blocks
 
 
@@ -246,6 +247,7 @@ def tier1_forgotten_altar() -> list[tuple[tuple[int, int, int], str]]:
         for dz in range(-1, 2):
             blocks.append(((dx, 1, dz), "minecraft:quartz_block"))
     blocks.append(((0, 2, 0), "cocojenna:moonstone_brick"))
+    blocks.append(((0, 1, -1), "minecraft:lectern"))
     return blocks
 
 
@@ -257,6 +259,7 @@ def tier1_monument() -> list[tuple[tuple[int, int, int], str]]:
     blocks.append(((0, 2, 0), "minecraft:polished_blackstone"))
     blocks.append(((0, 3, 0), "minecraft:soul_lantern"))
     blocks.extend(_chest_at(2, 1, 0))
+    blocks.append(((-2, 1, 0), "minecraft:lectern"))
     return blocks
 
 
@@ -267,6 +270,7 @@ def tier1_canteen() -> list[tuple[tuple[int, int, int], str]]:
         blocks.append(((x, 2, 0), "minecraft:spruce_pressure_plate"))
     blocks.append(((0, 1, -2), "minecraft:campfire"))
     blocks.extend(_chest_at(0, 1, 2))
+    blocks.append(((0, 1, -1), "minecraft:lectern"))
     return blocks
 
 
@@ -276,6 +280,40 @@ def tier1_toy_vault() -> list[tuple[tuple[int, int, int], str]]:
         blocks.append(((dx, 1, 0), "cocojenna:cardboard_block"))
     blocks.append(((0, 2, 0), "minecraft:bell"))
     blocks.extend(_chest_at(0, 1, 1))
+    blocks.append(((-1, 1, -1), "minecraft:lectern"))
+    return blocks
+
+
+def tier1_velvet_tower() -> list[tuple[tuple[int, int, int], str]]:
+    blocks = _platform(3, "minecraft:oak_planks")
+    for dy in range(1, 8):
+        blocks.append(((0, dy, 0), "minecraft:stripped_oak_log"))
+    for dy in range(1, 4):
+        for dx in (-2, 2):
+            blocks.append(((dx, dy, 0), "minecraft:oak_fence"))
+    blocks.append(((0, 8, 0), "minecraft:campfire"))
+    blocks.append(((1, 2, 1), "minecraft:lectern"))
+    blocks.extend(_chest_at(-1, 1, 2))
+    return blocks
+
+
+def tier1_ironpaw_forge() -> list[tuple[tuple[int, int, int], str]]:
+    blocks = _platform(4, "minecraft:stone_bricks")
+    for dx in (-2, 2):
+        blocks.append(((dx, 1, 0), "minecraft:anvil"))
+    blocks.append(((0, 1, 0), "minecraft:blast_furnace"))
+    blocks.append(((0, 1, 2), "minecraft:lectern"))
+    blocks.extend(_chest_at(2, 1, -2))
+    return blocks
+
+
+def tier1_black_mud_farm() -> list[tuple[tuple[int, int, int], str]]:
+    blocks = _platform(4, "minecraft:farmland")
+    for dx in range(-2, 3):
+        blocks.append(((dx, 1, 1), "cocojenna:black_mud"))
+        blocks.append(((dx, 1, -1), "minecraft:wheat"))
+    blocks.append(((0, 1, 3), "minecraft:lectern"))
+    blocks.extend(_chest_at(3, 1, 0))
     return blocks
 
 
@@ -296,6 +334,12 @@ def ruin_blocks(rid: str) -> list[tuple[tuple[int, int, int], str]]:
         return tier1_moon_dungeon()
     if rid == "black_mud_contaminated_temple":
         return tier1_mud_temple()
+    if rid == "velvet_tower":
+        return tier1_velvet_tower()
+    if rid == "ironpaw_forge_ruins":
+        return tier1_ironpaw_forge()
+    if rid == "black_mud_farm":
+        return tier1_black_mud_farm()
     blocks: list[tuple[tuple[int, int, int], str]] = []
     for dx in range(-3, 4):
         for dz in range(-3, 4):
@@ -340,17 +384,42 @@ FIRST_CRY_DISTRICTS = [
 
 
 def mausoleum_blocks(mid: str) -> list[tuple[tuple[int, int, int], str]]:
-    blocks = _platform(3, "minecraft:deepslate_bricks")
-    blocks.append(((0, 1, 0), "cocojenna:suspicious_wall"))
+    shell = {
+        "paper_harem": "minecraft:red_terracotta",
+        "terracotta": "minecraft:terracotta",
+        "library": "minecraft:deepslate_bricks",
+        "tea_garden": "minecraft:moss_block",
+        "observatory": "minecraft:smooth_quartz",
+        "sleeping_chamber": "minecraft:purple_wool",
+    }.get(mid, "minecraft:deepslate_bricks")
+    blocks = _platform(4, shell)
     core = {
         "paper_harem": "minecraft:red_wool",
-        "terracotta": "minecraft:terracotta",
+        "terracotta": "minecraft:orange_terracotta",
         "library": "minecraft:bookshelf",
         "tea_garden": "cocojenna:catnip",
         "observatory": "minecraft:glass",
         "sleeping_chamber": "cocojenna:woven_wool",
     }.get(mid, "minecraft:stone_bricks")
+    height = {
+        "paper_harem": 2,
+        "terracotta": 4,
+        "library": 3,
+        "tea_garden": 1,
+        "observatory": 6,
+        "sleeping_chamber": 2,
+    }.get(mid, 3)
+    for dy in range(1, height + 1):
+        for dx in range(-2, 3):
+            blocks.append(((dx, dy, -2), shell))
+    blocks.append(((0, 1, 0), "cocojenna:suspicious_wall"))
     blocks.append(((0, -2, 0), core))
+    if mid == "observatory":
+        blocks.append(((0, height + 1, 0), "minecraft:beacon"))
+    if mid == "library":
+        blocks.append(((2, 1, 1), "minecraft:lectern"))
+    if mid == "tea_garden":
+        blocks.append(((-2, 1, 2), "minecraft:flower_pot"))
     blocks.extend(_chest_at(1, -2, 0))
     return blocks
 

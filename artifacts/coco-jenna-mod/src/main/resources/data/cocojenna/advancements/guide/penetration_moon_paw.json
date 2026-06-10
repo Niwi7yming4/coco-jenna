@@ -1,0 +1,15 @@
+{
+  "display": {
+    "icon": { "item": "cocojenna:moonlight_stone" },
+    "title": { "translate": "patchouli.cocojenna.entry.penetration_moon_paw" },
+    "description": { "translate": "patchouli.cocojenna.entry.penetration_moon_paw.p1" },
+    "show_toast": true,
+    "announce_to_chat": false,
+    "frame": "task",
+    "hidden": true
+  },
+  "parent": "cocojenna:enter_cat_kingdom",
+  "criteria": {
+    "discovered": { "trigger": "minecraft:impossible" }
+  }
+}

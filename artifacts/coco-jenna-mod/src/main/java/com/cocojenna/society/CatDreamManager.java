@@ -2,7 +2,9 @@ package com.cocojenna.society;
 
 import com.cocojenna.capability.BondData;
 import com.cocojenna.capability.ModCapabilities;
+import com.cocojenna.dialogue.DialogueManager;
 import com.cocojenna.endgame.kingdom.TownNpcProfile;
+import com.cocojenna.overworld.PenetrationQuestManager;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 
@@ -14,7 +16,10 @@ public final class CatDreamManager {
     public static void tickPlayer(ServerPlayer player) {
         if (player.isSleeping() && player.tickCount % 40 == 0) {
             BondData sleepBond = ModCapabilities.getOrDefault(player);
-            if (sleepBond.getMemoryShardsTotal() > 0 && player.getRandom().nextFloat() < 0.08f) {
+            if (sleepBond.getMemoryShardsTotal() > 0 && player.getRandom().nextFloat() < 0.12f) {
+                tryDreamScene(player, sleepBond);
+            }
+            if (sleepBond.getMemoryShardsTotal() > 0 && player.getRandom().nextFloat() < 0.06f) {
                 var shard = com.cocojenna.util.MemoryShardUtil.create("cat_dream");
                 if (!player.addItem(shard)) player.drop(shard, false);
                 player.displayClientMessage(Component.translatable("society.cocojenna.dream.shard"), true);
@@ -41,6 +46,30 @@ public final class CatDreamManager {
                         profile.nameZh()), true);
             }
         }
+    }
+
+    private static void tryDreamScene(ServerPlayer player, BondData bond) {
+        String scene = pickDreamScene(player, bond);
+        if (com.cocojenna.dialogue.DialogueScripts.get(scene) != null) {
+            DialogueManager.play(player, scene);
+        }
+    }
+
+    private static String pickDreamScene(ServerPlayer player, BondData bond) {
+        if (bond.getPenetrationQuestStage() < PenetrationQuestManager.STAGE_COMPLETE) {
+            return "cat_dream_penetration";
+        }
+        for (TownNpcProfile profile : TownNpcProfile.ALL) {
+            if (bond.isTownNpcRecruited(profile.id()) && bond.getTownNpcDreamStage(profile.id()) >= 1) {
+                return "cat_dream_npc_" + profile.id();
+            }
+        }
+        int roll = player.getRandom().nextInt(3);
+        return switch (roll) {
+            case 0 -> "cat_dream_moon";
+            case 1 -> "cat_dream_village";
+            default -> "cat_dream_coco";
+        };
     }
 
     public static String dreamText(ServerPlayer player, String npcId) {

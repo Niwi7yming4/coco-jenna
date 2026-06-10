@@ -56,8 +56,9 @@ public final class BondSyncCoordinator {
 
     /** 儀式階段切換 — 立即輕量封包. */
     public static void syncCeremonyStage(ServerPlayer player, BondData bond) {
+        long end = bond.getCeremonyTimeout() > 0 ? bond.getCeremonyTimeout() : 0L;
         ModNetwork.CHANNEL.send(PacketDistributor.PLAYER.with(() -> player),
-                new CeremonyStagePacket(bond.getCeremonyStage(), bond.getFelineTier()));
+                new CeremonyStagePacket(bond.getCeremonyStage(), bond.getFelineTier(), end));
         ModNetwork.CHANNEL.send(PacketDistributor.PLAYER.with(() -> player),
                 new MarkUpdatePacket(bond.getMarkLevel(), bond.getMarkForce(),
                         bond.getCeremonyStage(), bond.getFelineTier()));

@@ -12,5 +12,6 @@
       "type": "patchouli:text",
       "text": "patchouli.cocojenna.entry.penetration_repair_portal.p2"
     }
-  ]
+  ],
+  "advancement": "cocojenna:guide/penetration_repair_portal"
 }

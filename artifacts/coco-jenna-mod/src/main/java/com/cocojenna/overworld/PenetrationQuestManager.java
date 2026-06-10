@@ -2,6 +2,7 @@ package com.cocojenna.overworld;
 
 import com.cocojenna.capability.BondData;
 import com.cocojenna.capability.ModCapabilities;
+import com.cocojenna.guide.PenetrationGuideHelper;
 import com.cocojenna.dialogue.DialogueManager;
 import com.cocojenna.init.ModItems;
 import com.cocojenna.network.BondSyncCoordinator;
@@ -26,6 +27,11 @@ public final class PenetrationQuestManager {
     private static final String DUNGEON_CLEARED_TAG = "cocojenna_penetration_dungeon";
 
     private PenetrationQuestManager() {}
+
+    private static void advanceStage(ServerPlayer player, BondData bond, int stage) {
+        bond.setPenetrationQuestStage(stage);
+        PenetrationGuideHelper.syncForStage(player, stage);
+    }
 
     public static boolean isDungeonCleared(ServerPlayer player) {
         return player.getPersistentData().getBoolean(DUNGEON_CLEARED_TAG);
@@ -54,7 +60,7 @@ public final class PenetrationQuestManager {
         player.displayClientMessage(Component.translatable("penetration.cocojenna.moon_paw_hint"), true);
 
         if (bond.getMoonPawTrailCount() >= 3) {
-            bond.setPenetrationQuestStage(STAGE_MEMORY_SHARDS);
+            advanceStage(player, bond, STAGE_MEMORY_SHARDS);
             BlockPos hut = GrayWhiskerHutGenerator.ensureHut(player.serverLevel(), player.blockPosition());
             player.displayClientMessage(Component.translatable("penetration.cocojenna.hut_found",
                     hut.getX(), hut.getZ()), true);
@@ -81,7 +87,7 @@ public final class PenetrationQuestManager {
         if (bond.getPenetrationQuestStage() == STAGE_MEMORY_SHARDS) {
             if (bond.getMemoryShardsTotal() >= 5) {
                 bond.spendMemoryShards(5);
-                bond.setPenetrationQuestStage(STAGE_CAT_LANGUAGE);
+                advanceStage(player, bond, STAGE_CAT_LANGUAGE);
                 bond.addGrayWhiskerFavor(10);
                 DialogueManager.play(player, "gray_whisker_shards_done");
             } else {
@@ -97,7 +103,7 @@ public final class PenetrationQuestManager {
                 return;
             }
             if (bond.getCatLanguageLevel() >= 3 && bond.getCatGraffitiRead() >= 3) {
-                bond.setPenetrationQuestStage(STAGE_REPAIR_PORTAL);
+                advanceStage(player, bond, STAGE_REPAIR_PORTAL);
                 bond.addGrayWhiskerFavor(15);
                 DialogueManager.play(player, "gray_whisker_portal_quest");
             } else {
@@ -140,7 +146,7 @@ public final class PenetrationQuestManager {
         bond.spendMemoryShards(3);
 
         CatKingdomPortalShape.tryIgnite(level, frame, player, net.minecraft.world.InteractionHand.MAIN_HAND);
-        bond.setPenetrationQuestStage(STAGE_FIRST_ENTRY);
+        advanceStage(player, bond, STAGE_FIRST_ENTRY);
         bond.addGrayWhiskerFavor(20);
         bond.addOverworldInfluence(15);
         bond.addCatKingdomInfluence(10);
@@ -151,7 +157,7 @@ public final class PenetrationQuestManager {
     public static void onEnteredCatKingdom(ServerPlayer player) {
         BondData bond = ModCapabilities.getOrDefault(player);
         if (bond.getPenetrationQuestStage() == STAGE_FIRST_ENTRY) {
-            bond.setPenetrationQuestStage(STAGE_COMPLETE);
+            advanceStage(player, bond, STAGE_COMPLETE);
             bond.addCatKingdomInfluence(20);
             player.displayClientMessage(Component.translatable("penetration.cocojenna.first_entry"), true);
             OnboardingQuestManager.sendHint(player, "penetration.cocojenna.coco_remember");
@@ -175,7 +181,7 @@ public final class PenetrationQuestManager {
         switch (actionId) {
             case "gray_whisker_help" -> {
                 if (bond.getPenetrationQuestStage() < STAGE_MEMORY_SHARDS) {
-                    bond.setPenetrationQuestStage(STAGE_MEMORY_SHARDS);
+                    advanceStage(player, bond, STAGE_MEMORY_SHARDS);
                 }
             }
             case "gray_whisker_history" -> DialogueManager.play(player, "gray_whisker_history");

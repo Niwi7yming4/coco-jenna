@@ -42,6 +42,9 @@ import java.util.Set;
  */
 public class BondData {
 
+    private final CatBondCapability catBondSection = new CatBondCapability();
+    private final SequenceCapability sequenceSection = new SequenceCapability();
+
     // ── 可可三軌 ─────────────────────────────────────────────────────────
     private float cocoEmotion = 0f;        // 初始 Stranger
     private float cocoIndependence = 20f;
@@ -799,6 +802,10 @@ public class BondData {
         tag.putInt("qinKemuQuestStage", qinKemuQuestStage);
         tag.putLong("qinWeaponAwakenCooldownUntil", qinWeaponAwakenCooldownUntil);
         tag.putLong("discoveredMausoleums", discoveredMausoleums);
+        catBondSection.copyFrom(this);
+        sequenceSection.copyFrom(this);
+        tag.put("catBond", catBondSection.serialize());
+        tag.put("sequence", sequenceSection.serialize());
         return tag;
     }
 
@@ -1192,6 +1199,14 @@ public class BondData {
         qinWeaponAwakenCooldownUntil = tag.contains("qinWeaponAwakenCooldownUntil")
                 ? tag.getLong("qinWeaponAwakenCooldownUntil") : 0L;
         discoveredMausoleums = tag.contains("discoveredMausoleums") ? tag.getLong("discoveredMausoleums") : 0L;
+        if (tag.contains("catBond")) {
+            catBondSection.deserialize(tag.getCompound("catBond"));
+            catBondSection.applyTo(this);
+        }
+        if (tag.contains("sequence")) {
+            sequenceSection.deserialize(tag.getCompound("sequence"));
+            sequenceSection.applyTo(this);
+        }
     }
 
     // ─────────────────────────────────────────────────────────────────────
@@ -1847,15 +1862,13 @@ public class BondData {
     }
 
     public CompoundTag serializeCatBondSection() {
-        CatBondCapability cap = new CatBondCapability();
-        cap.copyFrom(this);
-        return cap.serialize();
+        catBondSection.copyFrom(this);
+        return catBondSection.serialize();
     }
 
     public CompoundTag serializeSequenceSection() {
-        SequenceCapability cap = new SequenceCapability();
-        cap.copyFrom(this);
-        return cap.serialize();
+        sequenceSection.copyFrom(this);
+        return sequenceSection.serialize();
     }
 
     public CompoundTag serializeKingdomSection() {
@@ -1865,15 +1878,13 @@ public class BondData {
     }
 
     public void deserializeCatBondSection(CompoundTag tag) {
-        CatBondCapability cap = new CatBondCapability();
-        cap.deserialize(tag);
-        cap.applyTo(this);
+        catBondSection.deserialize(tag);
+        catBondSection.applyTo(this);
     }
 
     public void deserializeSequenceSection(CompoundTag tag) {
-        SequenceCapability cap = new SequenceCapability();
-        cap.deserialize(tag);
-        cap.applyTo(this);
+        sequenceSection.deserialize(tag);
+        sequenceSection.applyTo(this);
     }
 
     public void deserializeKingdomSection(CompoundTag tag) {

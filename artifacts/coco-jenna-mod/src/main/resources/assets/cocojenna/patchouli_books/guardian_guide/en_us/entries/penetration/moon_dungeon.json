@@ -12,5 +12,6 @@
       "type": "patchouli:text",
       "text": "patchouli.cocojenna.entry.penetration_moon_dungeon.p2"
     }
-  ]
+  ],
+  "advancement": "cocojenna:guide/penetration_moon_dungeon"
 }

@@ -128,6 +128,30 @@ tasks.register('validateRuinNbt') {
 
 tasks.named('build').configure { dependsOn 'validateRuinNbt' }
 
+tasks.register('optimizeTextures') {
+    group = 'build'
+    description = 'Optional: optimize item/GUI PNGs via oxipng or Pillow fallback'
+    doLast {
+        def script = file('tools/optimize_item_gui_textures.py')
+        if (!script.exists()) {
+            throw new GradleException("Missing ${script}")
+        }
+        def oxipng = ['oxipng', 'where', 'oxipng'].any { cmd ->
+            try {
+                def p = new ProcessBuilder('cmd', '/c', 'where', 'oxipng').redirectErrorStream(true).start()
+                p.waitFor()
+                return p.exitValue() == 0
+            } catch (ignored) { return false }
+        }
+        exec {
+            if (oxipng) {
+                environment 'COCOJENNA_TEXTURE_OPTIMIZER', 'oxipng'
+            }
+            commandLine 'python', script.absolutePath
+        }
+    }
+}
+
 publishing {
     publications {
         register('mavenJava', MavenPublication) {

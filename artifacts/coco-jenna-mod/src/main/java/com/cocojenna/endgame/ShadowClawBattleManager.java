@@ -1,5 +1,6 @@
 package com.cocojenna.endgame;
 
+import com.cocojenna.dialogue.DialogueManager;
 import com.cocojenna.entity.CocoEntity;
 import com.cocojenna.entity.JennaEntity;
 import com.cocojenna.entity.ShadowClawEntity;
@@ -38,9 +39,15 @@ public final class ShadowClawBattleManager {
             boss.setNoAi(true);
             broadcast(boss, attacker, "boss.cocojenna.shadow_claw.phase2");
             if (attacker instanceof ServerPlayer sp) {
+                DialogueManager.play(sp, "shadow_claw_phase2");
                 sp.displayClientMessage(Component.translatable("boss.cocojenna.shadow_claw.choice_hint")
                         .withStyle(ChatFormatting.GOLD), false);
             }
+        }
+        if (phase == StoryPhase.REGRETFUL_UNCLE && ratio <= 0.35f && attacker instanceof ServerPlayer sp2
+                && !boss.getPersistentData().getBoolean("cocojenna_phase3_dialogue")) {
+            boss.getPersistentData().putBoolean("cocojenna_phase3_dialogue", true);
+            DialogueManager.play(sp2, "shadow_claw_phase3_hint");
         }
     }
 
@@ -54,6 +61,12 @@ public final class ShadowClawBattleManager {
     }
 
     private static void chooseRedemption(ShadowClawEntity boss, ServerPlayer player) {
+        var bond = com.cocojenna.capability.ModCapabilities.getOrDefault(player);
+        if (bond.getKingdomHappiness() < 60) {
+            player.displayClientMessage(Component.translatable("boss.cocojenna.shadow_claw.need_happiness_redemption")
+                    .withStyle(ChatFormatting.YELLOW), false);
+            return;
+        }
         boss.setChosenEnding(Ending.REDEMPTION);
         boss.setStoryPhase(StoryPhase.TWIN_RESONANCE);
         boss.setInvulnerable(false);
@@ -61,13 +74,19 @@ public final class ShadowClawBattleManager {
         boss.heal(boss.getMaxHealth() * 0.3f);
         broadcast(boss, player, "boss.cocojenna.shadow_claw.redemption");
         AfterRainManager.setShadowClawEnding(player, "redemption");
-        var bond = com.cocojenna.capability.ModCapabilities.getOrDefault(player);
         bond.setShadowClawEnding("redemption");
         if (bond.getKingdomHappiness() < 80) bond.addKingdomHappiness(5);
+        DialogueManager.play(player, "shadow_claw_redemption");
         com.cocojenna.society.FragmentedQuestManager.onShadowClawComplete(player);
     }
 
     private static void choosePurge(ShadowClawEntity boss, ServerPlayer player) {
+        var bond = com.cocojenna.capability.ModCapabilities.getOrDefault(player);
+        if (bond.getKingdomHappiness() >= 70) {
+            player.displayClientMessage(Component.translatable("boss.cocojenna.shadow_claw.too_happy_purge")
+                    .withStyle(ChatFormatting.YELLOW), false);
+            return;
+        }
         boss.setChosenEnding(Ending.PURGE);
         boss.setStoryPhase(StoryPhase.FULL_CORRUPTION);
         boss.setInvulnerable(false);
@@ -76,8 +95,8 @@ public final class ShadowClawBattleManager {
                 .setBaseValue(25.0);
         broadcast(boss, player, "boss.cocojenna.shadow_claw.purge");
         AfterRainManager.setShadowClawEnding(player, "purge");
-        var bond = com.cocojenna.capability.ModCapabilities.getOrDefault(player);
         bond.setShadowClawEnding("purge");
+        DialogueManager.play(player, "shadow_claw_purge");
         com.cocojenna.society.FragmentedQuestManager.onShadowClawComplete(player);
     }
 
@@ -104,6 +123,9 @@ public final class ShadowClawBattleManager {
 
         boss.getPersistentData().putBoolean("cocojenna_twin_resonance", true);
         player.heal(player.getMaxHealth() * 0.4f);
+        if (player instanceof ServerPlayer sp) {
+            DialogueManager.play(sp, "shadow_claw_twin_resonance");
+        }
         player.displayClientMessage(Component.translatable("boss.cocojenna.shadow_claw.twin_resonance")
                 .withStyle(ChatFormatting.LIGHT_PURPLE), false);
         boss.level().playSound(null, player.blockPosition(),

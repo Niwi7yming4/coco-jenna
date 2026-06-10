@@ -18,12 +18,16 @@ public final class VillageFestivalManager {
         if (!player.level().dimension().equals(ModDimensions.CAT_KINGDOM)) return;
 
         BondData bond = ModCapabilities.getOrDefault(player);
+        long day = player.level().getDayTime() / 24000L;
         int fPhase = bond.getFestivalPhase();
         if (fPhase > com.cocojenna.endgame.kingdom.FestivalEventManager.PHASE_IDLE
                 && fPhase < com.cocojenna.endgame.kingdom.FestivalEventManager.PHASE_ENDED) {
+            if (day % 21 == 0 && day != bond.getLastVillageFestivalDay()) {
+                player.displayClientMessage(Component.translatable(
+                        "village.cocojenna.festival.deferred_palace"), true);
+            }
             return;
         }
-        long day = player.level().getDayTime() / 24000L;
         if (day % 21 != 0) return;
         if (day == bond.getLastVillageFestivalDay()) return;
 
@@ -59,5 +63,7 @@ public final class VillageFestivalManager {
                 player.getX(), player.getY() + 1, player.getZ(), 12, 1.5, 0.5, 1.5, 0.02);
         player.displayClientMessage(Component.translatable(
                 "village.cocojenna.festival." + culture.key, culture.displayName()), true);
+        player.displayClientMessage(Component.translatable(
+                "village.cocojenna.festival.reward_hint." + culture.key), true);
     }
 }

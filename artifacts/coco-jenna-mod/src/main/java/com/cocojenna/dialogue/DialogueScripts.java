@@ -181,6 +181,69 @@ public final class DialogueScripts {
                         "weapon.cinematic.cocojenna.paper_crow.3", Portrait.NARRATOR)
         )));
 
+        register(new DialogueScene("cat_dream_penetration", List.of(
+                new DialogueLine("dialogue.cocojenna.speaker.narrator",
+                        "dream.cocojenna.penetration.1", Portrait.NARRATOR),
+                new DialogueLine("dialogue.cocojenna.speaker.narrator",
+                        "dream.cocojenna.penetration.2", Portrait.NARRATOR),
+                new DialogueLine("dialogue.cocojenna.speaker.narrator",
+                        "dream.cocojenna.penetration.3", Portrait.NARRATOR)
+        )));
+        register(new DialogueScene("cat_dream_moon", List.of(
+                new DialogueLine("dialogue.cocojenna.speaker.narrator",
+                        "dream.cocojenna.moon.1", Portrait.NARRATOR),
+                new DialogueLine("dialogue.cocojenna.speaker.narrator",
+                        "dream.cocojenna.moon.2", Portrait.NARRATOR)
+        )));
+        register(new DialogueScene("cat_dream_village", List.of(
+                new DialogueLine("dialogue.cocojenna.speaker.narrator",
+                        "dream.cocojenna.village.1", Portrait.NARRATOR),
+                new DialogueLine("dialogue.cocojenna.speaker.narrator",
+                        "dream.cocojenna.village.2", Portrait.NARRATOR)
+        )));
+        register(new DialogueScene("cat_dream_coco", List.of(
+                new DialogueLine("dialogue.cocojenna.speaker.coco",
+                        "dream.cocojenna.coco.1", Portrait.COCO),
+                new DialogueLine("dialogue.cocojenna.speaker.narrator",
+                        "dream.cocojenna.coco.2", Portrait.NARRATOR)
+        )));
+        register(new DialogueScene("shadow_claw_phase2", List.of(
+                new DialogueLine("dialogue.cocojenna.speaker.shadow_claw",
+                        "boss.cocojenna.dialogue.phase2.1", Portrait.NARRATOR),
+                new DialogueLine("dialogue.cocojenna.speaker.narrator",
+                        "boss.cocojenna.dialogue.phase2.2", Portrait.NARRATOR)
+        )));
+        register(new DialogueScene("shadow_claw_phase3_hint", List.of(
+                new DialogueLine("dialogue.cocojenna.speaker.shadow_claw",
+                        "boss.cocojenna.dialogue.phase3.1", Portrait.NARRATOR)
+        )));
+        register(new DialogueScene("shadow_claw_redemption", List.of(
+                new DialogueLine("dialogue.cocojenna.speaker.coco",
+                        "boss.cocojenna.dialogue.redemption.1", Portrait.COCO),
+                new DialogueLine("dialogue.cocojenna.speaker.jenna",
+                        "boss.cocojenna.dialogue.redemption.2", Portrait.JENNA)
+        )));
+        register(new DialogueScene("shadow_claw_purge", List.of(
+                new DialogueLine("dialogue.cocojenna.speaker.shadow_claw",
+                        "boss.cocojenna.dialogue.purge.1", Portrait.NARRATOR),
+                new DialogueLine("dialogue.cocojenna.speaker.narrator",
+                        "boss.cocojenna.dialogue.purge.2", Portrait.NARRATOR)
+        )));
+        register(new DialogueScene("shadow_claw_twin_resonance", List.of(
+                new DialogueLine("dialogue.cocojenna.speaker.coco",
+                        "boss.cocojenna.dialogue.twin.1", Portrait.COCO),
+                new DialogueLine("dialogue.cocojenna.speaker.jenna",
+                        "boss.cocojenna.dialogue.twin.2", Portrait.JENNA)
+        )));
+        for (String npcId : List.of("sanhua", "ironpaw", "cheshire", "alpha", "samurai")) {
+            register(new DialogueScene("cat_dream_npc_" + npcId, List.of(
+                    new DialogueLine("dialogue.cocojenna.speaker.narrator",
+                            "dream.cocojenna.npc." + npcId + ".1", Portrait.NARRATOR),
+                    new DialogueLine("dialogue.cocojenna.speaker.narrator",
+                            "dream.cocojenna.npc." + npcId + ".2", Portrait.NARRATOR)
+            )));
+        }
+
         registerRyokatanaMemoryCinematics();
 
         register(new DialogueScene("gray_whisker_intro", List.of(

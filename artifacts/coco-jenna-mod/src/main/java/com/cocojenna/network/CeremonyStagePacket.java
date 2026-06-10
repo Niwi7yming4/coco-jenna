@@ -18,29 +18,30 @@ public class CeremonyStagePacket {
      */
     private final int stage;
     private final int tier;
-    private final int durationTicks; // 階段持續時間（用於進度條）
+    /** 伺服器 gameTime 戳記；0 表示無倒數進度條. */
+    private final long endGameTime;
 
     public CeremonyStagePacket(int stage, int tier) {
-        this(stage, tier, 0);
+        this(stage, tier, 0L);
     }
 
-    public CeremonyStagePacket(int stage, int tier, int durationTicks) {
+    public CeremonyStagePacket(int stage, int tier, long endGameTime) {
         this.stage = stage;
         this.tier = tier;
-        this.durationTicks = durationTicks;
+        this.endGameTime = endGameTime;
     }
 
     public static void encode(CeremonyStagePacket pkt, FriendlyByteBuf buf) {
         buf.writeVarInt(pkt.stage);
         buf.writeVarInt(pkt.tier);
-        buf.writeVarInt(pkt.durationTicks);
+        buf.writeVarLong(pkt.endGameTime);
     }
 
     public static CeremonyStagePacket decode(FriendlyByteBuf buf) {
         return new CeremonyStagePacket(
             buf.readVarInt(),
             buf.readVarInt(),
-            buf.readVarInt()
+            buf.readVarLong()
         );
     }
 
@@ -51,7 +52,7 @@ public class CeremonyStagePacket {
             if (mc.player == null) return;
 
             // 更新HUD疊層顯示儀式階段
-            CeremonyHudOverlay.INSTANCE.onStageChanged(pkt.stage, pkt.tier, pkt.durationTicks);
+            CeremonyHudOverlay.INSTANCE.onStageChanged(pkt.stage, pkt.tier, pkt.endGameTime);
 
             // 階段3（共鳴）：鎖定玩家視角（不鎖移動）
             if (pkt.stage == 3) {

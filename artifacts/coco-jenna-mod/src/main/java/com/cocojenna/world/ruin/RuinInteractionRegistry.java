@@ -38,7 +38,13 @@ public final class RuinInteractionRegistry {
         BlockPos pos = player.blockPosition();
         switch (ruin) {
             case OUTPOST -> tryOutpostLore(player, pos);
-            case VELVET_TOWER -> checkCampfireBeacon(level, pos, player);
+            case WAR_RUINS -> tryRuinLore(player, ruin);
+            case STRAY_CAT_CANTEEN -> tryRuinLore(player, ruin);
+            case ABANDONED_TOY_VAULT -> tryRuinLore(player, ruin);
+            case VELVET_TOWER -> {
+                checkCampfireBeacon(level, pos, player);
+                tryRuinLore(player, ruin);
+            }
             case FULL_MOON_STARGAZING_WELL -> {
                 if (level.isNight() && level.getMoonBrightness() >= 1.0f) {
                     player.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, 200, 0));
@@ -62,6 +68,7 @@ public final class RuinInteractionRegistry {
             }
             case FALLEN_HEROES_MONUMENT -> {
                 if (player.isShiftKeyDown()) tryMonumentOffering(player, pos);
+                tryRuinLore(player, ruin);
             }
             case MEMORY_STONE_CIRCLE -> player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 60, 0));
             case HOLY_WATER_POTION_LAB -> player.addEffect(new MobEffectInstance(MobEffects.WATER_BREATHING, 120, 0));

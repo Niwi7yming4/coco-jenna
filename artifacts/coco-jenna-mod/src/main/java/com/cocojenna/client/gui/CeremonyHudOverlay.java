@@ -20,8 +20,8 @@ public class CeremonyHudOverlay {
 
     private int currentStage = 0;       // 0=NONE
     private int currentTier = 9;
-    private int maxDuration = 0;
-    private int elapsedTicks = 0;
+    private long endGameTime = 0L;
+    private long stageStartGameTime = 0L;
     private boolean active = false;
 
     private static final String[] STAGE_KEYS = {
@@ -48,14 +48,13 @@ public class CeremonyHudOverlay {
         MinecraftForge.EVENT_BUS.register(this);
     }
 
-    public void onStageChanged(int stage, int tier, int durationTicks) {
+    public void onStageChanged(int stage, int tier, long endGameTime) {
         currentStage = stage;
         currentTier = tier;
         active = stage > 0 && stage < 6;
-        if (durationTicks > 0) {
-            maxDuration = durationTicks;
-            elapsedTicks = 0;
-        }
+        this.endGameTime = endGameTime;
+        var mc = Minecraft.getInstance();
+        stageStartGameTime = mc.level != null ? mc.level.getGameTime() : 0L;
     }
 
     @SubscribeEvent
@@ -68,7 +67,7 @@ public class CeremonyHudOverlay {
         int w = mc.getWindow().getGuiScaledWidth();
         int h = mc.getWindow().getGuiScaledHeight();
 
-        elapsedTicks++;
+        long now = mc.level != null ? mc.level.getGameTime() : stageStartGameTime;
 
         // 階段名稱
         if (currentStage > 0 && currentStage < STAGE_KEYS.length) {
@@ -77,8 +76,9 @@ public class CeremonyHudOverlay {
         }
 
         // 進度條（如果有持續時間）
-        if (maxDuration > 0) {
-            float progress = Math.min(1.0f, (float) elapsedTicks / maxDuration);
+        if (endGameTime > stageStartGameTime) {
+            float progress = Math.min(1.0f,
+                    (float) (now - stageStartGameTime) / (endGameTime - stageStartGameTime));
             int barW = 200;
             int barH = 4;
             int barX = w / 2 - barW / 2;

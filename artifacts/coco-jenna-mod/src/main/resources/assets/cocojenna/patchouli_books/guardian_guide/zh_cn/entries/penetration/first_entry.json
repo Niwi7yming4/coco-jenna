@@ -12,5 +12,6 @@
       "type": "patchouli:text",
       "text": "patchouli.cocojenna.entry.penetration_first_entry.p2"
     }
-  ]
+  ],
+  "advancement": "cocojenna:guide/penetration_first_entry"
 }
