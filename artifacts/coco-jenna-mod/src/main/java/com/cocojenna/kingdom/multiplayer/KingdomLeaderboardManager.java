@@ -1,7 +1,9 @@
 package com.cocojenna.kingdom.multiplayer;
 
 import com.cocojenna.capability.ModCapabilities;
+import com.cocojenna.init.ModDimensions;
 import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 
 public final class KingdomLeaderboardManager {
@@ -9,7 +11,12 @@ public final class KingdomLeaderboardManager {
     private KingdomLeaderboardManager() {}
 
     public static void show(ServerPlayer player) {
-        KingdomLeaderboardSavedData lb = KingdomLeaderboardSavedData.get(player.serverLevel());
+        ServerLevel kingdom = player.server.getLevel(ModDimensions.CAT_KINGDOM);
+        if (kingdom == null) {
+            player.displayClientMessage(Component.literal("§c貓之國維度尚未載入"), false);
+            return;
+        }
+        KingdomLeaderboardSavedData lb = KingdomLeaderboardSavedData.get(kingdom);
         player.displayClientMessage(Component.literal("§6—— 王國排行榜 ——"), false);
         showBoard(player, lb, KingdomLeaderboardSavedData.Board.ARENA, "競技場");
         showBoard(player, lb, KingdomLeaderboardSavedData.Board.CATNIP, "貓薄荷");
@@ -29,9 +36,11 @@ public final class KingdomLeaderboardManager {
     }
 
     public static void syncFromBond(ServerPlayer player) {
+        ServerLevel kingdom = player.server.getLevel(ModDimensions.CAT_KINGDOM);
+        if (kingdom == null) return;
         var bond = ModCapabilities.getOrDefault(player);
         var mp = bond.getMultiplayerSection();
-        KingdomLeaderboardSavedData lb = KingdomLeaderboardSavedData.get(player.serverLevel());
+        KingdomLeaderboardSavedData lb = KingdomLeaderboardSavedData.get(kingdom);
         lb.addScore(KingdomLeaderboardSavedData.Board.ARENA, player.getUUID(), mp.getArenaScore());
         lb.addScore(KingdomLeaderboardSavedData.Board.CATNIP, player.getUUID(), mp.getCatnipPlantStreak());
         lb.addScore(KingdomLeaderboardSavedData.Board.MEMORY, player.getUUID(), bond.getMemoryShardsTotal());
