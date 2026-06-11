@@ -1,0 +1,16 @@
+{
+  "name": "patchouli.cocojenna.qin.ch8_finale",
+  "icon": "cocojenna:origami_scrap",
+  "category": "cocojenna:qin_kemu",
+  "sortnum": 7,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.qin.ch8_finale.p1"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.qin.ch8_finale.p2"
+    }
+  ]
+}

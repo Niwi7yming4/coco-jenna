@@ -1,8 +1,10 @@
 package com.cocojenna.network;
 
 import com.cocojenna.dialogue.DialogueChoice;
+import com.cocojenna.dialogue.DialogueExpression;
 import com.cocojenna.dialogue.DialogueLine;
 import com.cocojenna.dialogue.Portrait;
+import com.cocojenna.dialogue.PortraitSide;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraftforge.network.NetworkEvent;
 
@@ -11,6 +13,8 @@ import java.util.List;
 import java.util.function.Supplier;
 
 public class OpenGalgameDialoguePacket {
+
+    private static final int PROTOCOL = 2;
 
     private final String sceneId;
     private final List<DialogueLine> lines;
@@ -24,6 +28,7 @@ public class OpenGalgameDialoguePacket {
     public List<DialogueLine> lines() { return lines; }
 
     public static void encode(OpenGalgameDialoguePacket pkt, FriendlyByteBuf buf) {
+        buf.writeVarInt(PROTOCOL);
         buf.writeUtf(pkt.sceneId);
         buf.writeVarInt(pkt.lines.size());
         for (DialogueLine line : pkt.lines) {
@@ -39,10 +44,16 @@ public class OpenGalgameDialoguePacket {
                 }
             }
             buf.writeUtf(line.completeAction() != null ? line.completeAction() : "");
+            buf.writeUtf(line.backgroundId());
+            buf.writeVarInt(line.expression().ordinal());
+            buf.writeVarInt(line.portraitSide().ordinal());
+            buf.writeUtf(line.voiceKey());
+            buf.writeVarInt(line.autoDelayTicks());
         }
     }
 
     public static OpenGalgameDialoguePacket decode(FriendlyByteBuf buf) {
+        int protocol = buf.readVarInt();
         String sceneId = buf.readUtf();
         int count = buf.readVarInt();
         List<DialogueLine> lines = new ArrayList<>();
@@ -62,8 +73,18 @@ public class OpenGalgameDialoguePacket {
                 }
             }
             String action = buf.readUtf();
-            lines.add(new DialogueLine(speaker, text, portrait, choices,
-                    action.isEmpty() ? null : action));
+            if (protocol >= 2) {
+                String bg = buf.readUtf();
+                DialogueExpression expr = DialogueExpression.fromOrdinal(buf.readVarInt());
+                PortraitSide side = PortraitSide.fromOrdinal(buf.readVarInt());
+                String voice = buf.readUtf();
+                int autoDelay = buf.readVarInt();
+                lines.add(new DialogueLine(speaker, text, portrait, choices,
+                        action.isEmpty() ? null : action, bg, expr, side, voice, autoDelay));
+            } else {
+                lines.add(new DialogueLine(speaker, text, portrait, choices,
+                        action.isEmpty() ? null : action));
+            }
         }
         return new OpenGalgameDialoguePacket(sceneId, lines);
     }

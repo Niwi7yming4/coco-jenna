@@ -56,6 +56,7 @@ public final class MoonCrossroadsManager {
 
     public static boolean canStartQuest(ServerPlayer player, BondData bond) {
         if (hasChosenForce(bond)) return false;
+        if (!com.cocojenna.integration.FallenAbyssLinkage.canCommitFelinePath(player)) return false;
         if (bond.getForceQuestStage() > STAGE_NONE) return false;
         if (bond.getCocoEmotion() < 20f || bond.getJennaEmotion() < 20f) return false;
         if (!player.level().dimension().equals(ModDimensions.CAT_KINGDOM)
@@ -233,6 +234,10 @@ public final class MoonCrossroadsManager {
 
     public static boolean confirmForce(ServerPlayer player, String force) {
         if (!force.equals("resonance") && !force.equals("shadow") && !force.equals("chaos")) {
+            return false;
+        }
+        if (!com.cocojenna.integration.FallenAbyssLinkage.canCommitFelinePath(player)) {
+            player.displayClientMessage(Component.translatable("fallen_abyss.path.blocked"), true);
             return false;
         }
         BondData bond = ModCapabilities.getOrDefault(player);

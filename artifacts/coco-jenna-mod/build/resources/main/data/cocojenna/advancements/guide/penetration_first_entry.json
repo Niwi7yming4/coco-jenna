@@ -1,0 +1,15 @@
+{
+  "display": {
+    "icon": { "item": "cocojenna:coco_fur" },
+    "title": { "translate": "patchouli.cocojenna.entry.penetration_first_entry" },
+    "description": { "translate": "patchouli.cocojenna.entry.penetration_first_entry.p1" },
+    "show_toast": true,
+    "announce_to_chat": false,
+    "frame": "task",
+    "hidden": true
+  },
+  "parent": "cocojenna:guide/penetration_repair_portal",
+  "criteria": {
+    "discovered": { "trigger": "minecraft:impossible" }
+  }
+}

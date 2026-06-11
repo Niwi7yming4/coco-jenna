@@ -25,7 +25,17 @@ public final class WeaponMemoryTaskRegistry {
         LAST_ARMOR,
         RED_PAPER_BLOOD,
         MOON_MIRROR_LAKE,
-        UNSENT_LETTER
+        UNSENT_LETTER,
+        BOSS_KILL,
+        DUNGEON_CLEAR,
+        WILDCAT_BEFRIEND,
+        MAUSOLEUM_VISIT,
+        RUIN_LECTERN,
+        REGION_LORE,
+        NPC_DREAM,
+        UNDERCAT_COMMISSION,
+        ARENA_WIN,
+        TRIAL_COMPLETE
     }
 
     private static final Map<String, MemoryTask> BY_WEAPON = new HashMap<>();
@@ -52,6 +62,26 @@ public final class WeaponMemoryTaskRegistry {
                 "weapon.task.cocojenna.moon_mirror", 1, TaskType.MOON_MIRROR_LAKE));
         register(new MemoryTask("unsent_letter", "forgotten_page",
                 "weapon.task.cocojenna.unsent_letter", 1, TaskType.UNSENT_LETTER));
+        register(new MemoryTask("royal_glory_trial", "royal_glory",
+                "weapon.task.cocojenna.royal_glory", 1, TaskType.BOSS_KILL));
+        register(new MemoryTask("fallen_velvet_trial", "fallen_velvet_claw",
+                "weapon.task.cocojenna.fallen_velvet", 1, TaskType.DUNGEON_CLEAR));
+        register(new MemoryTask("gear_schedule_trial", "gear_schedule",
+                "weapon.task.cocojenna.gear_schedule", 3, TaskType.RUIN_LECTERN));
+        register(new MemoryTask("whisper_mud_trial", "whisper_mud",
+                "weapon.task.cocojenna.whisper_mud", 5, TaskType.MAUSOLEUM_VISIT));
+        register(new MemoryTask("deep_sea_trial", "deep_sea_current",
+                "weapon.task.cocojenna.deep_sea", 1, TaskType.WILDCAT_BEFRIEND));
+        register(new MemoryTask("sanhua_trial", "sanhua_thread",
+                "weapon.task.cocojenna.sanhua", 17, TaskType.REGION_LORE));
+        register(new MemoryTask("moon_ripple_trial", "moonlight_ripple",
+                "weapon.task.cocojenna.moon_ripple", 1, TaskType.NPC_DREAM));
+        register(new MemoryTask("workshop_trial", "sanhua_thread",
+                "weapon.task.cocojenna.workshop", 3, TaskType.UNDERCAT_COMMISSION));
+        register(new MemoryTask("storm_trial", "storm_umbrella",
+                "weapon.task.cocojenna.storm", 3, TaskType.ARENA_WIN));
+        register(new MemoryTask("velvet_sentinel_trial", "velvet_whisper",
+                "weapon.task.cocojenna.velvet_sentinel", 1, TaskType.TRIAL_COMPLETE));
         register(new MemoryTask("neon_flash_01", "neon_flash",
                 "weapon.task.cocojenna.neon_flash", 6, TaskType.KILL_BLACK_MUD));
         register(new MemoryTask("velvet_warmth_01", "velvet_warmth",

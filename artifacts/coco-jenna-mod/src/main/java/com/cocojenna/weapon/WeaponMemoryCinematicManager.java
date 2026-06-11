@@ -33,6 +33,11 @@ public final class WeaponMemoryCinematicManager {
         map.put("iron_claw_01", "memory_cinematic_iron_claw_apprentice");
         map.put("calico_01", "memory_cinematic_calico_warmth");
         map.put("velvet_cradle_01", "memory_cinematic_velvet_cradle");
+        map.put("daikata_tiger_iron", "memory_cinematic_tiger_iron");
+        map.put("daikata_wind_cut", "memory_cinematic_wind_cut");
+        map.put("daikata_crescent", "memory_cinematic_crescent");
+        map.put("daikata_moon_verdict", "memory_cinematic_moon_verdict");
+        map.put("daikata_royal_authority", "memory_cinematic_royal_authority");
         return map;
     }
 

@@ -48,7 +48,7 @@ public final class KingdomMicroMarkers {
     }
 
     private static void placeOneMarker(ServerLevel level, LevelChunk chunk, BlockPos surface, RandomSource random) {
-        int roll = random.nextInt(8);
+        int roll = random.nextInt(10);
         switch (roll) {
             case 0 -> level.setBlock(surface, Blocks.RED_CARPET.defaultBlockState(), 2);
             case 1 -> level.setBlock(surface, random.nextBoolean()
@@ -62,7 +62,10 @@ public final class KingdomMicroMarkers {
                     level.setBlock(surface, ModBlocks.CATNIP.get().defaultBlockState(), 2);
                 }
             }
-            case 6 -> level.setBlock(surface, Blocks.STONE_BUTTON.defaultBlockState(), 2);
+            case 5 -> level.setBlock(surface, ModBlocks.ANCIENT_STONE_TABLET.get().defaultBlockState(), 2);
+            case 6 -> placeAbandonedCatNest(level, surface, random);
+            case 7 -> level.setBlock(surface, Blocks.CHEST.defaultBlockState(), 2);
+            case 8 -> level.setBlock(surface, Blocks.STONE_BUTTON.defaultBlockState(), 2);
             default -> level.setBlock(surface, random.nextBoolean()
                     ? ModBlocks.PURR_CRYSTAL_BLOCK.get().defaultBlockState()
                     : Blocks.AMETHYST_BLOCK.defaultBlockState(), 2);
@@ -75,6 +78,16 @@ public final class KingdomMicroMarkers {
             var item = new ItemEntity(level, surface.getX() + 0.5, surface.getY(), surface.getZ() + 0.5,
                     new ItemStack(ModItems.MEMORY_SHARD.get()));
             level.addFreshEntity(item);
+        }
+    }
+
+    private static void placeAbandonedCatNest(ServerLevel level, BlockPos surface, RandomSource random) {
+        level.setBlock(surface, ModBlocks.CAT_BED.get().defaultBlockState(), 2);
+        if (random.nextBoolean()) {
+            BlockPos side = surface.offset(random.nextBoolean() ? 1 : -1, 0, 0);
+            if (level.getBlockState(side).isAir()) {
+                level.setBlock(side, ModBlocks.CAT_BED.get().defaultBlockState(), 2);
+            }
         }
     }
 }

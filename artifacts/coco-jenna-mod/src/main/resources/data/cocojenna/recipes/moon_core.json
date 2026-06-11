@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "cocojenna:moonstone"
+    },
+    {
+      "item": "minecraft:gold_ingot"
+    },
+    {
+      "item": "minecraft:bone"
+    }
+  ],
+  "result": {
+    "item": "cocojenna:moon_core",
+    "count": 1
+  }
+}

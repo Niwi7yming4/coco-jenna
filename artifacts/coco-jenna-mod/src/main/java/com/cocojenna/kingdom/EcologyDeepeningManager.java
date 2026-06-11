@@ -9,6 +9,8 @@ import net.minecraft.core.Holder;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.state.BlockState;
@@ -44,6 +46,32 @@ public final class EcologyDeepeningManager {
             give(player, new ItemStack(ModItems.VELVET_FUR.get()));
             player.displayClientMessage(Component.translatable("ecology.cocojenna.velvet_forage"), true);
         }
+        if (biome.is(ModBiomes.FIRST_CRY_PLAINS) && player.onGround()
+                && player.getRandom().nextInt(10) == 0) {
+            player.addEffect(new MobEffectInstance(
+                    MobEffects.REGENERATION, 40, 0, true, false));
+        }
+        if (biome.is(ModBiomes.MOONLIGHT_BEACH) && player.isInWater()
+                && player.getRandom().nextInt(12) == 0) {
+            player.displayClientMessage(Component.translatable("ecology.cocojenna.moon_beach"), true);
+        }
+        if (biome.is(ModBiomes.STARDUST_DESERT) && player.tickCount % 80 == 0
+                && player.getRandom().nextFloat() < 0.2f) {
+            player.serverLevel().sendParticles(ParticleTypes.END_ROD,
+                    player.getX(), player.getY() + 0.5, player.getZ(), 2, 0.5, 0.3, 0.5, 0.01);
+        }
+        if (biome.is(ModBiomes.HOWLING_GORGE) && player.getRandom().nextInt(20) == 0) {
+            player.displayClientMessage(Component.translatable("ecology.cocojenna.gorge_wind"), true);
+        }
+        if (biome.is(ModBiomes.BLIND_WATER_RIVER) && player.isInWater()
+                && player.getRandom().nextInt(15) == 0) {
+            give(player, new ItemStack(ModItems.MEMORY_SHARD.get()));
+            player.displayClientMessage(Component.translatable("ecology.cocojenna.blind_water"), true);
+        }
+        if (biome.is(ModBiomes.RAINBOW_CANYON) && player.getRandom().nextInt(25) == 0) {
+            player.addEffect(new MobEffectInstance(
+                    MobEffects.GLOWING, 60, 0, true, false));
+        }
     }
 
     public static boolean tryHarvest(ServerPlayer player, BlockPos pos, BlockState state) {
@@ -62,6 +90,20 @@ public final class EcologyDeepeningManager {
         if (state.is(ModBlocks.VELVET_VINE.get())) {
             give(player, new ItemStack(ModItems.FIBER_VINE.get(), 2 + player.getRandom().nextInt(2)));
             player.displayClientMessage(Component.translatable("ecology.cocojenna.fiber_harvest"), true);
+            return true;
+        }
+        if (state.is(ModBlocks.COTTON_CANDY_SHRUB.get())) {
+            ItemStack stack = new ItemStack(net.minecraft.world.item.Items.COOKIE,
+                    1 + player.getRandom().nextInt(2));
+            stack.setHoverName(Component.translatable("item.cocojenna.cotton_candy"));
+            give(player, stack);
+            player.displayClientMessage(Component.translatable("ecology.cocojenna.cotton_harvest"), true);
+            return true;
+        }
+        if (state.is(ModBlocks.VELVET_GRASS.get())) {
+            player.addEffect(new MobEffectInstance(
+                    MobEffects.MOVEMENT_SPEED, 80, 0, true, false));
+            player.displayClientMessage(Component.translatable("ecology.cocojenna.velvet_grass_step"), true);
             return true;
         }
         return false;

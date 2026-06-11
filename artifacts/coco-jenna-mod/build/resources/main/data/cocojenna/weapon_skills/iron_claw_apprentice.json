@@ -6,7 +6,7 @@
   "sound_key": "anvil",
   "charge_profile": "quick",
   "min_charge_ticks": 12,
-  "cooldown_ticks": 60,
+  "cooldown_ticks": 54,
   "mana_cost": 0,
   "stage_effects": [
     {
@@ -23,7 +23,7 @@
     },
     {
       "stage": 2,
-      "damage_mult": 1.35,
+      "damage_mult": 1.4,
       "radius_mult": 1.2,
       "particle_tier": 3
     },

@@ -1,6 +1,7 @@
 package com.cocojenna.client.gui;
 
 import com.cocojenna.CocoJennaMod;
+import com.cocojenna.dialogue.DialogueExpression;
 import com.cocojenna.dialogue.Portrait;
 import net.minecraft.resources.ResourceLocation;
 
@@ -13,24 +14,59 @@ public final class GuiTextures {
         return id("textures/gui/portraits/" + portrait.textureId() + ".png");
     }
 
-    /** Prefer speaker-specific portrait art when available. */
     public static ResourceLocation portraitForLine(String speakerKey, Portrait portrait) {
-        if (speakerKey != null) {
-            if (speakerKey.contains("coco")) return id("textures/gui/portraits/portrait_coco.png");
-            if (speakerKey.contains("jenna")) return id("textures/gui/portraits/portrait_jenna.png");
-            if (speakerKey.contains("narrator")) return id("textures/gui/portraits/portrait_narrator.png");
-            if (speakerKey.contains("cheshire")) return id("textures/gui/portraits/portrait_cheshire.png");
-            if (speakerKey.contains("white_glove")) return id("textures/gui/portraits/portrait_white_glove.png");
-            if (speakerKey.contains("alpha")) return id("textures/gui/portraits/portrait_alpha.png");
-            if (speakerKey.contains("sanhua")) return id("textures/gui/portraits/portrait_sanhua.png");
-            if (speakerKey.contains("ironpaw")) return id("textures/gui/portraits/portrait_ironpaw.png");
-            if (speakerKey.contains("elder")) return id("textures/gui/portraits/portrait_calico.png");
-            if (speakerKey.contains("samurai")) return id("textures/gui/portraits/portrait_squall.png");
-            if (speakerKey.contains("monk")) return id("textures/gui/portraits/portrait_monk.png");
-            if (speakerKey.contains("court_lady")) return id("textures/gui/portraits/portrait_court_lady.png");
-            if (speakerKey.contains("general")) return id("textures/gui/portraits/portrait_general.png");
+        return portraitForLine(speakerKey, portrait, DialogueExpression.NORMAL);
+    }
+
+    /** Prefer speaker-specific portrait art; supports expression suffix. */
+    public static ResourceLocation portraitForLine(String speakerKey, Portrait portrait,
+            DialogueExpression expression) {
+        String base = basePortraitId(speakerKey, portrait);
+        if (expression != null && expression != DialogueExpression.NORMAL) {
+            ResourceLocation expr = id("textures/gui/portraits/" + base + "_" + expression.name().toLowerCase() + ".png");
+            if (hasResource(expr)) return expr;
         }
+        ResourceLocation normal = id("textures/gui/portraits/" + base + ".png");
+        if (hasResource(normal)) return normal;
         return portrait(portrait);
+    }
+
+    private static String basePortraitId(String speakerKey, Portrait portrait) {
+        if (speakerKey != null) {
+            if (speakerKey.contains("coco")) return "portrait_coco";
+            if (speakerKey.contains("jenna")) return "portrait_jenna";
+            if (speakerKey.contains("narrator")) return "portrait_narrator";
+            if (speakerKey.contains("cheshire")) return "portrait_cheshire";
+            if (speakerKey.contains("white_glove")) return "portrait_white_glove";
+            if (speakerKey.contains("alpha")) return "portrait_alpha";
+            if (speakerKey.contains("sanhua")) return "portrait_sanhua";
+            if (speakerKey.contains("ironpaw")) return "portrait_ironpaw";
+            if (speakerKey.contains("gray_whisker")) return "portrait_gray_whisker";
+            if (speakerKey.contains("qin")) return "portrait_qin_kemu";
+            if (speakerKey.contains("moon_priest") || speakerKey.contains("moon_whisper")) {
+                return "portrait_moon_priest";
+            }
+            if (speakerKey.contains("shadow_claw")) return "portrait_shadow_claw";
+            if (speakerKey.contains("elder")) return "portrait_calico";
+            if (speakerKey.contains("samurai")) return "portrait_squall";
+            if (speakerKey.contains("monk")) return "portrait_monk";
+            if (speakerKey.contains("court_lady")) return "portrait_court_lady";
+            if (speakerKey.contains("general")) return "portrait_general";
+            if (speakerKey.contains("corrugata")) return "portrait_corrugata";
+        }
+        return portrait.textureId();
+    }
+
+    public static ResourceLocation loreIllustration(String loreKey) {
+        return id("textures/gui/lore/lore_" + loreKey + ".png");
+    }
+
+    public static ResourceLocation patchouliIllustration(String name) {
+        return id("textures/gui/patchouli/" + name + ".png");
+    }
+
+    private static boolean hasResource(ResourceLocation id) {
+        return net.minecraft.client.Minecraft.getInstance().getResourceManager().getResource(id).isPresent();
     }
 
     private static ResourceLocation id(String path) {
@@ -59,7 +95,13 @@ public final class GuiTextures {
         String name = switch (tab) {
             case 0 -> "tab_emotion";
             case 1 -> "tab_memory";
-            case 2 -> "tab_cat_kingdom";
+            case 2 -> "tab_weapon";
+            case 3 -> "tab_quest";
+            case 4 -> "tab_lore";
+            case 5 -> "tab_cat_kingdom";
+            case 6 -> "tab_wildcat";
+            case 7 -> "tab_journal";
+            case 8 -> "tab_settings";
             default -> "tab_settings";
         };
         return id("textures/gui/tabs/" + name + ".png");

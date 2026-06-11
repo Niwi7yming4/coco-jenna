@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:feather"
+    },
+    {
+      "item": "cocojenna:coco_fur"
+    },
+    {
+      "item": "minecraft:emerald"
+    },
+    {
+      "item": "minecraft:coal"
+    }
+  ],
+  "result": {
+    "item": "cocojenna:guardian_badge",
+    "count": 1
+  }
+}

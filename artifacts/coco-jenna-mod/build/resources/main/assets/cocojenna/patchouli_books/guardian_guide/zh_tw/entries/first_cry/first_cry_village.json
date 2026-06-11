@@ -5,6 +5,14 @@
   "sortnum": 0,
   "pages": [
     {
+      "type": "patchouli:image",
+      "images": [
+        "cocojenna:textures/gui/patchouli/sacred_tree_overview.png"
+      ],
+      "border": true,
+      "text": "patchouli.cocojenna.entry.first_cry_village.img"
+    },
+    {
       "type": "patchouli:text",
       "text": "patchouli.cocojenna.entry.first_cry_village.p1"
     },

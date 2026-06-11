@@ -1,0 +1,16 @@
+{
+  "name": "patchouli.cocojenna.wildcat.gorge_wind",
+  "icon": "cocojenna:toy_squeak",
+  "category": "cocojenna:wildcat",
+  "sortnum": 9,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.wildcat.gorge_wind.p1"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.wildcat.gorge_wind.p2"
+    }
+  ]
+}

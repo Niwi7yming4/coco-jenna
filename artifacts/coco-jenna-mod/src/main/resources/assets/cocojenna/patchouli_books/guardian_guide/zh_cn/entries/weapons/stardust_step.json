@@ -1,0 +1,16 @@
+{
+  "name": "patchouli.cocojenna.weapon.stardust_step",
+  "icon": "cocojenna:ryokatana_velvet_whisper",
+  "category": "cocojenna:weapons",
+  "sortnum": 13,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.weapon.stardust_step.p1"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.weapon.stardust_step.p2"
+    }
+  ]
+}

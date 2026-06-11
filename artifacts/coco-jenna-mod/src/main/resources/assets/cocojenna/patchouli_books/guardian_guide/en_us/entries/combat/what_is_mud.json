@@ -5,6 +5,14 @@
   "sortnum": 0,
   "pages": [
     {
+      "type": "patchouli:image",
+      "images": [
+        "cocojenna:textures/gui/patchouli/black_mud_corruption.png"
+      ],
+      "border": true,
+      "text": "patchouli.cocojenna.entry.what_is_mud.img"
+    },
+    {
       "type": "patchouli:text",
       "text": "patchouli.cocojenna.entry.what_is_mud.p1"
     },

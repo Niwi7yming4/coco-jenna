@@ -17,11 +17,17 @@ public final class BiomePaletteMixer {
             return com.cocojenna.kingdom.RainbowCanyonManager.stripeBlock(wx, wz, surfaceY);
         }
         int h = hash(wx, wz, surfaceY);
-        if (biome.is(ModBiomes.VELVET_FOREST) || biome.is(ModBiomes.FIRST_CRY_PLAINS)) {
-            return pick(h, 40, Blocks.PINK_CONCRETE.defaultBlockState(),
-                    30, Blocks.WHITE_CONCRETE.defaultBlockState(),
-                    20, Blocks.PINK_TERRACOTTA.defaultBlockState(),
-                    10, Blocks.CHERRY_LEAVES.defaultBlockState());
+        if (biome.is(ModBiomes.VELVET_FOREST)) {
+            return pick(h, 45, ModBlocks.VELVET_GRASS.get().defaultBlockState(),
+                    30, Blocks.PINK_TERRACOTTA.defaultBlockState(),
+                    15, Blocks.CHERRY_LEAVES.defaultBlockState(),
+                    10, Blocks.PINK_CONCRETE.defaultBlockState());
+        }
+        if (biome.is(ModBiomes.FIRST_CRY_PLAINS)) {
+            return pick(h, 40, ModBlocks.VELVET_GRASS.get().defaultBlockState(),
+                    35, ModBlocks.STARDUST_SOIL.get().defaultBlockState(),
+                    15, Blocks.PINK_TERRACOTTA.defaultBlockState(),
+                    10, Blocks.WHITE_CONCRETE.defaultBlockState());
         }
         if (biome.is(ModBiomes.MOONLIGHT_BEACH)) {
             return pick(h, 50, Blocks.LIGHT_BLUE_CONCRETE_POWDER.defaultBlockState(),
@@ -75,8 +81,8 @@ public final class BiomePaletteMixer {
     public static BlockState fillerBlock(Holder<Biome> biome, int wx, int wz) {
         int h = hash(wx, wz, -3);
         if (biome.is(ModBiomes.VELVET_FOREST) || biome.is(ModBiomes.FIRST_CRY_PLAINS)) {
-            return pick(h, 60, Blocks.WHITE_TERRACOTTA.defaultBlockState(),
-                    40, Blocks.PINK_TERRACOTTA.defaultBlockState());
+            return pick(h, 55, ModBlocks.STARDUST_SOIL.get().defaultBlockState(),
+                    45, Blocks.PINK_TERRACOTTA.defaultBlockState());
         }
         if (biome.is(ModBiomes.MOONLIGHT_BEACH)) {
             return Blocks.LIGHT_BLUE_CONCRETE.defaultBlockState();
@@ -128,5 +134,9 @@ public final class BiomePaletteMixer {
 
     private static BlockState pick(int h, int w0, BlockState s0, int w1, BlockState s1) {
         return h < w0 ? s0 : s1;
+    }
+
+    public static boolean isModGrass(BlockState state) {
+        return state.is(ModBlocks.VELVET_GRASS.get()) || state.is(ModBlocks.STARDUST_SOIL.get());
     }
 }

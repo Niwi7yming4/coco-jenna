@@ -77,7 +77,11 @@ public final class FragmentedVillagerBrain {
         if (target != null) {
             villager.getNavigation().moveTo(target, 0.85);
             if (villager.distanceTo(target) < 2.5 && villager.tickCount % 20 == 0) {
+                float before = target.getHealth();
                 target.hurt(villager.damageSources().mobAttack(villager), 2f + data.getStrength());
+                if (!target.isAlive() && before > 0 && villager.getRandom().nextFloat() < 0.3f) {
+                    tryDropGuardianBadge(villager);
+                }
             }
         } else if (villager.tickCount % 100 == 0) {
             BlockPos patrol = villager.blockPosition().offset(
@@ -155,5 +159,15 @@ public final class FragmentedVillagerBrain {
                 .filter(e -> e != villager)
                 .min((a, b) -> Double.compare(villager.distanceTo(a), villager.distanceTo(b)))
                 .orElse(null);
+    }
+
+    private static void tryDropGuardianBadge(Villager villager) {
+        villager.spawnAtLocation(new net.minecraft.world.item.ItemStack(ModItems.GUARDIAN_BADGE.get()));
+        Player nearest = villager.level().getNearestPlayer(villager, 12);
+        if (nearest instanceof ServerPlayer sp) {
+            sp.displayClientMessage(
+                    net.minecraft.network.chat.Component.translatable("fragmented.cocojenna.guardian_badge_drop"),
+                    true);
+        }
     }
 }

@@ -6,7 +6,7 @@
   "sound_key": "paper",
   "charge_profile": "standard",
   "min_charge_ticks": 16,
-  "cooldown_ticks": 60,
+  "cooldown_ticks": 72,
   "mana_cost": 0,
   "stage_effects": [
     {
@@ -29,7 +29,7 @@
     },
     {
       "stage": 3,
-      "damage_mult": 1.6,
+      "damage_mult": 1.48,
       "radius_mult": 1.35,
       "particle_tier": 4
     }

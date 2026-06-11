@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "cocojenna:spore_fruit"
+    },
+    {
+      "item": "minecraft:leather"
+    },
+    {
+      "item": "cocojenna:moonstone"
+    },
+    {
+      "item": "minecraft:gold_ingot"
+    }
+  ],
+  "result": {
+    "item": "cocojenna:soul_dust",
+    "count": 1
+  }
+}

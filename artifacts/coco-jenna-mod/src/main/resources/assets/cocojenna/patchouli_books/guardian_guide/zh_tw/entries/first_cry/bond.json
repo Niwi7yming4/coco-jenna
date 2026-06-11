@@ -5,6 +5,14 @@
   "sortnum": 2,
   "pages": [
     {
+      "type": "patchouli:image",
+      "images": [
+        "cocojenna:textures/gui/patchouli/moon_plaza_night.png"
+      ],
+      "border": true,
+      "text": "patchouli.cocojenna.entry.bond.img"
+    },
+    {
       "type": "patchouli:text",
       "text": "patchouli.cocojenna.entry.bond.p1"
     },

@@ -62,6 +62,27 @@ public class ModSounds {
     /** 黑泥侵蝕音效 */
     public static final RegistryObject<SoundEvent> WORLD_BLACK_MUD_SPREAD =
             register("world.black_mud_spread");
+    /** 絨毛森林區域環境 */
+    public static final RegistryObject<SoundEvent> WORLD_VELVET_FOREST_AMBIENT =
+            register("world.velvet_forest_ambient");
+    /** 月影巷區域環境 */
+    public static final RegistryObject<SoundEvent> WORLD_MOON_ALLEY_AMBIENT =
+            register("world.moon_alley_ambient");
+    /** 初啼村日間氛圍 */
+    public static final RegistryObject<SoundEvent> WORLD_FIRST_CRY_AMBIENT =
+            register("world.first_cry_ambient");
+    /** 地下貓域霓虹環境 */
+    public static final RegistryObject<SoundEvent> WORLD_UNDERCAT_AMBIENT =
+            register("world.undercat_ambient");
+    /** 序列晉升儀式完成 */
+    public static final RegistryObject<SoundEvent> CEREMONY_PROMOTION_COMPLETE =
+            register("ceremony.promotion_complete");
+    /** 武器覺醒階段提升 */
+    public static final RegistryObject<SoundEvent> COMBAT_WEAPON_AWAKEN =
+            register("combat.weapon_awaken");
+    /** 王國交易成交 */
+    public static final RegistryObject<SoundEvent> KINGDOM_TRADE_COMPLETE =
+            register("kingdom.trade_complete");
 
     private static RegistryObject<SoundEvent> register(String name) {
         return SOUNDS.register(name,

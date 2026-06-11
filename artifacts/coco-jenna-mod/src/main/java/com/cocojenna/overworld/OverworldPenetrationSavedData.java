@@ -120,6 +120,22 @@ public class OverworldPenetrationSavedData extends SavedData {
         return null;
     }
 
+    /** 最近遺跡距離（格）；無遺跡時回傳 {@link Integer#MAX_VALUE}. */
+    public int nearestRuinDistance(BlockPos pos) {
+        int best = Integer.MAX_VALUE;
+        for (long key : ruinByPos.keySet()) {
+            int dist = (int) Math.sqrt(pos.distSqr(BlockPos.of(key)));
+            if (dist < best) best = dist;
+        }
+        return best;
+    }
+
+    public boolean canPlaceRuin(BlockPos center, OverworldRuinType type) {
+        int nearest = nearestRuinDistance(center);
+        if (nearest == Integer.MAX_VALUE) return true;
+        return nearest >= type.tier().minSpacing;
+    }
+
     public boolean isStarterOutpostPlaced() { return starterOutpostPlaced; }
 
     public void setStarterOutpostPlaced(boolean v) {

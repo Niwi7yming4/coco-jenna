@@ -1,5 +1,6 @@
 package com.cocojenna.endgame;
 
+import com.cocojenna.combat.CombatVfxHelper;
 import com.cocojenna.dialogue.DialogueManager;
 import com.cocojenna.entity.CocoEntity;
 import com.cocojenna.entity.JennaEntity;
@@ -7,10 +8,12 @@ import com.cocojenna.entity.ShadowClawEntity;
 import com.cocojenna.init.ModSounds;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.phys.AABB;
+import net.minecraft.world.phys.Vec3;
 
 /**
  * 影爪四階段戰鬥與救贖/肅清分支（守護者設計書）.
@@ -33,6 +36,15 @@ public final class ShadowClawBattleManager {
         float ratio = newHealth / boss.getMaxHealth();
         StoryPhase phase = boss.getStoryPhase();
 
+        if (phase == StoryPhase.FALLEN_GENERAL
+                && !boss.getPersistentData().getBoolean("cocojenna_phase1_dialogue")) {
+            boss.getPersistentData().putBoolean("cocojenna_phase1_dialogue", true);
+            if (attacker instanceof ServerPlayer sp) {
+                DialogueManager.play(sp, "shadow_claw_phase1");
+            }
+            spawnPhaseVfx(boss, 1);
+        }
+
         if (phase == StoryPhase.FALLEN_GENERAL && ratio <= 0.6f) {
             boss.setStoryPhase(StoryPhase.REGRETFUL_UNCLE);
             boss.setInvulnerable(true);
@@ -43,6 +55,7 @@ public final class ShadowClawBattleManager {
                 sp.displayClientMessage(Component.translatable("boss.cocojenna.shadow_claw.choice_hint")
                         .withStyle(ChatFormatting.GOLD), false);
             }
+            spawnPhaseVfx(boss, 2);
         }
         if (phase == StoryPhase.REGRETFUL_UNCLE && ratio <= 0.35f && attacker instanceof ServerPlayer sp2
                 && !boss.getPersistentData().getBoolean("cocojenna_phase3_dialogue")) {
@@ -77,6 +90,7 @@ public final class ShadowClawBattleManager {
         bond.setShadowClawEnding("redemption");
         if (bond.getKingdomHappiness() < 80) bond.addKingdomHappiness(5);
         DialogueManager.play(player, "shadow_claw_redemption");
+        spawnPhaseVfx(boss, 3);
         com.cocojenna.society.FragmentedQuestManager.onShadowClawComplete(player);
     }
 
@@ -96,7 +110,9 @@ public final class ShadowClawBattleManager {
         broadcast(boss, player, "boss.cocojenna.shadow_claw.purge");
         AfterRainManager.setShadowClawEnding(player, "purge");
         bond.setShadowClawEnding("purge");
+        DialogueManager.play(player, "shadow_claw_phase4");
         DialogueManager.play(player, "shadow_claw_purge");
+        spawnPhaseVfx(boss, 4);
         com.cocojenna.society.FragmentedQuestManager.onShadowClawComplete(player);
     }
 
@@ -104,6 +120,15 @@ public final class ShadowClawBattleManager {
         if (boss.level().isClientSide) return;
         Player target = boss.level().getNearestPlayer(boss, 32);
         if (target == null) return;
+
+        if (boss.getStoryPhase() == StoryPhase.FALLEN_GENERAL
+                && !boss.getPersistentData().getBoolean("cocojenna_intro_vfx")
+                && target.distanceToSqr(boss) < 24 * 24) {
+            boss.getPersistentData().putBoolean("cocojenna_intro_vfx", true);
+            if (boss.level() instanceof ServerLevel sl) {
+                CombatVfxHelper.bossIntro(sl, boss.position(), "shadow_claw");
+            }
+        }
 
         if (boss.getStoryPhase() == StoryPhase.FULL_CORRUPTION && target.getHealth() <= 0.5f) {
             tryTwinResonance(boss, target);
@@ -125,6 +150,7 @@ public final class ShadowClawBattleManager {
         player.heal(player.getMaxHealth() * 0.4f);
         if (player instanceof ServerPlayer sp) {
             DialogueManager.play(sp, "shadow_claw_twin_resonance");
+            spawnPhaseVfx(boss, 5);
         }
         player.displayClientMessage(Component.translatable("boss.cocojenna.shadow_claw.twin_resonance")
                 .withStyle(ChatFormatting.LIGHT_PURPLE), false);
@@ -136,5 +162,17 @@ public final class ShadowClawBattleManager {
         boss.level().playSound(null, boss.blockPosition(),
                 ModSounds.WORLD_BLACK_MUD_SPREAD.get(), SoundSource.HOSTILE, 1.5f, 0.7f);
         player.displayClientMessage(Component.translatable(key).withStyle(ChatFormatting.DARK_RED), false);
+    }
+
+    private static void spawnPhaseVfx(ShadowClawEntity boss, int phase) {
+        if (!(boss.level() instanceof ServerLevel level)) return;
+        Vec3 pos = boss.position().add(0, boss.getBbHeight() * 0.5, 0);
+        CombatVfxHelper.bossPhaseShift(level, pos, phase);
+        if (phase == 4) {
+            CombatVfxHelper.blackMudExplosion(level, pos);
+        } else if (phase == 5) {
+            level.sendParticles(net.minecraft.core.particles.ParticleTypes.END_ROD,
+                    pos.x, pos.y, pos.z, 40, 0.8, 1.0, 0.8, 0.04);
+        }
     }
 }

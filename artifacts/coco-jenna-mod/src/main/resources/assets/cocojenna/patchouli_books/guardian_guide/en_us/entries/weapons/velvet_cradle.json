@@ -1,0 +1,16 @@
+{
+  "name": "patchouli.cocojenna.weapon.velvet_cradle",
+  "icon": "cocojenna:ryokatana_velvet_whisper",
+  "category": "cocojenna:weapons",
+  "sortnum": 19,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.weapon.velvet_cradle.p1"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.weapon.velvet_cradle.p2"
+    }
+  ]
+}

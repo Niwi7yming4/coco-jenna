@@ -1,0 +1,16 @@
+{
+  "name": "patchouli.cocojenna.map.velvet_forest",
+  "icon": "cocojenna:memory_lighthouse",
+  "category": "cocojenna:map",
+  "sortnum": 2,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.map.velvet_forest.p1"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.map.velvet_forest.p2"
+    }
+  ]
+}

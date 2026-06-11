@@ -1,0 +1,16 @@
+{
+  "name": "patchouli.cocojenna.weapon.iron_rust_armor_break",
+  "icon": "cocojenna:ryokatana_velvet_whisper",
+  "category": "cocojenna:weapons",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.weapon.iron_rust_armor_break.p1"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.weapon.iron_rust_armor_break.p2"
+    }
+  ]
+}

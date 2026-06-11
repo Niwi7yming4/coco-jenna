@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:feather"
+    },
+    {
+      "item": "cocojenna:coco_fur"
+    },
+    {
+      "item": "minecraft:emerald"
+    },
+    {
+      "item": "minecraft:coal"
+    }
+  ],
+  "result": {
+    "item": "cocojenna:general_cat_spawn_egg",
+    "count": 1
+  }
+}

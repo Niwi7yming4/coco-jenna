@@ -29,6 +29,7 @@ public final class AfterRainManager {
             CatKingdomWorldData worldData = CatKingdomWorldData.get(level);
             worldData.registerFirstDawnCandidate(player);
             worldData.setAfterRain(true);
+            com.cocojenna.kingdom.multiplayer.KingdomAuthorityManager.onFirstDawn(player);
         }
 
         for (ServerPlayer online : player.server.getPlayerList().getPlayers()) {

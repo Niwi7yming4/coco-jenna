@@ -104,6 +104,16 @@ public final class AfterRainKingdomManager {
             tasks.add(o);
         }
         root.add("tasks", tasks);
+
+        if (player.level().dimension().equals(com.cocojenna.init.ModDimensions.CAT_KINGDOM)) {
+            JsonObject cabinet = new JsonObject();
+            var auth = com.cocojenna.kingdom.multiplayer.KingdomAuthoritySavedData.get(player.serverLevel());
+            if (auth.getMonarch() != null) {
+                cabinet.addProperty("monarch", auth.getMonarch().toString());
+            }
+            cabinet.addProperty("myRole", auth.getRole(player.getUUID()).name());
+            root.add("cabinet", cabinet);
+        }
         return root;
     }
 
@@ -127,6 +137,10 @@ public final class AfterRainKingdomManager {
             case "show_family" -> com.cocojenna.society.CatFamilyManager.showFamilyTree(player);
             case "propose_npc" -> com.cocojenna.society.CatMarriageManager.tryPropose(
                     player, msg.get("npc").getAsString());
+            case "team_bond" -> com.cocojenna.kingdom.multiplayer.TeamBondUltimateManager.tryActivate(player);
+            case "kitten_bless" -> com.cocojenna.kingdom.multiplayer.KingdomKittenManager.tryBless(player);
+            case "mercenary_set" -> com.cocojenna.kingdom.multiplayer.MercenaryManager.setProfile(
+                    player, msg.get("price").getAsInt());
             default -> { }
         }
     }
@@ -269,6 +283,8 @@ public final class AfterRainKingdomManager {
     }
 
     private static void tryStartFestival(ServerPlayer player) {
+        if (!com.cocojenna.kingdom.multiplayer.KingdomPermissionGuard.check(
+                player, com.cocojenna.kingdom.multiplayer.Permission.START_FESTIVAL)) return;
         BondData bond = ModCapabilities.getOrDefault(player);
         int phase = bond.getFestivalPhase();
         if (phase > FestivalEventManager.PHASE_IDLE && phase < FestivalEventManager.PHASE_ENDED) return;

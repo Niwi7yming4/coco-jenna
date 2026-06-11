@@ -43,42 +43,14 @@ import java.util.Set;
 public class BondData {
 
     private final CatBondCapability catBondSection = new CatBondCapability();
+    private final KingdomMultiplayerCapability multiplayerSection = new KingdomMultiplayerCapability();
     private final SequenceCapability sequenceSection = new SequenceCapability();
-
-    // ── 可可三軌 ─────────────────────────────────────────────────────────
-    private float cocoEmotion = 0f;        // 初始 Stranger
-    private float cocoIndependence = 20f;
-    private int   cocoAwakening = 0;       // 記憶碎片數
-
-    // ── 可可專屬 ─────────────────────────────────────────────────────────
-    private float cocoProtectiveness = 60f;
-    private float cocoMoonAffinity = 40f;
-    private float cocoAttachment = 0f;     // 終局後使用
-    private float cocoSunbathing = 0f;     // 終局後使用
-
-    // ── 珍奶三軌 ─────────────────────────────────────────────────────────
-    private float jennaEmotion = 0f;
-    private float jennaIndependence = 25f;
-    private int   jennaAwakening = 0;
-
-    // ── 珍奶專屬 ─────────────────────────────────────────────────────────
-    private float jennaPlayfulness = 85f;
-    private float jennaCuriosity = 80f;
-    private float jennaContentment = 60f;
-
-    // ── 姊妹羈絆 ─────────────────────────────────────────────────────────
-    private float sisterBond = 65f;
 
     // ── 進度旗標 ─────────────────────────────────────────────────────────
     private boolean endgameUnlocked = false;
-    private int memoryShardsTotal = 0;
-    /** Bitmask: a=0, b=1, c=2, d=3, e=4, f=5, g=6 */
-    private long unlockedSequences = 0L;
     private int firstCryQuestStage = 0;
     /** 第六章到達引導（0=可可凝視 … 6=完成）. */
     private int arrivalTutorialStage = 0;
-    /** 入門任務鏈（0=遇見貓 … 6=完成）. */
-    private int onboardingQuestStep = 0;
     private int onboardingWoodCollected = 0;
     private int onboardingStoneCollected = 0;
     /** 主世界滲透主線（0=月光腳印 … 5=完成）. */
@@ -125,9 +97,6 @@ public class BondData {
     private long pregnancyDueDay = -1L;
     private int kittenCount = 0;
     private final Set<Long> revealedHiddenPos = new HashSet<>();
-    private String felineForce = "";
-    private int felineTier = 9;
-    private long felineSkillCooldownUntil = 0L;
     private int forceQuestStage = 0;
     private int forceTrialsMask = 0;
     private int forceResetCount = 0;
@@ -155,30 +124,11 @@ public class BondData {
     private int repBlindPort = 0;
     private int repFirstCry = 0;
     private final Set<String> purchasedRepOffers = new HashSet<>();
-    private int promotionCardCount = 0;
-    private float promotionCardBonus = 0f;
-    private final List<String> ownedPromotionCards = new ArrayList<>();
-    private int pendingPromotionTier = 0;
-    // ── 晉升儀式 ─────────────────────────────────────────────────────────
-    private int ceremonyStage = 0;         // 0=NONE, 1=SUMMONING, 2=SACRIFICE, 3=RESONANCE, 4=REVELATION, 5=MARKING, 6=COMPLETE
-    private int ceremonyTimeout = 0;       // tick timeout, 0=no timeout
-    // ── 序列印記 ─────────────────────────────────────────────────────────
-    private int markLevel = 0;             // 0=無, 1=光點, 2=紋路, 3=完整紋路
-    private String markForce = "";         // resonance/shadow/chaos
-    // ── 簡化儀式設定 ─────────────────────────────────────────────────────
-    private boolean simplifiedCeremony = false; // 跳過動畫，直接卡牌選擇
-    private long hiddenSequences = 0L;
     private long lastOnlineTick = 0L;
     private boolean showSkillCooldown = true;
     private int preferredSkillSlot = 0;
     private int activeSkillPreset = 0;
     private final int[] skillPresetSlots = new int[]{0, 0, 0};
-    private int awakeningTrialTier = 0;
-    private boolean awakeningTrialActive = false;
-    private int awakeningTrialIndex = 0;
-    private int awakeningTrialKills = 0;
-    private int awakeningTrialGoal = 0;
-    private long awakeningTrialDeadline = 0;
     private int kingdomProsperity = 0;
     private int kingdomHappiness = 50;
     private int kingdomStability = 50;
@@ -343,58 +293,58 @@ public class BondData {
         }
     }
 
-    public EmotionLevel getCocoEmotionLevel() { return EmotionLevel.of(cocoEmotion); }
-    public EmotionLevel getJennaEmotionLevel() { return EmotionLevel.of(jennaEmotion); }
+    public EmotionLevel getCocoEmotionLevel() { return EmotionLevel.of(getCocoEmotion()); }
+    public EmotionLevel getJennaEmotionLevel() { return EmotionLevel.of(getJennaEmotion()); }
 
     // ─────────────────────────────────────────────────────────────────────
     // 修改方法（帶限幅與冷卻檢查）
     // ─────────────────────────────────────────────────────────────────────
 
     public void modifyCocoEmotion(float delta) {
-        cocoEmotion = Math.max(0f, Math.min(100f, cocoEmotion + delta));
+        setCocoEmotion(getCocoEmotion() + delta);
     }
 
     public void modifyJennaEmotion(float delta) {
-        jennaEmotion = Math.max(0f, Math.min(100f, jennaEmotion + delta));
+        setJennaEmotion(getJennaEmotion() + delta);
     }
 
     public void modifySisterBond(float delta) {
-        sisterBond = Math.max(0f, Math.min(100f, sisterBond + delta));
+        setSisterBond(getSisterBond() + delta);
     }
 
     public void modifyCocoProtectiveness(float delta) {
-        cocoProtectiveness = Math.max(0f, Math.min(100f, cocoProtectiveness + delta));
+        setCocoProtectiveness(getCocoProtectiveness() + delta);
     }
 
     public void modifyJennaPlayfulness(float delta) {
-        jennaPlayfulness = Math.max(0f, Math.min(100f, jennaPlayfulness + delta));
+        setJennaPlayfulness(getJennaPlayfulness() + delta);
     }
 
     public void modifyJennaContentment(float delta) {
-        jennaContentment = Math.max(0f, Math.min(100f, jennaContentment + delta));
+        setJennaContentment(getJennaContentment() + delta);
     }
 
     public void modifyCocoIndependence(float delta) {
-        cocoIndependence = Math.max(0f, Math.min(100f, cocoIndependence + delta));
+        setCocoIndependence(getCocoIndependence() + delta);
     }
 
     public void modifyJennaIndependence(float delta) {
-        jennaIndependence = Math.max(0f, Math.min(100f, jennaIndependence + delta));
+        setJennaIndependence(getJennaIndependence() + delta);
     }
 
     public void modifyCocoEmotion(float delta, boolean temp) { modifyCocoEmotion(delta); }
 
     public void addMemoryShard(int amount) {
-        memoryShardsTotal += amount;
-        cocoAwakening = Math.min(50, memoryShardsTotal);
-        jennaAwakening = Math.min(50, memoryShardsTotal);
+        setMemoryShardsTotal(getMemoryShardsTotal() + amount);
+        setCocoAwakening(Math.min(50, getMemoryShardsTotal()));
+        setJennaAwakening(Math.min(50, getMemoryShardsTotal()));
     }
 
     /** 伺服器端：碎片增加後同步紀念碑（由 ModEventHandler 呼叫）. */
     public void notifyShardGrowth(net.minecraft.server.level.ServerPlayer player) {
         if (player != null) {
             com.cocojenna.world.MonumentGrowthManager.onShardsUpdated(
-                    player.serverLevel(), memoryShardsTotal);
+                    player.serverLevel(), getMemoryShardsTotal());
             com.cocojenna.integration.FallenAbyssLinkage.trySpawnMirror(
                     player.serverLevel(), this, player);
         }
@@ -415,7 +365,8 @@ public class BondData {
 
     public boolean hasSequence(String id) {
         int bit = sequenceBit(id);
-        return bit >= 0 && (unlockedSequences & (1L << bit)) != 0;
+        long mask = getUnlockedSequencesRaw();
+        return bit >= 0 && (mask & (1L << bit)) != 0;
     }
 
     public boolean unlockSequence(String id) {
@@ -423,7 +374,7 @@ public class BondData {
         if (bit < 0 || hasSequence(id)) {
             return false;
         }
-        unlockedSequences |= (1L << bit);
+        setUnlockedSequencesRaw(getUnlockedSequencesRaw() | (1L << bit));
         return true;
     }
 
@@ -433,30 +384,30 @@ public class BondData {
 
     public CompoundTag serializeNBT() {
         CompoundTag tag = new CompoundTag();
-        tag.putFloat("cocoEmotion", cocoEmotion);
-        tag.putFloat("cocoIndependence", cocoIndependence);
-        tag.putInt("cocoAwakening", cocoAwakening);
-        tag.putFloat("cocoProtectiveness", cocoProtectiveness);
-        tag.putFloat("cocoMoonAffinity", cocoMoonAffinity);
-        tag.putFloat("cocoAttachment", cocoAttachment);
-        tag.putFloat("cocoSunbathing", cocoSunbathing);
-        tag.putFloat("jennaEmotion", jennaEmotion);
-        tag.putFloat("jennaIndependence", jennaIndependence);
-        tag.putInt("jennaAwakening", jennaAwakening);
-        tag.putFloat("jennaPlayfulness", jennaPlayfulness);
-        tag.putFloat("jennaCuriosity", jennaCuriosity);
-        tag.putFloat("jennaContentment", jennaContentment);
-        tag.putFloat("sisterBond", sisterBond);
+        tag.putFloat("cocoEmotion", getCocoEmotion());
+        tag.putFloat("cocoIndependence", getCocoIndependence());
+        tag.putInt("cocoAwakening", getCocoAwakening());
+        tag.putFloat("cocoProtectiveness", getCocoProtectiveness());
+        tag.putFloat("cocoMoonAffinity", getCocoMoonAffinity());
+        tag.putFloat("cocoAttachment", getCocoAttachment());
+        tag.putFloat("cocoSunbathing", getCocoSunbathing());
+        tag.putFloat("jennaEmotion", getJennaEmotion());
+        tag.putFloat("jennaIndependence", getJennaIndependence());
+        tag.putInt("jennaAwakening", getJennaAwakening());
+        tag.putFloat("jennaPlayfulness", getJennaPlayfulness());
+        tag.putFloat("jennaCuriosity", getJennaCuriosity());
+        tag.putFloat("jennaContentment", getJennaContentment());
+        tag.putFloat("sisterBond", getSisterBond());
         tag.putBoolean("endgameUnlocked", endgameUnlocked);
-        tag.putInt("memoryShardsTotal", memoryShardsTotal);
+        tag.putInt("memoryShardsTotal", getMemoryShardsTotal());
         tag.putLong("lastInteractCoco", lastInteractCoco);
         tag.putLong("lastInteractJenna", lastInteractJenna);
         tag.putLong("lastFeedCoco", lastFeedCoco);
         tag.putLong("lastFeedJenna", lastFeedJenna);
-        tag.putLong("unlockedSequences", unlockedSequences);
+        tag.putLong("unlockedSequences", getUnlockedSequencesRaw());
         tag.putInt("firstCryQuestStage", firstCryQuestStage);
         tag.putInt("arrivalTutorialStage", arrivalTutorialStage);
-        tag.putInt("onboardingQuestStep", onboardingQuestStep);
+        tag.putInt("onboardingQuestStep", getOnboardingQuestStep());
         tag.putInt("onboardingWoodCollected", onboardingWoodCollected);
         tag.putInt("onboardingStoneCollected", onboardingStoneCollected);
         tag.putInt("penetrationQuestStage", penetrationQuestStage);
@@ -531,9 +482,9 @@ public class BondData {
             revealed.add(net.minecraft.nbt.LongTag.valueOf(p));
         }
         tag.put("revealedHidden", revealed);
-        tag.putString("felineForce", felineForce);
-        tag.putInt("felineTier", felineTier);
-        tag.putLong("felineSkillCooldownUntil", felineSkillCooldownUntil);
+        tag.putString("felineForce", getFelineForce());
+        tag.putInt("felineTier", getFelineTier());
+        tag.putLong("felineSkillCooldownUntil", getFelineSkillCooldownUntil());
         tag.putInt("forceQuestStage", forceQuestStage);
         tag.putInt("forceTrialsMask", forceTrialsMask);
         tag.putInt("forceResetCount", forceResetCount);
@@ -554,18 +505,18 @@ public class BondData {
         ListTag repShop = new ListTag();
         for (String id : purchasedRepOffers) repShop.add(StringTag.valueOf(id));
         tag.put("purchasedRepOffers", repShop);
-        tag.putInt("promotionCardCount", promotionCardCount);
-        tag.putFloat("promotionCardBonus", promotionCardBonus);
+        tag.putInt("promotionCardCount", getPromotionCardCount());
+        tag.putFloat("promotionCardBonus", getPromotionCardBonus());
         ListTag cards = new ListTag();
-        for (String id : ownedPromotionCards) cards.add(StringTag.valueOf(id));
+        for (String id : getOwnedPromotionCards()) cards.add(StringTag.valueOf(id));
         tag.put("ownedPromotionCards", cards);
-        tag.putInt("pendingPromotionTier", pendingPromotionTier);
-        tag.putInt("ceremonyStage", ceremonyStage);
-        tag.putInt("ceremonyTimeout", ceremonyTimeout);
-        tag.putInt("markLevel", markLevel);
-        tag.putString("markForce", markForce);
-        tag.putBoolean("simplifiedCeremony", simplifiedCeremony);
-        tag.putLong("hiddenSequences", hiddenSequences);
+        tag.putInt("pendingPromotionTier", getPendingPromotionTier());
+        tag.putInt("ceremonyStage", getCeremonyStage());
+        tag.putInt("ceremonyTimeout", getCeremonyTimeout());
+        tag.putInt("markLevel", getMarkLevel());
+        tag.putString("markForce", getMarkForce());
+        tag.putBoolean("simplifiedCeremony", isSimplifiedCeremony());
+        tag.putLong("hiddenSequences", getHiddenSequences());
         tag.putLong("lastOnlineTick", lastOnlineTick);
         tag.putBoolean("showSkillCooldown", showSkillCooldown);
         tag.putInt("preferredSkillSlot", preferredSkillSlot);
@@ -573,12 +524,12 @@ public class BondData {
         ListTag presetSlots = new ListTag();
         for (int slot : skillPresetSlots) presetSlots.add(net.minecraft.nbt.IntTag.valueOf(slot));
         tag.put("skillPresetSlots", presetSlots);
-        tag.putInt("awakeningTrialTier", awakeningTrialTier);
-        tag.putBoolean("awakeningTrialActive", awakeningTrialActive);
-        tag.putInt("awakeningTrialIndex", awakeningTrialIndex);
-        tag.putInt("awakeningTrialKills", awakeningTrialKills);
-        tag.putInt("awakeningTrialGoal", awakeningTrialGoal);
-        tag.putLong("awakeningTrialDeadline", awakeningTrialDeadline);
+        tag.putInt("awakeningTrialTier", getAwakeningTrialTier());
+        tag.putBoolean("awakeningTrialActive", isAwakeningTrialActive());
+        tag.putInt("awakeningTrialIndex", getAwakeningTrialIndex());
+        tag.putInt("awakeningTrialKills", getAwakeningTrialKills());
+        tag.putInt("awakeningTrialGoal", getAwakeningTrialGoal());
+        tag.putLong("awakeningTrialDeadline", getAwakeningTrialDeadline());
         tag.putInt("kingdomProsperity", kingdomProsperity);
         tag.putInt("kingdomHappiness", kingdomHappiness);
         tag.putInt("kingdomStability", kingdomStability);
@@ -802,38 +753,37 @@ public class BondData {
         tag.putInt("qinKemuQuestStage", qinKemuQuestStage);
         tag.putLong("qinWeaponAwakenCooldownUntil", qinWeaponAwakenCooldownUntil);
         tag.putLong("discoveredMausoleums", discoveredMausoleums);
-        catBondSection.copyFrom(this);
-        sequenceSection.copyFrom(this);
         tag.put("catBond", catBondSection.serialize());
+        tag.put("multiplayer", multiplayerSection.serialize());
         tag.put("sequence", sequenceSection.serialize());
         return tag;
     }
 
     public void deserializeNBT(CompoundTag tag) {
-        cocoEmotion = tag.getFloat("cocoEmotion");
-        cocoIndependence = tag.getFloat("cocoIndependence");
-        cocoAwakening = tag.getInt("cocoAwakening");
-        cocoProtectiveness = tag.getFloat("cocoProtectiveness");
-        cocoMoonAffinity = tag.getFloat("cocoMoonAffinity");
-        cocoAttachment = tag.getFloat("cocoAttachment");
-        cocoSunbathing = tag.getFloat("cocoSunbathing");
-        jennaEmotion = tag.getFloat("jennaEmotion");
-        jennaIndependence = tag.getFloat("jennaIndependence");
-        jennaAwakening = tag.getInt("jennaAwakening");
-        jennaPlayfulness = tag.getFloat("jennaPlayfulness");
-        jennaCuriosity = tag.getFloat("jennaCuriosity");
-        jennaContentment = tag.getFloat("jennaContentment");
-        sisterBond = tag.getFloat("sisterBond");
+        setCocoEmotion(tag.getFloat("cocoEmotion"));
+        setCocoIndependence(tag.getFloat("cocoIndependence"));
+        setCocoAwakening(tag.getInt("cocoAwakening"));
+        setCocoProtectiveness(tag.getFloat("cocoProtectiveness"));
+        setCocoMoonAffinity(tag.getFloat("cocoMoonAffinity"));
+        setCocoAttachment(tag.getFloat("cocoAttachment"));
+        setCocoSunbathing(tag.getFloat("cocoSunbathing"));
+        setJennaEmotion(tag.getFloat("jennaEmotion"));
+        setJennaIndependence(tag.getFloat("jennaIndependence"));
+        setJennaAwakening(tag.getInt("jennaAwakening"));
+        setJennaPlayfulness(tag.getFloat("jennaPlayfulness"));
+        setJennaCuriosity(tag.getFloat("jennaCuriosity"));
+        setJennaContentment(tag.getFloat("jennaContentment"));
+        setSisterBond(tag.getFloat("sisterBond"));
         endgameUnlocked = tag.getBoolean("endgameUnlocked");
-        memoryShardsTotal = tag.getInt("memoryShardsTotal");
+        setMemoryShardsTotal(tag.getInt("memoryShardsTotal"));
         lastInteractCoco = tag.getLong("lastInteractCoco");
         lastInteractJenna = tag.getLong("lastInteractJenna");
         lastFeedCoco = tag.getLong("lastFeedCoco");
         lastFeedJenna = tag.getLong("lastFeedJenna");
-        unlockedSequences = tag.getLong("unlockedSequences");
+        setUnlockedSequencesRaw(tag.getLong("unlockedSequences"));
         firstCryQuestStage = tag.getInt("firstCryQuestStage");
         arrivalTutorialStage = tag.contains("arrivalTutorialStage") ? tag.getInt("arrivalTutorialStage") : 0;
-        onboardingQuestStep = tag.contains("onboardingQuestStep") ? tag.getInt("onboardingQuestStep") : 0;
+        setOnboardingQuestStep(tag.contains("onboardingQuestStep") ? tag.getInt("onboardingQuestStep") : 0);
         onboardingWoodCollected = tag.contains("onboardingWoodCollected") ? tag.getInt("onboardingWoodCollected") : 0;
         onboardingStoneCollected = tag.contains("onboardingStoneCollected") ? tag.getInt("onboardingStoneCollected") : 0;
         penetrationQuestStage = tag.contains("penetrationQuestStage") ? tag.getInt("penetrationQuestStage") : 0;
@@ -908,9 +858,9 @@ public class BondData {
                 revealedHiddenPos.add(((net.minecraft.nbt.LongTag) t).getAsLong());
             }
         }
-        felineForce = tag.getString("felineForce");
-        felineTier = tag.contains("felineTier") ? tag.getInt("felineTier") : 9;
-        felineSkillCooldownUntil = tag.getLong("felineSkillCooldownUntil");
+        setFelineForce(tag.getString("felineForce"));
+        setFelineTier(tag.contains("felineTier") ? tag.getInt("felineTier") : 9);
+        setFelineSkillCooldownUntil(tag.getLong("felineSkillCooldownUntil"));
         forceQuestStage = tag.contains("forceQuestStage") ? tag.getInt("forceQuestStage") : 0;
         forceTrialsMask = tag.contains("forceTrialsMask") ? tag.getInt("forceTrialsMask") : 0;
         forceResetCount = tag.contains("forceResetCount") ? tag.getInt("forceResetCount") : 0;
@@ -934,21 +884,24 @@ public class BondData {
                 purchasedRepOffers.add(t.getAsString());
             }
         }
-        promotionCardCount = tag.contains("promotionCardCount") ? tag.getInt("promotionCardCount") : 0;
-        promotionCardBonus = tag.contains("promotionCardBonus") ? tag.getFloat("promotionCardBonus") : 0f;
-        ownedPromotionCards.clear();
+        setPromotionCardCount(tag.contains("promotionCardCount") ? tag.getInt("promotionCardCount") : 0);
+        setPromotionCardBonus(tag.contains("promotionCardBonus") ? tag.getFloat("promotionCardBonus") : 0f);
         if (tag.contains("ownedPromotionCards")) {
+            List<String> cards = new ArrayList<>();
             for (var e : tag.getList("ownedPromotionCards", 8)) {
-                ownedPromotionCards.add(e.getAsString());
+                cards.add(e.getAsString());
             }
+            replaceOwnedPromotionCards(cards);
+        } else {
+            replaceOwnedPromotionCards(List.of());
         }
-        pendingPromotionTier = tag.contains("pendingPromotionTier") ? tag.getInt("pendingPromotionTier") : 0;
-        ceremonyStage = tag.contains("ceremonyStage") ? tag.getInt("ceremonyStage") : 0;
-        ceremonyTimeout = tag.contains("ceremonyTimeout") ? tag.getInt("ceremonyTimeout") : 0;
-        markLevel = tag.contains("markLevel") ? tag.getInt("markLevel") : 0;
-        markForce = tag.contains("markForce") ? tag.getString("markForce") : "";
-        simplifiedCeremony = tag.contains("simplifiedCeremony") && tag.getBoolean("simplifiedCeremony");
-        hiddenSequences = tag.contains("hiddenSequences") ? tag.getLong("hiddenSequences") : 0L;
+        setPendingPromotionTier(tag.contains("pendingPromotionTier") ? tag.getInt("pendingPromotionTier") : 0);
+        setCeremonyStage(tag.contains("ceremonyStage") ? tag.getInt("ceremonyStage") : 0);
+        setCeremonyTimeout(tag.contains("ceremonyTimeout") ? tag.getInt("ceremonyTimeout") : 0);
+        setMarkLevel(tag.contains("markLevel") ? tag.getInt("markLevel") : 0);
+        setMarkForce(tag.contains("markForce") ? tag.getString("markForce") : "");
+        setSimplifiedCeremony(tag.contains("simplifiedCeremony") && tag.getBoolean("simplifiedCeremony"));
+        setHiddenSequences(tag.contains("hiddenSequences") ? tag.getLong("hiddenSequences") : 0L);
         lastOnlineTick = tag.contains("lastOnlineTick") ? tag.getLong("lastOnlineTick") : 0L;
         showSkillCooldown = !tag.contains("showSkillCooldown") || tag.getBoolean("showSkillCooldown");
         preferredSkillSlot = tag.contains("preferredSkillSlot") ? tag.getInt("preferredSkillSlot") : 0;
@@ -962,12 +915,12 @@ public class BondData {
         if (activeSkillPreset >= 0 && activeSkillPreset < skillPresetSlots.length) {
             preferredSkillSlot = skillPresetSlots[activeSkillPreset];
         }
-        awakeningTrialTier = tag.getInt("awakeningTrialTier");
-        awakeningTrialActive = tag.contains("awakeningTrialActive") && tag.getBoolean("awakeningTrialActive");
-        awakeningTrialIndex = tag.contains("awakeningTrialIndex") ? tag.getInt("awakeningTrialIndex") : 0;
-        awakeningTrialKills = tag.contains("awakeningTrialKills") ? tag.getInt("awakeningTrialKills") : 0;
-        awakeningTrialGoal = tag.contains("awakeningTrialGoal") ? tag.getInt("awakeningTrialGoal") : 0;
-        awakeningTrialDeadline = tag.contains("awakeningTrialDeadline") ? tag.getLong("awakeningTrialDeadline") : 0;
+        setAwakeningTrialTier(tag.getInt("awakeningTrialTier"));
+        setAwakeningTrialActive(tag.contains("awakeningTrialActive") && tag.getBoolean("awakeningTrialActive"));
+        setAwakeningTrialIndex(tag.contains("awakeningTrialIndex") ? tag.getInt("awakeningTrialIndex") : 0);
+        setAwakeningTrialKills(tag.contains("awakeningTrialKills") ? tag.getInt("awakeningTrialKills") : 0);
+        setAwakeningTrialGoal(tag.contains("awakeningTrialGoal") ? tag.getInt("awakeningTrialGoal") : 0);
+        setAwakeningTrialDeadline(tag.contains("awakeningTrialDeadline") ? tag.getLong("awakeningTrialDeadline") : 0);
         kingdomProsperity = tag.getInt("kingdomProsperity");
         kingdomHappiness = tag.contains("kingdomHappiness") ? tag.getInt("kingdomHappiness") : 50;
         kingdomStability = tag.contains("kingdomStability") ? tag.getInt("kingdomStability") : 50;
@@ -1201,11 +1154,12 @@ public class BondData {
         discoveredMausoleums = tag.contains("discoveredMausoleums") ? tag.getLong("discoveredMausoleums") : 0L;
         if (tag.contains("catBond")) {
             catBondSection.deserialize(tag.getCompound("catBond"));
-            catBondSection.applyTo(this);
+        }
+        if (tag.contains("multiplayer")) {
+            multiplayerSection.deserialize(tag.getCompound("multiplayer"));
         }
         if (tag.contains("sequence")) {
             sequenceSection.deserialize(tag.getCompound("sequence"));
-            sequenceSection.applyTo(this);
         }
     }
 
@@ -1213,32 +1167,32 @@ public class BondData {
     // Getters / Setters
     // ─────────────────────────────────────────────────────────────────────
 
-    public float getCocoEmotion()          { return cocoEmotion; }
-    public float getCocoIndependence()     { return cocoIndependence; }
-    public int   getCocoAwakening()        { return cocoAwakening; }
-    public float getCocoProtectiveness()   { return cocoProtectiveness; }
-    public float getCocoMoonAffinity()     { return cocoMoonAffinity; }
-    public float getCocoAttachment()       { return cocoAttachment; }
-    public float getCocoSunbathing()       { return cocoSunbathing; }
-    public float getJennaEmotion()         { return jennaEmotion; }
-    public float getJennaIndependence()    { return jennaIndependence; }
-    public int   getJennaAwakening()       { return jennaAwakening; }
-    public float getJennaPlayfulness()     { return jennaPlayfulness; }
-    public float getJennaCuriosity()       { return jennaCuriosity; }
-    public float getJennaContentment()     { return jennaContentment; }
-    public float getSisterBond()           { return sisterBond; }
+    public float getCocoEmotion()          { return catBondSection.getCocoEmotion(); }
+    public float getCocoIndependence()     { return catBondSection.getCocoIndependence(); }
+    public int   getCocoAwakening()        { return catBondSection.getCocoAwakening(); }
+    public float getCocoProtectiveness()   { return catBondSection.getCocoProtectiveness(); }
+    public float getCocoMoonAffinity()     { return catBondSection.getCocoMoonAffinity(); }
+    public float getCocoAttachment()       { return catBondSection.getCocoAttachment(); }
+    public float getCocoSunbathing()       { return catBondSection.getCocoSunbathing(); }
+    public float getJennaEmotion()         { return catBondSection.getJennaEmotion(); }
+    public float getJennaIndependence()    { return catBondSection.getJennaIndependence(); }
+    public int   getJennaAwakening()       { return catBondSection.getJennaAwakening(); }
+    public float getJennaPlayfulness()     { return catBondSection.getJennaPlayfulness(); }
+    public float getJennaCuriosity()       { return catBondSection.getJennaCuriosity(); }
+    public float getJennaContentment()     { return catBondSection.getJennaContentment(); }
+    public float getSisterBond()           { return catBondSection.getSisterBond(); }
     public boolean isEndgameUnlocked()     { return endgameUnlocked; }
-    public int   getMemoryShardsTotal()    { return memoryShardsTotal; }
+    public int   getMemoryShardsTotal()    { return sequenceSection.getMemoryShardsTotal(); }
     public long  getLastInteractCoco()     { return lastInteractCoco; }
     public long  getLastInteractJenna()    { return lastInteractJenna; }
     public long  getLastFeedCoco()         { return lastFeedCoco; }
     public long  getLastFeedJenna()        { return lastFeedJenna; }
 
-    public void setCocoEmotion(float v)        { cocoEmotion = Math.max(0, Math.min(100, v)); }
-    public void setCocoIndependence(float v)   { cocoIndependence = Math.max(0, Math.min(100, v)); }
-    public void setJennaEmotion(float v)       { jennaEmotion = Math.max(0, Math.min(100, v)); }
-    public void setJennaIndependence(float v)  { jennaIndependence = Math.max(0, Math.min(100, v)); }
-    public void setSisterBond(float v)         { sisterBond = Math.max(0, Math.min(100, v)); }
+    public void setCocoEmotion(float v)        { catBondSection.setCocoEmotion(Math.max(0, Math.min(100, v))); }
+    public void setCocoIndependence(float v)   { catBondSection.setCocoIndependence(Math.max(0, Math.min(100, v))); }
+    public void setJennaEmotion(float v)       { catBondSection.setJennaEmotion(Math.max(0, Math.min(100, v))); }
+    public void setJennaIndependence(float v)  { catBondSection.setJennaIndependence(Math.max(0, Math.min(100, v))); }
+    public void setSisterBond(float v)         { catBondSection.setSisterBond(Math.max(0, Math.min(100, v))); }
     public void setEndgameUnlocked(boolean v)  { endgameUnlocked = v; }
     public void setLastInteractCoco(long t)    { lastInteractCoco = t; }
     public void setLastInteractJenna(long t)   { lastInteractJenna = t; }
@@ -1247,10 +1201,10 @@ public class BondData {
 
     public void triggerEndgame() {
         endgameUnlocked = true;
-        cocoAttachment = 50f + cocoProtectiveness * 0.3f;
-        cocoSunbathing = 0f;
-        jennaPlayfulness = 100f;
-        jennaCuriosity = 100f;
+        setCocoAttachment(50f + getCocoProtectiveness() * 0.3f);
+        setCocoSunbathing(0f);
+        setJennaPlayfulness(100f);
+        setJennaCuriosity(100f);
     }
 
     public int getFirstCryQuestStage() { return firstCryQuestStage; }
@@ -1269,8 +1223,8 @@ public class BondData {
     public void setArrivalTutorialStage(int stage) { arrivalTutorialStage = Math.max(0, Math.min(6, stage)); }
     public boolean hasRevealedHidden(BlockPos pos) { return revealedHiddenPos.contains(pos.asLong()); }
     public void markRevealedHidden(BlockPos pos) { revealedHiddenPos.add(pos.asLong()); }
-    public String getFelineForce() { return felineForce; }
-    public void setFelineForce(String force) { felineForce = force; }
+    public String getFelineForce() { return sequenceSection.getFelineForce(); }
+    public void setFelineForce(String force) { sequenceSection.setFelineForce(force); }
     public int getForceQuestStage() { return forceQuestStage; }
     public void setForceQuestStage(int s) { forceQuestStage = s; }
     public int getForceTrialsMask() { return forceTrialsMask; }
@@ -1279,10 +1233,10 @@ public class BondData {
     public void setForceResetCount(int c) { forceResetCount = c; }
     public String getActiveTrialForce() { return activeTrialForce; }
     public void setActiveTrialForce(String f) { activeTrialForce = f; }
-    public int getFelineTier() { return felineTier; }
-    public void setFelineTier(int tier) { felineTier = Math.max(1, Math.min(9, tier)); }
-    public long getFelineSkillCooldownUntil() { return felineSkillCooldownUntil; }
-    public void setFelineSkillCooldownUntil(long tick) { felineSkillCooldownUntil = tick; }
+    public int getFelineTier() { return sequenceSection.getFelineTier(); }
+    public void setFelineTier(int tier) { sequenceSection.setFelineTier(Math.max(1, Math.min(9, tier))); }
+    public long getFelineSkillCooldownUntil() { return sequenceSection.getFelineSkillCooldownUntil(); }
+    public void setFelineSkillCooldownUntil(long tick) { sequenceSection.setFelineSkillCooldownUntil(tick); }
 
     public int getFollowDistance() { return followDistance; }
     public void setFollowDistance(int v) { followDistance = Math.max(0, Math.min(2, v)); }
@@ -1337,46 +1291,49 @@ public class BondData {
         purchasedRepOffers.add(offerId);
     }
 
-    public int getPromotionCardCount() { return promotionCardCount; }
-    public float getPromotionCardBonus() { return promotionCardBonus; }
-    public int getPendingPromotionTier() { return pendingPromotionTier; }
-    public void setPendingPromotionTier(int tier) { pendingPromotionTier = Math.max(0, tier); }
+    public int getPromotionCardCount() { return sequenceSection.getPromotionCardCount(); }
+    public float getPromotionCardBonus() { return sequenceSection.getPromotionCardBonus(); }
+    public int getPendingPromotionTier() { return sequenceSection.getPendingPromotionTier(); }
+    public void setPendingPromotionTier(int tier) { sequenceSection.setPendingPromotionTier(Math.max(0, tier)); }
 
     // ── 晉升儀式 getter/setter ───────────────────────────────────────────
-    public int getCeremonyStage() { return ceremonyStage; }
-    public void setCeremonyStage(int stage) { ceremonyStage = Math.max(0, Math.min(6, stage)); }
-    public int getCeremonyTimeout() { return ceremonyTimeout; }
-    public void setCeremonyTimeout(int ticks) { ceremonyTimeout = Math.max(0, ticks); }
+    public int getCeremonyStage() { return sequenceSection.getCeremonyStage(); }
+    public void setCeremonyStage(int stage) { sequenceSection.setCeremonyStage(Math.max(0, Math.min(6, stage))); }
+    public int getCeremonyTimeout() { return sequenceSection.getCeremonyTimeout(); }
+    public void setCeremonyTimeout(int ticks) { sequenceSection.setCeremonyTimeout(Math.max(0, ticks)); }
+    public long getCeremonyStageStartGameTime() { return sequenceSection.getCeremonyStageStartGameTime(); }
+    public void setCeremonyStageStartGameTime(long t) { sequenceSection.setCeremonyStageStartGameTime(t); }
 
     // ── 序列印記 getter/setter ───────────────────────────────────────────
-    public int getMarkLevel() { return markLevel; }
-    public void setMarkLevel(int level) { markLevel = Math.max(0, Math.min(3, level)); }
-    public String getMarkForce() { return markForce; }
-    public void setMarkForce(String force) { markForce = force == null ? "" : force; }
+    public int getMarkLevel() { return sequenceSection.getMarkLevel(); }
+    public void setMarkLevel(int level) { sequenceSection.setMarkLevel(Math.max(0, Math.min(3, level))); }
+    public String getMarkForce() { return sequenceSection.getMarkForce(); }
+    public void setMarkForce(String force) { sequenceSection.setMarkForce(force); }
 
     // ── 簡化儀式設定 ─────────────────────────────────────────────────────
-    public boolean isSimplifiedCeremony() { return simplifiedCeremony; }
-    public void setSimplifiedCeremony(boolean v) { simplifiedCeremony = v; }
+    public boolean isSimplifiedCeremony() { return sequenceSection.isSimplifiedCeremony(); }
+    public void setSimplifiedCeremony(boolean v) { sequenceSection.setSimplifiedCeremony(v); }
 
     public void addPromotionCard(String cardId) {
-        if (ownedPromotionCards.contains(cardId)) return;
-        ownedPromotionCards.add(cardId);
-        promotionCardCount = ownedPromotionCards.size();
-        promotionCardBonus += com.cocojenna.sequence.PromotionCardCatalog.cardBonus(cardId);
+        if (sequenceSection.getOwnedPromotionCards().contains(cardId)) return;
+        sequenceSection.getOwnedPromotionCards().add(cardId);
+        sequenceSection.setPromotionCardCount(sequenceSection.getOwnedPromotionCards().size());
+        sequenceSection.setPromotionCardBonus(sequenceSection.getPromotionCardBonus()
+                + com.cocojenna.sequence.PromotionCardCatalog.cardBonus(cardId));
     }
 
     public List<String> getOwnedPromotionCards() {
-        return Collections.unmodifiableList(ownedPromotionCards);
+        return Collections.unmodifiableList(sequenceSection.getOwnedPromotionCards());
     }
 
     public boolean spendMemoryShards(int amount) {
-        if (memoryShardsTotal < amount) return false;
-        memoryShardsTotal -= amount;
+        if (getMemoryShardsTotal() < amount) return false;
+        setMemoryShardsTotal(getMemoryShardsTotal() - amount);
         return true;
     }
 
-    public long getHiddenSequences() { return hiddenSequences; }
-    public void setHiddenSequences(long v) { hiddenSequences = v; }
+    public long getHiddenSequences() { return sequenceSection.getHiddenSequences(); }
+    public void setHiddenSequences(long v) { sequenceSection.setHiddenSequences(v); }
     public long getLastOnlineTick() { return lastOnlineTick; }
     public void setLastOnlineTick(long t) { lastOnlineTick = t; }
     public boolean isShowSkillCooldown() { return showSkillCooldown; }
@@ -1397,18 +1354,18 @@ public class BondData {
         if (preset < 0 || preset >= skillPresetSlots.length) return 0;
         return skillPresetSlots[preset];
     }
-    public int getAwakeningTrialTier() { return awakeningTrialTier; }
-    public void setAwakeningTrialTier(int v) { awakeningTrialTier = Math.max(0, Math.min(4, v)); }
-    public boolean isAwakeningTrialActive() { return awakeningTrialActive; }
-    public void setAwakeningTrialActive(boolean v) { awakeningTrialActive = v; }
-    public int getAwakeningTrialIndex() { return awakeningTrialIndex; }
-    public void setAwakeningTrialIndex(int v) { awakeningTrialIndex = v; }
-    public int getAwakeningTrialKills() { return awakeningTrialKills; }
-    public void setAwakeningTrialKills(int v) { awakeningTrialKills = v; }
-    public int getAwakeningTrialGoal() { return awakeningTrialGoal; }
-    public void setAwakeningTrialGoal(int v) { awakeningTrialGoal = v; }
-    public long getAwakeningTrialDeadline() { return awakeningTrialDeadline; }
-    public void setAwakeningTrialDeadline(long t) { awakeningTrialDeadline = t; }
+    public int getAwakeningTrialTier() { return sequenceSection.getAwakeningTrialTier(); }
+    public void setAwakeningTrialTier(int v) { sequenceSection.setAwakeningTrialTier(Math.max(0, Math.min(4, v))); }
+    public boolean isAwakeningTrialActive() { return sequenceSection.isAwakeningTrialActive(); }
+    public void setAwakeningTrialActive(boolean v) { sequenceSection.setAwakeningTrialActive(v); }
+    public int getAwakeningTrialIndex() { return sequenceSection.getAwakeningTrialIndex(); }
+    public void setAwakeningTrialIndex(int v) { sequenceSection.setAwakeningTrialIndex(v); }
+    public int getAwakeningTrialKills() { return sequenceSection.getAwakeningTrialKills(); }
+    public void setAwakeningTrialKills(int v) { sequenceSection.setAwakeningTrialKills(v); }
+    public int getAwakeningTrialGoal() { return sequenceSection.getAwakeningTrialGoal(); }
+    public void setAwakeningTrialGoal(int v) { sequenceSection.setAwakeningTrialGoal(v); }
+    public long getAwakeningTrialDeadline() { return sequenceSection.getAwakeningTrialDeadline(); }
+    public void setAwakeningTrialDeadline(long t) { sequenceSection.setAwakeningTrialDeadline(t); }
     public int getKingdomProsperity() { return kingdomProsperity; }
     public void addKingdomProsperity(int amount) { kingdomProsperity = Math.max(0, kingdomProsperity + amount); }
     public int getKingdomHappiness() { return kingdomHappiness; }
@@ -1663,8 +1620,8 @@ public class BondData {
     public void setLibraryCurator(boolean v) { libraryCurator = v; }
     public long getTwinBlessingLastEnact() { return twinBlessingLastEnact; }
     public void setTwinBlessingLastEnact(long t) { twinBlessingLastEnact = t; }
-    public void setCocoAwakening(int v) { cocoAwakening = Math.max(0, Math.min(50, v)); }
-    public void setJennaAwakening(int v) { jennaAwakening = Math.max(0, Math.min(50, v)); }
+    public void setCocoAwakening(int v) { catBondSection.setCocoAwakening(Math.max(0, Math.min(50, v))); }
+    public void setJennaAwakening(int v) { catBondSection.setJennaAwakening(Math.max(0, Math.min(50, v))); }
 
     public boolean isSwordBoneAwakened() { return swordBoneAwakened; }
     public void setSwordBoneAwakened(boolean v) { swordBoneAwakened = v; }
@@ -1698,8 +1655,8 @@ public class BondData {
     public void setArmorMorphForm(int v) { armorMorphForm = v & 1; }
 
     // ── 入門任務 ─────────────────────────────────────────────────────────
-    public int getOnboardingQuestStep() { return onboardingQuestStep; }
-    public void setOnboardingQuestStep(int step) { onboardingQuestStep = Math.max(0, Math.min(7, step)); }
+    public int getOnboardingQuestStep() { return catBondSection.getOnboardingQuestStep(); }
+    public void setOnboardingQuestStep(int step) { catBondSection.setOnboardingQuestStep(Math.max(0, Math.min(7, step))); }
     public int getOnboardingWoodCollected() { return onboardingWoodCollected; }
     public void setOnboardingWoodCollected(int v) { onboardingWoodCollected = Math.max(0, v); }
     public int getOnboardingStoneCollected() { return onboardingStoneCollected; }
@@ -1813,23 +1770,21 @@ public class BondData {
     public void setLastBlackMudLeakTick(long tick) { lastBlackMudLeakTick = tick; }
 
     // ── Capability 分區同步 API ───────────────────────────────────────────
-    public long getUnlockedSequencesRaw() { return unlockedSequences; }
-    public void setUnlockedSequencesRaw(long mask) { unlockedSequences = mask; }
+    public long getUnlockedSequencesRaw() { return sequenceSection.getUnlockedSequences(); }
+    public void setUnlockedSequencesRaw(long mask) { sequenceSection.setUnlockedSequences(mask); }
 
-    public void setCocoProtectiveness(float v) { cocoProtectiveness = Math.max(0, Math.min(100, v)); }
-    public void setCocoMoonAffinity(float v) { cocoMoonAffinity = Math.max(0, Math.min(100, v)); }
-    public void setCocoAttachment(float v) { cocoAttachment = Math.max(0, Math.min(100, v)); }
-    public void setCocoSunbathing(float v) { cocoSunbathing = Math.max(0, Math.min(100, v)); }
-    public void setJennaPlayfulness(float v) { jennaPlayfulness = Math.max(0, Math.min(100, v)); }
-    public void setJennaCuriosity(float v) { jennaCuriosity = Math.max(0, Math.min(100, v)); }
-    public void setJennaContentment(float v) { jennaContentment = Math.max(0, Math.min(100, v)); }
-    public void setPromotionCardCount(int v) { promotionCardCount = Math.max(0, v); }
-    public void setPromotionCardBonus(float v) { promotionCardBonus = Math.max(0, v); }
-    public void setMemoryShardsTotal(int v) { memoryShardsTotal = Math.max(0, v); }
+    public void setCocoProtectiveness(float v) { catBondSection.setCocoProtectiveness(Math.max(0, Math.min(100, v))); }
+    public void setCocoMoonAffinity(float v) { catBondSection.setCocoMoonAffinity(Math.max(0, Math.min(100, v))); }
+    public void setCocoAttachment(float v) { catBondSection.setCocoAttachment(Math.max(0, Math.min(100, v))); }
+    public void setCocoSunbathing(float v) { catBondSection.setCocoSunbathing(Math.max(0, Math.min(100, v))); }
+    public void setJennaPlayfulness(float v) { catBondSection.setJennaPlayfulness(Math.max(0, Math.min(100, v))); }
+    public void setJennaCuriosity(float v) { catBondSection.setJennaCuriosity(Math.max(0, Math.min(100, v))); }
+    public void setJennaContentment(float v) { catBondSection.setJennaContentment(Math.max(0, Math.min(100, v))); }
+    public void setPromotionCardCount(int v) { sequenceSection.setPromotionCardCount(Math.max(0, v)); }
+    public void setPromotionCardBonus(float v) { sequenceSection.setPromotionCardBonus(Math.max(0, v)); }
+    public void setMemoryShardsTotal(int v) { sequenceSection.setMemoryShardsTotal(Math.max(0, v)); }
     public void replaceOwnedPromotionCards(java.util.List<String> cards) {
-        ownedPromotionCards.clear();
-        ownedPromotionCards.addAll(cards);
-        promotionCardCount = ownedPromotionCards.size();
+        sequenceSection.replaceOwnedPromotionCards(cards);
     }
 
     public void setKingdomProsperity(int v) { kingdomProsperity = Math.max(0, v); }
@@ -1862,12 +1817,10 @@ public class BondData {
     }
 
     public CompoundTag serializeCatBondSection() {
-        catBondSection.copyFrom(this);
         return catBondSection.serialize();
     }
 
     public CompoundTag serializeSequenceSection() {
-        sequenceSection.copyFrom(this);
         return sequenceSection.serialize();
     }
 
@@ -1879,17 +1832,41 @@ public class BondData {
 
     public void deserializeCatBondSection(CompoundTag tag) {
         catBondSection.deserialize(tag);
-        catBondSection.applyTo(this);
     }
 
     public void deserializeSequenceSection(CompoundTag tag) {
         sequenceSection.deserialize(tag);
-        sequenceSection.applyTo(this);
     }
 
     public void deserializeKingdomSection(CompoundTag tag) {
         KingdomProgressCapability cap = new KingdomProgressCapability();
         cap.deserialize(tag);
         cap.applyTo(this);
+    }
+
+    public KingdomMultiplayerCapability getMultiplayerSection() { return multiplayerSection; }
+
+    public float getPersonalCocoAffection(java.util.UUID id) {
+        return catBondSection.getPersonalCocoAffection(id);
+    }
+
+    public float getPersonalJennaAffection(java.util.UUID id) {
+        return catBondSection.getPersonalJennaAffection(id);
+    }
+
+    public void addPersonalCocoAffection(java.util.UUID id, float delta) {
+        catBondSection.addPersonalCocoAffection(id, delta);
+    }
+
+    public void addPersonalJennaAffection(java.util.UUID id, float delta) {
+        catBondSection.addPersonalJennaAffection(id, delta);
+    }
+
+    public CompoundTag serializeMultiplayerSection() {
+        return multiplayerSection.serialize();
+    }
+
+    public void deserializeMultiplayerSection(CompoundTag tag) {
+        multiplayerSection.deserialize(tag);
     }
 }

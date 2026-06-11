@@ -2,6 +2,7 @@ package com.cocojenna.weapon;
 
 import com.cocojenna.capability.BondData;
 import com.cocojenna.capability.ModCapabilities;
+import com.cocojenna.combat.CombatSoundHelper;
 import com.cocojenna.combat.CombatVfxHelper;
 import com.cocojenna.entity.AbstractCatEntity;
 import com.cocojenna.entity.BlackMudBossEntity;
@@ -256,10 +257,19 @@ public final class WeaponUnsealManager {
                 .withStyle(ChatFormatting.GOLD), true);
 
         player.level().playSound(null, player.blockPosition(),
-                SoundEvents.ENCHANTMENT_TABLE_USE, SoundSource.PLAYERS, 0.8f, 1.0f + stage.id * 0.15f);
+                com.cocojenna.init.ModSounds.COMBAT_WEAPON_AWAKEN.get(),
+                SoundSource.PLAYERS, 0.8f, 1.0f + stage.id * 0.15f);
 
         var force = CombatVfxHelper.of(ModCapabilities.getOrDefault(player).getFelineForce());
-        CombatVfxHelper.skillCast(player.serverLevel(), player, force, Math.min(4, stage.id + 1), false);
+        int vfxTier = Math.min(4, stage.id + 1);
+        CombatVfxHelper.skillCast(player.serverLevel(), player, force, vfxTier, false);
+        CombatSoundHelper.Layer soundLayer = switch (stage) {
+            case AWAKENED -> CombatSoundHelper.Layer.BASE;
+            case ENLIGHTENED -> CombatSoundHelper.Layer.CRIT;
+            case RESONANCE -> CombatSoundHelper.Layer.BOSS;
+            default -> CombatSoundHelper.Layer.ENV;
+        };
+        CombatSoundHelper.play(player.serverLevel(), player.position(), soundLayer, force);
     }
 
     /** 秦可沐強行喚醒到甦醒（Week 6 完整化，此處提供 API）. */

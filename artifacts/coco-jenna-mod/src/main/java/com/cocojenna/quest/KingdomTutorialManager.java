@@ -77,6 +77,7 @@ public final class KingdomTutorialManager {
     public static void tickHints(ServerPlayer player) {
         if (!player.level().dimension().equals(ModDimensions.CAT_KINGDOM)) return;
         if (player.level().getGameTime() % 200 != 0) return;
+        tickTimeBand(player);
         if (player.blockPosition().distSqr(FirstCryVillageGenerator.CENTER) > 120 * 120) return;
 
         int stage = getStage(player);
@@ -102,5 +103,21 @@ public final class KingdomTutorialManager {
     private static void showHint(ServerPlayer player, String key) {
         player.displayClientMessage(Component.translatable(key), true);
         OnboardingQuestManager.sendHint(player, key);
+    }
+
+    /** 0–5 / 5–20 / 20–40 / 40–60 分鐘時間帶提示. */
+    public static void tickTimeBand(ServerPlayer player) {
+        BondData bond = ModCapabilities.getOrDefault(player);
+        if (bond.getCatKingdomEnterDay() <= 0) return;
+        long day = player.level().getDayTime() / 24000L;
+        long minutes = (day - bond.getCatKingdomEnterDay()) * 20L;
+        String key = null;
+        if (minutes < 5) key = "tutorial.cocojenna.band.early";
+        else if (minutes < 20) key = "tutorial.cocojenna.band.mid";
+        else if (minutes < 40) key = "tutorial.cocojenna.band.late";
+        else if (minutes < 60) key = "tutorial.cocojenna.band.expert";
+        if (key != null && player.tickCount % 1200 == 0) {
+            player.displayClientMessage(Component.translatable(key), true);
+        }
     }
 }

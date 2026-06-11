@@ -1,0 +1,16 @@
+{
+  "name": "patchouli.cocojenna.map.sleep_sanctuary",
+  "icon": "cocojenna:memory_lighthouse",
+  "category": "cocojenna:map",
+  "sortnum": 5,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.map.sleep_sanctuary.p1"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.map.sleep_sanctuary.p2"
+    }
+  ]
+}

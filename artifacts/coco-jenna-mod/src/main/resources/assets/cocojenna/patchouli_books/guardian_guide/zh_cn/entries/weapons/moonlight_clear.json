@@ -1,0 +1,16 @@
+{
+  "name": "patchouli.cocojenna.weapon.moonlight_clear",
+  "icon": "cocojenna:ryokatana_velvet_whisper",
+  "category": "cocojenna:weapons",
+  "sortnum": 8,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.weapon.moonlight_clear.p1"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.weapon.moonlight_clear.p2"
+    }
+  ]
+}

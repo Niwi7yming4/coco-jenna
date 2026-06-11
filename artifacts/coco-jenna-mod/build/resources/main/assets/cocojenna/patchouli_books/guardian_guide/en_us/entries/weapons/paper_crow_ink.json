@@ -1,0 +1,16 @@
+{
+  "name": "patchouli.cocojenna.weapon.paper_crow_ink",
+  "icon": "cocojenna:ryokatana_velvet_whisper",
+  "category": "cocojenna:weapons",
+  "sortnum": 4,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.weapon.paper_crow_ink.p1"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.weapon.paper_crow_ink.p2"
+    }
+  ]
+}

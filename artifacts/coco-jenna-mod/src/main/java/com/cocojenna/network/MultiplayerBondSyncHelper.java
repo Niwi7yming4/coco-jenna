@@ -31,7 +31,7 @@ public final class MultiplayerBondSyncHelper {
 
     public static void tick(ServerPlayer player) {
         if (!player.server.isDedicatedServer()) return;
-        if (player.level().getGameTime() % 1200 != 0) return;
-        BondSyncCoordinator.syncFull(player, ModCapabilities.getOrDefault(player));
+        if (player.level().getGameTime() % 200 != 0) return;
+        BondSyncCoordinator.tick(player);
     }
 }

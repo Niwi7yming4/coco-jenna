@@ -382,23 +382,39 @@ public class MemoryBookScreen extends Screen {
                         bond.getLoreDiscoveryCount(), LoreRegistry.all().size()),
                 x, y, MemoryBookUi.COL_INK, false);
         int ly = y + 16;
+        int illW = Math.min(96, w / 3);
+        int textX = x + illW + 12;
+        int textW = w - illW - 16;
         for (LoreEntry entry : LoreRegistry.all()) {
-            if (ly > y + h - 8) break;
+            if (ly > y + h - 40) break;
             boolean found = bond.hasLore(entry.id());
-            Component title = Component.translatable("explore.cocojenna.lore." + entry.key() + ".title");
             if (found) {
-                g.drawString(font, "◈ " + title.getString(), x + 4, ly, MemoryBookUi.COL_INK, false);
-                ly += 10;
+                var ill = GuiTextures.loreIllustration(entry.key());
+                if (net.minecraft.client.Minecraft.getInstance().getResourceManager().getResource(ill).isPresent()) {
+                    g.fill(x + 2, ly, x + illW, ly + 72, MemoryBookUi.COL_FRAME);
+                    g.blit(ill, x + 4, ly + 2, illW - 4, 68, 0, 0, 128, 96, 128, 96);
+                } else {
+                    g.fill(x + 2, ly, x + illW, ly + 72, 0xFF3A2A3A);
+                }
+                Component title = Component.translatable("explore.cocojenna.lore." + entry.key() + ".title");
+                g.drawString(font, title.getString(), textX, ly + 4, MemoryBookUi.COL_INK, false);
+                int ty = ly + 16;
                 for (var line : font.split(Component.translatable(
-                        "explore.cocojenna.lore." + entry.key() + ".body"), w - 12)) {
-                    if (ly > y + h - 8) break;
-                    g.drawString(font, line, x + 10, ly, MemoryBookUi.COL_INK_SOFT, false);
-                    ly += 9;
+                        "explore.cocojenna.lore." + entry.key() + ".body"), textW)) {
+                    if (ty > ly + 70) break;
+                    g.drawString(font, line, textX, ty, MemoryBookUi.COL_INK_SOFT, false);
+                    ty += 9;
+                }
+                ly += 78;
+                if (LoreRegistry.isRegionComplete(bond, entry.region())) {
+                    g.drawString(font, Component.translatable("gui.cocojenna.memory_book.lore_region_complete",
+                                    Component.translatable("biome.cocojenna." + entry.region())).getString(),
+                            textX, ly - 6, 0xFFCCAA44, false);
                 }
             } else {
                 g.drawString(font, "？ " + Component.translatable("gui.cocojenna.locked_short").getString(),
-                        x + 4, ly, 0xFF999999, false);
-                ly += 11;
+                        x + 4, ly + 28, 0xFF999999, false);
+                ly += 40;
             }
             ly += 4;
         }
@@ -477,7 +493,7 @@ public class MemoryBookScreen extends Screen {
             boolean selected = tab == i;
             boolean hovered = mouseX >= tabX[i] && mouseX < tabX[i] + tabW
                     && mouseY >= tabY[i] && mouseY < tabY[i] + tabH;
-            ResourceLocation icon = GuiTextures.memoryBookTab(Math.min(i, 3));
+            ResourceLocation icon = GuiTextures.memoryBookTab(i);
             MemoryBookUi.drawTab(g, font, tabX[i], tabY[i], tabW, tabH,
                     selected, hovered, icon,
                     Component.translatable("gui.cocojenna.memory_book.tab." + TAB_KEYS[i]));

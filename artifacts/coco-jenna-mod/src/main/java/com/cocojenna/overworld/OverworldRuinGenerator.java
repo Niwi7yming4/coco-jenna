@@ -16,7 +16,7 @@ import net.minecraft.world.level.levelgen.Heightmap;
 /** 主世界貓之國遺跡程序化生成. */
 public final class OverworldRuinGenerator {
 
-    private static final int RUIN_CHUNK_CHANCE = 2;
+    private static final int RUIN_CHUNK_CHANCE = 4;
 
     private OverworldRuinGenerator() {}
 
@@ -38,6 +38,7 @@ public final class OverworldRuinGenerator {
         } else {
             type = OverworldRuinType.roll(random);
         }
+        if (!data.canPlaceRuin(center, type)) return;
         build(level, data, center, type);
     }
 

@@ -57,4 +57,37 @@ public final class FallenAbyssLinkage {
                     false);
         }
     }
+
+    /** 反射讀取 fallen-abyss lockedPath（NONE / ABYSS / FLESH）. */
+    public static String getFallenLockedPath(ServerPlayer player) {
+        if (!isFallenAbyssLoaded()) return "NONE";
+        try {
+            Class<?> capClass = Class.forName("com.fallenabyss.capability.ModCapabilities");
+            Object data = capClass.getMethod("getOrDefault", net.minecraft.world.entity.player.Player.class)
+                    .invoke(null, player);
+            Object path = data.getClass().getMethod("getLockedPath").invoke(data);
+            return path == null ? "NONE" : path.toString();
+        } catch (ReflectiveOperationException e) {
+            return "NONE";
+        }
+    }
+
+    /** 貓序列 commit 前：神墜側未鎖定 ABYSS/FLESH. */
+    public static boolean canCommitFelinePath(ServerPlayer player) {
+        if (!isFallenAbyssLoaded()) return true;
+        String path = getFallenLockedPath(player);
+        return "NONE".equals(path);
+    }
+
+    /** 客戶端：神墜已鎖定非 COCO 路徑時隱藏貓圓盤. */
+    public static boolean isFallenPathLockedClient() {
+        if (!ModList.get().isLoaded("fallen_abyss")) return false;
+        try {
+            Class<?> cls = Class.forName("com.fallenabyss.client.AbyssClientState");
+            String locked = (String) cls.getMethod("getLockedPath").invoke(null);
+            return locked != null && !"NONE".equals(locked);
+        } catch (ReflectiveOperationException e) {
+            return false;
+        }
+    }
 }

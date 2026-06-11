@@ -127,6 +127,9 @@ public class ModItems {
     public static final RegistryObject<Item> OUTPOST_BADGE = ITEMS.register("outpost_badge",
             () -> new com.cocojenna.item.OverworldArtifactItem(defaultProp().rarity(Rarity.RARE).stacksTo(1),
                     com.cocojenna.item.OverworldArtifactItem.Kind.OUTPOST_BADGE));
+    public static final RegistryObject<Item> GUARDIAN_BADGE = ITEMS.register("guardian_badge",
+            () -> new com.cocojenna.item.OverworldArtifactItem(defaultProp().rarity(Rarity.RARE).stacksTo(1),
+                    com.cocojenna.item.OverworldArtifactItem.Kind.GUARDIAN_BADGE));
     public static final RegistryObject<Item> UNSENT_LETTER = ITEMS.register("unsent_letter",
             () -> new com.cocojenna.item.BlackMudRelicItem(defaultProp().rarity(Rarity.UNCOMMON).stacksTo(1),
                     com.cocojenna.item.BlackMudRelicItem.RelicKind.UNSENT_LETTER));
@@ -533,6 +536,10 @@ public class ModItems {
             ITEMS.register("cloak_purr", () -> new CatCloakItem(defaultProp().stacksTo(1).rarity(Rarity.RARE)));
     public static final RegistryObject<Item> CLOAK_ETERNAL =
             ITEMS.register("cloak_eternal", () -> new CatCloakItem(defaultProp().stacksTo(1).rarity(Rarity.EPIC)));
+    public static final RegistryObject<Item> CLOAK_STARDUST =
+            ITEMS.register("cloak_stardust", () -> new CatCloakItem(defaultProp().stacksTo(1).rarity(Rarity.RARE)));
+    public static final RegistryObject<Item> CLOAK_CARDBOARD =
+            ITEMS.register("cloak_cardboard", () -> new CatCloakItem(defaultProp().stacksTo(1).rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> SAVE_ANCHOR =
             ITEMS.register("save_anchor", () -> new SaveAnchorItem(defaultProp().stacksTo(16).rarity(Rarity.EPIC)));
     public static final RegistryObject<Item> MOONLIGHT_FOOTPRINT =
@@ -653,6 +660,10 @@ public class ModItems {
     public static final RegistryObject<Item> QIN_CHRONICLE = simple("qin_chronicle");
     public static final RegistryObject<Item> HIBISCUS_EARRING = simple("hibiscus_earring");
     public static final RegistryObject<Item> RED_PAPER_DAGGER = simple("red_paper_dagger");
+
+    /** 孤勇者勳章 — Boss 單人模式 */
+    public static final RegistryObject<Item> LONE_WOLF_MEDAL = ITEMS.register("lone_wolf_medal",
+            () -> new Item(defaultProp().stacksTo(1).rarity(Rarity.EPIC)));
 
     // ══════════════════════════════════════════════════════════════════════
     // Helper

@@ -13,7 +13,16 @@ public enum FragmentedProfession {
     VELVET_SENTINEL("velvet_sentinel", Category.COMBAT),
     MEMORY_SCRIBE("memory_scribe", Category.RITUAL),
     BROKEN_SCHOLAR("broken_scholar", Category.RITUAL),
-    MOON_PROPHET("moon_prophet", Category.RITUAL);
+    MOON_PROPHET("moon_prophet", Category.RITUAL),
+    GEAR_TINKER("gear_tinker", Category.PLAY),
+    TAPE_SCRIBE("tape_scribe", Category.PLAY),
+    STARLIGHT_DIVINER("starlight_diviner", Category.PLAY),
+    STORM_HUNTER("storm_hunter", Category.COMBAT),
+    ARENA_HANDLER("arena_handler", Category.COMBAT),
+    CORRUGATA_BROKER("corrugata_broker", Category.COMBAT),
+    SILENT_LIBRARIAN("silent_librarian", Category.RITUAL),
+    CATNIP_MERCHANT("catnip_merchant", Category.RITUAL),
+    RIVER_GUIDE("river_guide", Category.RITUAL);
 
     public enum Category { PLAY, COMBAT, RITUAL }
 

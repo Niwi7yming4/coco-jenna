@@ -1,0 +1,15 @@
+{
+  "display": {
+    "icon": { "item": "cocojenna:memory_lighthouse" },
+    "title": { "translate": "patchouli.cocojenna.entry.penetration_repair_portal" },
+    "description": { "translate": "patchouli.cocojenna.entry.penetration_repair_portal.p1" },
+    "show_toast": true,
+    "announce_to_chat": false,
+    "frame": "task",
+    "hidden": true
+  },
+  "parent": "cocojenna:guide/penetration_moon_dungeon",
+  "criteria": {
+    "discovered": { "trigger": "minecraft:impossible" }
+  }
+}

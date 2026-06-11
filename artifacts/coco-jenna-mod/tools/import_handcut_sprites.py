@@ -107,6 +107,48 @@ FULL_SHEET_RE = re.compile(
     re.IGNORECASE,
 )
 
+# GAL 立繪：檔名關鍵字 → 輸出 portrait id（Wave 2）
+GAL_PORTRAIT_MAP: dict[str, str] = {
+    "gray_whisker": "portrait_gray_whisker",
+    "graywhisker": "portrait_gray_whisker",
+    "qin_kemu": "portrait_qin_kemu",
+    "qinkemu": "portrait_qin_kemu",
+    "moon_priest": "portrait_moon_priest",
+    "moonpriest": "portrait_moon_priest",
+    "corrugata": "portrait_corrugata",
+    "shadow_claw": "portrait_shadow_claw",
+    "coco": "portrait_coco",
+    "jenna": "portrait_jenna",
+    "calico": "portrait_calico",
+    "ironpaw": "portrait_ironpaw",
+    "cheshire": "portrait_cheshire",
+    "sanhua": "portrait_sanhua",
+    "alpha": "portrait_alpha",
+    "squall": "portrait_squall",
+    "narrator": "portrait_narrator",
+}
+
+
+def import_gal_portrait_direct(path: Path) -> bool:
+    """單張 GAL 立繪直出（不去背）."""
+    stem = path.stem.lower().replace(" ", "_")
+    portrait_id = None
+    for key, out_id in GAL_PORTRAIT_MAP.items():
+        if key in stem:
+            portrait_id = out_id
+            break
+    if portrait_id is None:
+        return False
+    img = Image.open(path).convert("RGBA")
+    out_dir = TEXTURES / "gui/portraits"
+    out_dir.mkdir(parents=True, exist_ok=True)
+    out = out_dir / f"{portrait_id}.png"
+    if max(img.size) <= 128:
+        img.save(out)
+    else:
+        process_image(img, 128, source=SOURCE_DIRECT).save(out)
+    return True
+
 # Hand-cut tool row index -> flat 3×3 cell (used by most portrait/skill sheets).
 IDX_3X3 = {9: 0, 11: 1, 13: 2, 23: 3, 25: 4, 27: 5, 37: 6, 39: 7, 41: 8}
 
@@ -306,6 +348,13 @@ def import_handcut(handcut_dir: Path, *, source: str = SOURCE_HANDCUT) -> tuple[
             continue
         print(f"Full sheet {cfg.key}:")
         saved += import_full_sheet(path, cfg, source=source)
+
+    gal_dir = handcut_dir / "gal_portraits"
+    if gal_dir.is_dir():
+        for p in sorted(gal_dir.iterdir()):
+            if p.suffix.lower() in (".png", ".jpg", ".jpeg") and import_gal_portrait_direct(p):
+                saved += 1
+                print(f"  GAL portrait: {p.name}")
 
     return saved, skipped
 

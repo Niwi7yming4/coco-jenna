@@ -1,0 +1,16 @@
+{
+  "name": "patchouli.cocojenna.map.moon_alley",
+  "icon": "cocojenna:memory_lighthouse",
+  "category": "cocojenna:map",
+  "sortnum": 3,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.map.moon_alley.p1"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.map.moon_alley.p2"
+    }
+  ]
+}

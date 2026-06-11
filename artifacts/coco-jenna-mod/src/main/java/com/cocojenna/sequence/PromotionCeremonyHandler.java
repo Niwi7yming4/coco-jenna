@@ -99,6 +99,7 @@ public final class PromotionCeremonyHandler {
         int tier = bond.getFelineTier();
         bond.setPendingPromotionTier(tier);
         setStage(bond, CeremonyStage.SUMMONING);
+        ActiveRitualSavedData.get(player.serverLevel()).start(player.getUUID());
 
         // 阿爾法的聲音引導
         player.displayClientMessage(
@@ -115,7 +116,9 @@ public final class PromotionCeremonyHandler {
         sendStagePacket(player, CeremonyStage.SUMMONING, tier);
 
         // 30秒內可觸發，否則超時取消
-        bond.setCeremonyTimeout((int) (player.serverLevel().getGameTime() + 600));
+        long now = player.serverLevel().getGameTime();
+        bond.setCeremonyStageStartGameTime(now);
+        bond.setCeremonyTimeout((int) (now + 600));
     }
 
     // ========================================================================
@@ -201,7 +204,9 @@ public final class PromotionCeremonyHandler {
 
         // 進入共鳴階段
         setStage(bond, CeremonyStage.RESONANCE);
-        bond.setCeremonyTimeout((int) (player.serverLevel().getGameTime() + 1200));
+        long now = player.serverLevel().getGameTime();
+        bond.setCeremonyStageStartGameTime(now);
+        bond.setCeremonyTimeout((int) (now + 1200));
     }
 
     private static void consumeItem(Player player, Item item, int count) {
@@ -324,7 +329,9 @@ public final class PromotionCeremonyHandler {
         sendBodyGlowPacket(player, force);
 
         // 設定計時器：30秒後自動進入下一階段
-        bond.setCeremonyTimeout((int) (player.serverLevel().getGameTime() + 600));
+        long now = player.serverLevel().getGameTime();
+        bond.setCeremonyStageStartGameTime(now);
+        bond.setCeremonyTimeout((int) (now + 600));
     }
 
     private static void spawnSacrificeToPlayer(ServerLevel level, Vec3 playerPos, String force) {
@@ -645,6 +652,7 @@ public final class PromotionCeremonyHandler {
         bond.setPendingPromotionTier(0);
         setStage(bond, CeremonyStage.NONE);
         bond.setCeremonyTimeout(0);
+        bond.setCeremonyStageStartGameTime(0L);
 
         player.displayClientMessage(
             Component.translatable("ceremony.cocojenna.interrupted"), true);

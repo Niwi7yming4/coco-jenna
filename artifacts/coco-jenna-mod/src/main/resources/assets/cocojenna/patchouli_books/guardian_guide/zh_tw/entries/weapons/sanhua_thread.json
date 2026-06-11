@@ -1,0 +1,16 @@
+{
+  "name": "patchouli.cocojenna.weapon.sanhua_thread",
+  "icon": "cocojenna:ryokatana_velvet_whisper",
+  "category": "cocojenna:weapons",
+  "sortnum": 7,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.weapon.sanhua_thread.p1"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.weapon.sanhua_thread.p2"
+    }
+  ]
+}

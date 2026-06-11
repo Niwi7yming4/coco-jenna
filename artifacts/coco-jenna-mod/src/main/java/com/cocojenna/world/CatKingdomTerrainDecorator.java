@@ -1,10 +1,12 @@
 package com.cocojenna.world;
 
 import com.cocojenna.init.ModBiomes;
+import com.cocojenna.init.ModBlocks;
 import com.cocojenna.init.ModDimensions;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
@@ -67,8 +69,48 @@ public final class CatKingdomTerrainDecorator {
                 }
             }
         }
-        com.cocojenna.exploration.BiomeExplorationPlacer.trySeedChunk(level, chunk);
+        boolean biomeFirstSeed = com.cocojenna.exploration.BiomeExplorationPlacer.trySeedChunk(level, chunk);
+        if (!biomeFirstSeed) {
+            KingdomMicroMarkers.decorateChunk(level, chunk);
+        }
+        tryScatterVegetation(level, chunk);
         chunk.setUnsaved(true);
+    }
+
+    /** 低機率地表植被 patch（neon mushroom 等），不與生態域 seed chunk 的微 POI 重疊. */
+    private static void tryScatterVegetation(ServerLevel level, LevelChunk chunk) {
+        long seed = level.getSeed() ^ chunk.getPos().toLong() ^ 0x5EEDBEEFL;
+        RandomSource random = RandomSource.create(seed);
+        if (random.nextInt(100) >= 4) return;
+
+        int lx = random.nextInt(16);
+        int lz = random.nextInt(16);
+        int wx = chunk.getPos().getMinBlockX() + lx;
+        int wz = chunk.getPos().getMinBlockZ() + lz;
+        int surfaceY = level.getHeight(Heightmap.Types.WORLD_SURFACE_WG, wx, wz);
+        BlockPos surface = new BlockPos(wx, surfaceY, wz);
+        BlockState top = chunk.getBlockState(new BlockPos(lx, surfaceY, lz));
+        if (!top.is(Blocks.GRASS_BLOCK) && !BiomePaletteMixer.isModGrass(top)) return;
+        if (!level.getBlockState(surface.above()).isAir()) return;
+
+        Holder<Biome> biome = level.getBiome(surface);
+        BlockState plant = pickVegetation(biome, random);
+        if (plant != null) {
+            level.setBlock(surface.above(), plant, 2);
+        }
+    }
+
+    private static BlockState pickVegetation(Holder<Biome> biome, RandomSource random) {
+        if (biome.is(ModBiomes.CARDBOARD_SLUMS) || biome.is(ModBiomes.MOON_ALLEY)) {
+            return random.nextBoolean() ? ModBlocks.NEON_MUSHROOM.get().defaultBlockState() : null;
+        }
+        if (biome.is(ModBiomes.VELVET_FOREST) || biome.is(ModBiomes.FIRST_CRY_PLAINS)) {
+            return random.nextInt(3) == 0 ? ModBlocks.CATNIP.get().defaultBlockState() : Blocks.FERN.defaultBlockState();
+        }
+        if (biome.is(ModBiomes.CATNIP_HIGHLANDS)) {
+            return ModBlocks.CATNIP.get().defaultBlockState();
+        }
+        return random.nextInt(5) == 0 ? ModBlocks.NEON_MUSHROOM.get().defaultBlockState() : Blocks.GRASS.defaultBlockState();
     }
 
     private static boolean isReplaceableStone(BlockState state) {

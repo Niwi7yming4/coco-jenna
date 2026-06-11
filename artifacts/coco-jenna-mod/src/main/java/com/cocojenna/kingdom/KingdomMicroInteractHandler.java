@@ -68,6 +68,24 @@ public final class KingdomMicroInteractHandler {
                 player.addEffect(new MobEffectInstance(MobEffects.SATURATION, 120, 0, false, true, true));
                 player.displayClientMessage(Component.translatable("explore.cocojenna.micro.purr"), true);
             }
+            case TABLET -> {
+                bond.addReputation("first_cry", 2);
+                player.displayClientMessage(Component.translatable("explore.cocojenna.micro.tablet"), true);
+            }
+            case CAT_NEST -> {
+                bond.addKingdomHappiness(2);
+                player.displayClientMessage(Component.translatable("explore.cocojenna.micro.nest"), true);
+            }
+            case TREASURE -> {
+                if (player.getRandom().nextInt(4) == 0) {
+                    give(player, new ItemStack(ModItems.MEMORY_SHARD.get()));
+                } else if (player.getRandom().nextBoolean()) {
+                    give(player, new ItemStack(ModItems.RAINBOW_YARN_BALL.get()));
+                } else {
+                    give(player, new ItemStack(Items.EMERALD));
+                }
+                player.displayClientMessage(Component.translatable("explore.cocojenna.micro.treasure"), true);
+            }
         }
         return true;
     }
@@ -79,6 +97,9 @@ public final class KingdomMicroInteractHandler {
         if (state.is(Blocks.BONE_BLOCK)) return MicroType.FISH_BONE;
         if (state.is(Blocks.FERN) || state.is(ModBlocks.CATNIP.get())) return MicroType.CATNIP;
         if (state.is(ModBlocks.PURR_CRYSTAL_BLOCK.get()) || state.is(Blocks.AMETHYST_BLOCK)) return MicroType.PURR_STONE;
+        if (state.is(ModBlocks.ANCIENT_STONE_TABLET.get())) return MicroType.TABLET;
+        if (state.is(ModBlocks.CAT_BED.get())) return MicroType.CAT_NEST;
+        if (state.is(Blocks.CHEST)) return MicroType.TREASURE;
         return null;
     }
 
@@ -88,5 +109,5 @@ public final class KingdomMicroInteractHandler {
         }
     }
 
-    private enum MicroType { PAW, YARN, TOY_MOUSE, FISH_BONE, CATNIP, PURR_STONE }
+    private enum MicroType { PAW, YARN, TOY_MOUSE, FISH_BONE, CATNIP, PURR_STONE, TABLET, CAT_NEST, TREASURE }
 }

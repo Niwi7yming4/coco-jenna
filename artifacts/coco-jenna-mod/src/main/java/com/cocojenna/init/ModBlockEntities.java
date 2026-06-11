@@ -35,4 +35,9 @@ public class ModBlockEntities {
     public static final RegistryObject<BlockEntityType<SocketingTableBlockEntity>> SOCKETING_TABLE =
             BLOCK_ENTITIES.register("socketing_table",
                     () -> BlockEntityType.Builder.of(SocketingTableBlockEntity::new, ModBlocks.SOCKETING_TABLE.get()).build(null));
+
+    public static final RegistryObject<BlockEntityType<PersonalClaimFlagBlockEntity>> PERSONAL_CLAIM_FLAG =
+            BLOCK_ENTITIES.register("personal_claim_flag",
+                    () -> BlockEntityType.Builder.of(PersonalClaimFlagBlockEntity::new,
+                            ModBlocks.PERSONAL_CLAIM_FLAG.get()).build(null));
 }

@@ -72,7 +72,8 @@ public final class PenetrationQuestManager {
         BondData bond = ModCapabilities.getOrDefault(player);
         bond.setGrayWhiskerMet(true);
 
-        if (player.getMainHandItem().is(ModItems.OUTPOST_BADGE.get())) {
+        if (player.getMainHandItem().is(ModItems.OUTPOST_BADGE.get())
+                || player.getMainHandItem().is(ModItems.GUARDIAN_BADGE.get())) {
             if (!player.getAbilities().instabuild) player.getMainHandItem().shrink(1);
             bond.addGrayWhiskerFavor(15);
             bond.addOverworldInfluence(10);

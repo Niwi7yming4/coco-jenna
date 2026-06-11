@@ -67,13 +67,49 @@ public final class PromotionCardSkillRegistry {
             PromotionCardCatalog.CardDef card, int tier, int variant, boolean outer, float scale) {
         if (card.variant() - 'a' != variant && !(variant == 3 && card.variant() - 'a' == 2)) return;
         int pot = Math.max(1, 10 - card.tier());
-        switch (card.id()) {
+        String id = card.id();
+        switch (id) {
             case "resonance_t9_a" -> player.heal(0.6f * pot);
             case "shadow_t5_b" -> player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 60, 1));
             case "chaos_t7_c" -> knockbackEnemies(player, 5.0 + pot * 0.2);
             case "resonance_t3_a" -> healCats(player, 8.0, 3f * scale);
             case "shadow_t2_c" -> weakenEnemies(player, 10.0, 80);
+            default -> applyCardIdByPattern(player, level, card, pot, scale, outer);
+        }
+    }
+
+    /** 81 張卡牌通用分化：依 force + tier + variant 套用差異化效果. */
+    private static void applyCardIdByPattern(ServerPlayer player, ServerLevel level,
+            PromotionCardCatalog.CardDef card, int pot, float scale, boolean outer) {
+        int cv = card.variant() - 'a';
+        float bonus = card.bonus() * 100f;
+        switch (card.force()) {
+            case "resonance" -> {
+                if (cv == 0) player.heal(0.25f * pot * scale);
+                else if (cv == 1) player.addEffect(new MobEffectInstance(MobEffects.ABSORPTION,
+                        (int) (40 + bonus), 0));
+                else healCats(player, 4.0 + pot, 1.5f * scale);
+            }
+            case "shadow" -> {
+                if (cv == 0) player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED,
+                        (int) (60 + bonus), 0));
+                else if (cv == 1) blindEnemies(player, 4.0 + pot * 0.2, 40);
+                else player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST,
+                        (int) (50 + bonus), outer ? 1 : 0));
+            }
+            case "chaos" -> {
+                if (cv == 0 && player.getRandom().nextBoolean()) {
+                    player.addEffect(new MobEffectInstance(MobEffects.JUMP, 100, 1));
+                } else if (cv == 1) {
+                    knockbackEnemies(player, 3.5 + pot * 0.15);
+                } else {
+                    slowEnemies(player, 4.0 + pot * 0.1, 5 + pot / 2);
+                }
+            }
             default -> { }
+        }
+        if (card.tier() <= 2 && outer) {
+            spawnRing(level, player, ParticleTypes.ENCHANT, 4.0 + pot * 0.2);
         }
     }
 

@@ -2,6 +2,7 @@ package com.cocojenna.society;
 
 import com.cocojenna.capability.BondData;
 import com.cocojenna.capability.ModCapabilities;
+import com.cocojenna.dialogue.DialogueManager;
 import com.cocojenna.endgame.kingdom.TownNpcProfile;
 import com.cocojenna.init.ModItems;
 import com.cocojenna.init.ModDimensions;
@@ -65,6 +66,7 @@ public final class CatMarriageManager {
         bond.setMarriagePartnerNpcId(npcId);
         long day = player.level().getDayTime() / 24000L;
         bond.setEngagementDay(day);
+        DialogueManager.play(player, "gal_marriage_proposal");
         player.displayClientMessage(Component.translatable(
                 "society.cocojenna.romance.engaged", profile.nameZh()), true);
         scheduleWedding(player, bond, npcId, profile, day);
@@ -87,6 +89,7 @@ public final class CatMarriageManager {
         if (day < bond.getWeddingScheduledDay()) return;
         bond.setTownNpcRomanceStage(partner, ROMANCE_MARRIED);
         bond.addKingdomHappiness(10);
+        DialogueManager.play(player, "gal_marriage_wedding");
         TownNpcProfile profile = TownNpcProfile.byId(partner);
         String name = profile != null ? profile.nameZh() : partner;
         player.displayClientMessage(Component.translatable("society.cocojenna.romance.wedding", name), true);
@@ -114,6 +117,7 @@ public final class CatMarriageManager {
                     && bond.isBuildingPlaced("small_cat_house")
                     && player.getRandom().nextFloat() < 0.12f) {
                 bond.setPregnancyDueDay(day + PREGNANCY_DAYS);
+                DialogueManager.play(player, "gal_pregnancy");
                 player.displayClientMessage(Component.translatable(
                         "society.cocojenna.family.expecting"), true);
             }

@@ -1,0 +1,16 @@
+{
+  "name": "patchouli.cocojenna.weapon.first_cry_beginner",
+  "icon": "cocojenna:ryokatana_velvet_whisper",
+  "category": "cocojenna:weapons",
+  "sortnum": 14,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.weapon.first_cry_beginner.p1"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.weapon.first_cry_beginner.p2"
+    }
+  ]
+}

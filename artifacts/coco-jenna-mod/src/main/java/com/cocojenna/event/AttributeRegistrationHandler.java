@@ -74,6 +74,7 @@ public class AttributeRegistrationHandler {
         event.put(ModEntities.MUD_GUARD.get(), MudGuardEntity.createAttributes().build());
         event.put(ModEntities.MUD_PRIEST.get(), MudPriestEntity.createAttributes().build());
         event.put(ModEntities.TOWN_NPC_COMPANION.get(), TownNpcCompanionEntity.createAttributes().build());
+        event.put(ModEntities.KINGDOM_KITTEN.get(), KingdomKittenEntity.createAttributes().build());
         event.put(ModEntities.QIN_KEMU.get(), QinKemuEntity.createAttributes().build());
         event.put(ModEntities.A_FANG.get(), AFangEntity.createAttributes().build());
         event.put(ModEntities.LI_JIANG.get(), LiJiangEntity.createAttributes().build());

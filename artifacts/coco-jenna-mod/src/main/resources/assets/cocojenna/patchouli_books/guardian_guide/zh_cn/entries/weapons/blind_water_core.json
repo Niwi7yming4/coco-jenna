@@ -1,0 +1,16 @@
+{
+  "name": "patchouli.cocojenna.weapon.blind_water_core",
+  "icon": "cocojenna:ryokatana_velvet_whisper",
+  "category": "cocojenna:weapons",
+  "sortnum": 12,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.weapon.blind_water_core.p1"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.weapon.blind_water_core.p2"
+    }
+  ]
+}

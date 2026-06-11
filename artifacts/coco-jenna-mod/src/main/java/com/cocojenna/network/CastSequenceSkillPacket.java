@@ -30,6 +30,11 @@ public class CastSequenceSkillPacket {
         ctx.get().enqueueWork(() -> {
             ServerPlayer player = ctx.get().getSender();
             if (player == null) return;
+            if (!com.cocojenna.integration.FallenAbyssLinkage.canCommitFelinePath(player)) {
+                player.displayClientMessage(net.minecraft.network.chat.Component.translatable(
+                        "fallen_abyss.path.blocked"), true);
+                return;
+            }
             BondData bond = ModCapabilities.getOrDefault(player);
             if (!com.cocojenna.sequence.MoonCrossroadsManager.hasChosenForce(bond)) {
                 player.displayClientMessage(net.minecraft.network.chat.Component.translatable(

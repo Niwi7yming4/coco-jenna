@@ -55,6 +55,7 @@ public class LiQingzhaoCatEntity extends PathfinderMob {
     @Override
     public InteractionResult mobInteract(Player player, InteractionHand hand) {
         if (player instanceof ServerPlayer sp && !player.isShiftKeyDown()) {
+            com.cocojenna.quest.qin.LiQingzhaoQuestManager.onPoetryInteract(sp);
             int idx = 1 + sp.getRandom().nextInt(5);
             player.displayClientMessage(
                     net.minecraft.network.chat.Component.translatable("qingzhao.cocojenna.poetry." + idx), false);

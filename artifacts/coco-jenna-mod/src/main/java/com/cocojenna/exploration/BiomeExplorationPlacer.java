@@ -14,20 +14,22 @@ public final class BiomeExplorationPlacer {
 
     private BiomeExplorationPlacer() {}
 
-    public static void trySeedChunk(ServerLevel level, LevelChunk chunk) {
-        if (!level.dimension().equals(ModDimensions.CAT_KINGDOM)) return;
+    /** @return true 若本 chunk 剛完成生態域首次探索 seed（微 POI 應降權或跳過） */
+    public static boolean trySeedChunk(ServerLevel level, LevelChunk chunk) {
+        if (!level.dimension().equals(ModDimensions.CAT_KINGDOM)) return false;
         int cx = chunk.getPos().getMinBlockX() + 8;
         int cz = chunk.getPos().getMinBlockZ() + 8;
         int cy = level.getHeight(net.minecraft.world.level.levelgen.Heightmap.Types.WORLD_SURFACE_WG, cx, cz);
         BlockPos center = new BlockPos(cx, cy, cz);
         Holder<Biome> biome = level.getBiome(center);
-        if (!biome.is(ModTags.CAT_KINGDOM_BIOMES)) return;
+        if (!biome.is(ModTags.CAT_KINGDOM_BIOMES)) return false;
 
         BiomeExplorationSavedData data = BiomeExplorationSavedData.get(level);
         String key = biome.unwrapKey().map(k -> k.location().getPath()).orElse("");
-        if (key.isEmpty() || data.isSeeded(key)) return;
+        if (key.isEmpty() || data.isSeeded(key)) return false;
         data.markSeeded(key);
         placeForBiome(level, biome, center);
+        return true;
     }
 
     private static void placeForBiome(ServerLevel level, Holder<Biome> biome, BlockPos center) {

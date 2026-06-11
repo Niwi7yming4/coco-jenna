@@ -12,12 +12,15 @@ public final class DialogueScripts {
 
     static {
         register(new DialogueScene("first_cry_elder_welcome", List.of(
-                new DialogueLine("dialogue.cocojenna.speaker.narrator",
-                        "dialogue.cocojenna.first_cry.narrator_1", Portrait.NARRATOR),
-                new DialogueLine("dialogue.cocojenna.speaker.elder",
-                        "dialogue.cocojenna.first_cry.elder_1", Portrait.ELDER),
-                new DialogueLine("dialogue.cocojenna.speaker.elder",
-                        "dialogue.cocojenna.first_cry.elder_2", Portrait.ELDER),
+                gal("dialogue.cocojenna.speaker.narrator",
+                        "dialogue.cocojenna.first_cry.narrator_1", Portrait.NARRATOR,
+                        "first_cry_sunset", DialogueExpression.NORMAL, PortraitSide.NONE),
+                gal("dialogue.cocojenna.speaker.elder",
+                        "dialogue.cocojenna.first_cry.elder_1", Portrait.ELDER,
+                        "first_cry_sunset", DialogueExpression.NORMAL, PortraitSide.LEFT),
+                gal("dialogue.cocojenna.speaker.elder",
+                        "dialogue.cocojenna.first_cry.elder_2", Portrait.ELDER,
+                        "first_cry_sunset", DialogueExpression.HAPPY, PortraitSide.LEFT),
                 new DialogueLine("dialogue.cocojenna.speaker.elder",
                         "dialogue.cocojenna.first_cry.elder_3", Portrait.ELDER, null, "elder_met")
         )));
@@ -79,10 +82,12 @@ public final class DialogueScripts {
         )));
 
         register(new DialogueScene("qin_kemu_ch1_awake", List.of(
-                new DialogueLine("dialogue.cocojenna.speaker.qin_kemu",
-                        "quest.cocojenna.qin_kemu.ch1_1", Portrait.MERCHANT),
-                new DialogueLine("dialogue.cocojenna.speaker.qin_kemu",
-                        "quest.cocojenna.qin_kemu.ch1_2", Portrait.MERCHANT)
+                gal("dialogue.cocojenna.speaker.qin_kemu",
+                        "quest.cocojenna.qin_kemu.ch1_1", Portrait.QIN_KEMU,
+                        "mausoleum", DialogueExpression.SURPRISED, PortraitSide.RIGHT),
+                gal("dialogue.cocojenna.speaker.qin_kemu",
+                        "quest.cocojenna.qin_kemu.ch1_2", Portrait.QIN_KEMU,
+                        "mausoleum", DialogueExpression.NORMAL, PortraitSide.RIGHT)
         )));
         register(new DialogueScene("qin_kemu_ch2_hungry", List.of(
                 new DialogueLine("dialogue.cocojenna.speaker.qin_kemu",
@@ -190,10 +195,12 @@ public final class DialogueScripts {
                         "dream.cocojenna.penetration.3", Portrait.NARRATOR)
         )));
         register(new DialogueScene("cat_dream_moon", List.of(
-                new DialogueLine("dialogue.cocojenna.speaker.narrator",
-                        "dream.cocojenna.moon.1", Portrait.NARRATOR),
-                new DialogueLine("dialogue.cocojenna.speaker.narrator",
-                        "dream.cocojenna.moon.2", Portrait.NARRATOR)
+                gal("dialogue.cocojenna.speaker.narrator",
+                        "dream.cocojenna.moon.1", Portrait.NARRATOR,
+                        "moon_plaza", DialogueExpression.NORMAL, PortraitSide.NONE),
+                gal("dialogue.cocojenna.speaker.narrator",
+                        "dream.cocojenna.moon.2", Portrait.NARRATOR,
+                        "moon_plaza", DialogueExpression.HAPPY, PortraitSide.NONE)
         )));
         register(new DialogueScene("cat_dream_village", List.of(
                 new DialogueLine("dialogue.cocojenna.speaker.narrator",
@@ -207,11 +214,21 @@ public final class DialogueScripts {
                 new DialogueLine("dialogue.cocojenna.speaker.narrator",
                         "dream.cocojenna.coco.2", Portrait.NARRATOR)
         )));
+        register(new DialogueScene("shadow_claw_phase1", List.of(
+                gal("dialogue.cocojenna.speaker.shadow_claw",
+                        "boss.cocojenna.dialogue.phase1.1", Portrait.NARRATOR,
+                        "black_mud", DialogueExpression.NORMAL, PortraitSide.RIGHT),
+                gal("dialogue.cocojenna.speaker.narrator",
+                        "boss.cocojenna.dialogue.phase1.2", Portrait.NARRATOR,
+                        "black_mud", DialogueExpression.SAD, PortraitSide.NONE)
+        )));
         register(new DialogueScene("shadow_claw_phase2", List.of(
-                new DialogueLine("dialogue.cocojenna.speaker.shadow_claw",
-                        "boss.cocojenna.dialogue.phase2.1", Portrait.NARRATOR),
-                new DialogueLine("dialogue.cocojenna.speaker.narrator",
-                        "boss.cocojenna.dialogue.phase2.2", Portrait.NARRATOR)
+                gal("dialogue.cocojenna.speaker.shadow_claw",
+                        "boss.cocojenna.dialogue.phase2.1", Portrait.NARRATOR,
+                        "black_mud", DialogueExpression.SURPRISED, PortraitSide.RIGHT),
+                gal("dialogue.cocojenna.speaker.narrator",
+                        "boss.cocojenna.dialogue.phase2.2", Portrait.NARRATOR,
+                        "black_mud", DialogueExpression.NORMAL, PortraitSide.NONE)
         )));
         register(new DialogueScene("shadow_claw_phase3_hint", List.of(
                 new DialogueLine("dialogue.cocojenna.speaker.shadow_claw",
@@ -222,6 +239,14 @@ public final class DialogueScripts {
                         "boss.cocojenna.dialogue.redemption.1", Portrait.COCO),
                 new DialogueLine("dialogue.cocojenna.speaker.jenna",
                         "boss.cocojenna.dialogue.redemption.2", Portrait.JENNA)
+        )));
+        register(new DialogueScene("shadow_claw_phase4", List.of(
+                gal("dialogue.cocojenna.speaker.shadow_claw",
+                        "boss.cocojenna.dialogue.phase4.1", Portrait.NARRATOR,
+                        "black_mud", DialogueExpression.SAD, PortraitSide.RIGHT),
+                gal("dialogue.cocojenna.speaker.narrator",
+                        "boss.cocojenna.dialogue.phase4.2", Portrait.NARRATOR,
+                        "black_mud", DialogueExpression.NORMAL, PortraitSide.NONE)
         )));
         register(new DialogueScene("shadow_claw_purge", List.of(
                 new DialogueLine("dialogue.cocojenna.speaker.shadow_claw",
@@ -235,7 +260,8 @@ public final class DialogueScripts {
                 new DialogueLine("dialogue.cocojenna.speaker.jenna",
                         "boss.cocojenna.dialogue.twin.2", Portrait.JENNA)
         )));
-        for (String npcId : List.of("sanhua", "ironpaw", "cheshire", "alpha", "samurai")) {
+        for (com.cocojenna.endgame.kingdom.TownNpcProfile profile : com.cocojenna.endgame.kingdom.TownNpcProfile.ALL) {
+            String npcId = profile.id();
             register(new DialogueScene("cat_dream_npc_" + npcId, List.of(
                     new DialogueLine("dialogue.cocojenna.speaker.narrator",
                             "dream.cocojenna.npc." + npcId + ".1", Portrait.NARRATOR),
@@ -243,19 +269,56 @@ public final class DialogueScripts {
                             "dream.cocojenna.npc." + npcId + ".2", Portrait.NARRATOR)
             )));
         }
+        for (com.cocojenna.world.firstcry.FirstCryAnchorTable.NpcAnchor npc
+                : com.cocojenna.world.firstcry.FirstCryAnchorTable.npcs()) {
+            String npcId = npc.npcId();
+            register(new DialogueScene("cat_dream_first_cry_" + npcId, List.of(
+                    gal("dialogue.cocojenna.speaker.narrator",
+                            "dream.cocojenna.first_cry." + npcId + ".1", Portrait.NARRATOR,
+                            "first_cry_sunset", DialogueExpression.NORMAL, PortraitSide.NONE),
+                    gal("dialogue.cocojenna.speaker.narrator",
+                            "dream.cocojenna.first_cry." + npcId + ".2", Portrait.NARRATOR,
+                            "first_cry_sunset", DialogueExpression.HAPPY, PortraitSide.NONE)
+            )));
+        }
+
+        register(new DialogueScene("li_qingzhao_finale", List.of(
+                new DialogueLine("dialogue.cocojenna.speaker.narrator",
+                        "quest.cocojenna.li_qingzhao.gal_1", Portrait.NARRATOR),
+                new DialogueLine("dialogue.cocojenna.speaker.narrator",
+                        "quest.cocojenna.li_qingzhao.gal_2", Portrait.NARRATOR)
+        )));
+        register(new DialogueScene("gal_marriage_proposal", List.of(
+                new DialogueLine("dialogue.cocojenna.speaker.narrator",
+                        "society.cocojenna.gal.proposal", Portrait.NARRATOR)
+        )));
+        register(new DialogueScene("gal_marriage_wedding", List.of(
+                new DialogueLine("dialogue.cocojenna.speaker.narrator",
+                        "society.cocojenna.gal.wedding", Portrait.NARRATOR)
+        )));
+        register(new DialogueScene("gal_pregnancy", List.of(
+                new DialogueLine("dialogue.cocojenna.speaker.narrator",
+                        "society.cocojenna.gal.pregnancy", Portrait.NARRATOR)
+        )));
+        register(new DialogueScene("gal_birth", List.of(
+                new DialogueLine("dialogue.cocojenna.speaker.narrator",
+                        "society.cocojenna.gal.birth", Portrait.NARRATOR)
+        )));
 
         registerRyokatanaMemoryCinematics();
+        registerDaikataMemoryCinematics();
 
         register(new DialogueScene("gray_whisker_intro", List.of(
+                gal("dialogue.cocojenna.speaker.gray_whisker",
+                        "penetration.cocojenna.gray_whisker.intro_1", Portrait.GRAY_WHISKER,
+                        "overworld", DialogueExpression.NORMAL, PortraitSide.LEFT),
                 new DialogueLine("dialogue.cocojenna.speaker.gray_whisker",
-                        "penetration.cocojenna.gray_whisker.intro_1", Portrait.ELDER),
-                new DialogueLine("dialogue.cocojenna.speaker.gray_whisker",
-                        "penetration.cocojenna.gray_whisker.intro_2", Portrait.ELDER,
+                        "penetration.cocojenna.gray_whisker.intro_2", Portrait.GRAY_WHISKER,
                         List.of(
                                 new DialogueChoice("penetration.cocojenna.choice.help", "gray_whisker_help"),
                                 new DialogueChoice("penetration.cocojenna.choice.history", "gray_whisker_history"),
                                 new DialogueChoice("penetration.cocojenna.choice.leave", "gray_whisker_leave")
-                        ), null)
+                        ), null, "overworld", DialogueExpression.HAPPY, PortraitSide.LEFT, "", 0)
         )));
 
         register(new DialogueScene("gray_whisker_history", List.of(
@@ -747,17 +810,28 @@ public final class DialogueScripts {
 
     private static void registerRyokatanaMemoryCinematics() {
         for (String variant : com.cocojenna.item.RyokatanaRegistry.all().keySet()) {
-            String sceneId = "memory_cinematic_" + variant;
-            if (SCENES.containsKey(sceneId)) continue;
-            register(new DialogueScene(sceneId, List.of(
-                    new DialogueLine("dialogue.cocojenna.speaker.narrator",
-                            "weapon.cinematic.cocojenna." + variant + ".1", Portrait.NARRATOR),
-                    new DialogueLine("dialogue.cocojenna.speaker.narrator",
-                            "weapon.cinematic.cocojenna." + variant + ".2", Portrait.NARRATOR),
-                    new DialogueLine("dialogue.cocojenna.speaker.narrator",
-                            "weapon.cinematic.cocojenna." + variant + ".3", Portrait.NARRATOR)
-            )));
+            registerWeaponMemoryCinematic(variant);
         }
+    }
+
+    private static void registerDaikataMemoryCinematics() {
+        for (String variant : List.of(
+                "tiger_iron", "wind_cut", "crescent", "moon_verdict", "royal_authority")) {
+            registerWeaponMemoryCinematic(variant);
+        }
+    }
+
+    private static void registerWeaponMemoryCinematic(String variant) {
+        String sceneId = "memory_cinematic_" + variant;
+        if (SCENES.containsKey(sceneId)) return;
+        register(new DialogueScene(sceneId, List.of(
+                new DialogueLine("dialogue.cocojenna.speaker.narrator",
+                        "weapon.cinematic.cocojenna." + variant + ".1", Portrait.NARRATOR),
+                new DialogueLine("dialogue.cocojenna.speaker.narrator",
+                        "weapon.cinematic.cocojenna." + variant + ".2", Portrait.NARRATOR),
+                new DialogueLine("dialogue.cocojenna.speaker.narrator",
+                        "weapon.cinematic.cocojenna." + variant + ".3", Portrait.NARRATOR)
+        )));
     }
 
     private static void register(DialogueScene scene) {
@@ -776,5 +850,11 @@ public final class DialogueScripts {
 
     public static List<DialogueLine> linesForPacket(DialogueScene scene) {
         return new ArrayList<>(scene.lines());
+    }
+
+    private static DialogueLine gal(String speaker, String text, Portrait portrait,
+            String backgroundId, DialogueExpression expression, PortraitSide side) {
+        return new DialogueLine(speaker, text, portrait, null, null,
+                backgroundId, expression, side, "", 0);
     }
 }

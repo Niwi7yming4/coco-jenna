@@ -1,0 +1,16 @@
+{
+  "name": "patchouli.cocojenna.wildcat.gear_rat",
+  "icon": "cocojenna:toy_squeak",
+  "category": "cocojenna:wildcat",
+  "sortnum": 6,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.wildcat.gear_rat.p1"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.wildcat.gear_rat.p2"
+    }
+  ]
+}

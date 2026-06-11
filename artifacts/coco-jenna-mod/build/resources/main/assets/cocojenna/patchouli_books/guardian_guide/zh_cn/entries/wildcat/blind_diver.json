@@ -1,0 +1,16 @@
+{
+  "name": "patchouli.cocojenna.wildcat.blind_diver",
+  "icon": "cocojenna:toy_squeak",
+  "category": "cocojenna:wildcat",
+  "sortnum": 4,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.wildcat.blind_diver.p1"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.wildcat.blind_diver.p2"
+    }
+  ]
+}

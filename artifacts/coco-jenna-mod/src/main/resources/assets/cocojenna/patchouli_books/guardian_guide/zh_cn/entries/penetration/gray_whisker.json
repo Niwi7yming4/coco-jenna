@@ -5,6 +5,14 @@
   "sortnum": 1,
   "pages": [
     {
+      "type": "patchouli:image",
+      "images": [
+        "cocojenna:textures/gui/patchouli/penetration_overworld.png"
+      ],
+      "border": true,
+      "text": "patchouli.cocojenna.entry.penetration_gray_whisker.img"
+    },
+    {
       "type": "patchouli:text",
       "text": "patchouli.cocojenna.entry.penetration_gray_whisker.p1"
     },
@@ -12,6 +20,5 @@
       "type": "patchouli:text",
       "text": "patchouli.cocojenna.entry.penetration_gray_whisker.p2"
     }
-  ],
-  "advancement": "cocojenna:guide/penetration_gray_whisker"
+  ]
 }

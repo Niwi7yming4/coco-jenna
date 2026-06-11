@@ -1,0 +1,16 @@
+{
+  "name": "patchouli.cocojenna.wildcat.storm_paw",
+  "icon": "cocojenna:toy_squeak",
+  "category": "cocojenna:wildcat",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.wildcat.storm_paw.p1"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.wildcat.storm_paw.p2"
+    }
+  ]
+}

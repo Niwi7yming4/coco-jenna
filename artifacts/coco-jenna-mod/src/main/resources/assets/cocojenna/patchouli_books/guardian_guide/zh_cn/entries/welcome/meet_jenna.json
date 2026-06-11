@@ -5,6 +5,14 @@
   "sortnum": 1,
   "pages": [
     {
+      "type": "patchouli:image",
+      "images": [
+        "cocojenna:textures/gui/patchouli/coco_window_moonlight.png"
+      ],
+      "border": true,
+      "text": "patchouli.cocojenna.entry.meet_jenna.img"
+    },
+    {
       "type": "patchouli:text",
       "text": "patchouli.cocojenna.entry.meet_jenna.p1"
     },

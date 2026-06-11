@@ -32,6 +32,8 @@ ITEM_32_NAMES = frozenset({
 REGION_W, REGION_H = 128, 74
 WORLD_MAP_SIZE = (256, 160)
 WORLD_MAP_THUMB = (128, 80)
+# GUI subtrees that keep native resolution (gal 854×480, lore 128×96, patchouli 854×480).
+COMPRESS_ONLY_GUI_PREFIXES = ("gal/", "lore/", "patchouli/")
 
 
 def item_target(name: str) -> int:
@@ -43,8 +45,15 @@ def item_target(name: str) -> int:
     return 16
 
 
+def is_compress_only_gui(path: Path) -> bool:
+    rel = path.relative_to(TEXTURES / "gui").as_posix()
+    return rel.startswith(COMPRESS_ONLY_GUI_PREFIXES)
+
+
 def gui_target(path: Path) -> tuple[int, int] | None:
     rel = path.relative_to(TEXTURES / "gui").as_posix()
+    if is_compress_only_gui(path):
+        return None
     if rel.startswith("skills/"):
         return (32, 32)
     if rel.startswith("cards/"):
@@ -149,8 +158,11 @@ def main() -> None:
             bytes_saved += s
 
     for path in sorted((TEXTURES / "gui").rglob("*.png")):
+        if is_compress_only_gui(path):
+            continue
         target = gui_target(path)
         if target is None:
+            print(f"  warn: no resize target for {path.relative_to(ROOT)}")
             continue
         tw, th = target
         c, s = process_file(path, tw, th, dry_run=args.dry_run, oxipng=oxipng)
@@ -159,9 +171,9 @@ def main() -> None:
             bytes_saved += s
 
     if not args.dry_run:
-        for path in list((TEXTURES / "item").rglob("*.png")) + list((TEXTURES / "gui").rglob("*.png")):
-            if path.is_relative_to(TEXTURES / "gui") and gui_target(path) is None:
-                continue
+        for path in sorted((TEXTURES / "item").rglob("*.png")) + sorted(
+            (TEXTURES / "gui").rglob("*.png")
+        ):
             bytes_saved += compress_png(path, oxipng)
 
     after_item = folder_bytes(TEXTURES / "item") if not args.dry_run else before_item

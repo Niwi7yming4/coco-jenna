@@ -44,6 +44,11 @@ public final class CatDreamManager {
                 bond.addKingdomHappiness(3);
                 player.displayClientMessage(Component.translatable("society.cocojenna.dream.complete",
                         profile.nameZh()), true);
+            } else if (stage == 3 && favor >= 95) {
+                bond.setTownNpcDreamStage(profile.id(), 4);
+                bond.addKingdomProsperity(2);
+                player.displayClientMessage(Component.translatable("society.cocojenna.dream.transcendent",
+                        profile.nameZh()), true);
             }
         }
     }
@@ -64,6 +69,11 @@ public final class CatDreamManager {
                 return "cat_dream_npc_" + profile.id();
             }
         }
+        for (var npc : com.cocojenna.world.firstcry.FirstCryAnchorTable.npcs()) {
+            if (player.blockPosition().distSqr(npc.pos()) < 48 * 48) {
+                return "cat_dream_first_cry_" + npc.npcId();
+            }
+        }
         int roll = player.getRandom().nextInt(3);
         return switch (roll) {
             case 0 -> "cat_dream_moon";
@@ -81,6 +91,9 @@ public final class CatDreamManager {
         int stage = bond.getTownNpcDreamStage(npcId);
         if (stage == 0) {
             return Component.translatable("society.cocojenna.dream.locked", nameZh);
+        }
+        if (stage >= 4) {
+            return Component.translatable("society.cocojenna.dream.transcendent_label", nameZh);
         }
         if (stage >= 3) {
             return Component.translatable("society.cocojenna.dream.done", nameZh);

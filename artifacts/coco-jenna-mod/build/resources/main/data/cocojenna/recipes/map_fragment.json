@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:string"
+    },
+    {
+      "item": "cocojenna:salt"
+    },
+    {
+      "item": "minecraft:diamond"
+    }
+  ],
+  "result": {
+    "item": "cocojenna:map_fragment",
+    "count": 1
+  }
+}

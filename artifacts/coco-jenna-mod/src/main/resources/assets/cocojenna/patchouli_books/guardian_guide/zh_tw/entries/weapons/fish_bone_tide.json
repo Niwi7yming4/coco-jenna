@@ -1,0 +1,16 @@
+{
+  "name": "patchouli.cocojenna.weapon.fish_bone_tide",
+  "icon": "cocojenna:ryokatana_velvet_whisper",
+  "category": "cocojenna:weapons",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.weapon.fish_bone_tide.p1"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.weapon.fish_bone_tide.p2"
+    }
+  ]
+}

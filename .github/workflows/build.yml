@@ -1,0 +1,39 @@
+name: Build
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: gradle
+
+      - name: Grant execute permission for gradlew
+        working-directory: artifacts/coco-jenna-mod
+        run: chmod +x gradlew
+
+      - name: Build mod
+        working-directory: artifacts/coco-jenna-mod
+        run: ./gradlew build --no-daemon
+
+      - name: Optimize textures (optional)
+        working-directory: artifacts/coco-jenna-mod
+        continue-on-error: true
+        run: |
+          if command -v oxipng >/dev/null 2>&1; then
+            export COCOJENNA_TEXTURE_OPTIMIZER=oxipng
+            ./gradlew optimizeTextures --no-daemon
+          else
+            echo "oxipng not installed; skipping optimizeTextures"
+          fi

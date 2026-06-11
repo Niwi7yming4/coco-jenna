@@ -1,0 +1,16 @@
+{
+  "name": "patchouli.cocojenna.map.dawn_highlands",
+  "icon": "cocojenna:memory_lighthouse",
+  "category": "cocojenna:map",
+  "sortnum": 7,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.map.dawn_highlands.p1"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.map.dawn_highlands.p2"
+    }
+  ]
+}

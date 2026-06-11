@@ -17,7 +17,7 @@ import java.util.List;
 public class OverworldArtifactItem extends Item {
 
     public enum Kind {
-        WARRIOR_LETTER, FARMER_DIARY, OUTPOST_BADGE
+        WARRIOR_LETTER, FARMER_DIARY, OUTPOST_BADGE, GUARDIAN_BADGE
     }
 
     private final Kind kind;

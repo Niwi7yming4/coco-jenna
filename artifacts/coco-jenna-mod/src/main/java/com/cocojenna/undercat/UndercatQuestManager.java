@@ -57,7 +57,7 @@ public final class UndercatQuestManager {
 
     public static void completeCommission(ServerPlayer player, UndercatCommission commission) {
         BondData bond = ModCapabilities.getOrDefault(player);
-        if (bond.getUndercatChapter() != 1) return;
+        if (bond.getUndercatChapter() != commission.chapter) return;
         if ((bond.getUndercatCommissions() & commission.flag) != 0) return;
         bond.setUndercatCommissions(bond.getUndercatCommissions() | commission.flag);
         bond.addUndercatRep(UndercatFaction.CARDBOARD_KINGDOM, commission.repReward);
@@ -65,8 +65,8 @@ public final class UndercatQuestManager {
         UndercatSideStoryManager.addCorrugataAffinity(player, 5);
         player.displayClientMessage(Component.translatable("undercat.cocojenna.commission_done",
                 Component.translatable("undercat.cocojenna.commission." + commission.name().toLowerCase())), true);
-        if (UndercatCommission.countCompleted(bond.getUndercatCommissions()) >= 3
-                && bond.getUndercatStage() < 3) {
+        if (UndercatCommission.countCompletedForChapter(bond.getUndercatCommissions(), 1) >= 3
+                && bond.getUndercatChapter() == 1 && bond.getUndercatStage() < 3) {
             bond.setUndercatStage(3);
             player.displayClientMessage(Component.translatable("undercat.cocojenna.boss_unlocked"), true);
         }
@@ -76,7 +76,7 @@ public final class UndercatQuestManager {
     public static void onTapeColossusDefeated(ServerPlayer player) {
         BondData bond = ModCapabilities.getOrDefault(player);
         if (bond.getUndercatChapter() != 1) return;
-        if (UndercatCommission.countCompleted(bond.getUndercatCommissions()) < 3) {
+        if (UndercatCommission.countCompletedForChapter(bond.getUndercatCommissions(), 1) < 3) {
             player.displayClientMessage(Component.translatable("undercat.cocojenna.need_commissions"), true);
             return;
         }
@@ -186,6 +186,7 @@ public final class UndercatQuestManager {
                 }
             }
             bond.setUndercatTrials(bond.getUndercatTrials() | TRIAL_PIRATES);
+            completeCommission(player, UndercatCommission.PIRATE_TRIAL);
             bond.addUndercatRep(UndercatFaction.SMUGGLER_UNION, 15);
             UndercatSideStoryManager.addOneEyeAffinity(player, 10);
             bond.addShadowCoins(30);
@@ -203,6 +204,7 @@ public final class UndercatQuestManager {
         bond.addUndercatLeechKills(1);
         if (bond.getUndercatLeechKills() >= LEECHES_NEEDED && (bond.getUndercatTrials() & TRIAL_LEECHES) == 0) {
             bond.setUndercatTrials(bond.getUndercatTrials() | TRIAL_LEECHES);
+            completeCommission(player, UndercatCommission.LEECH_BOUNTY);
             bond.addUndercatRep(UndercatFaction.SMUGGLER_UNION, 15);
             UndercatSideStoryManager.addOneEyeAffinity(player, 10);
             bond.addShadowCoins(20);
@@ -221,6 +223,7 @@ public final class UndercatQuestManager {
     }
 
     public static void startRiverVoyage(ServerPlayer player) {
+        completeCommission(player, UndercatCommission.RIVER_CHART);
         RiverVoyageManager.begin(player);
     }
 
@@ -268,6 +271,9 @@ public final class UndercatQuestManager {
         if (bond.getUndercatChapter() != 3) return;
         if ((bond.getUndercatGladiators() & kind.flag) != 0) return;
         bond.setUndercatGladiators(bond.getUndercatGladiators() | kind.flag);
+        if (kind == ArenaGladiatorEntity.Kind.IRON_FIST) completeCommission(player, UndercatCommission.ARENA_IRON);
+        if (kind == ArenaGladiatorEntity.Kind.SHADOW_STEP) completeCommission(player, UndercatCommission.ARENA_SHADOW);
+        if (kind == ArenaGladiatorEntity.Kind.POISON_FANG) completeCommission(player, UndercatCommission.ARENA_POISON);
         bond.addShadowCoins(25);
         bond.addUndercatRep(UndercatFaction.ARENA_BROTHERHOOD, 10);
         int all = ArenaGladiatorEntity.Kind.IRON_FIST.flag
@@ -276,6 +282,7 @@ public final class UndercatQuestManager {
         if ((bond.getUndercatGladiators() & all) == all) {
             bond.addUndercatRep(UndercatFaction.ARENA_BROTHERHOOD, 30);
             giveOrDrop(player, new ItemStack(ModItems.SCARFACE_CHARM.get()));
+            completeCommission(player, UndercatCommission.SCARFACE_FAVOR);
             bond.setUndercatChapter(4);
             bond.setUndercatStage(0);
             unlockRegion(bond, UndercatRegion.SILENT_LIBRARY);
@@ -311,6 +318,9 @@ public final class UndercatQuestManager {
     public static void chooseEnding(ServerPlayer player, int ending) {
         BondData bond = ModCapabilities.getOrDefault(player);
         if (bond.getUndercatChapter() != 5 || bond.getUndercatEnding() > 0) return;
+        completeCommission(player, UndercatCommission.STARLIGHT_OATH);
+        completeCommission(player, UndercatCommission.TWIN_PACT);
+        completeCommission(player, UndercatCommission.FINALE_PREP);
         bond.setUndercatEnding(ending);
         switch (ending) {
             case 1 -> {

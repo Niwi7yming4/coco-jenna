@@ -48,13 +48,17 @@ public class CeremonyHudOverlay {
         MinecraftForge.EVENT_BUS.register(this);
     }
 
-    public void onStageChanged(int stage, int tier, long endGameTime) {
+    public void onStageChanged(int stage, int tier, long endGameTime, long stageStartGameTime) {
         currentStage = stage;
         currentTier = tier;
         active = stage > 0 && stage < 6;
         this.endGameTime = endGameTime;
-        var mc = Minecraft.getInstance();
-        stageStartGameTime = mc.level != null ? mc.level.getGameTime() : 0L;
+        if (stageStartGameTime > 0L) {
+            this.stageStartGameTime = stageStartGameTime;
+        } else {
+            var mc = Minecraft.getInstance();
+            this.stageStartGameTime = mc.level != null ? mc.level.getGameTime() : 0L;
+        }
     }
 
     @SubscribeEvent

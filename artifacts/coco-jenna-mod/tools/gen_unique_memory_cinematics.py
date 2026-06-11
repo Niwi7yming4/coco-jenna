@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Unique weapon memory cinematic lang for 20 task-linked ryokatana variants."""
+"""Unique weapon memory cinematic lang for 25 task-linked weapon variants."""
 import json
 from pathlib import Path
 
@@ -166,6 +166,46 @@ UNIQUE = {
         "A velvet cradle sways, humming an old cat-lullaby.",
         "Steel rests on the rim and learns gentleness.",
         "Memory says: guarding is sometimes simply staying close.",
+    ),
+    "tiger_iron": (
+        "虎符在掌心發燙，遠方傳來整齊的腳步聲。",
+        "將軍之刃記起沙場上的號令與沉默。",
+        "刀鋒落下時，軍心與記憶一同歸位。",
+        "The tiger tally burns in your palm; distant ranks march in step.",
+        "The general's blade recalls orders shouted and silences kept.",
+        "When steel falls, discipline and memory align as one.",
+    ),
+    "wind_cut": (
+        "第三道門在風中半開，門縫漏出舊日的刀鳴。",
+        "你踏過門檻，身形與風同速。",
+        "風切之刃記住：快，不是逃避，是抉擇。",
+        "The third gate stands ajar; wind leaks old blade-song through the crack.",
+        "You cross the threshold moving at wind-speed.",
+        "Wind Cut remembers: swiftness is not flight—it is choice.",
+    ),
+    "crescent": (
+        "月牙懸在刃脊，像一枚尚未落下的裁決。",
+        "你揮刀，天空被劃出一道銀白的裂縫。",
+        "裂空之聲散去，記憶隨弧光落地。",
+        "A crescent rests on the spine like a verdict not yet fallen.",
+        "Your swing cleaves a silver seam across the sky.",
+        "As the sky-cleave fades, memory settles along the arc.",
+    ),
+    "moon_verdict": (
+        "月光法庭沒有法官，只有靜默的證人。",
+        "刃尖指向過去的自己，問：你為何拔刀？",
+        "裁決落下——不是懲罰，是記起初心。",
+        "Moonlight court has no judge—only silent witnesses.",
+        "The tip points at who you were: why did you draw?",
+        "The verdict falls—not punishment, but remembering why you began.",
+    ),
+    "royal_authority": (
+        "王座空著，王權卻在刀鞘上低語。",
+        "貓之國的紋章在刃面浮現，像活過的歷史。",
+        "你接過權柄，也接過守護萬千貓族的約定。",
+        "The throne sits empty; authority murmurs on the scabbard.",
+        "The kingdom crest surfaces on the blade like living history.",
+        "You take the scepter—and the pact to guard every cat-clan.",
     ),
 }
 

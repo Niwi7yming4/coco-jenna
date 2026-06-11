@@ -36,7 +36,7 @@ public enum UndercatEntrance {
     public boolean canUse(BondData bond) {
         if (bond.getUndercatChapter() < minChapter) return false;
         if (this == TREE_HOLE) {
-            return bond.getCocoEmotion() >= 40 || bond.getJennaEmotion() >= 40;
+            return bond.getCocoEmotion() >= 60 || bond.getJennaEmotion() >= 60;
         }
         if (bond.getCocoEmotion() < minCocoEmotion || bond.getJennaEmotion() < minJennaEmotion) {
             return false;

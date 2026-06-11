@@ -5,6 +5,14 @@
   "sortnum": 0,
   "pages": [
     {
+      "type": "patchouli:image",
+      "images": [
+        "cocojenna:textures/gui/patchouli/shadow_claw_boss.png"
+      ],
+      "border": true,
+      "text": "patchouli.cocojenna.entry.shadow_claw.img"
+    },
+    {
       "type": "patchouli:text",
       "text": "patchouli.cocojenna.entry.shadow_claw.p1"
     },

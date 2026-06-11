@@ -2,6 +2,8 @@ package com.cocojenna.exploration;
 
 import com.cocojenna.capability.BondData;
 import com.cocojenna.capability.ModCapabilities;
+import com.cocojenna.exploration.DungeonRewardHelper;
+import com.cocojenna.init.ModItems;
 import com.cocojenna.network.ModNetwork;
 import com.cocojenna.network.SyncBondDataPacket;
 import net.minecraft.network.chat.Component;
@@ -40,8 +42,14 @@ public final class ExplorationManager {
         player.displayClientMessage(
                 Component.translatable("explore.cocojenna.wildcat.discovered",
                         Component.translatable("explore.cocojenna.wildcat." + type.name().toLowerCase())), false);
-        if (bond.getWildCatDiscoveryCount() >= 15) {
-            player.displayClientMessage(Component.translatable("explore.cocojenna.wildcat.master"), false);
+        if (bond.getWildCatDiscoveryCount() >= 15 && !bond.getExplorationJournal().contains("wildcat:master_awarded")) {
+            bond.addJournalEntry("wildcat:master_awarded");
+            com.cocojenna.init.ModItems.TOY_SQUEAK.ifPresent(item -> {
+                net.minecraft.world.item.ItemStack trophy = new net.minecraft.world.item.ItemStack(item);
+                trophy.setHoverName(Component.translatable("item.cocojenna.wildcat_hunter_trophy"));
+                if (!player.addItem(trophy)) player.drop(trophy, false);
+            });
+            player.displayClientMessage(Component.translatable("explore.cocojenna.wildcat.master_title"), false);
         }
         sync(player, bond);
     }
@@ -83,11 +91,39 @@ public final class ExplorationManager {
             if (flag != 0 && !bond.hasLoreRegionComplete(flag)) {
                 bond.markLoreRegionComplete(flag);
                 bond.addReputation(repKey(region), 15);
+                grantRegionCompletionReward(player, bond, region);
                 player.displayClientMessage(
                         Component.translatable("explore.cocojenna.lore.region_complete",
                                 Component.translatable("gui.cocojenna.kingdom." + region)), false);
             }
         }
+    }
+
+    private static void grantRegionCompletionReward(ServerPlayer player, BondData bond, String region) {
+        switch (region) {
+            case "first_cry" -> giveItem(player, ModItems.MAP_FRAGMENT.get(), 2);
+            case "velvet_forest" -> giveItem(player, ModItems.VELVET_FUR.get(), 5);
+            case "moon_alley" -> giveItem(player, ModItems.MOONSTONE.get(), 3);
+            case "gear_town" -> giveItem(player, ModItems.PRECISION_GEAR.get(), 2);
+            case "blind_port" -> giveItem(player, ModItems.DEEP_SEA_PEARL.get(), 1);
+            case "dawn_highlands" -> DungeonRewardHelper.grant(player, "royal_glory");
+            case "howling_gorge" -> giveItem(player, ModItems.STORM_CLOUD_FUR.get(), 2);
+            case "phantom_maze" -> giveItem(player, ModItems.SEQUENCE_BADGE.get(), 1);
+            case "forgotten_tower" -> giveItem(player, ModItems.MEMORY_SHARD.get(), 3);
+            case "rainbow_canyon" -> giveItem(player, ModItems.RAINBOW_YARN_BALL.get(), 1);
+            case "catnip_highlands" -> giveItem(player, ModItems.CATNIP_ITEM.get(), 8);
+            case "cardboard_slums" -> giveItem(player, ModItems.CARDBOARD_BADGE.get(), 1);
+            case "moonlight_beach" -> DungeonRewardHelper.grant(player, "moonlight_clear");
+            case "stardust_desert" -> DungeonRewardHelper.grant(player, "stardust_step");
+            case "forgotten_wastes" -> DungeonRewardHelper.grant(player, "dark_tide");
+            default -> giveItem(player, ModItems.MEMORY_SHARD.get(), 1);
+        }
+        bond.addJournalEntry("region_reward:" + region);
+    }
+
+    private static void giveItem(ServerPlayer player, net.minecraft.world.item.Item item, int count) {
+        net.minecraft.world.item.ItemStack stack = new net.minecraft.world.item.ItemStack(item, count);
+        if (!player.addItem(stack)) player.drop(stack, false);
     }
 
     private static String repKey(String region) {

@@ -1,0 +1,16 @@
+{
+  "name": "patchouli.cocojenna.wildcat.dawn_crier",
+  "icon": "cocojenna:toy_squeak",
+  "category": "cocojenna:wildcat",
+  "sortnum": 8,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.wildcat.dawn_crier.p1"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.wildcat.dawn_crier.p2"
+    }
+  ]
+}

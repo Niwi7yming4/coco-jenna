@@ -5,6 +5,14 @@
   "sortnum": 0,
   "pages": [
     {
+      "type": "patchouli:image",
+      "images": [
+        "cocojenna:textures/gui/patchouli/coco_jenna_porch_sunset.png"
+      ],
+      "border": true,
+      "text": "patchouli.cocojenna.entry.prologue.img"
+    },
+    {
       "type": "patchouli:text",
       "text": "patchouli.cocojenna.entry.prologue.p1"
     },

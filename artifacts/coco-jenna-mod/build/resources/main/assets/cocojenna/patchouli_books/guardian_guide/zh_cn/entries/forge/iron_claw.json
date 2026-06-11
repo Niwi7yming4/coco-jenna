@@ -5,6 +5,14 @@
   "sortnum": 0,
   "pages": [
     {
+      "type": "patchouli:image",
+      "images": [
+        "cocojenna:textures/gui/patchouli/ironpaw_forge_glow.png"
+      ],
+      "border": true,
+      "text": "patchouli.cocojenna.entry.iron_claw.img"
+    },
+    {
       "type": "patchouli:text",
       "text": "patchouli.cocojenna.entry.iron_claw.p1"
     },

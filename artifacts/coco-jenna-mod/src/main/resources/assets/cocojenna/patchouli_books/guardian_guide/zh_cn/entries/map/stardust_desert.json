@@ -1,0 +1,16 @@
+{
+  "name": "patchouli.cocojenna.map.stardust_desert",
+  "icon": "cocojenna:memory_lighthouse",
+  "category": "cocojenna:map",
+  "sortnum": 12,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.map.stardust_desert.p1"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.map.stardust_desert.p2"
+    }
+  ]
+}

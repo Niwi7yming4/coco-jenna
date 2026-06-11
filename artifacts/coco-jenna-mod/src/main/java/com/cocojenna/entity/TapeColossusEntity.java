@@ -210,7 +210,7 @@ public class TapeColossusEntity extends Monster {
         if (!level().isClientSide && source.getEntity() instanceof ServerPlayer sp) {
             BondData bond = ModCapabilities.getOrDefault(sp);
             if (bond.getUndercatChapter() != 1
-                    || UndercatCommission.countCompleted(bond.getUndercatCommissions()) < 3) {
+                    || UndercatCommission.countCompletedForChapter(bond.getUndercatCommissions(), 1) < 3) {
                 setHealth(getMaxHealth() * 0.6f);
                 currentPhase = Phase.ONE;
                 entityData.set(SYNC_PHASE, 0);

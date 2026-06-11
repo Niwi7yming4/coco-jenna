@@ -51,8 +51,8 @@ public class TownNpcCompanionEntity extends PathfinderMob {
     protected void registerGoals() {
         goalSelector.addGoal(0, new FloatGoal(this));
         goalSelector.addGoal(1, new CatSocializeGoal(this));
-        goalSelector.addGoal(2, new FollowOwnerGoal(this, 1.0, 10.0f, 3.0f));
-        goalSelector.addGoal(3, new WaterAvoidingRandomStrollGoal(this, 0.55));
+        goalSelector.addGoal(2, new ScheduleFollowGoal(this, 1.0, 10.0f, 3.0f));
+        goalSelector.addGoal(3, new ScheduleStrollGoal(this, 0.35));
         goalSelector.addGoal(4, new LookAtPlayerGoal(this, Player.class, 8.0f));
         goalSelector.addGoal(5, new RandomLookAroundGoal(this));
     }
@@ -98,13 +98,14 @@ public class TownNpcCompanionEntity extends PathfinderMob {
                 TownNpcProfile profile = TownNpcProfile.byId(getNpcId());
                 if (profile != null) {
                     CatMarriageManager.onCompanionInteract(sp, profile.id());
+                    com.cocojenna.kingdom.TownNpcScheduleManager.onCompanionInteract(sp, profile.id());
                 }
             }
         }
         return InteractionResult.sidedSuccess(level().isClientSide);
     }
 
-    private static class FollowOwnerGoal extends Goal {
+    public static final class ScheduleFollowGoal extends Goal {
         private final TownNpcCompanionEntity cat;
         private final double speed;
         private final float minDist;
@@ -112,15 +113,21 @@ public class TownNpcCompanionEntity extends PathfinderMob {
         @Nullable
         private Player owner;
 
-        FollowOwnerGoal(TownNpcCompanionEntity cat, double speed, float minDist, float maxDist) {
+        ScheduleFollowGoal(TownNpcCompanionEntity cat, double speed, float minDist, float maxDist) {
             this.cat = cat;
             this.speed = speed;
             this.minDist = minDist;
             this.maxDist = maxDist;
         }
 
+        public boolean allowsPhase(String phase) {
+            return "morning".equals(phase) || "day".equals(phase);
+        }
+
         @Override
         public boolean canUse() {
+            String phase = cat.getPersistentData().getString("cocojenna_schedule_phase");
+            if (!phase.isEmpty() && !allowsPhase(phase)) return false;
             if (cat.getOwnerUUID() == null) return false;
             Player p = cat.level().getPlayerByUUID(cat.getOwnerUUID());
             if (p == null || !p.isAlive()) return false;
@@ -134,6 +141,25 @@ public class TownNpcCompanionEntity extends PathfinderMob {
             if (owner != null) {
                 cat.getNavigation().moveTo(owner, speed);
             }
+        }
+    }
+
+    public static final class ScheduleStrollGoal extends WaterAvoidingRandomStrollGoal {
+        private final TownNpcCompanionEntity cat;
+
+        ScheduleStrollGoal(TownNpcCompanionEntity cat, double speed) {
+            super(cat, speed);
+            this.cat = cat;
+        }
+
+        public boolean allowsPhase(String phase) {
+            return "evening".equals(phase);
+        }
+
+        @Override
+        public boolean canUse() {
+            String phase = cat.getPersistentData().getString("cocojenna_schedule_phase");
+            return (phase.isEmpty() || allowsPhase(phase)) && super.canUse();
         }
     }
 }

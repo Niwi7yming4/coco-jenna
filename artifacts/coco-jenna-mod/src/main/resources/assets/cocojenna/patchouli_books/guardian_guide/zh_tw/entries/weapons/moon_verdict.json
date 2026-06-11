@@ -1,0 +1,16 @@
+{
+  "name": "patchouli.cocojenna.weapon.moon_verdict",
+  "icon": "cocojenna:ryokatana_velvet_whisper",
+  "category": "cocojenna:weapons",
+  "sortnum": 26,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.weapon.moon_verdict.p1"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.weapon.moon_verdict.p2"
+    }
+  ]
+}

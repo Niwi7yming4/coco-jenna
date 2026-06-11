@@ -1,0 +1,16 @@
+{
+  "name": "patchouli.cocojenna.wildcat.hibiscus_guard",
+  "icon": "cocojenna:toy_squeak",
+  "category": "cocojenna:wildcat",
+  "sortnum": 7,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.wildcat.hibiscus_guard.p1"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.wildcat.hibiscus_guard.p2"
+    }
+  ]
+}

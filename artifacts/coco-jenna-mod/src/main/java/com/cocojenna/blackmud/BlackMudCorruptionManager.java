@@ -253,7 +253,8 @@ public final class BlackMudCorruptionManager {
         var mudState = BlackMudBlocks.blockStateForStage(Math.max(2, chunkStage));
         int baseX = chunk.getMinBlockX();
         int baseZ = chunk.getMinBlockZ();
-        for (int i = 0; i < 6 + chunkStage; i++) {
+        int passes = 6 + chunkStage + (chunkStage >= 4 ? 8 : 0);
+        for (int i = 0; i < passes; i++) {
             int x = baseX + random.nextInt(16);
             int z = baseZ + random.nextInt(16);
             BlockPos surface = level.getHeightmapPos(Heightmap.Types.WORLD_SURFACE, new BlockPos(x, 0, z));
@@ -261,6 +262,27 @@ public final class BlackMudCorruptionManager {
             if (below.is(BlockTags.DIRT) || below.is(Blocks.GRASS_BLOCK)) {
                 level.setBlock(surface.below(), mudState, 2);
             }
+            if (chunkStage >= 4 && random.nextFloat() < 0.15f) {
+                level.setBlock(surface, ModBlocks.BLACK_MUD.get().defaultBlockState(), 2);
+            }
+        }
+        if (chunkStage >= 4 && random.nextFloat() < 0.12f && isChunkNearPlayers(level, chunk, PLAYER_CHUNK_RADIUS)) {
+            spawnAbyssMob(level, chunk, random);
+        }
+    }
+
+    private static void spawnAbyssMob(ServerLevel level, ChunkPos chunk, RandomSource random) {
+        int x = chunk.getMinBlockX() + random.nextInt(16);
+        int z = chunk.getMinBlockZ() + random.nextInt(16);
+        BlockPos surface = level.getHeightmapPos(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, new BlockPos(x, 0, z));
+        var type = random.nextFloat() < 0.5f
+                ? ModEntities.WHISPERING_DOLL.get()
+                : ModEntities.MIMIC_CAT.get();
+        var mob = type.create(level);
+        if (mob == null) return;
+        mob.setPos(surface.getX() + 0.5, surface.getY(), surface.getZ() + 0.5);
+        if (mob.checkSpawnRules(level, MobSpawnType.EVENT)) {
+            level.addFreshEntity(mob);
         }
     }
 

@@ -2,7 +2,9 @@ package com.cocojenna.society;
 
 import com.cocojenna.capability.BondData;
 import com.cocojenna.capability.ModCapabilities;
+import com.cocojenna.dialogue.DialogueManager;
 import com.cocojenna.endgame.kingdom.TownNpcProfile;
+import com.cocojenna.init.ModBlocks;
 import com.cocojenna.init.ModDimensions;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
@@ -37,6 +39,12 @@ public final class CatLifeEventManager {
         bond.setVillagePopulation(bond.getVillagePopulation() + 1);
         String kittenName = CatNpcNamePool.randomName(player.getRandom());
         bond.setLastFamilyEvent("birth_" + kittenName);
+        DialogueManager.play(player, "gal_birth");
+        if (!bond.isBuildingPlaced("kitten_bed")) {
+            bond.setBuildingPlaced("kitten_bed");
+            net.minecraft.world.item.ItemStack furniture = new net.minecraft.world.item.ItemStack(ModBlocks.CAT_BED.get());
+            if (!player.addItem(furniture)) player.drop(furniture, false);
+        }
         player.displayClientMessage(Component.translatable("society.cocojenna.life.birth",
                 kittenName, profile != null ? profile.nameZh() : partner), true);
     }

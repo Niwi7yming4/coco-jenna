@@ -1,0 +1,16 @@
+{
+  "name": "patchouli.cocojenna.map.rainbow_canyon",
+  "icon": "cocojenna:memory_lighthouse",
+  "category": "cocojenna:map",
+  "sortnum": 11,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.map.rainbow_canyon.p1"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.map.rainbow_canyon.p2"
+    }
+  ]
+}

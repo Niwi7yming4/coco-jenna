@@ -53,6 +53,8 @@ public final class BuildingManager {
 
     public static boolean contribute(ServerPlayer player, String buildingId) {
         if (!AfterRainGameplayManager.isPeaceMode(player)) return false;
+        if (!com.cocojenna.kingdom.multiplayer.KingdomPermissionGuard.check(
+                player, com.cocojenna.kingdom.multiplayer.Permission.BUILD)) return false;
         BuildingBlueprintCatalog.Blueprint bp = BuildingBlueprintCatalog.get(buildingId);
         if (bp == null) return false;
 

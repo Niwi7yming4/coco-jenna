@@ -5,6 +5,14 @@
   "sortnum": 0,
   "pages": [
     {
+      "type": "patchouli:image",
+      "images": [
+        "cocojenna:textures/gui/patchouli/four_mad_arena.png"
+      ],
+      "border": true,
+      "text": "patchouli.cocojenna.entry.four_mad_legend.img"
+    },
+    {
       "type": "patchouli:text",
       "text": "patchouli.cocojenna.entry.four_mad_legend.p1"
     },

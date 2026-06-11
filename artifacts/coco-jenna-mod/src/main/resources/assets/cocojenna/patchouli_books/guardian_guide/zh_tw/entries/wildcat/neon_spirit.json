@@ -1,0 +1,16 @@
+{
+  "name": "patchouli.cocojenna.wildcat.neon_spirit",
+  "icon": "cocojenna:toy_squeak",
+  "category": "cocojenna:wildcat",
+  "sortnum": 3,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.wildcat.neon_spirit.p1"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.wildcat.neon_spirit.p2"
+    }
+  ]
+}

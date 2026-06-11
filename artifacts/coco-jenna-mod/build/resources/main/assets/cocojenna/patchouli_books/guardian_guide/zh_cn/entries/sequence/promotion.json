@@ -5,6 +5,14 @@
   "sortnum": 3,
   "pages": [
     {
+      "type": "patchouli:image",
+      "images": [
+        "cocojenna:textures/gui/patchouli/sequence_promotion.png"
+      ],
+      "border": true,
+      "text": "patchouli.cocojenna.entry.promotion.img"
+    },
+    {
       "type": "patchouli:text",
       "text": "patchouli.cocojenna.entry.promotion.p1"
     },

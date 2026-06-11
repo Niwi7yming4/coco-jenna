@@ -1,0 +1,16 @@
+{
+  "name": "patchouli.cocojenna.wildcat.stardust_runner",
+  "icon": "cocojenna:toy_squeak",
+  "category": "cocojenna:wildcat",
+  "sortnum": 5,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.wildcat.stardust_runner.p1"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.wildcat.stardust_runner.p2"
+    }
+  ]
+}

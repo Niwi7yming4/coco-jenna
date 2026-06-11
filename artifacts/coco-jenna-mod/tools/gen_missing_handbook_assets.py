@@ -180,6 +180,27 @@ def gen_tab_icon(kind: str) -> Image.Image:
         d.rectangle([6, 10, 25, 24], fill=(60, 90, 60, 255))
         d.ellipse([12, 4, 20, 12], fill=(255, 220, 100, 255))
         d.point((16, 16), fill=(200, 240, 255, 255))
+    elif kind == "weapon":
+        d.rectangle([14, 4, 18, 22], fill=(180, 180, 200, 255))
+        d.rectangle([10, 18, 22, 22], fill=(140, 100, 60, 255))
+        d.point((16, 8), fill=(255, 230, 180, 255))
+    elif kind == "quest":
+        d.polygon([(16, 4), (24, 12), (20, 26), (12, 26), (8, 12)], fill=(255, 200, 80, 255))
+        d.point((16, 14), fill=(255, 255, 255, 255))
+    elif kind == "lore":
+        d.rectangle([8, 6, 24, 26], fill=(100, 80, 60, 255))
+        d.rectangle([10, 8, 22, 24], fill=(240, 230, 210, 255))
+        d.ellipse([14, 12, 18, 16], fill=(200, 160, 100, 255))
+    elif kind == "wildcat":
+        d.ellipse([6, 10, 26, 26], fill=(200, 140, 80, 255))
+        d.point((12, 14), fill=(40, 40, 40, 255))
+        d.point((20, 14), fill=(40, 40, 40, 255))
+        d.polygon([(10, 6), (14, 10), (6, 10)], fill=(200, 140, 80, 255))
+        d.polygon([(22, 6), (26, 10), (18, 10)], fill=(200, 140, 80, 255))
+    elif kind == "journal":
+        d.rectangle([8, 5, 24, 27], fill=(220, 200, 170, 255))
+        for y in (10, 14, 18, 22):
+            d.line([(11, y), (21, y)], fill=(120, 100, 80, 255))
     else:
         d.ellipse([8, 8, 24, 24], fill=(140, 130, 160, 255))
         d.ellipse([10, 10, 22, 22], fill=(180, 170, 200, 255))
@@ -273,9 +294,19 @@ def main() -> None:
     save(TEX / "gui" / "portraits" / "portrait_orange.png", jenna)
 
     print("Memory book tabs:")
-    for name in ("emotion", "memory", "kingdom", "settings"):
-        key = "cat_kingdom" if name == "kingdom" else name
-        save(TEX / "gui" / "tabs" / f"tab_{key}.png", gen_tab_icon(name))
+    tab_map = [
+        ("emotion", "emotion"),
+        ("memory", "memory"),
+        ("weapon", "weapon"),
+        ("quest", "quest"),
+        ("lore", "lore"),
+        ("kingdom", "cat_kingdom"),
+        ("wildcat", "wildcat"),
+        ("journal", "journal"),
+        ("settings", "settings"),
+    ]
+    for key, kind in tab_map:
+        save(TEX / "gui" / "tabs" / f"tab_{key}.png", gen_tab_icon(kind))
 
     print("World map:")
     export_world_map()

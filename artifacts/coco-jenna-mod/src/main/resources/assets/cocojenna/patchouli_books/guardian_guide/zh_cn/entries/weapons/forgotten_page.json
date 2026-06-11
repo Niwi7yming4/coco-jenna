@@ -1,0 +1,16 @@
+{
+  "name": "patchouli.cocojenna.weapon.forgotten_page",
+  "icon": "cocojenna:ryokatana_velvet_whisper",
+  "category": "cocojenna:weapons",
+  "sortnum": 9,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.weapon.forgotten_page.p1"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.weapon.forgotten_page.p2"
+    }
+  ]
+}

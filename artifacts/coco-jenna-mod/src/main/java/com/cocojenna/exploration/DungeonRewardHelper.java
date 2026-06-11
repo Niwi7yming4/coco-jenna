@@ -23,6 +23,11 @@ public final class DungeonRewardHelper {
             case "storm_cloak" -> give(player, ModItems.STORM_CLOUD_FUR.get(), 2);
             case "sequence_badge" -> give(player, ModItems.SEQUENCE_BADGE.get(), 1);
             case "redeem_velvet" -> giveRyokatana(player, "fallen_velvet_claw");
+            case "stardust_step" -> giveRyokatana(player, "stardust_step");
+            case "dark_tide" -> giveRyokatana(player, "dark_tide");
+            case "cheshire_grin" -> giveRyokatana(player, "cheshire_grin");
+            case "moonlight_clear" -> giveRyokatana(player, "moonlight_clear");
+            case "catnip_item" -> give(player, ModItems.CATNIP_ITEM.get(), 8);
             default -> give(player, ModItems.MAP_FRAGMENT.get(), 1);
         }
     }

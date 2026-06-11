@@ -1,0 +1,16 @@
+{
+  "name": "patchouli.cocojenna.weapon.neon_flash",
+  "icon": "cocojenna:ryokatana_velvet_whisper",
+  "category": "cocojenna:weapons",
+  "sortnum": 10,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.weapon.neon_flash.p1"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.weapon.neon_flash.p2"
+    }
+  ]
+}

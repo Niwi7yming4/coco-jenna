@@ -478,6 +478,16 @@ public class ModBlocks {
                     .strength(5.0f)
                     .lightLevel(s -> 3)));
 
+    /** 記憶祭壇 — 解封 stage 2→3 儀式 */
+    public static final RegistryObject<Block> MEMORY_ALTAR = registerWithItem(
+            "memory_altar",
+            () -> new com.cocojenna.block.MemoryAltarBlock(BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.QUARTZ)
+                    .requiresCorrectToolForDrops()
+                    .strength(4.0f)
+                    .lightLevel(s -> s.getValue(com.cocojenna.block.MemoryAltarBlock.CHARGED) ? 12 : 4)
+                    .noOcclusion()));
+
     // ══════════════════════════════════════════════════════════════════════
     // 地下貓域 DLC「深淵與星光」
     // ══════════════════════════════════════════════════════════════════════
@@ -676,6 +686,14 @@ public class ModBlocks {
             () -> new SuspiciousWallBlock(BlockBehaviour.Properties.of()
                     .mapColor(MapColor.COLOR_GREEN)
                     .strength(1.5f)));
+
+    /** 個人領地旗 — 多人王國 16×16 claim */
+    public static final RegistryObject<Block> PERSONAL_CLAIM_FLAG = registerWithItem(
+            "personal_claim_flag",
+            () -> new PersonalClaimFlagBlock(BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.COLOR_RED)
+                    .strength(1.0f)
+                    .noOcclusion()));
 
     // ══════════════════════════════════════════════════════════════════════
     // Helper

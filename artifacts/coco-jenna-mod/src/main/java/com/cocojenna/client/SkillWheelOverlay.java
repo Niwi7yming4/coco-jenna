@@ -27,6 +27,7 @@ public final class SkillWheelOverlay {
     public static void render(GuiGraphics g, int screenW, int screenH) {
         Minecraft mc = Minecraft.getInstance();
         if (mc.player == null || ModKeyBindings.SKILL_WHEEL == null) return;
+        if (com.cocojenna.integration.FallenAbyssLinkage.isFallenPathLockedClient()) return;
         if (!ModKeyBindings.SKILL_WHEEL.isDown()) {
             if (wasOpen && selectedSlot >= 0) {
                 ModNetwork.CHANNEL.sendToServer(new CastSequenceSkillPacket(selectedSlot));

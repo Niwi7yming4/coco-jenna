@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "cocojenna:item/black_mud_remnant"
+    "layer0": "cocojenna:item/black_mud_sample"
   }
 }

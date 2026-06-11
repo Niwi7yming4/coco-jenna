@@ -395,5 +395,52 @@ public class ModNetwork {
                 CatRadialActionPacket::encode,
                 CatRadialActionPacket::decode,
                 CatRadialActionPacket::handle);
+
+        registerMp(packetId++);
+    }
+
+    private static int registerMp(int id) {
+        int p = id;
+        CHANNEL.registerMessage(p++, KingdomAuthoritySyncPacket.class,
+                KingdomAuthoritySyncPacket::encode, KingdomAuthoritySyncPacket::decode,
+                KingdomAuthoritySyncPacket::handle);
+        CHANNEL.registerMessage(p++, RoleAssignPacket.class,
+                RoleAssignPacket::encode, RoleAssignPacket::decode, RoleAssignPacket::handle);
+        CHANNEL.registerMessage(p++, DecreeProposalPacket.class,
+                DecreeProposalPacket::encode, DecreeProposalPacket::decode, DecreeProposalPacket::handle);
+        CHANNEL.registerMessage(p++, DecreeVotePacket.class,
+                DecreeVotePacket::encode, DecreeVotePacket::decode, DecreeVotePacket::handle);
+        CHANNEL.registerMessage(p++, KingdomDecreeResultPacket.class,
+                KingdomDecreeResultPacket::encode, KingdomDecreeResultPacket::decode,
+                KingdomDecreeResultPacket::handle);
+        CHANNEL.registerMessage(p++, PersonalAffectionSyncPacket.class,
+                PersonalAffectionSyncPacket::encode, PersonalAffectionSyncPacket::decode,
+                PersonalAffectionSyncPacket::handle);
+        CHANNEL.registerMessage(p++, AffectionChoicePacket.class,
+                AffectionChoicePacket::encode, AffectionChoicePacket::decode, AffectionChoicePacket::handle);
+        CHANNEL.registerMessage(p++, TeamBondUltimatePacket.class,
+                TeamBondUltimatePacket::encode, TeamBondUltimatePacket::decode,
+                TeamBondUltimatePacket::handle);
+        CHANNEL.registerMessage(p++, RitualAidPacket.class,
+                RitualAidPacket::encode, RitualAidPacket::decode, RitualAidPacket::handle);
+        CHANNEL.registerMessage(p++, RitualGuardianStatusPacket.class,
+                RitualGuardianStatusPacket::encode, RitualGuardianStatusPacket::decode,
+                RitualGuardianStatusPacket::handle);
+        CHANNEL.registerMessage(p++, TradeRequestPacket.class,
+                TradeRequestPacket::encode, TradeRequestPacket::decode, TradeRequestPacket::handle);
+        CHANNEL.registerMessage(p++, TradeConfirmPacket.class,
+                TradeConfirmPacket::encode, TradeConfirmPacket::decode, TradeConfirmPacket::handle);
+        CHANNEL.registerMessage(p++, GlobalEventStartPacket.class,
+                GlobalEventStartPacket::encode, GlobalEventStartPacket::decode, GlobalEventStartPacket::handle);
+        CHANNEL.registerMessage(p++, GlobalEventContributionPacket.class,
+                GlobalEventContributionPacket::encode, GlobalEventContributionPacket::decode,
+                GlobalEventContributionPacket::handle);
+        CHANNEL.registerMessage(p++, MercenarySetPacket.class,
+                MercenarySetPacket::encode, MercenarySetPacket::decode, MercenarySetPacket::handle);
+        CHANNEL.registerMessage(p++, MercenarySummonPacket.class,
+                MercenarySummonPacket::encode, MercenarySummonPacket::decode, MercenarySummonPacket::handle);
+        CHANNEL.registerMessage(p++, OfflineTaskPacket.class,
+                OfflineTaskPacket::encode, OfflineTaskPacket::decode, OfflineTaskPacket::handle);
+        return p;
     }
 }

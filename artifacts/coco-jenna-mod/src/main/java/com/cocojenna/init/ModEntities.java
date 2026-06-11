@@ -339,6 +339,12 @@ public class ModEntities {
                     () -> EntityType.Builder.<TownNpcCompanionEntity>of(TownNpcCompanionEntity::new, MobCategory.CREATURE)
                             .sized(0.6f, 0.7f).clientTrackingRange(10).build("town_npc_companion"));
 
+    /** 王國幼貓 — 多人個人夥伴 */
+    public static final RegistryObject<EntityType<KingdomKittenEntity>> KINGDOM_KITTEN =
+            ENTITY_TYPES.register("kingdom_kitten",
+                    () -> EntityType.Builder.<KingdomKittenEntity>of(KingdomKittenEntity::new, MobCategory.CREATURE)
+                            .sized(0.4f, 0.5f).clientTrackingRange(8).build("kingdom_kitten"));
+
     /** 始皇貓 · 秦可沐 */
     public static final RegistryObject<EntityType<com.cocojenna.entity.QinKemuEntity>> QIN_KEMU =
             ENTITY_TYPES.register("qin_kemu",

@@ -9,7 +9,10 @@ public enum Portrait {
     JENNA(0xFFC96823, 0xFFE6FF00),
     IRONPAW(0xFF8B7355, 0xFFB87333),
     MERCHANT(0xFF6B4C8A, 0xFFCCAAFF),
-    SANHUA(0xFFFFCCAA, 0xFFFFFFFF);
+    SANHUA(0xFFFFCCAA, 0xFFFFFFFF),
+    QIN_KEMU(0xFFE8C878, 0xFFC44D4D),
+    GRAY_WHISKER(0xFF9E9E9E, 0xFFE0E0E0),
+    MOON_PRIEST(0xFF6B7FD7, 0xFFE8F4FF);
 
     public final int bodyColor;
     public final int accentColor;
@@ -29,6 +32,9 @@ public enum Portrait {
             case JENNA -> "portrait_jenna";
             case MERCHANT -> "portrait_cheshire";
             case SANHUA -> "portrait_sanhua";
+            case QIN_KEMU -> "portrait_qin_kemu";
+            case GRAY_WHISKER -> "portrait_gray_whisker";
+            case MOON_PRIEST -> "portrait_moon_priest";
             case NARRATOR -> "portrait_narrator";
             default -> "portrait_narrator";
         };

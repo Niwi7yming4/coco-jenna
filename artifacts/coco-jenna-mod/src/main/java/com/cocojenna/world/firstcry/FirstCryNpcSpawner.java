@@ -6,26 +6,22 @@ import com.cocojenna.init.ModEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 
-/** 初啼村 10 名固定 NPC + 四門守門貓（設計書 四）. */
+/** 初啼村 11 名固定 NPC + 四門守門貓（設計書 四）. */
 public final class FirstCryNpcSpawner {
 
     public record NpcSpawn(String id, int x, int y, int z, float yaw) {}
 
-    public static final NpcSpawn[] NPCS = {
-            new NpcSpawn("ryokatsu", FirstCryLayout.MAYOR_HALL.getX(), FirstCryLayout.Y + 1,
-                    FirstCryLayout.MAYOR_HALL.getZ() + 2, 180),
-            new NpcSpawn("pagepaw", FirstCryLayout.LIBRARY.getX() + 2, FirstCryLayout.Y + 1,
-                    FirstCryLayout.LIBRARY.getZ(), 90),
-            new NpcSpawn("blade_mark", 36, FirstCryLayout.Y, 4, 270),
-            new NpcSpawn("molten_paw", 33, FirstCryLayout.Y, -8, 90),
-            new NpcSpawn("miso", 24, FirstCryLayout.Y, 26, 0),
-            new NpcSpawn("mint_ear", -4, FirstCryLayout.Y, 32, 180),
-            new NpcSpawn("moon_whisper", 0, FirstCryLayout.Y, 36, 0),
-            new NpcSpawn("soft_pad", -30, FirstCryLayout.Y, 24, 45),
-            new NpcSpawn("tide_tail", -21, FirstCryLayout.Y, 39, 180),
-            new NpcSpawn("mud_bean", -26, FirstCryLayout.Y, -26, 135),
-            new NpcSpawn("wander_stray", 8, FirstCryLayout.Y, -18, 220),
-    };
+    public static final NpcSpawn[] NPCS = buildFromAnchorTable();
+
+    private static NpcSpawn[] buildFromAnchorTable() {
+        FirstCryAnchorTable.NpcAnchor[] anchors = FirstCryAnchorTable.npcs();
+        NpcSpawn[] out = new NpcSpawn[anchors.length];
+        for (int i = 0; i < anchors.length; i++) {
+            FirstCryAnchorTable.NpcAnchor a = anchors[i];
+            out[i] = new NpcSpawn(a.npcId(), a.pos().getX(), a.pos().getY(), a.pos().getZ(), a.yaw());
+        }
+        return out;
+    }
 
     private FirstCryNpcSpawner() {}
 

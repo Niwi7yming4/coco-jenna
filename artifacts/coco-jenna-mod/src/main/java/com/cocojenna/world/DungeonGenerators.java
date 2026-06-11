@@ -192,6 +192,10 @@ public final class DungeonGenerators {
     private static void decorateElder(ServerLevel level, int[] r) {
         ArchitectureBuilders.set(level, r[0] - 2, r[1] + 1, r[2], ModBlocks.TOY_BOX.get().defaultBlockState());
         ArchitectureBuilders.set(level, r[0] + 2, r[1] + 1, r[2], ModBlocks.SCRATCHING_POST.get().defaultBlockState());
+        ArchitectureBuilders.set(level, r[0], r[1] + 1, r[2] + 3, ModBlocks.SOCKETING_TABLE.get().defaultBlockState());
+        ArchitectureBuilders.set(level, r[0] - 3, r[1] + 1, r[2] + 2, Blocks.BOOKSHELF.defaultBlockState());
+        ArchitectureBuilders.set(level, r[0] + 3, r[1] + 1, r[2] - 2, ModBlocks.ANCIENT_STONE_TABLET.get().defaultBlockState());
+        placeRewardChest(level, r, "elder_cellar");
         maybeBlackMud(level, r);
     }
 
@@ -199,12 +203,18 @@ public final class DungeonGenerators {
         ArchitectureBuilders.set(level, r[0], r[1] + 1, r[2] + 2, Blocks.LOOM.defaultBlockState());
         ArchitectureBuilders.set(level, r[0] - 2, r[1] + 1, r[2], ModBlocks.CAT_BED.get().defaultBlockState());
         ArchitectureBuilders.set(level, r[0] + 2, r[1] + 1, r[2], ModBlocks.VELVET_CARPET.get().defaultBlockState());
+        ArchitectureBuilders.set(level, r[0], r[1] + 2, r[2], ModBlocks.YARN_BALL_LAMP.get().defaultBlockState());
+        ArchitectureBuilders.set(level, r[0] + 3, r[1] + 1, r[2] + 1, ModBlocks.PICTURE_BOOK_STAND.get().defaultBlockState());
+        placeRewardChest(level, r, "weaver_workshop");
         maybeBlackMud(level, r);
     }
 
     private static void decorateMoon(ServerLevel level, int[] r) {
         ArchitectureBuilders.set(level, r[0] - 2, r[1] + 1, r[2], ModBlocks.PAWPRINT_GLASS.get().defaultBlockState());
         ArchitectureBuilders.set(level, r[0] + 2, r[1] + 1, r[2], ModBlocks.MOONSTONE_CLUSTER.get().defaultBlockState());
+        ArchitectureBuilders.set(level, r[0], r[1] - 1, r[2], Blocks.WATER.defaultBlockState());
+        ArchitectureBuilders.set(level, r[0], r[1] + 1, r[2] + 3, ModBlocks.FULL_MOON_ALTAR.get().defaultBlockState());
+        placeRewardChest(level, r, "moon_well");
         maybeBlackMud(level, r);
     }
 
@@ -212,72 +222,128 @@ public final class DungeonGenerators {
         ArchitectureBuilders.set(level, r[0], r[1] + 1, r[2] + 2, Blocks.CHAIN.defaultBlockState());
         ArchitectureBuilders.set(level, r[0] - 2, r[1] + 1, r[2], ModBlocks.DISTILLER.get().defaultBlockState());
         ArchitectureBuilders.set(level, r[0] + 2, r[1] + 1, r[2], ModBlocks.SPORE_METAL_BLOCK.get().defaultBlockState());
+        ArchitectureBuilders.set(level, r[0] - 1, r[1] + 1, r[2] + 1, ModBlocks.NEON_MUSH_LAMP.get().defaultBlockState());
+        ArchitectureBuilders.set(level, r[0] + 1, r[1] + 1, r[2] - 1, Blocks.IRON_BARS.defaultBlockState());
+        placeRewardChest(level, r, "rust_sewer");
         maybeBlackMud(level, r);
+    }
+
+    private static void placeRewardChest(ServerLevel level, int[] r, String dungeonId) {
+        ProceduralDungeonBuilder.placeLootChest(level, r[0], r[1] + 1, r[2] + 3,
+                new net.minecraft.resources.ResourceLocation("cocojenna", "chests/dungeon_" + dungeonId));
+    }
+
+    private static void placeRewardChest(ServerLevel level, int[] r) {
+        placeRewardChest(level, r, "common");
     }
 
     private static void decorateConfessional(ServerLevel level, int[] r) {
         ArchitectureBuilders.set(level, r[0], r[1] + 1, r[2] - 2, ModBlocks.CAT_BED.get().defaultBlockState());
         ArchitectureBuilders.set(level, r[0] + 2, r[1] + 1, r[2], ModBlocks.VELVET_CARPET.get().defaultBlockState());
+        ArchitectureBuilders.set(level, r[0] - 2, r[1] + 1, r[2], Blocks.CANDLE.defaultBlockState());
+        ArchitectureBuilders.set(level, r[0], r[1] + 1, r[2] + 2, ModBlocks.MURAL_FRAGMENT.get().defaultBlockState());
+        ArchitectureBuilders.set(level, r[0] + 1, r[1] + 1, r[2] - 1, ModBlocks.SUSPICIOUS_WALL.get().defaultBlockState());
+        placeRewardChest(level, r, "forgotten_confessional");
         maybeBlackMud(level, r);
     }
 
     private static void decorateSaltwind(ServerLevel level, int[] r) {
         ArchitectureBuilders.set(level, r[0] - 2, r[1] + 1, r[2], Blocks.OAK_STAIRS.defaultBlockState());
         ArchitectureBuilders.set(level, r[0], r[1], r[2] + 2, Blocks.WATER.defaultBlockState());
+        ArchitectureBuilders.set(level, r[0] + 2, r[1] + 1, r[2], Blocks.BARREL.defaultBlockState());
+        ArchitectureBuilders.set(level, r[0], r[1] + 2, r[2], Blocks.CHAIN.defaultBlockState());
+        ArchitectureBuilders.set(level, r[0] - 1, r[1] + 1, r[2] - 1, Blocks.SEA_LANTERN.defaultBlockState());
+        placeRewardChest(level, r, "saltwind_wreck");
         maybeBlackMud(level, r);
     }
 
     private static void decorateWatchtower(ServerLevel level, int[] r) {
         ArchitectureBuilders.set(level, r[0], r[1] + 1, r[2] + 2, ModBlocks.SALT_CRYSTAL.get().defaultBlockState());
         ArchitectureBuilders.set(level, r[0] - 2, r[1] + 1, r[2], Blocks.BARREL.defaultBlockState());
+        ArchitectureBuilders.set(level, r[0] + 2, r[1] + 1, r[2], ModBlocks.PURE_LIGHT_TOWER.get().defaultBlockState());
+        ArchitectureBuilders.set(level, r[0], r[1] + 3, r[2], Blocks.LANTERN.defaultBlockState());
+        ArchitectureBuilders.set(level, r[0] + 1, r[1] + 1, r[2] - 1, Blocks.SCAFFOLDING.defaultBlockState());
+        placeRewardChest(level, r, "watchtower_vault");
         maybeBlackMud(level, r);
     }
 
     private static void decorateWind(ServerLevel level, int[] r) {
         ArchitectureBuilders.set(level, r[0], r[1] + 2, r[2], Blocks.CHAIN.defaultBlockState());
         ArchitectureBuilders.set(level, r[0] + 2, r[1] + 1, r[2], ModBlocks.SALT_CRYSTAL.get().defaultBlockState());
+        ArchitectureBuilders.set(level, r[0] - 2, r[1] + 1, r[2], Blocks.CAMPFIRE.defaultBlockState());
+        ArchitectureBuilders.set(level, r[0], r[1] + 1, r[2] + 2, Blocks.IRON_BARS.defaultBlockState());
+        ArchitectureBuilders.set(level, r[0] + 1, r[1] + 1, r[2] - 1, ModBlocks.YARN_BALL_LAMP.get().defaultBlockState());
+        placeRewardChest(level, r, "wind_cavern");
         maybeBlackMud(level, r);
     }
 
     private static void decorateAshura(ServerLevel level, int[] r) {
         ArchitectureBuilders.set(level, r[0] - 2, r[1] + 1, r[2], Blocks.MOSSY_COBBLESTONE.defaultBlockState());
         ArchitectureBuilders.set(level, r[0] + 2, r[1] + 1, r[2] + 2, Blocks.END_ROD.defaultBlockState());
+        ArchitectureBuilders.set(level, r[0], r[1] + 1, r[2] - 2, ModBlocks.ANCIENT_STONE_TABLET.get().defaultBlockState());
+        ArchitectureBuilders.set(level, r[0] + 1, r[1] + 2, r[2], Blocks.SOUL_LANTERN.defaultBlockState());
+        ArchitectureBuilders.set(level, r[0] - 1, r[1] + 1, r[2] + 1, ModBlocks.CAT_BED.get().defaultBlockState());
+        placeRewardChest(level, r, "ashura_trial");
         maybeBlackMud(level, r);
     }
 
     private static void decorateTower(ServerLevel level, int[] r) {
         ArchitectureBuilders.set(level, r[0], r[1] + 1, r[2] - 2, ModBlocks.MEMORY_MONUMENT_BASE.get().defaultBlockState());
         ArchitectureBuilders.set(level, r[0] + 2, r[1] + 1, r[2], ModBlocks.BLACK_MUD.get().defaultBlockState());
+        ArchitectureBuilders.set(level, r[0] - 2, r[1] + 1, r[2], ModBlocks.SEAL_PEDESTAL.get().defaultBlockState());
+        ArchitectureBuilders.set(level, r[0], r[1] + 2, r[2], ModBlocks.SHADOW_CRYSTAL_BLOCK.get().defaultBlockState());
+        ArchitectureBuilders.set(level, r[0] + 1, r[1] + 1, r[2] + 1, Blocks.CANDLE.defaultBlockState());
+        placeRewardChest(level, r, "tower_prison");
         maybeBlackMud(level, r);
     }
 
     private static void decorateStardust(ServerLevel level, int[] r) {
         ArchitectureBuilders.set(level, r[0] - 2, r[1] + 1, r[2], ModBlocks.STARDUST_SOIL.get().defaultBlockState());
         ArchitectureBuilders.set(level, r[0] + 2, r[1] + 1, r[2], ModBlocks.MOONSTONE_CLUSTER.get().defaultBlockState());
+        ArchitectureBuilders.set(level, r[0], r[1] + 1, r[2] + 2, ModBlocks.STARDUST_BRICK.get().defaultBlockState());
+        ArchitectureBuilders.set(level, r[0] + 1, r[1] + 2, r[2], Blocks.END_ROD.defaultBlockState());
+        ArchitectureBuilders.set(level, r[0] - 1, r[1] + 1, r[2] - 1, ModBlocks.YARN_BALL_LAMP.get().defaultBlockState());
+        placeRewardChest(level, r, "stardust_tomb");
         maybeBlackMud(level, r);
     }
 
     private static void decorateVault(ServerLevel level, int[] r) {
         ArchitectureBuilders.set(level, r[0], r[1] + 1, r[2] - 2, ModBlocks.SEAL_PEDESTAL.get().defaultBlockState());
         ArchitectureBuilders.set(level, r[0] + 2, r[1] + 1, r[2], ModBlocks.BLACK_MUD.get().defaultBlockState());
+        ArchitectureBuilders.set(level, r[0] - 2, r[1] + 1, r[2], ModBlocks.SUSPICIOUS_WALL.get().defaultBlockState());
+        ArchitectureBuilders.set(level, r[0], r[1] + 2, r[2], ModBlocks.MURAL_FRAGMENT.get().defaultBlockState());
+        ArchitectureBuilders.set(level, r[0] + 1, r[1] + 1, r[2] + 1, ModBlocks.ANCIENT_STONE_TABLET.get().defaultBlockState());
+        placeRewardChest(level, r, "forgotten_vault");
         maybeBlackMud(level, r);
     }
 
     private static void decorateCardboard(ServerLevel level, int[] r) {
         ArchitectureBuilders.set(level, r[0] - 2, r[1] + 1, r[2], Blocks.BROWN_WOOL.defaultBlockState());
         ArchitectureBuilders.set(level, r[0] + 2, r[1] + 1, r[2], ModBlocks.TOY_BOX.get().defaultBlockState());
+        ArchitectureBuilders.set(level, r[0], r[1] + 1, r[2] + 2, ModBlocks.CARDBOARD_BLOCK.get().defaultBlockState());
+        ArchitectureBuilders.set(level, r[0] + 1, r[1] + 2, r[2], ModBlocks.SCRATCHING_POST.get().defaultBlockState());
+        ArchitectureBuilders.set(level, r[0] - 1, r[1] + 1, r[2] - 1, ModBlocks.NEON_MUSH_LAMP.get().defaultBlockState());
+        placeRewardChest(level, r, "cardboard_depth");
         maybeBlackMud(level, r);
     }
 
     private static void decorateGrotto(ServerLevel level, int[] r) {
         ArchitectureBuilders.set(level, r[0], r[1], r[2] + 2, Blocks.WATER.defaultBlockState());
         ArchitectureBuilders.set(level, r[0] + 2, r[1] + 1, r[2], ModBlocks.PAWPRINT_GLASS.get().defaultBlockState());
+        ArchitectureBuilders.set(level, r[0] - 2, r[1] + 1, r[2], ModBlocks.MOONSTONE_CLUSTER.get().defaultBlockState());
+        ArchitectureBuilders.set(level, r[0], r[1] + 2, r[2], Blocks.SEA_LANTERN.defaultBlockState());
+        ArchitectureBuilders.set(level, r[0] + 1, r[1] + 1, r[2] - 1, ModBlocks.FULL_MOON_ALTAR.get().defaultBlockState());
+        placeRewardChest(level, r, "moonlight_grotto");
         maybeBlackMud(level, r);
     }
 
     private static void decorateCatnip(ServerLevel level, int[] r) {
         ArchitectureBuilders.set(level, r[0] - 2, r[1] + 1, r[2], ModBlocks.CATNIP.get().defaultBlockState());
         ArchitectureBuilders.set(level, r[0] + 2, r[1] + 1, r[2], ModBlocks.NEON_MUSH_LAMP.get().defaultBlockState());
+        ArchitectureBuilders.set(level, r[0], r[1] + 1, r[2] + 2, Blocks.IRON_ORE.defaultBlockState());
+        ArchitectureBuilders.set(level, r[0] + 1, r[1] + 2, r[2], ModBlocks.AROMA_DISTILLER.get().defaultBlockState());
+        ArchitectureBuilders.set(level, r[0] - 1, r[1] + 1, r[2] - 1, ModBlocks.FOOD_BOWL.get().defaultBlockState());
+        placeRewardChest(level, r, "catnip_mine");
         maybeBlackMud(level, r);
     }
 

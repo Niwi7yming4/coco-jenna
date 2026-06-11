@@ -116,8 +116,8 @@ tasks.register('validateRuinNbt') {
         }
         def firstCryDir = file('src/main/resources/data/cocojenna/structures/first_cry_village')
         def firstCryNbt = firstCryDir.exists() ? firstCryDir.listFiles({ d, n -> n.endsWith('.nbt') } as FilenameFilter) : null
-        if (firstCryNbt == null || firstCryNbt.length == 0) {
-            throw new GradleException("Missing first_cry_village NBT files in ${firstCryDir}")
+        if (firstCryNbt == null || firstCryNbt.length < 8) {
+            throw new GradleException("Expected at least 8 first_cry_village NBT districts, found ${firstCryNbt?.length ?: 0}")
         }
         def allRuins = ruinsDir.exists() ? ruinsDir.listFiles({ d, n -> n.endsWith('.nbt') } as FilenameFilter) : null
         if (allRuins == null || allRuins.length < 30) {

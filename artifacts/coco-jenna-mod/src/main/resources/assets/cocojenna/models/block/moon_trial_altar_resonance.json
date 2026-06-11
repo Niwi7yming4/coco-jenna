@@ -1,6 +1,8 @@
 {
-  "parent": "minecraft:block/cube_all",
+  "parent": "minecraft:block/cube_bottom_top",
   "textures": {
-    "all": "minecraft:block/yellow_concrete"
+    "top": "cocojenna:block/moon_trial_altar_resonance",
+    "side": "cocojenna:block/moon_trial_altar_resonance_side",
+    "bottom": "cocojenna:block/moon_trial_altar_resonance_bottom"
   }
 }

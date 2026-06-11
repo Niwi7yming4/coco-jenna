@@ -40,6 +40,18 @@ public final class SetBonusHelper {
         if (rust >= 2) {
             player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 200, 1, true, false));
         }
+        int stardust = counts.getOrDefault("stardust", 0);
+        if (stardust >= 2) {
+            player.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, 200, 0, true, false));
+        }
+        int moonlight = counts.getOrDefault("moonlight", 0);
+        if (moonlight >= 2) {
+            player.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING, 200, 0, true, false));
+        }
+        int cardboard = counts.getOrDefault("cardboard", 0);
+        if (cardboard >= 2) {
+            player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 200, 0, true, false));
+        }
         if (dawn >= 4) {
             player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 200, 0, true, false));
         }
@@ -94,6 +106,18 @@ public final class SetBonusHelper {
         }
         if (stack.is(ModItems.RYOKATANA_PRECISION_GEAR.get())) {
             return "rust";
+        }
+        if (stack.is(ModItems.CLOAK_STARDUST.get())
+                || stack.is(ModItems.STARDUST_RING.get())) {
+            return "stardust";
+        }
+        if (stack.is(ModItems.CLOAK_MOONLIGHT.get())
+                || stack.is(ModItems.MOONLIGHT_COLLAR.get())) {
+            return "moonlight";
+        }
+        if (stack.is(ModItems.CLOAK_CARDBOARD.get())
+                || stack.is(ModItems.CARDBOARD_BADGE.get())) {
+            return "cardboard";
         }
         return null;
     }

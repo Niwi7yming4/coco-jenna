@@ -54,6 +54,11 @@ public final class SequencePromotionHelper {
     public static void tryPromote(ServerPlayer player, BondData bond) {
         if (bond.getFelineTier() <= 1) return;
         if (bond.getPendingPromotionTier() > 0) return;
+        if (!com.cocojenna.integration.FallenAbyssLinkage.canCommitFelinePath(player)) {
+            player.displayClientMessage(
+                Component.translatable("fallen_abyss.path.blocked"), true);
+            return;
+        }
         if (!MoonCrossroadsManager.hasChosenForce(bond)) {
             player.displayClientMessage(
                 Component.translatable("force.cocojenna.need_choose"), true);

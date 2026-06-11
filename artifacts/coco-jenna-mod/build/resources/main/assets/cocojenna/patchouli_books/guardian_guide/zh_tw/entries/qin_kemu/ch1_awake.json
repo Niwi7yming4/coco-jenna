@@ -1,0 +1,16 @@
+{
+  "name": "patchouli.cocojenna.qin.ch1_awake",
+  "icon": "cocojenna:origami_scrap",
+  "category": "cocojenna:qin_kemu",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.qin.ch1_awake.p1"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.qin.ch1_awake.p2"
+    }
+  ]
+}

@@ -22,22 +22,22 @@ public final class LoreRegistry {
         add(8, "tower_prisoners", LoreEntry.LoreCarrier.TABLET, "forgotten_tower", 0);
         add(9, "first_cry_elder", LoreEntry.LoreCarrier.TABLET, "first_cry", 0);
         add(10, "ironpaw_youth", LoreEntry.LoreCarrier.MEMORY_STONE, "central_plaza", 1);
-        add(11, "black_mud_omen", LoreEntry.LoreCarrier.TABLET, "velvet_forest", 0);
-        add(12, "saltwind_captain", LoreEntry.LoreCarrier.MURAL, "blind_port", 0);
-        add(13, "royal_glory_past", LoreEntry.LoreCarrier.RELIC, "dawn_highlands", 0);
-        add(14, "catnip_festival", LoreEntry.LoreCarrier.MURAL, "first_cry", 0);
-        add(15, "map_ruins_hint", LoreEntry.LoreCarrier.MAP_PAGE, "central_plaza", 0);
-        add(16, "rainbow_canyon", LoreEntry.LoreCarrier.TABLET, "rainbow_canyon", 0);
-        add(17, "catnip_highlands", LoreEntry.LoreCarrier.TABLET, "catnip_highlands", 0);
-        add(18, "cardboard_slums", LoreEntry.LoreCarrier.MURAL, "cardboard_slums", 0);
-        add(19, "moonlight_beach", LoreEntry.LoreCarrier.TABLET, "moonlight_beach", 0);
-        add(20, "stardust_desert", LoreEntry.LoreCarrier.TABLET, "stardust_desert", 0);
-        add(21, "forgotten_wastes_depth", LoreEntry.LoreCarrier.MURAL, "forgotten_wastes", 0);
-        add(22, "first_cry_story_north", LoreEntry.LoreCarrier.TABLET, "first_cry", 0);
-        add(23, "first_cry_story_east", LoreEntry.LoreCarrier.TABLET, "first_cry", 0);
-        add(24, "first_cry_story_south", LoreEntry.LoreCarrier.TABLET, "first_cry", 0);
-        add(25, "first_cry_story_west", LoreEntry.LoreCarrier.TABLET, "first_cry", 0);
-        add(26, "first_cry_canopy_secret", LoreEntry.LoreCarrier.TABLET, "first_cry", 0);
+        add(11, "black_mud_omen", LoreEntry.LoreCarrier.TABLET, "velvet_forest", 1);
+        add(12, "saltwind_captain", LoreEntry.LoreCarrier.MURAL, "blind_port", 2);
+        add(13, "royal_glory_past", LoreEntry.LoreCarrier.RELIC, "dawn_highlands", 2);
+        add(14, "catnip_festival", LoreEntry.LoreCarrier.MURAL, "first_cry", 1);
+        add(15, "map_ruins_hint", LoreEntry.LoreCarrier.MAP_PAGE, "central_plaza", 2);
+        add(16, "rainbow_canyon", LoreEntry.LoreCarrier.TABLET, "rainbow_canyon", 1);
+        add(17, "catnip_highlands", LoreEntry.LoreCarrier.TABLET, "catnip_highlands", 2);
+        add(18, "cardboard_slums", LoreEntry.LoreCarrier.MURAL, "cardboard_slums", 2);
+        add(19, "moonlight_beach", LoreEntry.LoreCarrier.TABLET, "moonlight_beach", 1);
+        add(20, "stardust_desert", LoreEntry.LoreCarrier.TABLET, "stardust_desert", 3);
+        add(21, "forgotten_wastes_depth", LoreEntry.LoreCarrier.MURAL, "forgotten_wastes", 3);
+        add(22, "first_cry_story_north", LoreEntry.LoreCarrier.TABLET, "first_cry", 1);
+        add(23, "first_cry_story_east", LoreEntry.LoreCarrier.TABLET, "first_cry", 2);
+        add(24, "first_cry_story_south", LoreEntry.LoreCarrier.TABLET, "first_cry", 2);
+        add(25, "first_cry_story_west", LoreEntry.LoreCarrier.TABLET, "first_cry", 3);
+        add(26, "first_cry_canopy_secret", LoreEntry.LoreCarrier.TABLET, "first_cry", 3);
     }
 
     private LoreRegistry() {}
@@ -84,5 +84,13 @@ public final class LoreRegistry {
             case "forgotten_wastes" -> 65536;
             default -> 0;
         };
+    }
+
+    /** 區域傳說是否已全部解鎖. */
+    public static boolean isRegionComplete(com.cocojenna.capability.BondData bond, String region) {
+        for (LoreEntry e : ENTRIES) {
+            if (e.region().equals(region) && !bond.hasLore(e.id())) return false;
+        }
+        return regionEntryCount(region) > 0;
     }
 }

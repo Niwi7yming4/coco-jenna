@@ -1,0 +1,16 @@
+{
+  "name": "patchouli.cocojenna.map.forgotten_tower",
+  "icon": "cocojenna:memory_lighthouse",
+  "category": "cocojenna:map",
+  "sortnum": 10,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.map.forgotten_tower.p1"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "patchouli.cocojenna.map.forgotten_tower.p2"
+    }
+  ]
+}

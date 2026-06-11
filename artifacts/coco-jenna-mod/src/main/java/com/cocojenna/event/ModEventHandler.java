@@ -232,6 +232,7 @@ public class ModEventHandler {
         BondData bond = ModCapabilities.getOrDefault(player);
 
         if (player instanceof ServerPlayer sp) {
+            com.cocojenna.capability.BondDataSerializationValidator.validateOnLogin(sp);
             com.cocojenna.guardian.GuardianTransferHelper.onPlayerLogin(sp);
             com.cocojenna.integration.FallenAbyssLinkage.trySpawnMirror(sp.serverLevel(), bond, sp);
             com.cocojenna.network.BondSyncCoordinator.syncLogin(sp, bond);
@@ -524,7 +525,6 @@ public class ModEventHandler {
         if (event.getChunk() instanceof LevelChunk chunk) {
             if (level.dimension().equals(ModDimensions.CAT_KINGDOM)) {
                 CatKingdomTerrainDecorator.decorateChunk(level, chunk);
-                com.cocojenna.world.KingdomMicroMarkers.decorateChunk(level, chunk);
                 com.cocojenna.world.BiomeStructurePlacer.decorateChunk(level, chunk);
                 com.cocojenna.world.BiomeDatapackStructurePlacer.decorateChunk(level, chunk);
                 com.cocojenna.world.BiomeMediumStructurePlacer.decorateChunk(level, chunk);
@@ -936,6 +936,13 @@ public class ModEventHandler {
             event.setCanceled(true);
             return;
         }
+        if (state.is(net.minecraft.world.level.block.Blocks.LECTERN)) {
+            if (com.cocojenna.world.ruin.RuinLecternRegistry.tryInteract(
+                    player, (net.minecraft.server.level.ServerLevel) event.getLevel(), event.getPos())) {
+                event.setCanceled(true);
+                return;
+            }
+        }
         if (state.is(net.minecraft.world.level.block.Blocks.BELL)) {
             com.cocojenna.world.ruin.RuinInteractionRegistry.onBellUsed(
                     (net.minecraft.server.level.ServerLevel) event.getLevel(), event.getPos(), player);
@@ -1063,6 +1070,7 @@ public class ModEventHandler {
             com.cocojenna.kingdom.OpenAirTheaterManager.tickWeeklyGathering(sp);
             com.cocojenna.society.CatSocietyManager.tickRomanceAura(sp);
             com.cocojenna.society.CatDreamManager.tickPlayer(sp);
+            com.cocojenna.kingdom.EnvironmentalEventManager.tickPlayer(sp);
             com.cocojenna.society.CatLifeEventManager.tickDaily(sp);
             com.cocojenna.village.VillageFestivalManager.tickDaily(sp);
             com.cocojenna.kingdom.EcologyDeepeningManager.tickPlayer(sp);
