@@ -1,16 +1,16 @@
 {
-  "name": "patchouli.cocojenna.entry.fragments",
+  "name": "記憶碎片",
   "icon": "cocojenna:memory_fragment",
   "category": "cocojenna:memory",
   "sortnum": 0,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.entry.fragments.p1"
+      "text": "黑勾玉（可可）、橘爪印（珍奶）、金王冠（國度）、藍愛心（你的記憶）。"
     },
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.entry.fragments.p2"
+      "text": "珍奶：我也有故事喔！"
     }
   ]
 }

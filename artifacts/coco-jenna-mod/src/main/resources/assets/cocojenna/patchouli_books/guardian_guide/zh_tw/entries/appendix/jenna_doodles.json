@@ -1,16 +1,16 @@
 {
-  "name": "patchouli.cocojenna.entry.jenna_doodles",
+  "name": "珍奶的塗鴉牆",
   "icon": "cocojenna:jenna_fur",
   "category": "cocojenna:appendix",
   "sortnum": 1,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.entry.jenna_doodles.p1"
+      "text": "鮭魚、皇冠守護者、姐姐與我、永遠一起、謝謝你來找我們。"
     },
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.entry.jenna_doodles.p2"
+      "text": "可可：笨蛋，我會收著。"
     }
   ]
 }

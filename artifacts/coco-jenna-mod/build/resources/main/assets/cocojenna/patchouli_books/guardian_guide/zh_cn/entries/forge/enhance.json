@@ -1,16 +1,16 @@
 {
-  "name": "patchouli.cocojenna.entry.enhance",
+  "name": "武器強化",
   "icon": "cocojenna:ryokatana_coco_guardian",
   "category": "cocojenna:forge",
   "sortnum": 1,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.entry.enhance.p1"
+      "text": "+0 至 +10，成功率遞減。高階失敗可能降級。準備護符再挑戰。"
     },
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.entry.enhance.p2"
+      "text": "珍奶：砰！"
     }
   ]
 }

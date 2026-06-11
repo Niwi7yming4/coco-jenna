@@ -1,16 +1,16 @@
 {
-  "name": "patchouli.cocojenna.map.phantom_maze",
+  "name": "区域：phantom maze（简）",
   "icon": "cocojenna:memory_lighthouse",
   "category": "cocojenna:map",
   "sortnum": 9,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.map.phantom_maze.p1"
+      "text": "Landmark coordinates and exploration tier for phantom_maze."
     },
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.map.phantom_maze.p2"
+      "text": "Dungeon, lore shards, and region completion reward for phantom_maze."
     }
   ]
 }

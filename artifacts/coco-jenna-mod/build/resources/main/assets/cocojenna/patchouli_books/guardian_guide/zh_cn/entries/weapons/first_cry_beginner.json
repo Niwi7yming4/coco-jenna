@@ -1,16 +1,16 @@
 {
-  "name": "patchouli.cocojenna.weapon.first_cry_beginner",
+  "name": "武器传说：first cry beginner（简）",
   "icon": "cocojenna:ryokatana_velvet_whisper",
   "category": "cocojenna:weapons",
   "sortnum": 14,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.weapon.first_cry_beginner.p1"
+      "text": "Memory trial and acquisition hints for first_cry_beginner."
     },
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.weapon.first_cry_beginner.p2"
+      "text": "Force synergy and unseal stage notes for first_cry_beginner."
     }
   ]
 }

@@ -1,16 +1,16 @@
 {
-  "name": "patchouli.cocojenna.entry.prepare_final",
+  "name": "準備最終決戰",
   "icon": "cocojenna:velvet_beginner_leggings",
   "category": "cocojenna:final",
   "sortnum": 1,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.entry.prepare_final.p1"
+      "text": "武器+5、防具套裝、聖水、雙子星情感>80、Sister Bond>70。"
     },
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.entry.prepare_final.p2"
+      "text": "珍奶：三個人一起，不怕！"
     }
   ]
 }

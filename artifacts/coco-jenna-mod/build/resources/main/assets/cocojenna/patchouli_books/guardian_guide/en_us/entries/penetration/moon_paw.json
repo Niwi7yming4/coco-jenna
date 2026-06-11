@@ -1,16 +1,16 @@
 {
-  "name": "patchouli.cocojenna.entry.penetration_moon_paw",
+  "name": "月光爪印",
   "icon": "cocojenna:moonlight_stone",
   "category": "cocojenna:penetration",
   "sortnum": 0,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.entry.penetration_moon_paw.p1"
+      "text": "夜晚跟隨主世界的發光爪印，累積三次後灰鬚小屋會現身。"
     },
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.entry.penetration_moon_paw.p2"
+      "text": "爪印給予短暫加速，並推進滲透任務第一階段。"
     }
   ]
 }

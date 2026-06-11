@@ -1,16 +1,16 @@
 {
-  "name": "patchouli.cocojenna.entry.gear_town",
+  "name": "齒輪鎮",
   "icon": "cocojenna:iron_claw_hammer",
   "category": "cocojenna:map",
   "sortnum": 1,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.entry.gear_town.p1"
+      "text": "工業心臟。鐵爪鍛造、礦坑。夜晚黑泥襲擊需協防。"
     },
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.entry.gear_town.p2"
+      "text": "可可：鐵爪人很好。"
     }
   ]
 }

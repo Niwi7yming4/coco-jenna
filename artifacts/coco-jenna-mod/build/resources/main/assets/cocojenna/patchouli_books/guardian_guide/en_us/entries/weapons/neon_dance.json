@@ -1,16 +1,16 @@
 {
-  "name": "patchouli.cocojenna.weapon.neon_dance",
+  "name": "Weapon lore: neon dance",
   "icon": "cocojenna:ryokatana_velvet_whisper",
   "category": "cocojenna:weapons",
   "sortnum": 29,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.weapon.neon_dance.p1"
+      "text": "Memory trial and acquisition hints for neon_dance."
     },
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.weapon.neon_dance.p2"
+      "text": "Force synergy and unseal stage notes for neon_dance."
     }
   ]
 }

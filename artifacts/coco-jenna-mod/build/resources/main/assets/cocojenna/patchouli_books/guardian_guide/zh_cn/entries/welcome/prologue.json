@@ -1,5 +1,5 @@
 {
-  "name": "patchouli.cocojenna.entry.prologue",
+  "name": "與可可的第一次見面",
   "icon": "cocojenna:coco_fur",
   "category": "cocojenna:welcome",
   "sortnum": 0,
@@ -10,15 +10,15 @@
         "cocojenna:textures/gui/patchouli/coco_jenna_porch_sunset.png"
       ],
       "border": true,
-      "text": "patchouli.cocojenna.entry.prologue.img"
+      "text": "雨後廊下的可可與珍奶。"
     },
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.entry.prologue.p1"
+      "text": "那是隻安靜的黑貓。她看著你的眼神，像是在確認什麼。別急著靠近——當她願意把尾巴輕輕放在你手上時，你就被選擇了。$(br2)珍奶註解：畫了一條小魚 🐟"
     },
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.entry.prologue.p2"
+      "text": "歡迎來到貓之國，守護者。這裡是所有被記住的貓咪最後的家。請保護公主們，直到她們想起自己是誰。$(br2)可可註解：說得對。"
     }
   ]
 }

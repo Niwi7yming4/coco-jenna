@@ -1,16 +1,16 @@
 {
-  "name": "patchouli.cocojenna.entry.alpha_letter",
+  "name": "阿爾法的最後一頁",
   "icon": "cocojenna:guardian_guide",
   "category": "cocojenna:appendix",
   "sortnum": 2,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.entry.alpha_letter.p1"
+      "text": "貓之國因你迎來雨後黎明。午夜塔頂，可可有話想說——別說是我說的。"
     },
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.entry.alpha_letter.p2"
+      "text": "可可：阿爾法！！！！"
     }
   ]
 }

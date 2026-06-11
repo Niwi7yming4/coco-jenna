@@ -1,5 +1,5 @@
 {
-  "name": "patchouli.cocojenna.entry.penetration_gray_whisker",
+  "name": "灰鬚長老",
   "icon": "cocojenna:guardian_guide",
   "category": "cocojenna:penetration",
   "sortnum": 1,
@@ -10,15 +10,15 @@
         "cocojenna:textures/gui/patchouli/penetration_overworld.png"
       ],
       "border": true,
-      "text": "patchouli.cocojenna.entry.penetration_gray_whisker.img"
+      "text": "主世界滲透：灰鬚小屋。"
     },
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.entry.penetration_gray_whisker.p1"
+      "text": "在小屋與灰鬚對話，收集記憶碎片並學習貓語。"
     },
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.entry.penetration_gray_whisker.p2"
+      "text": "可交出前哨徽章換取額外好感與滲透進度。"
     }
   ]
 }

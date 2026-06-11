@@ -1,16 +1,16 @@
 {
-  "name": "patchouli.cocojenna.qin.ch6_star",
+  "name": "秦章：ch6_star（繁）",
   "icon": "cocojenna:origami_scrap",
   "category": "cocojenna:qin_kemu",
   "sortnum": 5,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.qin.ch6_star.p1"
+      "text": "Main quest beats and mausoleum tie-in for ch6_star."
     },
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.qin.ch6_star.p2"
+      "text": "Combat pattern and favor gates for ch6_star."
     }
   ]
 }

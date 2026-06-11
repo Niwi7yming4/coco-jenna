@@ -1,16 +1,16 @@
 {
-  "name": "patchouli.cocojenna.entry.penetration_moon_dungeon",
+  "name": "月瞳地牢",
   "icon": "cocojenna:sealed_relic",
   "category": "cocojenna:penetration",
   "sortnum": 2,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.entry.penetration_moon_dungeon.p1"
+      "text": "完成主世界月瞳守護者戰後，取得地圖碎片。"
     },
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.entry.penetration_moon_dungeon.p2"
+      "text": "這是修復傳送門前的關鍵試煉。"
     }
   ]
 }

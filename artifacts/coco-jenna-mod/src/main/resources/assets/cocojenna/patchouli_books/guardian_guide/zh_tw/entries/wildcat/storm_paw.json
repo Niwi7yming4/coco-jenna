@@ -1,16 +1,16 @@
 {
-  "name": "patchouli.cocojenna.wildcat.storm_paw",
+  "name": "怪貓：storm paw（繁）",
   "icon": "cocojenna:toy_squeak",
   "category": "cocojenna:wildcat",
   "sortnum": 1,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.wildcat.storm_paw.p1"
+      "text": "Habitat, behavior trigger, and befriending tip for storm_paw."
     },
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.wildcat.storm_paw.p2"
+      "text": "Lore connection and hunter journal entry for storm_paw."
     }
   ]
 }

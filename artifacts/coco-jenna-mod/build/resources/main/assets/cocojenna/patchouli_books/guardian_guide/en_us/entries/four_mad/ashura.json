@@ -1,16 +1,16 @@
 {
-  "name": "patchouli.cocojenna.entry.four_mad_ashura",
+  "name": "無影阿修羅",
   "icon": "cocojenna:ryokatana_velvet_whisper",
   "category": "cocojenna:four_mad",
   "sortnum": 3,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.entry.four_mad_ashura.p1"
+      "text": "全程隱身。為可可擋致命一擊可獲認可。"
     },
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.entry.four_mad_ashura.p2"
+      "text": "Peace: meditate at gorge shrine at dawn. Combat: interrupt mantra with distill strikes."
     }
   ]
 }

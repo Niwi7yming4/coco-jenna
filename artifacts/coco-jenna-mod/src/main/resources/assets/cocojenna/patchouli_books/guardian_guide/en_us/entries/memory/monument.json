@@ -1,16 +1,16 @@
 {
-  "name": "patchouli.cocojenna.entry.monument",
+  "name": "記憶紀念碑",
   "icon": "cocojenna:memory_lighthouse",
   "category": "cocojenna:memory",
   "sortnum": 1,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.entry.monument.p1"
+      "text": "解鎖故事篇章。50 碎片後塔頂結晶點亮，迎來永久黎明。"
     },
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.entry.monument.p2"
+      "text": "可可：有些記憶我寧願忘記。"
     }
   ]
 }

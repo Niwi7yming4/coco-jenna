@@ -1,16 +1,16 @@
 {
-  "name": "patchouli.cocojenna.weapon.velvet_cradle",
+  "name": "武器传说：velvet cradle（简）",
   "icon": "cocojenna:ryokatana_velvet_whisper",
   "category": "cocojenna:weapons",
   "sortnum": 19,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.weapon.velvet_cradle.p1"
+      "text": "Memory trial and acquisition hints for velvet_cradle."
     },
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.weapon.velvet_cradle.p2"
+      "text": "Force synergy and unseal stage notes for velvet_cradle."
     }
   ]
 }

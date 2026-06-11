@@ -1,16 +1,16 @@
 {
-  "name": "patchouli.cocojenna.entry.distill",
+  "name": "第一次蒸餾",
   "icon": "cocojenna:abyss_distiller",
   "category": "cocojenna:combat",
   "sortnum": 3,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.entry.distill.p1"
+      "text": "黑泥不是怪物。它們是沒能說出口的再見。讓它們想起自己曾經也是溫暖的——這就是蒸餾。"
     },
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.entry.distill.p2"
+      "text": "對黑泥使用蒸餾打擊（R）造成額外傷害。核心暴露時觸發淨化，掉落雙倍獎勵並淨化腳下方塊。"
     }
   ]
 }

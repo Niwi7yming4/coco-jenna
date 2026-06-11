@@ -1,6 +1,6 @@
 {
-  "name": "patchouli.cocojenna.category.weapons",
-  "description": "patchouli.cocojenna.category.weapons.desc",
+  "name": "Flagship Weapons",
+  "description": "Ryokatana and daikatana lore (text only).",
   "icon": "cocojenna:guardian_guide",
   "sortnum": 12
 }

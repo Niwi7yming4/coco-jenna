@@ -1,16 +1,16 @@
 {
-  "name": "patchouli.cocojenna.weapon.cheshire_grin",
+  "name": "武器傳說：cheshire grin（繁）",
   "icon": "cocojenna:ryokatana_velvet_whisper",
   "category": "cocojenna:weapons",
   "sortnum": 15,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.weapon.cheshire_grin.p1"
+      "text": "Memory trial and acquisition hints for cheshire_grin."
     },
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.weapon.cheshire_grin.p2"
+      "text": "Force synergy and unseal stage notes for cheshire_grin."
     }
   ]
 }

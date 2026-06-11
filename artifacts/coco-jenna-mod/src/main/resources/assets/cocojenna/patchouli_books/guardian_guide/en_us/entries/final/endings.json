@@ -1,16 +1,16 @@
 {
-  "name": "patchouli.cocojenna.entry.endings",
+  "name": "結局",
   "icon": "cocojenna:pure_purr_crystal",
   "category": "cocojenna:final",
   "sortnum": 3,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.entry.endings.p1"
+      "text": "救贖：影爪化封印物。肅清：天空放晴。雨停了，她們不再離開。"
     },
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.entry.endings.p2"
+      "text": "珍奶：雨停了！"
     }
   ]
 }

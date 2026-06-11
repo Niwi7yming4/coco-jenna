@@ -1,16 +1,16 @@
 {
-  "name": "patchouli.cocojenna.weapon.stardust_step",
+  "name": "武器传说：stardust step（简）",
   "icon": "cocojenna:ryokatana_velvet_whisper",
   "category": "cocojenna:weapons",
   "sortnum": 13,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.weapon.stardust_step.p1"
+      "text": "Memory trial and acquisition hints for stardust_step."
     },
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.weapon.stardust_step.p2"
+      "text": "Force synergy and unseal stage notes for stardust_step."
     }
   ]
 }

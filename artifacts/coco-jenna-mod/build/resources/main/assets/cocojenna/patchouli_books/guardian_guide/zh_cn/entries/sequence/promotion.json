@@ -1,5 +1,5 @@
 {
-  "name": "patchouli.cocojenna.entry.promotion",
+  "name": "晉升",
   "icon": "cocojenna:memory_essence",
   "category": "cocojenna:sequence",
   "sortnum": 3,
@@ -10,15 +10,15 @@
         "cocojenna:textures/gui/patchouli/sequence_promotion.png"
       ],
       "border": true,
-      "text": "patchouli.cocojenna.entry.promotion.img"
+      "text": "序列晉升三選一卡牌。"
     },
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.entry.promotion.p1"
+      "text": "三選一永久卡牌。踩奶節奏、安撫領域、呼嚕球等——選最適合風格的。"
     },
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.entry.promotion.p2"
+      "text": "可可：想清楚再選。"
     }
   ]
 }

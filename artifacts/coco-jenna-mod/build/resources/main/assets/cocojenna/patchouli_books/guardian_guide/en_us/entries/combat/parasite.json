@@ -1,16 +1,16 @@
 {
-  "name": "patchouli.cocojenna.entry.parasite",
+  "name": "寄生",
   "icon": "cocojenna:hibiscus_tear",
   "category": "cocojenna:combat",
   "sortnum": 2,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.entry.parasite.p1"
+      "text": "四階段腐蝕：嗜睡、抗拒、同化邊緣、完全腐蝕。定期檢查雙子星毛色是否出現灰斑。"
     },
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.entry.parasite.p2"
+      "text": "可可：我不會讓這發生在珍奶身上。"
     }
   ]
 }

@@ -1,5 +1,5 @@
 {
-  "name": "patchouli.cocojenna.entry.bond",
+  "name": "情感值",
   "icon": "cocojenna:pure_purr_crystal",
   "category": "cocojenna:first_cry",
   "sortnum": 2,
@@ -10,15 +10,15 @@
         "cocojenna:textures/gui/patchouli/moon_plaza_night.png"
       ],
       "border": true,
-      "text": "patchouli.cocojenna.entry.bond.img"
+      "text": "Bond night at the full-moon plaza."
     },
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.entry.bond.p1"
+      "text": "撫摸、餵食、玩耍、並肩作戰提升羈絆。達到階段解鎖新互動——不要著急。"
     },
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.entry.bond.p2"
+      "text": "珍奶：我喜歡你！"
     }
   ]
 }

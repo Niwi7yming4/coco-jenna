@@ -1,16 +1,16 @@
 {
-  "name": "patchouli.cocojenna.entry.morning",
+  "name": "小屋的早晨",
   "icon": "cocojenna:cat_bed",
   "category": "cocojenna:first_cry",
   "sortnum": 1,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.entry.morning.p1"
+      "text": "可可賴床，珍奶叼玩具叫醒你。兩個貓床、壁爐、食物碗與儲物箱。"
     },
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.entry.morning.p2"
+      "text": "可可：我沒有賴床。我只是在思考。"
     }
   ]
 }

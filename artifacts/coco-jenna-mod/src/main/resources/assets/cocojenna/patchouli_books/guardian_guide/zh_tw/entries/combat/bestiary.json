@@ -1,16 +1,16 @@
 {
-  "name": "patchouli.cocojenna.entry.bestiary",
+  "name": "黑泥圖鑑",
   "icon": "cocojenna:sealed_relic",
   "category": "cocojenna:combat",
   "sortnum": 4,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.entry.bestiary.p1"
+      "text": "失溫者、遺忘之影、低語泥偶、模仿者、盲水領主、原始混沌。遭遇後解鎖完整圖鑑。"
     },
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.entry.bestiary.p2"
+      "text": "可可：序列3以上不要單挑。"
     }
   ]
 }

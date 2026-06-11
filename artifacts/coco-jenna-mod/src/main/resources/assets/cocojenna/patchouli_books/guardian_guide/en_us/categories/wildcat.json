@@ -1,6 +1,6 @@
 {
-  "name": "patchouli.cocojenna.category.wildcat",
-  "description": "patchouli.cocojenna.category.wildcat.desc",
+  "name": "Wild Cat Codex",
+  "description": "Fifteen regional wild cats.",
   "icon": "cocojenna:guardian_guide",
   "sortnum": 13
 }

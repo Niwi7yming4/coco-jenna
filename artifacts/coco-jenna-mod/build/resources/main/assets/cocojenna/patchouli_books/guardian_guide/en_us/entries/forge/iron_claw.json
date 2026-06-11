@@ -1,5 +1,5 @@
 {
-  "name": "patchouli.cocojenna.entry.iron_claw",
+  "name": "鐵爪的鍛造舖",
   "icon": "cocojenna:iron_claw_hammer",
   "category": "cocojenna:forge",
   "sortnum": 0,
@@ -10,15 +10,15 @@
         "cocojenna:textures/gui/patchouli/ironpaw_forge_glow.png"
       ],
       "border": true,
-      "text": "patchouli.cocojenna.entry.iron_claw.img"
+      "text": "Ironpaw forge glow."
     },
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.entry.iron_claw.p1"
+      "text": "鍛造、強化、修理、鑲嵌。傳說武器需設計圖與儀式。"
     },
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.entry.iron_claw.p2"
+      "text": "可可：武器是夥伴。"
     }
   ]
 }

@@ -1,16 +1,16 @@
 {
-  "name": "patchouli.cocojenna.entry.recruit",
+  "name": "招募村民",
   "icon": "cocojenna:catnip",
   "category": "cocojenna:town",
   "sortnum": 1,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.entry.recruit.p1"
+      "text": "流浪貓 + 空小屋 + 食物。入住後依特長選職業。"
     },
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.entry.recruit.p2"
+      "text": "可可：善待牠們。"
     }
   ]
 }

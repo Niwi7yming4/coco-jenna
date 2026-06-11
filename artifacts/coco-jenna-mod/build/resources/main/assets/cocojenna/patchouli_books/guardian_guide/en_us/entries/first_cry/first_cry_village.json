@@ -1,5 +1,5 @@
 {
-  "name": "patchouli.cocojenna.entry.first_cry_village",
+  "name": "初啼村——第一個家",
   "icon": "cocojenna:velvet_wood",
   "category": "cocojenna:first_cry",
   "sortnum": 0,
@@ -10,15 +10,15 @@
         "cocojenna:textures/gui/patchouli/sacred_tree_overview.png"
       ],
       "border": true,
-      "text": "patchouli.cocojenna.entry.first_cry_village.img"
+      "text": "First Cry Village sacred tree."
     },
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.entry.first_cry_village.p1"
+      "text": "生命線球樹是起點。村長老絨尾、商店貓小麥。樹根小屋是可可、珍奶與你的家。"
     },
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.entry.first_cry_village.p2"
+      "text": "珍奶塗鴉：樹下三個火柴人"
     }
   ]
 }

@@ -1,16 +1,16 @@
 {
-  "name": "patchouli.cocojenna.entry.sister_bond",
+  "name": "Sister Bond",
   "icon": "cocojenna:coco_fur",
   "category": "cocojenna:memory",
   "sortnum": 2,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.entry.sister_bond.p1"
+      "text": "姊妹羈絆>80 觸發雙子星連攜。同時撫摸、一起餵食可提升。"
     },
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.entry.sister_bond.p2"
+      "text": "珍奶：姐姐最好了"
     }
   ]
 }

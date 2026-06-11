@@ -1,16 +1,16 @@
 {
-  "name": "patchouli.cocojenna.weapon.crescent",
+  "name": "武器传说：crescent（简）",
   "icon": "cocojenna:ryokatana_velvet_whisper",
   "category": "cocojenna:weapons",
   "sortnum": 25,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.weapon.crescent.p1"
+      "text": "Memory trial and acquisition hints for crescent."
     },
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.weapon.crescent.p2"
+      "text": "Force synergy and unseal stage notes for crescent."
     }
   ]
 }

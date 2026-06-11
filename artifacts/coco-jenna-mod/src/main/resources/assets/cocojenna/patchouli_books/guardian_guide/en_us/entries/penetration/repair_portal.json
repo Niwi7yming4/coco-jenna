@@ -1,16 +1,16 @@
 {
-  "name": "patchouli.cocojenna.entry.penetration_repair_portal",
+  "name": "修復傳送門",
   "icon": "cocojenna:memory_lighthouse",
   "category": "cocojenna:penetration",
   "sortnum": 3,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.entry.penetration_repair_portal.p1"
+      "text": "依序放置碎片與貓語咒文，啟動貓之國傳送門框架。"
     },
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.entry.penetration_repair_portal.p2"
+      "text": "傳送門成形後即可首次踏入王國。"
     }
   ]
 }

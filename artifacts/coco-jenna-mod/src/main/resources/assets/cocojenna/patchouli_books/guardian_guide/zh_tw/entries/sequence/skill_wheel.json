@@ -1,16 +1,16 @@
 {
-  "name": "patchouli.cocojenna.entry.skill_wheel",
+  "name": "技能圓盤",
   "icon": "cocojenna:velvet_beginner_helmet",
   "category": "cocojenna:sequence",
   "sortnum": 2,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.entry.skill_wheel.p1"
+      "text": "按住 Alt 展開圓盤，滑鼠選槽位後放開施放。可連續施放。"
     },
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.entry.skill_wheel.p2"
+      "text": "珍奶畫了追尾巴的圓圈"
     }
   ]
 }

@@ -1,16 +1,16 @@
 {
-  "name": "patchouli.cocojenna.weapon.iron_claw_apprentice",
+  "name": "武器傳說：iron claw apprentice（繁）",
   "icon": "cocojenna:ryokatana_velvet_whisper",
   "category": "cocojenna:weapons",
   "sortnum": 17,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.weapon.iron_claw_apprentice.p1"
+      "text": "Memory trial and acquisition hints for iron_claw_apprentice."
     },
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.weapon.iron_claw_apprentice.p2"
+      "text": "Force synergy and unseal stage notes for iron_claw_apprentice."
     }
   ]
 }

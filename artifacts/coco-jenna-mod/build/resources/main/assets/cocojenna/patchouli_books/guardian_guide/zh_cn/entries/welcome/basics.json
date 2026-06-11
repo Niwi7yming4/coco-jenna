@@ -1,16 +1,16 @@
 {
-  "name": "patchouli.cocojenna.entry.basics",
+  "name": "基礎操作",
   "icon": "cocojenna:guardian_guide",
   "category": "cocojenna:welcome",
   "sortnum": 2,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.entry.basics.p1"
+      "text": "右鍵撫摸、蹲下抱起、餵食梳毛玩耍。WASD 移動，雙擊 Shift 閃避，Alt 技能圓盤。"
     },
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.entry.basics.p2"
+      "text": "珍奶塗鴉：一條魚，寫著「好吃！」"
     }
   ]
 }

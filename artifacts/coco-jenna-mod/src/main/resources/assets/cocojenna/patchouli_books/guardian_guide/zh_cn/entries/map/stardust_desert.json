@@ -1,16 +1,16 @@
 {
-  "name": "patchouli.cocojenna.map.stardust_desert",
+  "name": "区域：stardust desert（简）",
   "icon": "cocojenna:memory_lighthouse",
   "category": "cocojenna:map",
   "sortnum": 12,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.map.stardust_desert.p1"
+      "text": "Landmark coordinates and exploration tier for stardust_desert."
     },
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.map.stardust_desert.p2"
+      "text": "Dungeon, lore shards, and region completion reward for stardust_desert."
     }
   ]
 }

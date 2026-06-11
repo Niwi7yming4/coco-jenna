@@ -1,16 +1,16 @@
 {
-  "name": "patchouli.cocojenna.entry.four_mad_orange",
+  "name": "睡神大橘",
   "icon": "cocojenna:hibiscus_tear",
   "category": "cocojenna:four_mad",
   "sortnum": 4,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.entry.four_mad_orange.p1"
+      "text": "無法傷害。頂級料理香氣讓他翻身讓路。"
     },
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.entry.four_mad_orange.p2"
+      "text": "珍奶：好吃到醒來！"
     }
   ]
 }

@@ -1,5 +1,5 @@
 {
-  "name": "patchouli.cocojenna.entry.shadow_claw",
+  "name": "篡位者的故事",
   "icon": "cocojenna:black_mud_sample",
   "category": "cocojenna:final",
   "sortnum": 0,
@@ -10,15 +10,15 @@
         "cocojenna:textures/gui/patchouli/shadow_claw_boss.png"
       ],
       "border": true,
-      "text": "patchouli.cocojenna.entry.shadow_claw.img"
+      "text": "Endgame: Shadow Claw arrives."
     },
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.entry.shadow_claw.p1"
+      "text": "影爪——叔父。黑泥注入心臟，悲傷無法被馴服。"
     },
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.entry.shadow_claw.p2"
+      "text": "可可：我們會帶你回家。"
     }
   ]
 }

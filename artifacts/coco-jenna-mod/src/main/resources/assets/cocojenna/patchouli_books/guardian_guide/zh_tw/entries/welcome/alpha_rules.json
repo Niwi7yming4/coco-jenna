@@ -1,16 +1,16 @@
 {
-  "name": "patchouli.cocojenna.entry.alpha_rules",
+  "name": "這個世界的規則",
   "icon": "cocojenna:memory_fragment",
   "category": "cocojenna:welcome",
   "sortnum": 3,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.entry.alpha_rules.p1"
+      "text": "黑泥是悲傷的凝結；記憶是力量；雙子星是夥伴；失敗不會真正失去她們。"
     },
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.entry.alpha_rules.p2"
+      "text": "可可：阿爾法總是說太多。"
     }
   ]
 }

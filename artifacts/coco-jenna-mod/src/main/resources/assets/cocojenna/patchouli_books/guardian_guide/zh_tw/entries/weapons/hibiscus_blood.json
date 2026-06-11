@@ -1,16 +1,16 @@
 {
-  "name": "patchouli.cocojenna.weapon.hibiscus_blood",
+  "name": "武器傳說：hibiscus blood（繁）",
   "icon": "cocojenna:ryokatana_velvet_whisper",
   "category": "cocojenna:weapons",
   "sortnum": 2,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.weapon.hibiscus_blood.p1"
+      "text": "Memory trial and acquisition hints for hibiscus_blood."
     },
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.weapon.hibiscus_blood.p2"
+      "text": "Force synergy and unseal stage notes for hibiscus_blood."
     }
   ]
 }

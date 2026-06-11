@@ -1,16 +1,16 @@
 {
-  "name": "patchouli.cocojenna.entry.what_sequence",
+  "name": "什麼是序列？",
   "icon": "cocojenna:meme_badge",
   "category": "cocojenna:sequence",
   "sortnum": 0,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.entry.what_sequence.p1"
+      "text": "序列9到序列1的力量體系。每10級晉升選卡牌。槽位隨序列增加。"
     },
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.entry.what_sequence.p2"
+      "text": "珍奶：變強！"
     }
   ]
 }

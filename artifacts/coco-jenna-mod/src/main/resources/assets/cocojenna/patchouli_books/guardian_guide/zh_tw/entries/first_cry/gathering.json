@@ -1,16 +1,16 @@
 {
-  "name": "patchouli.cocojenna.entry.gathering",
+  "name": "採集與資源",
   "icon": "cocojenna:catnip",
   "category": "cocojenna:first_cry",
   "sortnum": 3,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.entry.gathering.p1"
+      "text": "絨毛草、月光石、薄荷花、貓薄荷。初啼村商店可購工具，工坊提升效率。"
     },
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.entry.gathering.p2"
+      "text": "可可：工具記得修理。"
     }
   ]
 }

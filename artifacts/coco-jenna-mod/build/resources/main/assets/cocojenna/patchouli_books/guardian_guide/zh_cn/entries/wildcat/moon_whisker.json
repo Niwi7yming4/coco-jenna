@@ -1,16 +1,16 @@
 {
-  "name": "patchouli.cocojenna.wildcat.moon_whisker",
+  "name": "怪猫：moon whisker（简）",
   "icon": "cocojenna:toy_squeak",
   "category": "cocojenna:wildcat",
   "sortnum": 0,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.wildcat.moon_whisker.p1"
+      "text": "Habitat, behavior trigger, and befriending tip for moon_whisker."
     },
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.wildcat.moon_whisker.p2"
+      "text": "Lore connection and hunter journal entry for moon_whisker."
     }
   ]
 }

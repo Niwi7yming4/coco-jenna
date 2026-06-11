@@ -1,16 +1,16 @@
 {
-  "name": "patchouli.cocojenna.wildcat.hibiscus_guard",
+  "name": "怪貓：hibiscus guard（繁）",
   "icon": "cocojenna:toy_squeak",
   "category": "cocojenna:wildcat",
   "sortnum": 7,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.wildcat.hibiscus_guard.p1"
+      "text": "Habitat, behavior trigger, and befriending tip for hibiscus_guard."
     },
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.wildcat.hibiscus_guard.p2"
+      "text": "Lore connection and hunter journal entry for hibiscus_guard."
     }
   ]
 }

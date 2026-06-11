@@ -1,5 +1,5 @@
 {
-  "name": "patchouli.cocojenna.entry.what_is_mud",
+  "name": "什麼是黑泥？",
   "icon": "cocojenna:black_mud_sample",
   "category": "cocojenna:combat",
   "sortnum": 0,
@@ -10,15 +10,15 @@
         "cocojenna:textures/gui/patchouli/black_mud_corruption.png"
       ],
       "border": true,
-      "text": "patchouli.cocojenna.entry.what_is_mud.img"
+      "text": "Black mud corruption spread."
     },
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.entry.what_is_mud.p1"
+      "text": "黑泥不是怪物。它們是沒能說出口的再見，是眼淚的凝結。記住它們，讓它們安息。"
     },
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.entry.what_is_mud.p2"
+      "text": "可可：……"
     }
   ]
 }

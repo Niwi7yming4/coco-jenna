@@ -1,16 +1,16 @@
 {
-  "name": "patchouli.cocojenna.entry.coco_diary",
+  "name": "可可的日記",
   "icon": "cocojenna:coco_fur",
   "category": "cocojenna:appendix",
   "sortnum": 0,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.entry.coco_diary.p1"
+      "text": "「魚還不錯，讓他摸頭。」「珍奶頭上頂著花，很可愛。」「滿月，謝謝你。」"
     },
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.entry.coco_diary.p2"
+      "text": "不要告訴珍奶"
     }
   ]
 }

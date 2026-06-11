@@ -1,16 +1,16 @@
 {
-  "name": "patchouli.cocojenna.map.velvet_forest",
+  "name": "区域：velvet forest（简）",
   "icon": "cocojenna:memory_lighthouse",
   "category": "cocojenna:map",
   "sortnum": 2,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.map.velvet_forest.p1"
+      "text": "Landmark coordinates and exploration tier for velvet_forest."
     },
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.map.velvet_forest.p2"
+      "text": "Dungeon, lore shards, and region completion reward for velvet_forest."
     }
   ]
 }

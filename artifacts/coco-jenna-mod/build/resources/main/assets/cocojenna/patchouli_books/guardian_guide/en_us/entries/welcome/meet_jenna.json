@@ -1,5 +1,5 @@
 {
-  "name": "patchouli.cocojenna.entry.meet_jenna",
+  "name": "與珍奶的第一次見面",
   "icon": "cocojenna:jenna_fur",
   "category": "cocojenna:welcome",
   "sortnum": 1,
@@ -10,15 +10,15 @@
         "cocojenna:textures/gui/patchouli/coco_window_moonlight.png"
       ],
       "border": true,
-      "text": "patchouli.cocojenna.entry.meet_jenna.img"
+      "text": "Jenna by the moonlit window."
     },
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.entry.meet_jenna.p1"
+      "text": "玳瑁色的貓永遠停不下來。陪她玩，當她露出肚子時——她信任你了。$(br2)她們是姐妹。黑貓守護，玳瑁陪伴。她們只需要你在這裡。"
     },
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.entry.meet_jenna.p2"
+      "text": "珍奶塗鴉：一隻歪歪扭扭的蝴蝶"
     }
   ]
 }

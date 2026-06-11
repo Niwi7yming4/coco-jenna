@@ -1,16 +1,16 @@
 {
-  "name": "patchouli.cocojenna.weapon.iron_rust_legion",
+  "name": "武器傳說：iron rust legion（繁）",
   "icon": "cocojenna:ryokatana_velvet_whisper",
   "category": "cocojenna:weapons",
   "sortnum": 6,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.weapon.iron_rust_legion.p1"
+      "text": "Memory trial and acquisition hints for iron_rust_legion."
     },
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.weapon.iron_rust_legion.p2"
+      "text": "Force synergy and unseal stage notes for iron_rust_legion."
     }
   ]
 }

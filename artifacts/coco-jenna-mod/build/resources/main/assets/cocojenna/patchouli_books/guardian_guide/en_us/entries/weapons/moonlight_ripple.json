@@ -1,16 +1,16 @@
 {
-  "name": "patchouli.cocojenna.weapon.moonlight_ripple",
+  "name": "Weapon lore: moonlight ripple",
   "icon": "cocojenna:ryokatana_velvet_whisper",
   "category": "cocojenna:weapons",
   "sortnum": 3,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.weapon.moonlight_ripple.p1"
+      "text": "Memory trial and acquisition hints for moonlight_ripple."
     },
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.weapon.moonlight_ripple.p2"
+      "text": "Force synergy and unseal stage notes for moonlight_ripple."
     }
   ]
 }

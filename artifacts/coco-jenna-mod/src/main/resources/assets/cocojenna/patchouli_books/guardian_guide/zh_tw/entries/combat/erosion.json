@@ -1,16 +1,16 @@
 {
-  "name": "patchouli.cocojenna.entry.erosion",
+  "name": "黑泥的侵蝕",
   "icon": "cocojenna:abyss_black_mud",
   "category": "cocojenna:combat",
   "sortnum": 1,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.entry.erosion.p1"
+      "text": "四階段：沾染→蔓延→吞噬→深淵化。肉球印章、光塔、擊敗首領可阻止。"
     },
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.entry.erosion.p2"
+      "text": "珍奶：髒髒！"
     }
   ]
 }

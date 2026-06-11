@@ -1,16 +1,16 @@
 {
-  "name": "patchouli.cocojenna.entry.four_mad_sanwa",
+  "name": "鐵算盤三花子",
   "icon": "cocojenna:catnip_coin",
   "category": "cocojenna:four_mad",
   "sortnum": 2,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.entry.four_mad_sanwa.p1"
+      "text": "幾何解謎對決。薛丁格玩具錘可破計算。"
     },
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.entry.four_mad_sanwa.p2"
+      "text": "Peace: hide-and-seek three times. Combat: survive the yarn storm."
     }
   ]
 }

@@ -1,16 +1,16 @@
 {
-  "name": "patchouli.cocojenna.weapon.phantom",
+  "name": "武器傳說：phantom（繁）",
   "icon": "cocojenna:ryokatana_velvet_whisper",
   "category": "cocojenna:weapons",
   "sortnum": 22,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.weapon.phantom.p1"
+      "text": "Memory trial and acquisition hints for phantom."
     },
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.weapon.phantom.p2"
+      "text": "Force synergy and unseal stage notes for phantom."
     }
   ]
 }

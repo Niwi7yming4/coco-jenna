@@ -1,16 +1,16 @@
 {
-  "name": "patchouli.cocojenna.wildcat.blind_diver",
+  "name": "怪猫：blind diver（简）",
   "icon": "cocojenna:toy_squeak",
   "category": "cocojenna:wildcat",
   "sortnum": 4,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.wildcat.blind_diver.p1"
+      "text": "Habitat, behavior trigger, and befriending tip for blind_diver."
     },
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.wildcat.blind_diver.p2"
+      "text": "Lore connection and hunter journal entry for blind_diver."
     }
   ]
 }

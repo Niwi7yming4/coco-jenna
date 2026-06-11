@@ -1,16 +1,16 @@
 {
-  "name": "patchouli.cocojenna.wildcat.stardust_runner",
+  "name": "Wild cat: stardust runner",
   "icon": "cocojenna:toy_squeak",
   "category": "cocojenna:wildcat",
   "sortnum": 5,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.wildcat.stardust_runner.p1"
+      "text": "Habitat, behavior trigger, and befriending tip for stardust_runner."
     },
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.wildcat.stardust_runner.p2"
+      "text": "Lore connection and hunter journal entry for stardust_runner."
     }
   ]
 }

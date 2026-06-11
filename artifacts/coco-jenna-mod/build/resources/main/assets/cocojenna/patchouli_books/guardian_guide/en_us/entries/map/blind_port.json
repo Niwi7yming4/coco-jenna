@@ -1,16 +1,16 @@
 {
-  "name": "patchouli.cocojenna.map.blind_port",
+  "name": "Region: blind port",
   "icon": "cocojenna:memory_lighthouse",
   "category": "cocojenna:map",
   "sortnum": 6,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.map.blind_port.p1"
+      "text": "Landmark coordinates and exploration tier for blind_port."
     },
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.map.blind_port.p2"
+      "text": "Dungeon, lore shards, and region completion reward for blind_port."
     }
   ]
 }

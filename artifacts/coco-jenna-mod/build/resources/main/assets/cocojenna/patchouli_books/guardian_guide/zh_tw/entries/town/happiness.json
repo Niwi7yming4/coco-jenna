@@ -1,16 +1,16 @@
 {
-  "name": "patchouli.cocojenna.entry.happiness",
+  "name": "幸福度",
   "icon": "cocojenna:velvet_beginner_chestplate",
   "category": "cocojenna:town",
   "sortnum": 2,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.entry.happiness.p1"
+      "text": "床位、食物、裝飾、雙子星在村、防禦成功提升。90+ 有驚喜禮物。"
     },
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.entry.happiness.p2"
+      "text": "珍奶：大家都開心！"
     }
   ]
 }

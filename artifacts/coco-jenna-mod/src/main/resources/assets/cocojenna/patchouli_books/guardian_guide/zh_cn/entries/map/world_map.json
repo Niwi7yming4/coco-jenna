@@ -1,16 +1,16 @@
 {
-  "name": "patchouli.cocojenna.entry.world_map",
+  "name": "貓之國全圖",
   "icon": "cocojenna:memory_lighthouse",
   "category": "cocojenna:map",
   "sortnum": 0,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.entry.world_map.p1"
+      "text": "11 區域：初啼村至遺忘高塔。中央紀念碑為樞紐。"
     },
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.entry.world_map.p2"
+      "text": "珍奶在終點畫了一條魚"
     }
   ]
 }

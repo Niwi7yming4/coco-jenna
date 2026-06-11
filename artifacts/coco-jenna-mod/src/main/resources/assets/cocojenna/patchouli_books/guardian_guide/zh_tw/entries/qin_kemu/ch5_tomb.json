@@ -1,16 +1,16 @@
 {
-  "name": "patchouli.cocojenna.qin.ch5_tomb",
+  "name": "秦章：ch5_tomb（繁）",
   "icon": "cocojenna:origami_scrap",
   "category": "cocojenna:qin_kemu",
   "sortnum": 4,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.qin.ch5_tomb.p1"
+      "text": "Main quest beats and mausoleum tie-in for ch5_tomb."
     },
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.qin.ch5_tomb.p2"
+      "text": "Combat pattern and favor gates for ch5_tomb."
     }
   ]
 }

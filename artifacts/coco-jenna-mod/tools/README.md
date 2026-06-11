@@ -15,6 +15,7 @@ python tools/gen_gal_ui_textures.py
 python tools/gen_missing_handbook_assets.py
 python tools/gen_patchouli_illustrations.py
 python tools/gen_patchouli_img_lang.py
+python tools/bake_patchouli_i18n.py
 python tools/optimize_item_gui_textures.py
 ./gradlew build
 ./gradlew runClient
@@ -44,3 +45,7 @@ Letterboxes oversized PNGs to Minecraft-friendly sizes (no stretch/crop) and los
 Optional Gradle wrapper: `./gradlew optimizeTextures` (runs the same script).
 
 Verify nothing is pending: `python tools/optimize_item_gui_textures.py --dry-run` should report `Resized: 0 files`.
+
+### Guardian Guide (Patchouli)
+
+`bake_patchouli_i18n.py` inlines translation strings into `patchouli_books/guardian_guide/{zh_tw,zh_cn,en_us}/` so the book shows readable text in large modpacks (avoids raw `patchouli.cocojenna.*` keys). Re-run after editing book JSON or lang files.

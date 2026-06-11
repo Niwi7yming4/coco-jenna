@@ -1,16 +1,16 @@
 {
-  "name": "patchouli.cocojenna.weapon.fish_bone_tide",
+  "name": "武器傳說：fish bone tide（繁）",
   "icon": "cocojenna:ryokatana_velvet_whisper",
   "category": "cocojenna:weapons",
   "sortnum": 0,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.weapon.fish_bone_tide.p1"
+      "text": "Memory trial and acquisition hints for fish_bone_tide."
     },
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.weapon.fish_bone_tide.p2"
+      "text": "Force synergy and unseal stage notes for fish_bone_tide."
     }
   ]
 }

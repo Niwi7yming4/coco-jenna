@@ -1,16 +1,16 @@
 {
-  "name": "patchouli.cocojenna.entry.build",
+  "name": "建設家園",
   "icon": "cocojenna:purification_tower",
   "category": "cocojenna:town",
   "sortnum": 0,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.entry.build.p1"
+      "text": "小屋、光塔、樂園、工坊、花園。每座建築可升 3 級。"
     },
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.entry.build.p2"
+      "text": "珍奶的夢想樂園設計圖"
     }
   ]
 }

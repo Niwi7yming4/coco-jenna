@@ -1,16 +1,16 @@
 {
-  "name": "patchouli.cocojenna.weapon.forgotten_page",
+  "name": "武器传说：forgotten page（简）",
   "icon": "cocojenna:ryokatana_velvet_whisper",
   "category": "cocojenna:weapons",
   "sortnum": 9,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.weapon.forgotten_page.p1"
+      "text": "Memory trial and acquisition hints for forgotten_page."
     },
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.weapon.forgotten_page.p2"
+      "text": "Force synergy and unseal stage notes for forgotten_page."
     }
   ]
 }

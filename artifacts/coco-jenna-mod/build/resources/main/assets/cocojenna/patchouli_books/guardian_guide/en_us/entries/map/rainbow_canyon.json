@@ -1,16 +1,16 @@
 {
-  "name": "patchouli.cocojenna.map.rainbow_canyon",
+  "name": "Region: rainbow canyon",
   "icon": "cocojenna:memory_lighthouse",
   "category": "cocojenna:map",
   "sortnum": 11,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.map.rainbow_canyon.p1"
+      "text": "Landmark coordinates and exploration tier for rainbow_canyon."
     },
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.map.rainbow_canyon.p2"
+      "text": "Dungeon, lore shards, and region completion reward for rainbow_canyon."
     }
   ]
 }

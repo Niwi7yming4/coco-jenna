@@ -1,5 +1,5 @@
 {
-  "name": "patchouli.cocojenna.entry.four_mad_legend",
+  "name": "四狂的傳說",
   "icon": "cocojenna:sealed_relic",
   "category": "cocojenna:four_mad",
   "sortnum": 0,
@@ -10,15 +10,15 @@
         "cocojenna:textures/gui/patchouli/four_mad_arena.png"
       ],
       "border": true,
-      "text": "patchouli.cocojenna.entry.four_mad_legend.img"
+      "text": "Four Madmen arena legend."
     },
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.entry.four_mad_legend.p1"
+      "text": "斑鳩、三花子、阿修羅、大橘。挑戰影爪前需獲認可。"
     },
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.entry.four_mad_legend.p2"
+      "text": "可可：不想和阿修羅打。"
     }
   ]
 }

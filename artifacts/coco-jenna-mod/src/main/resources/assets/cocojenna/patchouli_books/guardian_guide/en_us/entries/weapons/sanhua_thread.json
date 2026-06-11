@@ -1,16 +1,16 @@
 {
-  "name": "patchouli.cocojenna.weapon.sanhua_thread",
+  "name": "Weapon lore: sanhua thread",
   "icon": "cocojenna:ryokatana_velvet_whisper",
   "category": "cocojenna:weapons",
   "sortnum": 7,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.weapon.sanhua_thread.p1"
+      "text": "Memory trial and acquisition hints for sanhua_thread."
     },
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.weapon.sanhua_thread.p2"
+      "text": "Force synergy and unseal stage notes for sanhua_thread."
     }
   ]
 }

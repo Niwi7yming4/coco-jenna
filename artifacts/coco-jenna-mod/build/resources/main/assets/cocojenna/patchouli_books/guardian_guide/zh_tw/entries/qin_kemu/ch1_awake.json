@@ -1,16 +1,16 @@
 {
-  "name": "patchouli.cocojenna.qin.ch1_awake",
+  "name": "秦章：ch1_awake（繁）",
   "icon": "cocojenna:origami_scrap",
   "category": "cocojenna:qin_kemu",
   "sortnum": 0,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.qin.ch1_awake.p1"
+      "text": "Main quest beats and mausoleum tie-in for ch1_awake."
     },
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.qin.ch1_awake.p2"
+      "text": "Combat pattern and favor gates for ch1_awake."
     }
   ]
 }

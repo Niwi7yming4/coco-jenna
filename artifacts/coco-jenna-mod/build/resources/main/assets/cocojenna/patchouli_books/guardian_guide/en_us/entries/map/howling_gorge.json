@@ -1,16 +1,16 @@
 {
-  "name": "patchouli.cocojenna.map.howling_gorge",
+  "name": "Region: howling gorge",
   "icon": "cocojenna:memory_lighthouse",
   "category": "cocojenna:map",
   "sortnum": 8,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.map.howling_gorge.p1"
+      "text": "Landmark coordinates and exploration tier for howling_gorge."
     },
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.map.howling_gorge.p2"
+      "text": "Dungeon, lore shards, and region completion reward for howling_gorge."
     }
   ]
 }

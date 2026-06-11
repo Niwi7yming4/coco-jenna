@@ -1,16 +1,16 @@
 {
-  "name": "patchouli.cocojenna.weapon.moon_verdict",
+  "name": "武器传说：moon verdict（简）",
   "icon": "cocojenna:ryokatana_velvet_whisper",
   "category": "cocojenna:weapons",
   "sortnum": 26,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.weapon.moon_verdict.p1"
+      "text": "Memory trial and acquisition hints for moon_verdict."
     },
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.weapon.moon_verdict.p2"
+      "text": "Force synergy and unseal stage notes for moon_verdict."
     }
   ]
 }

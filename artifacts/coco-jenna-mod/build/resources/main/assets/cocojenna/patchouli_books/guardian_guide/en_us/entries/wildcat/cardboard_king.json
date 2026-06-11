@@ -1,16 +1,16 @@
 {
-  "name": "patchouli.cocojenna.wildcat.cardboard_king",
+  "name": "Wild cat: cardboard king",
   "icon": "cocojenna:toy_squeak",
   "category": "cocojenna:wildcat",
   "sortnum": 12,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.wildcat.cardboard_king.p1"
+      "text": "Habitat, behavior trigger, and befriending tip for cardboard_king."
     },
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.wildcat.cardboard_king.p2"
+      "text": "Lore connection and hunter journal entry for cardboard_king."
     }
   ]
 }

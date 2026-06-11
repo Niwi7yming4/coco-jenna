@@ -1,16 +1,16 @@
 {
-  "name": "patchouli.cocojenna.wildcat.velvet_shadow",
+  "name": "怪貓：velvet shadow（繁）",
   "icon": "cocojenna:toy_squeak",
   "category": "cocojenna:wildcat",
   "sortnum": 2,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.wildcat.velvet_shadow.p1"
+      "text": "Habitat, behavior trigger, and befriending tip for velvet_shadow."
     },
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.wildcat.velvet_shadow.p2"
+      "text": "Lore connection and hunter journal entry for velvet_shadow."
     }
   ]
 }

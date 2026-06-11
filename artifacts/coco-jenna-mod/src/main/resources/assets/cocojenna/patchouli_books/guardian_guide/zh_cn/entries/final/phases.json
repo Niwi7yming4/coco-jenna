@@ -1,16 +1,16 @@
 {
-  "name": "patchouli.cocojenna.entry.final_phases",
+  "name": "戰鬥階段",
   "icon": "cocojenna:sealed_relic",
   "category": "cocojenna:final",
   "sortnum": 2,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.entry.final_phases.p1"
+      "text": "墮落將軍→悔恨叔父（可對話救贖）→完全墮落→雙子星共鳴。"
     },
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.entry.final_phases.p2"
+      "text": "可可：無論選什麼我都不怪你。"
     }
   ]
 }

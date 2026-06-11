@@ -1,16 +1,16 @@
 {
-  "name": "patchouli.cocojenna.qin.ch4_paper",
+  "name": "Qin chapter: ch4_paper",
   "icon": "cocojenna:origami_scrap",
   "category": "cocojenna:qin_kemu",
   "sortnum": 3,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.qin.ch4_paper.p1"
+      "text": "Main quest beats and mausoleum tie-in for ch4_paper."
     },
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.qin.ch4_paper.p2"
+      "text": "Combat pattern and favor gates for ch4_paper."
     }
   ]
 }

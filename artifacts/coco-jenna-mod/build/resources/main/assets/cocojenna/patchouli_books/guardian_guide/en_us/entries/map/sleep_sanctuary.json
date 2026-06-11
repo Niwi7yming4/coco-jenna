@@ -1,16 +1,16 @@
 {
-  "name": "patchouli.cocojenna.map.sleep_sanctuary",
+  "name": "Region: sleep sanctuary",
   "icon": "cocojenna:memory_lighthouse",
   "category": "cocojenna:map",
   "sortnum": 5,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.map.sleep_sanctuary.p1"
+      "text": "Landmark coordinates and exploration tier for sleep_sanctuary."
     },
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.map.sleep_sanctuary.p2"
+      "text": "Dungeon, lore shards, and region completion reward for sleep_sanctuary."
     }
   ]
 }

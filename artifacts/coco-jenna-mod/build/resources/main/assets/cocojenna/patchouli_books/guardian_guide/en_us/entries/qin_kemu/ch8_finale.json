@@ -1,16 +1,16 @@
 {
-  "name": "patchouli.cocojenna.qin.ch8_finale",
+  "name": "Qin chapter: ch8_finale",
   "icon": "cocojenna:origami_scrap",
   "category": "cocojenna:qin_kemu",
   "sortnum": 7,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.qin.ch8_finale.p1"
+      "text": "Main quest beats and mausoleum tie-in for ch8_finale."
     },
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.qin.ch8_finale.p2"
+      "text": "Combat pattern and favor gates for ch8_finale."
     }
   ]
 }

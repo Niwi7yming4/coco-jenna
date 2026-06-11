@@ -1,16 +1,16 @@
 {
-  "name": "patchouli.cocojenna.entry.penetration_first_entry",
+  "name": "首次踏入",
   "icon": "cocojenna:coco_fur",
   "category": "cocojenna:penetration",
   "sortnum": 4,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.entry.penetration_first_entry.p1"
+      "text": "穿過傳送門後，教程與初啼村主線將接續展開。"
     },
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.entry.penetration_first_entry.p2"
+      "text": "滲透任務完成後，王國影響力開始累積。"
     }
   ]
 }

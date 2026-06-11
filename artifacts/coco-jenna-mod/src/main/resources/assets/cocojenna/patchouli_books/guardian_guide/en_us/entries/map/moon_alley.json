@@ -1,16 +1,16 @@
 {
-  "name": "patchouli.cocojenna.map.moon_alley",
+  "name": "Region: moon alley",
   "icon": "cocojenna:memory_lighthouse",
   "category": "cocojenna:map",
   "sortnum": 3,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.map.moon_alley.p1"
+      "text": "Landmark coordinates and exploration tier for moon_alley."
     },
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.map.moon_alley.p2"
+      "text": "Dungeon, lore shards, and region completion reward for moon_alley."
     }
   ]
 }

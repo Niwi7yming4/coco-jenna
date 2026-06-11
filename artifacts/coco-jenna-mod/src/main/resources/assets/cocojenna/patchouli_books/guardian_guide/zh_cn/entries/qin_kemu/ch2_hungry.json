@@ -1,16 +1,16 @@
 {
-  "name": "patchouli.cocojenna.qin.ch2_hungry",
+  "name": "秦章：ch2_hungry（简）",
   "icon": "cocojenna:origami_scrap",
   "category": "cocojenna:qin_kemu",
   "sortnum": 1,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.qin.ch2_hungry.p1"
+      "text": "Main quest beats and mausoleum tie-in for ch2_hungry."
     },
     {
       "type": "patchouli:text",
-      "text": "patchouli.cocojenna.qin.ch2_hungry.p2"
+      "text": "Combat pattern and favor gates for ch2_hungry."
     }
   ]
 }
