@@ -1,0 +1,6 @@
+{
+  "parent": "cocojenna:block/seal_pedestal",
+  "textures": {
+    "all": "cocojenna:block/moonstone_cluster"
+  }
+}

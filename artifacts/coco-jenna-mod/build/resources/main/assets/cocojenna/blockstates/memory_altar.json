@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "charged=false": {
+      "model": "cocojenna:block/memory_altar"
+    },
+    "charged=true": {
+      "model": "cocojenna:block/memory_altar_charged"
+    }
+  }
+}

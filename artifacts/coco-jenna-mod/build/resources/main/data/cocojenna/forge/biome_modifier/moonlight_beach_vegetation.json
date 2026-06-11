@@ -1,6 +1,0 @@
-{
-  "type": "forge:add_features",
-  "biomes": "cocojenna:moonlight_beach",
-  "features": "cocojenna:velvet_grass_patch",
-  "step": "vegetal_decoration"
-}

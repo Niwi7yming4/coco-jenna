@@ -1,6 +1,0 @@
-{
-  "type": "forge:add_features",
-  "biomes": "cocojenna:stardust_desert",
-  "features": "cocojenna:stardust_soil_patch",
-  "step": "vegetal_decoration"
-}
